@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){try{var q=new URLSearchParams(location.search).get("theme");var t=(q==="dark"||q==="light")?q:localStorage.getItem("qptlab-theme")||"light";if(t!=="dark"&&t!=="light")t="light";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light"); }})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="infinity-logo.png" fetchpriority="high">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=block">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=block">
+
+
+<title>Experiment 03 | Photoelectric Effect</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.exp-hero{background:var(--dark);color:#fff;padding:70px 0 55px;overflow:hidden}.exp-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:45px;align-items:center}.exp-hero h1{font-size:clamp(42px,6vw,76px);line-height:.98;letter-spacing:-.055em;max-width:850px;margin:18px 0}.exp-hero p{color:#c3cbc5;max-width:690px}.exp-hero .eyebrow{color:#b7d5c1}.exp-layout{display:grid;grid-template-columns:210px 1fr;gap:42px}.side-nav{position:sticky;top:100px;height:max-content}.side-nav a{display:block;padding:9px 0;color:var(--muted);font-size:12px;border-bottom:1px solid var(--line)}.side-nav a:hover{color:var(--accent)}.content-block{margin-bottom:70px}.content-block h2{font-size:32px;letter-spacing:-.04em;margin:0 0 18px}.content-block h3{font-size:18px;margin-top:30px}.prose{color:#505650;max-width:790px}.equation{background:#eef3ed;border-left:3px solid var(--accent);padding:20px 24px;font-size:18px;margin:20px 0;overflow:auto}.apparatus{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:9px 12px;background:#f0f1ed;border:1px solid var(--line);font-size:11px}.steps{counter-reset:step;list-style:none;padding:0;max-width:800px}.steps li{counter-increment:step;display:grid;grid-template-columns:40px 1fr;gap:15px;padding:14px 0;border-bottom:1px solid var(--line);color:#505650}.steps li:before{content:counter(step,lower-roman);font-size:11px;color:var(--accent);padding-top:4px}.visual-box{border:1px solid var(--line);background:#fff;padding:18px;margin-top:20px}.video-box{padding:18px}.video-frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#111}.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}.video-source{margin-top:6px}.video-source a{color:var(--accent);text-decoration:none}.video-source a:hover{text-decoration:underline}.video-access-card{position:relative;min-height:180px;background:#0f0f0f;color:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid #252525;border-top:3px solid #ff0033;background-image:radial-gradient(circle at 78% 50%,rgba(80,18,105,.24),transparent 42%)}.video-access-card:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.12),transparent 45%,rgba(255,0,51,.035));pointer-events:none}.video-access-content{text-align:center;max-width:680px;padding:24px 24px;position:relative;z-index:1}.video-access-title{font-size:20px;letter-spacing:.16em;font-weight:700;color:#fff;margin-bottom:10px}.video-access-text{font-size:12px;line-height:1.7;color:#c3cbc5;margin:0 auto 18px}.youtube-watch-button{display:inline-flex;align-items:center;gap:11px;background:#ff0033;color:#fff;text-decoration:none;padding:10px 17px;border-radius:4px;font-family:Arial,sans-serif;box-shadow:0 3px 12px rgba(255,0,51,.18);transition:transform .15s ease,background .15s ease,box-shadow .15s ease}.youtube-watch-button:hover{transform:translateY(-1px);background:#e6002e;box-shadow:0 5px 16px rgba(255,0,51,.28)}.youtube-button-icon{display:flex;align-items:center;justify-content:center;width:24px;height:17px;background:#fff;color:#ff0033;border-radius:4px;font-size:9px;line-height:1}.youtube-button-label{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}.youtube-button-label strong{font-size:11px;letter-spacing:.01em}.youtube-button-label small{font-size:10px;font-weight:400;margin-top:3px;opacity:.92}
+.visual-box svg{display:block;width:100%;height:auto}.caption{font-size:10px;color:var(--muted);margin:12px 0 0}.lab-panel{background:#fff;border:1px solid var(--line);padding:25px}.form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.field label{display:block;font-size:10px;letter-spacing:.08em;color:var(--muted);margin-bottom:7px}.field input{width:100%;padding:11px 12px;border:1px solid #cdd2cb;background:#fbfcfa;font-size:13px;outline:none}.field input:focus{border-color:var(--accent)}.table-wrap{overflow-x:auto;margin-top:25px}.obs-table{width:100%;border-collapse:collapse;min-width:760px}.obs-table th,.obs-table td{border:1px solid #d4d8d1;padding:9px;text-align:center;font-size:11px}.obs-table th{background:#eef1ec;font-size:10px}.obs-table input{width:105px;padding:7px;border:1px solid #d2d7d0;font-size:11px;text-align:center}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.result{background:#edf3ed;border:1px solid #d1dbd1;padding:17px}.result span{display:block;font-size:9px;color:var(--muted);text-transform:uppercase}.result strong{display:block;font-size:20px;margin-top:8px}.button-calc{border:0;cursor:pointer;background:var(--accent);color:white;padding:12px 18px;font-size:12px;font-weight:700;margin-top:18px}.button-reset{border:1px solid var(--line);cursor:pointer;background:#fff;color:var(--ink);padding:11px 17px;font-size:12px;font-weight:700;margin:18px 0 0 7px}.note{margin-top:15px;padding:12px 14px;background:#f7f7f3;color:var(--muted);font-size:11px}.formula-note{font-size:12px;color:var(--muted);margin-top:10px}.viva{border:1px solid var(--line);background:#fff;margin:10px 0}.viva button{width:100%;border:0;background:none;text-align:left;padding:16px;cursor:pointer;font-weight:400}.viva .answer{display:none;padding:0 16px 16px;color:var(--muted);font-size:13px}.viva.open .answer{display:block}.reference{margin-top:18px;padding:16px 18px;background:#f7f8f4;border:1px solid var(--line);font-size:12px;color:var(--muted)}.graph-box{border:1px solid var(--line);background:#fff;padding:18px;margin-top:20px}.graph-box svg{width:100%;height:auto;display:block}.graph-note{font-size:11px;color:var(--muted);margin-top:10px}.graph-downloads{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.graph-download-button{border:1px solid var(--accent);cursor:pointer;background:var(--accent);color:#fff;padding:10px 14px;font-size:11px;font-weight:700}.graph-download-button.secondary{background:#fff;color:var(--accent)}.graph-download-button:disabled{opacity:.45;cursor:not-allowed}.graph-download-button:not(:disabled):hover{filter:brightness(.96)}.playfair-fix{font-family:"Playfair Display",Georgia,serif!important}.axis-label{font-size:13px;fill:#505650}.tick-label{font-size:11px;fill:#666b65}.gridline{stroke:#e3e7e1;stroke-width:1}.plot-axis{stroke:#6a716b;stroke-width:1.4}.fit-line{stroke:#174f38;stroke-width:2.5}.data-point{fill:#174f38}.threshold-line{stroke:#8a928b;stroke-width:1.5;stroke-dasharray:5 5}@media(max-width:900px){.exp-hero-grid{grid-template-columns:1fr}.exp-layout{grid-template-columns:1fr}.side-nav{position:static;display:flex;overflow:auto;gap:20px;border-bottom:1px solid var(--line)}.side-nav a{white-space:nowrap;border:0}.form-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.form-grid,.result-grid{grid-template-columns:1fr}.button-reset{margin-left:0}.obs-table{min-width:720px}}
+
+/* V20: horizontal quick-access navigation above the experiment hero */
+.quick-access-bar{background:#f7f8f4;border-bottom:1px solid var(--line);border-top:1px solid var(--line);position:relative;z-index:5}
+.quick-access-inner{display:flex;align-items:center;gap:28px;min-height:54px}
+.quick-access-label{font-size:10px;letter-spacing:.16em;color:var(--accent);white-space:nowrap}
+.quick-access-links{display:flex;align-items:center;gap:0;flex:1;overflow-x:auto;scrollbar-width:thin}
+.quick-access-links a{display:inline-flex;align-items:center;min-height:54px;padding:0 17px;color:var(--muted);font-size:12px;text-decoration:none;border-left:1px solid var(--line);white-space:nowrap;transition:color .15s ease,background .15s ease}
+.quick-access-links a:last-child{border-right:1px solid var(--line)}
+.quick-access-links a:hover,.quick-access-links a:focus-visible{color:var(--ink);background:#eef3ed;outline:none}
+@media(max-width:900px){.quick-access-inner{gap:14px}.quick-access-label{display:none}.quick-access-links a{padding:0 14px}}
+</style>
+<style id="playfair-global">html,body,body *{font-family:"Playfair Display",Georgia,serif!important}</style>
+<style>
+.video-heading-content{text-align:center;padding:6px 18px 18px;max-width:820px;margin:0 auto}.video-heading-content .video-access-title{font-size:20px;letter-spacing:.04em;text-transform:none;margin-bottom:9px}.youtube-embed-frame{background:#000;border-radius:2px;box-shadow:0 8px 24px rgba(0,0,0,.08)}@media(max-width:560px){.video-heading-content .video-access-title{font-size:17px}.video-heading-content{padding-left:4px;padding-right:4px}.video-box{padding:12px}}
+</style>
+
+<style id="quick-access-in-hero">
+/* V21: quick access sits inside the dark hero, directly below the experiment title and subtitle. */
+.exp-hero .quick-access-bar, .exp4-hero .quick-access-bar{
+  background:transparent;
+  border:0;
+  border-top:1px solid rgba(195,203,197,.32);
+  position:relative;
+  z-index:4;
+  margin-top:32px;
+}
+.exp-hero .quick-access-inner, .exp4-hero .quick-access-inner{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  min-height:50px;
+}
+.exp-hero .quick-access-label, .exp4-hero .quick-access-label{
+  color:#b7d5c1;
+  font-size:9px;
+  letter-spacing:.18em;
+  white-space:nowrap;
+}
+.exp-hero .quick-access-links, .exp4-hero .quick-access-links{
+  display:flex;
+  align-items:stretch;
+  flex:1;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.exp-hero .quick-access-links::-webkit-scrollbar, .exp4-hero .quick-access-links::-webkit-scrollbar{display:none}
+.exp-hero .quick-access-links a, .exp4-hero .quick-access-links a{
+  display:inline-flex;
+  align-items:center;
+  min-height:50px;
+  padding:0 16px;
+  color:#c3cbc5;
+  font-size:11px;
+  text-decoration:none;
+  border-left:1px solid rgba(195,203,197,.18);
+  white-space:nowrap;
+  transition:background .18s ease,color .18s ease;
+}
+.exp-hero .quick-access-links a:last-child, .exp4-hero .quick-access-links a:last-child{border-right:1px solid rgba(195,203,197,.18)}
+.exp-hero .quick-access-links a:hover, .exp-hero .quick-access-links a:focus-visible,
+.exp4-hero .quick-access-links a:hover, .exp4-hero .quick-access-links a:focus-visible{
+  background:rgba(183,213,193,.10);
+  color:#fff;
+  outline:none;
+}
+@media(max-width:900px){
+  .exp-hero .quick-access-inner, .exp4-hero .quick-access-inner{gap:12px}
+  .exp-hero .quick-access-label, .exp4-hero .quick-access-label{display:none}
+  .exp-hero .quick-access-links a, .exp4-hero .quick-access-links a{padding:0 13px}
+}
+</style>
+
+<style id="quick-access-in-hero-v21">
+/* V21: Quick access is part of the dark hero, immediately below the title and subtitle. */
+.exp-hero .quick-access-bar,.exp4-hero .quick-access-bar{background:transparent!important;border:0!important;border-top:1px solid rgba(195,203,197,.30)!important;position:relative;z-index:4;margin-top:30px!important;}
+.exp-hero .quick-access-inner,.exp4-hero .quick-access-inner{display:flex;align-items:center;gap:24px;min-height:48px;}
+.exp-hero .quick-access-label,.exp4-hero .quick-access-label{color:#b7d5c1;font-size:9px;letter-spacing:.18em;white-space:nowrap;}
+.exp-hero .quick-access-links,.exp4-hero .quick-access-links{display:flex;align-items:stretch;flex:1;overflow-x:auto;scrollbar-width:none;}
+.exp-hero .quick-access-links::-webkit-scrollbar,.exp4-hero .quick-access-links::-webkit-scrollbar{display:none;}
+.exp-hero .quick-access-links a,.exp4-hero .quick-access-links a{display:inline-flex;align-items:center;min-height:48px;padding:0 15px;color:#c3cbc5;font-size:11px;text-decoration:none;border-left:1px solid rgba(195,203,197,.17);white-space:nowrap;transition:background .18s ease,color .18s ease;}
+.exp-hero .quick-access-links a:last-child,.exp4-hero .quick-access-links a:last-child{border-right:1px solid rgba(195,203,197,.17);}
+.exp-hero .quick-access-links a:hover,.exp-hero .quick-access-links a:focus-visible,.exp4-hero .quick-access-links a:hover,.exp4-hero .quick-access-links a:focus-visible{background:rgba(183,213,193,.10);color:#fff;outline:none;}
+@media(max-width:900px){.exp-hero .quick-access-inner,.exp4-hero .quick-access-inner{gap:12px}.exp-hero .quick-access-label,.exp4-hero .quick-access-label{display:none}.exp-hero .quick-access-links a,.exp4-hero .quick-access-links a{padding:0 13px;}}
+</style>
+
+<style id="quick-access-grid-fix-v21">
+.exp-hero-grid .quick-access-bar{grid-column:1 / -1;width:100%;}
+</style>
+
+<style id="v22-compact-fullwidth">
+/* V22: compact experiment hero and full-width experiment content. */
+.exp-hero,.exp4-hero{padding-top:42px!important;padding-bottom:0!important;}
+.exp-hero h1,.exp4-hero h1{margin-top:12px!important;margin-bottom:12px!important;}
+.exp-hero p,.exp4-hero p{max-width:none!important;margin-bottom:0!important;}
+.exp-hero .quick-access-bar,.exp4-hero .quick-access-bar{margin-top:22px!important;}
+.exp-hero .quick-access-inner,.exp4-hero .quick-access-inner{min-height:48px!important;}
+.exp-layout{display:block!important;width:100%!important;}
+.exp-layout>.side-nav{display:none!important;}
+.exp-layout>main,.exp-layout>.exp-main,.exp-layout>.content{width:100%!important;max-width:none!important;min-width:0!important;}
+.content-block{width:100%!important;max-width:none!important;}
+.content-block .prose,.prose,.steps{max-width:none!important;width:100%!important;}
+.equation,.visual-box,.lab-panel,.reference{max-width:none!important;width:100%;box-sizing:border-box;}
+@media(max-width:900px){.exp-hero,.exp4-hero{padding-top:32px!important;padding-bottom:0!important;}}
+</style>
+
+<style id="v22-final-page-width">
+/* V22 final: compact hero + broad reading column, matching the approved preview. */
+.exp-hero,.exp4-hero{padding-top:38px!important;padding-bottom:0!important;}
+.exp-hero h1,.exp4-hero h1{margin:10px 0 10px!important;}
+.exp-hero p,.exp4-hero p{max-width:none!important;margin:0!important;}
+.exp-hero .quick-access-bar,.exp4-hero .quick-access-bar{margin-top:20px!important;}
+.exp-hero>.container,.exp4-hero>.container,main.section.container{width:calc(100% - 80px)!important;max-width:1440px!important;}
+main.section.container .content-block,main.section.container .prose,main.section.container .steps{width:100%!important;max-width:none!important;}
+main.section.container .equation,main.section.container .visual-box,main.section.container .lab-panel,main.section.container .reference{width:100%!important;max-width:none!important;}
+@media(max-width:900px){.exp-hero>.container,.exp4-hero>.container,main.section.container{width:calc(100% - 40px)!important}.exp-hero,.exp4-hero{padding-top:30px!important;}}
+</style>
+
+<style id="v28-quick-access-light-active">
+/* V28: quiet cream navigation with the same light-green selection used in the lab schedule. */
+.experiment-page > .quick-access-bar {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--line) !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+.experiment-page > .quick-access-bar .quick-access-label {
+  color: var(--muted) !important;
+  border-right: 1px solid var(--line) !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a {
+  color: var(--ink) !important;
+  background: var(--bg) !important;
+  border-left: 1px solid var(--line) !important;
+  transition: background .18s ease, color .18s ease, border-color .18s ease !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:hover,
+.experiment-page > .quick-access-bar .quick-access-links a:focus-visible {
+  background: var(--accent-2) !important;
+  color: var(--ink) !important;
+  outline: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a.active {
+  background: var(--accent-2) !important;
+  color: var(--accent-ink, #142319) !important;
+  border-color: #b9ccbF !important;
+  box-shadow: inset 0 0 0 1px #b9ccbF !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a.active + a {
+  border-left-color: #b9ccbF !important;
+}
+</style>
+
+<style id="v28-unified-experiment-spacing">
+/* V28: unified vertical rhythm across all individual experiment pages. */
+.experiment-page > main.section.container {
+  padding-top: 64px !important;
+  padding-bottom: 64px !important;
+}
+.experiment-page > main.section.container .content-block {
+  margin-bottom: 56px !important;
+}
+.experiment-page > main.section.container .content-block:last-child {
+  margin-bottom: 0 !important;
+}
+@media (max-width: 900px) {
+  .experiment-page > main.section.container {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+  .experiment-page > main.section.container .content-block {
+    margin-bottom: 44px !important;
+  }
+}
+</style>
+
+
+<style id="quick-access-centered-final">
+/* Final: center the experiment quick-access pills beneath the inspiration line. */
+.exp-hero .quick-access-bar,
+.exp4-hero .quick-access-bar {
+  width: 100% !important;
+  margin-top: 22px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+.exp-hero .quick-access-inner,
+.exp4-hero .quick-access-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  min-height: 0 !important;
+  width: 100% !important;
+}
+.exp-hero .quick-access-label,
+.exp4-hero .quick-access-label {
+  display: none !important;
+}
+.exp-hero .quick-access-links,
+.exp4-hero .quick-access-links {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+}
+.exp-hero .quick-access-links::-webkit-scrollbar,
+.exp4-hero .quick-access-links::-webkit-scrollbar { display: none !important; }
+.exp-hero .quick-access-links a,
+.exp4-hero .quick-access-links a {
+  flex: 0 0 auto !important;
+  min-width: 0 !important;
+  min-height: 38px !important;
+  height: 38px !important;
+  padding: 0 15px !important;
+  margin: 0 3px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(195,203,197,.45) !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  color: #c3cbc5 !important;
+  white-space: nowrap !important;
+}
+.exp-hero .quick-access-links a:hover,
+.exp-hero .quick-access-links a:focus-visible,
+.exp4-hero .quick-access-links a:hover,
+.exp4-hero .quick-access-links a:focus-visible {
+  background: rgba(183,213,193,.10) !important;
+  color: #fff !important;
+}
+@media (max-width: 900px) {
+  .exp-hero .quick-access-links,
+  .exp4-hero .quick-access-links {
+    justify-content: flex-start !important;
+    width: 100% !important;
+  }
+  .exp-hero .quick-access-links a,
+  .exp4-hero .quick-access-links a {
+    padding: 0 13px !important;
+  }
+}
+</style>
+
+
+<style id="quick-access-centered-v38">
+/* V38: center the experiment quick-access pills as one compact group. */
+.exp-hero .quick-access-bar,
+.exp4-hero .quick-access-bar{
+  width:100%;
+}
+.exp-hero .quick-access-inner,
+.exp4-hero .quick-access-inner{
+  justify-content:center;
+  gap:0;
+}
+.exp-hero .quick-access-label,
+.exp4-hero .quick-access-label{
+  display:none !important;
+}
+.exp-hero .quick-access-links,
+.exp4-hero .quick-access-links{
+  flex:0 1 auto !important;
+  width:max-content;
+  max-width:100%;
+  margin:0 auto;
+  justify-content:center;
+}
+@media(max-width:900px){
+  .exp-hero .quick-access-links,
+  .exp4-hero .quick-access-links{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    justify-content:flex-start;
+  }
+}
+</style>
+<style id="v40-quick-access-true-centered">
+/* V40: force the quick-access group to use the full hero width on every experiment page. */
+.exp-hero .exp-hero-grid > *,
+.exp4-hero .exp-hero-grid > * {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+.exp-hero .quick-access-bar,
+.exp4-hero .quick-access-bar {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.exp-hero .quick-access-inner,
+.exp4-hero .quick-access-inner {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.exp-hero .quick-access-links,
+.exp4-hero .quick-access-links {
+  flex: 0 0 auto !important;
+  width: max-content !important;
+  max-width: calc(100% - 8px) !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+@media (max-width: 900px) {
+  .exp-hero .quick-access-links,
+  .exp4-hero .quick-access-links {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+  }
+}
+</style>
+
+<style id="static-header-navigation-v59">
+/* V59: static header/navigation. No opening sweep, reveal, fade, transform, or transition. */
+.site-header, .site-header *,
+.home-site-header, .home-site-header *,
+.exp-hero, .exp4-hero, .exp-hero *, .exp4-hero *,
+.quick-access-bar, .quick-access-bar * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  will-change: auto !important;
+}
+.exp-hero, .exp4-hero {
+  background: #111713 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+html[data-theme="dark"] .exp-hero,
+html[data-theme="dark"] .exp4-hero { background: #0b0e0c !important; }
+</style>
+<script id="qpt-static-navigation-init">
+/* QPT static navigation: prevent browser history from restoring an old scroll position during page navigation. */
+try { if ("scrollRestoration" in history) history.scrollRestoration = "manual"; } catch (e) {}
+</script>
+<style id="qpt-v63-paint-stability">
+/* V63: eliminate first-paint layout/compositing changes. */
+html{scroll-behavior:auto!important;scrollbar-gutter:stable!important;overflow-anchor:none!important;}
+body{overflow-anchor:none!important;font-synthesis:none;}
+.site-header,.home-site-header,.nav,.hero,.hero::before,.hero::after,.hero-grid,.exp-hero,.exp4-hero,.quick-access-bar{contain:layout paint!important;}
+.site-header,.home-site-header,.nav,.theme-toggle{backface-visibility:hidden!important;}
+.theme-toggle{width:74px!important;min-width:74px!important;flex:0 0 74px!important;box-sizing:border-box!important;}
+</style><style id="qpt-v123-nav-transplant">
+
+/* ================================================================
+   QPT NAV — transplanted from Tavus V123
+   Navigation only: keep the base QPT Lab page design unchanged.
+   ================================================================ */
+.tavus-floating-header{
+  position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;
+  height:70px!important;padding:10px 0 11px!important;margin:0!important;background:transparent!important;
+  border:0!important;z-index:2147483000!important;pointer-events:none!important;
+}
+.tavus-floating-header.qpt-nav-scrolled{top:0!important;}
+.tavus-exact-nav{
+  position:relative!important;width:calc(100% - 96px)!important;max-width:none!important;
+  height:49px!important;min-height:49px!important;margin:0 auto!important;padding:0!important;
+  display:block!important;background:transparent!important;border:0!important;box-shadow:none!important;
+  overflow:visible!important;isolation:auto!important;
+}
+.tavus-nav-left{
+  position:absolute!important;left:0!important;top:0!important;height:49px!important;width:auto!important;
+  max-width:none!important;min-width:0!important;margin:0!important;padding:0!important;display:flex!important;
+  align-items:stretch!important;background:#f8f7f0!important;border:1px solid #111!important;
+  box-shadow:6px 6px 0 #000!important;z-index:20!important;overflow:visible!important;
+}
+.tavus-brand{
+  flex:0 0 150px!important;width:150px!important;min-width:150px!important;height:47px!important;
+  padding:0 20px!important;border:0!important;border-right:1px solid #111!important;
+  box-shadow:none!important;background:#f8f7f0!important;display:flex!important;align-items:center!important;gap:9px!important;
+}
+.tavus-brand .brand-mark,.tavus-brand .brand-mark img{width:31px!important;height:31px!important;object-fit:contain!important;}
+.tavus-brand .brand-name{font:800 15px/1 "Manrope",Arial,sans-serif!important;letter-spacing:-.035em!important;color:#111!important;}
+.tavus-links{
+  display:flex!important;align-items:stretch!important;height:47px!important;background:#f8f7f0!important;
+}
+.tavus-links>a{
+  height:47px!important;min-width:116px!important;padding:0 15px!important;display:flex!important;
+  align-items:center!important;justify-content:center!important;gap:5px!important;border:0!important;
+  border-right:1px solid #111!important;box-shadow:none!important;border-radius:0!important;
+  background:#f8f7f0!important;color:#111!important;font:500 11px/1 "Manrope",Arial,sans-serif!important;
+  letter-spacing:-.01em!important;white-space:nowrap!important;
+}
+.tavus-links>a:hover{background:#efeee7!important;color:#111!important;transform:none!important;}
+.tavus-links>a>span:first-child{font-size:12px!important;margin:0!important;}
+.tavus-experiments-parent{position:relative!important;z-index:100!important;}
+.tavus-nav-right{
+  position:absolute!important;right:0!important;top:0!important;height:49px!important;width:130px!important;
+  min-width:130px!important;margin:0!important;padding:0!important;display:block!important;
+  background:#f8f7f0!important;border:1px solid #111!important;box-shadow:6px 6px 0 #111!important;
+  z-index:20!important;overflow:visible!important;
+}
+.tavus-search{
+  width:128px!important;min-width:128px!important;height:47px!important;border:0!important;
+  box-shadow:none!important;background:#f8f7f0!important;border-radius:0!important;
+}
+.tavus-search input{
+  width:92px!important;height:100%!important;padding:0 4px 0 13px!important;color:#111!important;
+  background:transparent!important;border:0!important;outline:0!important;font:500 10px/1 "Manrope",Arial,sans-serif!important;
+  letter-spacing:.02em!important;
+}
+.tavus-search input::placeholder{color:#333!important;opacity:1!important;}
+.tavus-search button{width:32px!important;height:100%!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#111!important;font-size:18px!important;cursor:pointer!important;}
+.tavus-exact-nav::before{display:none!important;content:none!important;}
+.tavus-mega{
+  position:fixed!important;z-index:2147483647!important;display:block!important;opacity:0!important;visibility:hidden!important;
+  pointer-events:none!important;transform:translateY(-2px)!important;background:#f8f7f0!important;color:#111!important;
+  border:1px solid #111!important;box-shadow:6px 6px 0 #111!important;overflow:hidden!important;
+}
+.tavus-mega.qpt-mega-open{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:translateY(0)!important;}
+.tavus-mega-title{position:relative!important;z-index:1!important;display:block!important;padding:15px 18px 12px!important;background:#f8f7f0!important;color:#111!important;font:700 10px/1 "Manrope",Arial,sans-serif!important;letter-spacing:.12em!important;border-bottom:1px solid #111!important;}
+.tavus-mega-grid{position:relative!important;z-index:1!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+.tavus-mega-grid>a{min-height:61px!important;padding:12px 15px!important;display:grid!important;grid-template-columns:32px 1fr!important;align-items:center!important;gap:10px!important;color:#111!important;border:0!important;border-right:1px solid #111!important;border-bottom:1px solid #111!important;border-radius:0!important;background:#f8f7f0!important;font:600 13px/1.25 "Manrope",Arial,sans-serif!important;}
+.tavus-mega-grid>a:nth-child(even){border-right:0!important;}
+.tavus-mega-grid>a:hover{background:#f06b9a!important;color:#111!important;}
+.tavus-mega-grid b{font:800 13px/1 "Manrope",Arial,sans-serif!important;}
+.tavus-mega-grid span{font:600 13px/1.25 "Manrope",Arial,sans-serif!important;}
+/* Override legacy navigation rules without touching the rest of the site. */
+.tavus-floating-header .menu-toggle{display:none!important;}
+.tavus-floating-header .nav-links{gap:0!important;}
+@media(max-width:1000px){
+  .tavus-exact-nav{width:calc(100% - 48px)!important;}
+  .tavus-brand{flex-basis:140px!important;width:140px!important;min-width:140px!important;padding:0 14px!important;}
+  .tavus-links>a{min-width:105px!important;padding:0 10px!important;font-size:10px!important;}
+}
+@media(max-width:760px){
+  .tavus-floating-header{height:58px!important;padding:7px 0 9px!important;}
+  .tavus-exact-nav{width:calc(100% - 24px)!important;height:52px!important;min-height:52px!important;}
+  .tavus-nav-left{height:52px!important;max-width:calc(100% - 104px)!important;overflow:hidden!important;}
+  .tavus-brand{flex-basis:112px!important;width:112px!important;min-width:112px!important;height:50px!important;padding:0 10px!important;}
+  .tavus-brand .brand-name{font-size:12px!important;}
+  .tavus-links>a{min-width:auto!important;padding:0 8px!important;height:50px!important;font-size:8px!important;}
+  .tavus-nav-right{height:52px!important;width:100px!important;min-width:100px!important;}
+  .tavus-search{width:98px!important;height:50px!important;}
+  .tavus-search input{display:none!important;}
+  .tavus-mega{left:12px!important;top:59px!important;width:calc(100vw - 24px)!important;max-width:none!important;}
+}
+/* Fixed navigation must not cover the first hero content. */
+.home-site-header.tavus-floating-header + main .hero{padding-top:70px!important;}
+body.experiment-page .tavus-floating-header + .exp-hero{padding-top:140px!important;}
+body.experiment-page .tavus-floating-header + .exp4-hero{padding-top:140px!important;}
+
+</style>
+
+<style id="qpt-v135-nav-interaction-fix">
+/* V135 interaction fix: the floating Tavus navigation is visually transparent at the
+   header layer, but its actual controls must remain clickable. */
+.tavus-floating-header,
+.tavus-exact-nav,
+.tavus-exact-nav * { pointer-events:auto !important; }
+.tavus-mega { pointer-events:none !important; }
+.tavus-mega.qpt-mega-open { pointer-events:auto !important; }
+</style>
+
+<style id="qpt-v183-section-frame-rails">
+/* Section frame rails inspired by the reference's labelled monitor border. */
+.qpt-frame-section{position:relative!important;box-sizing:border-box!important;border:1px solid #111!important;overflow:visible!important;padding-top:0!important;padding-bottom:0!important;}
+.qpt-frame-top{height:35px;display:flex;align-items:center;gap:9px;padding:0 9px;background:#f8f7f0;border-bottom:1px solid #111;box-sizing:border-box;color:#111;font:600 10px/1 "Manrope",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;}
+.qpt-frame-dot{display:inline-block;flex:0 0 12px;width:12px;height:12px;background:#f15b83;}
+.qpt-frame-label{white-space:nowrap;max-width:45%;overflow:hidden;text-overflow:ellipsis;font-size:12px!important;font-weight:700!important;letter-spacing:.08em!important;}
+.qpt-frame-lines{height:17px;flex:1;min-width:12px;background:repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 4px);}
+.qpt-frame-square{width:25px;height:25px;flex:0 0 25px;border:1px solid #111;display:flex;align-items:center;justify-content:center;box-sizing:border-box;background:#f8f7f0;}
+.qpt-frame-square:before{content:"";width:10px;height:10px;border:1px solid #111;box-shadow:3px 3px 0 -1px #f8f7f0,3px 3px 0 0 #111;}
+.qpt-frame-bottom{height:12px;display:flex;align-items:center;padding:0 9px;border-top:1px solid #111;background:#f8f7f0;box-sizing:border-box;}
+.qpt-frame-bottom:before{content:"";display:block;width:100%;height:5px;background:repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 3px);}
+/* Keep content panels and their original internal spacing. */
+.qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom){margin-left:0; margin-right:0;}
+.qpt-frame-section > .section-heading:first-of-type{padding-top:24px;}
+.qpt-frame-section.content-block{margin-bottom:56px!important;}
+#today-lab.qpt-frame-section,#experiments.qpt-frame-section,#features.qpt-frame-section,#about.qpt-frame-section{padding-left:0!important;padding-right:0!important;}
+@media(max-width:700px){.qpt-frame-top{height:32px;gap:7px;padding:0 7px}.qpt-frame-label{font-size:11px!important;font-weight:700!important;max-width:55%}.qpt-frame-square{width:22px;height:22px;flex-basis:22px}.qpt-frame-section.content-block{margin-bottom:38px!important}}
+</style>
+<script id="qpt-v183-section-frame-script">
+(function(){
+ function addFrames(){
+  var isExperiment=document.body.classList.contains('experiment-page');
+  var targets=isExperiment?Array.from(document.querySelectorAll('main.section.container > section.content-block')):Array.from(document.querySelectorAll('main > section#today-lab, main > section#experiments, main > section#features, main > section#about'));
+  targets.forEach(function(section){
+   if(section.classList.contains('qpt-frame-section')) return;
+   var heading=section.querySelector('h2');
+   if(!heading) return;
+   var label=(heading.textContent||'').replace(/\s+/g,' ').trim();
+   if(!label) label=section.id.replace(/-/g,' ');
+   section.classList.add('qpt-frame-section');
+   var top=document.createElement('div');top.className='qpt-frame-top';top.setAttribute('aria-hidden','true');
+   var dot=document.createElement('span');dot.className='qpt-frame-dot';
+   var text=document.createElement('span');text.className='qpt-frame-label';text.textContent=label;
+   var lines=document.createElement('span');lines.className='qpt-frame-lines';
+   var square=document.createElement('span');square.className='qpt-frame-square';
+   top.append(dot,text,lines,square);
+   var bottom=document.createElement('div');bottom.className='qpt-frame-bottom';bottom.setAttribute('aria-hidden','true');
+   section.insertBefore(top,section.firstChild);section.appendChild(bottom);
+  });
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addFrames);else addFrames();
+})();
+</script>
+
+
+<style id="qpt-v184-hide-duplicate-section-headings">
+/* The frame rail already carries the section title; hide the repeated large title inside each panel. */
+.qpt-frame-section > h2 { display: none !important; }
+.qpt-frame-section .section-heading h2 { display: none !important; }
+/* Keep eyebrow labels, descriptive text, and any nested subheadings untouched. */
+</style>
+
+
+<style id="qpt-v193-experiment-section-reference-style">
+/* Bring experiment sections closer to the framed, editorial card treatment in the reference. */
+body.experiment-page > main.section.container > section.content-block.qpt-frame-section {
+  background: #f8f7f0 !important;
+  border: 1px solid #d4d8cf !important;
+  border-left: 3px solid #6ea99a !important;
+  box-sizing: border-box !important;
+  padding: 0 0 26px !important;
+  margin: 0 0 54px !important;
+  overflow: visible !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top {
+  height: 40px !important;
+  margin: 0 !important;
+  padding: 0 12px !important;
+  gap: 10px !important;
+  background: #f8f7f0 !important;
+  border-bottom: 1px solid #171717 !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top .qpt-frame-label {
+  max-width: 52% !important;
+  font-family: "Manrope", Arial, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: .07em !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top .qpt-frame-lines {
+  height: 17px !important;
+  background: repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 4px) !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top .qpt-frame-square {
+  width: 25px !important;
+  height: 25px !important;
+  flex-basis: 25px !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-bottom {
+  margin: 0 !important;
+  height: 12px !important;
+  padding: 0 10px !important;
+  border-top: 1px solid #171717 !important;
+}
+body.experiment-page .qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom) {
+  margin-left: 28px !important;
+  margin-right: 28px !important;
+}
+body.experiment-page .qpt-frame-section > .eyebrow {
+  padding-top: 19px !important;
+  margin-bottom: 14px !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .section-heading {
+  padding-top: 18px !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + h2 {
+  display: none !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow {
+  padding-top: 19px !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + p,
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + div,
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + ol,
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + ul {
+  margin-top: 0 !important;
+}
+@media (max-width: 700px) {
+  body.experiment-page > main.section.container > section.content-block.qpt-frame-section {
+    padding-bottom: 20px !important;
+    margin-bottom: 34px !important;
+  }
+  body.experiment-page .qpt-frame-section > .qpt-frame-top {
+    height: 36px !important;
+    padding: 0 7px !important;
+    gap: 7px !important;
+  }
+  body.experiment-page .qpt-frame-section > .qpt-frame-top .qpt-frame-label {
+    font-size: 10px !important;
+    max-width: 58% !important;
+  }
+  body.experiment-page .qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom) {
+    margin-left: 14px !important;
+    margin-right: 14px !important;
+  }
+  body.experiment-page .qpt-frame-section > .eyebrow {
+    padding-top: 15px !important;
+  }
+}
+</style>
+
+
+<style id="qpt-v194-experiment-section-frames">
+/* Actual section frame markup for experiment pages, matching the homepage feature panel reference. */
+body.experiment-page main.section.container .content-block.qpt-frame-section {
+  display:block!important; box-sizing:border-box!important; background:#f8f7f0!important;
+  border:1px solid #cfd4cc!important; border-left:2px solid #66b7a5!important;
+  margin:0 0 30px!important; padding:0 0 12px!important; overflow:visible!important;
+}
+.qpt-frame-top {height:42px;display:flex;align-items:center;gap:10px;padding:0 12px;margin:0 12px;background:transparent;border-bottom:1px solid #171717;box-sizing:border-box;color:#111;}
+.qpt-frame-dot {display:block;flex:0 0 15px;width:15px;height:15px;background:#f15b83;}
+.qpt-frame-label {white-space:nowrap;max-width:45%;overflow:hidden;text-overflow:ellipsis;font-family:"Playfair Display",Georgia,serif;font-size:15px!important;font-weight:700!important;letter-spacing:.055em!important;color:#111;}
+.qpt-frame-lines {height:18px;flex:1;min-width:12px;background:repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 4px);}
+.qpt-frame-square {width:30px;height:30px;flex:0 0 30px;border:1px solid #111;display:flex;align-items:center;justify-content:center;box-sizing:border-box;background:#f8f7f0;}
+.qpt-frame-square:before {content:"";width:12px;height:12px;border:1px solid #111;box-shadow:4px 4px 0 -1px #f8f7f0,4px 4px 0 0 #111;}
+.qpt-frame-bottom {height:12px;display:flex;align-items:center;margin:0 12px;padding:0 10px;border-top:1px solid #171717;box-sizing:border-box;background:transparent;}
+.qpt-frame-bottom:before {content:"";display:block;width:100%;height:5px;background:repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 3px);}
+body.experiment-page main.section.container .content-block.qpt-frame-section > .eyebrow {display:none!important;}
+body.experiment-page main.section.container .content-block.qpt-frame-section > h2 {margin-top:24px!important;padding-left:30px!important;padding-right:30px!important;}
+body.experiment-page main.section.container .content-block.qpt-frame-section > p,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .prose,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .apparatus,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .equation,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .visual-card,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .procedure-list,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .table-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section > table,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .calculator,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .graph-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .result-card,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .viva-list {margin-left:30px!important;margin-right:30px!important;}
+body.experiment-page main.section.container .content-block.qpt-frame-section > *:last-child:not(.qpt-frame-bottom) {margin-bottom:18px;}
+@media(max-width:700px){
+ body.experiment-page main.section.container .content-block.qpt-frame-section{margin-bottom:20px!important;}
+ .qpt-frame-top{height:38px;margin:0 7px;padding:0 6px;gap:7px;}
+ .qpt-frame-label{font-size:12px!important;max-width:52%;}
+ .qpt-frame-square{width:24px;height:24px;flex-basis:24px;}
+ body.experiment-page main.section.container .content-block.qpt-frame-section > h2{padding-left:18px!important;padding-right:18px!important;}
+ body.experiment-page main.section.container .content-block.qpt-frame-section > p,
+ body.experiment-page main.section.container .content-block.qpt-frame-section > .prose,
+ body.experiment-page main.section.container .content-block.qpt-frame-section > .apparatus,
+ body.experiment-page main.section.container .content-block.qpt-frame-section > .equation,
+ body.experiment-page main.section.container .content-block.qpt-frame-section > *:not(.qpt-frame-top):not(.qpt-frame-bottom):not(.eyebrow):not(h2){margin-left:18px!important;margin-right:18px!important;}
+}
+</style>
+
+
+<style id="qpt-v195-section-content-containment">
+/* Keep every section's contents inside its cream frame. Some legacy blocks use
+   width:100% plus horizontal margins, which otherwise pushes them past the border. */
+body.experiment-page main.section.container .content-block.qpt-frame-section,
+body.experiment-page main.section.container .content-block.qpt-frame-section * {
+  box-sizing: border-box !important;
+}
+body.experiment-page main.section.container .content-block.qpt-frame-section {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+body.experiment-page main.section.container .content-block.qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom):not(.eyebrow):not(h2) {
+  width: auto !important;
+  max-width: calc(100% - 60px) !important;
+  min-width: 0 !important;
+}
+body.experiment-page main.section.container .content-block.qpt-frame-section .equation,
+body.experiment-page main.section.container .content-block.qpt-frame-section .visual-card,
+body.experiment-page main.section.container .content-block.qpt-frame-section .table-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section .calculator,
+body.experiment-page main.section.container .content-block.qpt-frame-section .graph-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section .result-card,
+body.experiment-page main.section.container .content-block.qpt-frame-section table {
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+body.experiment-page main.section.container .content-block.qpt-frame-section .table-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section .graph-wrap {
+  overflow-x: auto !important;
+}
+@media (max-width:700px) {
+  body.experiment-page main.section.container .content-block.qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom):not(.eyebrow):not(h2) {
+    max-width: calc(100% - 36px) !important;
+  }
+}
+</style>
+
+<style id="qpt-shared-retro-video-layout-v270">
+.qpt-video-companion{padding:18px!important;background:var(--surface,#fff)!important;}
+.qpt-video-companion .video-heading-content{max-width:none;text-align:left;padding:2px 0 16px;margin:0;}
+.qpt-video-companion .video-heading-content p{max-width:none;margin:0;font-size:12px;}
+.qpt-video-notes-layout{display:grid;grid-template-columns:minmax(0,3fr) minmax(290px,2fr);gap:14px;align-items:stretch;}
+.qpt-video-column{min-width:0;display:flex;flex-direction:column;}
+.qpt-video-column .video-frame{aspect-ratio:16/9;flex:none;margin:0;}
+.qpt-video-column iframe{display:block;width:100%;height:100%;}
+.qpt-video-foot{display:flex;justify-content:space-between;gap:12px;padding:10px 2px 0;color:var(--muted);font:9px "Manrope",sans-serif;letter-spacing:.12em;}
+.qpt-retro-panel{min-width:0;min-height:0;box-sizing:border-box;background:#000!important;border:1px solid #777;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;}
+.qpt-retro-panel .qpt-retro-computer{width:100%;height:100%;min-height:0;box-sizing:border-box;display:flex;align-items:center;justify-content:center;background:#000;padding:0;}
+.qpt-retro-panel svg{display:block;width:180px;height:150px;max-width:100%;flex:0 0 180px;}
+@media(max-width:760px){.qpt-video-notes-layout{grid-template-columns:minmax(0,1fr);}.qpt-retro-panel{min-height:260px;height:300px;}.qpt-video-column .video-frame{aspect-ratio:16/9;}}
+</style>
+</head>
+<body class="experiment-page">
+<header class="site-header tavus-floating-header">
+<nav class="nav tavus-exact-nav" aria-label="Primary navigation">
+  <div class="tavus-nav-left">
+    <a aria-label="QPT Lab home" class="tavus-brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true"><img src="infinity-logo.png" alt=""></span>
+      <span class="brand-name">QPT LAB</span>
+    </a>
+    <div class="tavus-links nav-links">
+      <a href="index.html#home"><span aria-hidden="true">▪</span> HOME</a>
+      <a class="tavus-experiments-parent" href="index.html#experiments" aria-haspopup="true" aria-expanded="false">
+        <span aria-hidden="true">▪</span> EXPERIMENTS
+      </a>
+      <div class="tavus-mega" aria-label="Experiments" role="menu">
+        <div class="tavus-mega-title">EXPERIMENTS 01—08</div>
+        <div class="tavus-mega-grid">
+          <a href="experiment-01.html"><b>01</b><span>Diffraction Grating</span></a>
+          <a href="experiment-02.html"><b>02</b><span>Refractive Index of Prism</span></a>
+          <a href="experiment-03.html"><b>03</b><span>Photoelectric Effect</span></a>
+          <a href="experiment-04.html"><b>04</b><span>Circular Coil</span></a>
+          <a href="experiment-05.html"><b>05</b><span>Newton’s Rings</span></a>
+          <a href="experiment-06.html"><b>06</b><span>Diffraction of Laser</span></a>
+          <a href="experiment-07.html"><b>07</b><span>Energy Bandgap of Semiconductor</span></a>
+          <a href="experiment-08.html"><b>08</b><span>P-N Junction Diode</span></a>
+        </div>
+      </div>
+      <a href="index.html#features"><span aria-hidden="true">▪</span> FEATURES</a>
+      <a href="index.html#about"><span aria-hidden="true">▪</span> ABOUT</a>
+    </div>
+  </div>
+  <div class="tavus-nav-right">
+    <div class="nav-search tavus-search" id="nav-search">
+      <label class="sr-only" for="nav-search-input">Search the lab</label>
+      <input aria-controls="nav-search-results" aria-expanded="false" aria-label="Search experiments, concepts and apparatus" autocomplete="off" id="nav-search-input" placeholder="SEARCH" spellcheck="false" type="search">
+      <button aria-label="Search" id="nav-search-button" title="Search" type="button">⌕</button>
+      <div aria-label="Search results" class="nav-search-results" id="nav-search-results" role="listbox"></div>
+    </div>
+  </div>
+</nav>
+</header>
+
+
+<section class="exp-hero"><div class="container exp-hero-grid">
+<div class="">
+<div class="eyebrow">EXPERIMENT 03 • MODERN PHYSICS • QUANTUM PHENOMENA</div>
+<h1>Photoelectric<br>Effect.</h1>
+<p class="hero-inspiration">Watch light set electrons in motion — and use their response to uncover the quantum nature of light.</p>
+
+<div class="quick-access-bar"><div class="quick-access-inner"><div class="quick-access-label">QUICK ACCESS</div><nav class="quick-access-links" aria-label="Experiment sections"><a href="#aim">Aim</a><a href="#apparatus">Apparatus</a><a href="#theory">Theory</a><a href="#visual">Visualize</a><a href="#procedure">Procedure</a><a href="#calculator">Observations</a><a href="#calculations">Calculations</a><a href="#result">Result</a><a href="#viva">Viva</a></nav></div></div>
+</div>
+</div>
+</section>
+
+
+
+
+<main class="section container"><div>
+<section id="aim" class="content-block"><div class="eyebrow">01 / AIM</div><h2>What are we measuring?</h2><p class="prose">To determine Planck's constant <em>h</em> and the work function <em>ϕ</em> of the photosensitive material using the photoelectric effect.</p></section>
+
+<section id="apparatus" class="content-block"><div class="eyebrow">02 / APPARATUS</div><h2>Equipment</h2><div class="apparatus"><span class="chip">Photoelectric-effect experimental setup</span><span class="chip">Photocell</span><span class="chip">Light source</span><span class="chip">Colour filters</span><span class="chip">Variable reverse-voltage supply</span><span class="chip">Microammeter / current meter</span></div></section>
+
+<section id="theory" class="content-block"><div class="eyebrow">03 / THEORY</div><h2>From photons to stopping potential</h2>
+<p class="prose">When radiation falls on a photosensitive metal surface, electrons may be emitted. This phenomenon is called <strong>photoelectric emission</strong>. The experiment shows that the emission depends strongly on the <strong>frequency</strong> of the incident radiation, not simply on its intensity.</p>
+<div class="lab-panel"><div class="eyebrow">THE KEY EXPERIMENTAL FACTS</div><ol class="steps facts-list" style="max-width:none;margin-bottom:0"><li><span class="step-marker">i</span><div class="step-content">For a given photosensitive material, there is a <strong>threshold (critical) frequency</strong> below which photoelectrons are not emitted.</div></li><li><span class="step-marker">ii</span><div class="step-content">When the frequency is above threshold, emission occurs essentially without an appreciable time delay.</div></li><li><span class="step-marker">iii</span><div class="step-content">At fixed frequency above threshold, increasing the intensity mainly increases the number of emitted electrons and hence the photocurrent.</div></li></ol></div>
+<p class="prose">Einstein explained these observations by treating light as a stream of photons. Each photon has energy proportional to its frequency:</p>
+<div class="equation">E = hν = hc/λ</div>
+<p class="prose">The electron is bound to the material surface by an energy called the <strong>work function</strong>, <em>ϕ</em>. If the photon energy is less than the work function, the electron cannot escape. If the photon energy exceeds the work function, the excess becomes the maximum kinetic energy of the photoelectron.</p>
+<div class="equation">K<sub>max</sub> = hν − ϕ</div>
+<p class="prose">To measure that maximum kinetic energy, a reverse or retarding potential is applied. As the reverse voltage is increased, fewer emitted electrons reach the collector. At the <strong>stopping potential</strong> <em>V<sub>s</sub></em>, even the most energetic photoelectrons are just prevented from reaching the collector.</p>
+<div class="equation">eV<sub>s</sub> = hν − ϕ</div>
+<p class="prose">Therefore, the stopping potential should vary linearly with frequency:</p>
+<div class="equation">V<sub>s</sub> = (h/e)ν − ϕ/e</div>
+<p class="prose">A plot of <em>V<sub>s</sub></em> against <em>ν</em> should therefore be approximately a straight line. Its slope is <em>h/e</em>, so <strong>h = e × slope</strong>. The y-intercept is <em>−ϕ/e</em>, so the work function is obtained from the magnitude of the intercept: <strong>ϕ = e × |y-intercept|</strong>.</p>
+<div class="equation">ν<sub>0</sub> = ϕ/h &nbsp;&nbsp; (at V<sub>s</sub> = 0)</div>
+<div class="lab-panel"><div class="eyebrow">INTUITIVE CHECK</div><p class="prose" style="margin-bottom:0"><strong>Think of frequency as the energy-per-photon control and intensity as the photon-count control.</strong> Increasing intensity at a frequency below threshold gives more photons, but each photon is still individually too weak to eject an electron. Increasing frequency above threshold gives each photon more energy, which increases the maximum kinetic energy and hence the stopping potential.</p></div>
+
+
+<div class="deep-references" id="references">
+<div class="eyebrow">GO DEEPER / REFERENCES</div>
+<p class="deep-references-intro">These chapters develop the photon picture of light and the photoelectric equation, including the connection between stopping potential, frequency, Planck's constant and work function.</p>
+<div class="deep-reference-list">
+<div class="deep-reference"><div class="deep-reference-title">Kenneth S. Krane — <em>Modern Physics</em>, 4th ed.</div><div class="deep-reference-topic">§3.2: The Photoelectric Effect</div></div>
+<div class="deep-reference"><div class="deep-reference-title">Arthur Beiser — <em>Concepts of Modern Physics</em></div><div class="deep-reference-topic">Particle properties of waves · Photoelectric effect and photon energy.</div></div>
+<div class="deep-reference"><div class="deep-reference-title">Young &amp; Freedman — <em>University Physics with Modern Physics</em>, 15th ed.</div><div class="deep-reference-topic">Ch. 38: Photons — §38.1: Light Absorbed as Photons: The Photoelectric Effect.</div></div>
+</div></div>
+</section>
+
+<section id="visual" class="content-block"><div class="eyebrow">04 / VISUAL EXPLANATION</div><h2>Photoelectric effect animation</h2><div class="video-box qpt-video-companion" id="qpt-video-companion-exp03">
+<div class="video-access-content video-heading-content">
+  <div class="video-access-title">Let's try to get a picture of what's happening!</div>
+  
+</div>
+<div class="qpt-video-notes-layout">
+<div class="qpt-video-column"><div class="video-frame youtube-embed-frame"><iframe src="https://www.youtube.com/embed/v-1zjdUTu0o?rel=0" title="Photoelectric effect animation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class="qpt-video-foot"><span>EXPERIMENT 03</span><span>READY TO PLAY</span></div></div>
+<aside class="qpt-retro-panel" aria-label="Feature update"><div class="qpt-retro-computer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 150" width="180" height="150" style="display:block;width:180px;height:150px;max-width:100%;flex:0 0 180px;" role="img" aria-label="Retro computer displaying Feature Update Coming Soon..."><rect width="180" height="150" fill="#000"/><!-- compact pixel-art monitor --><rect x="16" y="9" width="148" height="104" fill="#f3edc9" stroke="#171914" stroke-width="2.5"/><rect x="21" y="14" width="138" height="94" fill="#b9b99b" stroke="#171914" stroke-width="1"/><rect x="25" y="18" width="130" height="85" fill="#050806" stroke="#e9e2b8" stroke-width="2"/><rect x="47.30" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="48.42" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="49.54" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="50.66" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="51.78" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="48.42" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="49.54" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="50.66" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="60.62" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="62.86" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="60.62" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="62.86" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="62.86" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="60.62" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="65.60" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="70.08" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="68.96" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="75.06" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="72.82" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="73.94" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="80.04" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="81.16" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="78.92" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="85.02" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="86.14" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="87.26" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="83.90" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="88.38" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="83.90" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="85.02" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="86.14" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="87.26" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="88.38" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="83.90" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="83.90" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="88.38" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="85.02" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="86.14" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="87.26" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="97.22" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="98.34" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="99.46" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="103.32" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="104.44" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="105.56" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="103.32" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="104.44" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="105.56" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="109.42" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="110.54" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="111.66" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="109.42" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="110.54" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="111.66" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="115.52" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="115.52" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="114.40" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="114.40" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="115.52" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="120.50" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="122.74" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="124.98" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="122.74" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="123.86" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="127.72" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="126.60" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="131.08" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="126.60" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="127.72" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="131.08" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="126.60" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="126.60" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="131.08" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="127.72" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="48.42" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="49.54" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="50.66" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="51.78" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="48.42" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="49.54" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="50.66" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="51.78" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="60.62" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="62.86" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="68.96" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="73.94" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="75.06" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="72.82" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="78.92" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="80.04" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="81.16" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="78.92" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="80.04" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="81.16" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="78.92" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="80.04" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="81.16" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="91.12" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="92.24" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="93.36" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="94.48" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="90.00" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="90.00" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="91.12" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="92.24" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="93.36" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="94.48" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="94.48" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="90.00" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="91.12" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="92.24" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="93.36" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="97.22" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="98.34" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="99.46" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="97.22" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="98.34" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="99.46" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="103.32" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="104.44" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="105.56" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="103.32" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="104.44" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="105.56" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="110.54" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="111.66" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="109.42" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="122.74" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="123.86" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="122.74" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="123.86" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="70" y="112" width="40" height="10" fill="#f3edc9" stroke="#171914" stroke-width="2.5"/><rect x="22" y="121" width="136" height="11" fill="#f3edc9" stroke="#171914" stroke-width="2.5"/><rect x="30" y="125" width="14" height="3" fill="#171914"/><rect x="112" y="125" width="38" height="3" fill="#171914"/></svg></div></aside>
+</div></div></section>
+
+<section id="procedure" class="content-block"><div class="eyebrow">05 / PROCEDURE</div><h2>Experimental sequence</h2><ol class="steps"><li><div class="step-content">Set the de-accelerating voltage to <strong>0 V</strong> and insert the first colour filter. The manual gives a red filter of approximately <strong>635 nm</strong> as an example.</div></li><li><div class="step-content">Set the light-intensity control to its maximum value.</div></li><li><div class="step-content">Increase the reverse (de-accelerating) voltage gradually until the ammeter/current reading becomes zero.</div></li><li><div class="step-content">Record this reverse voltage as the <strong>stopping potential V<sub>s</sub></strong> for that filter.</div></li><li><div class="step-content">Repeat the same procedure for the remaining colour filters.</div></li><li><div class="step-content">Enter the measured frequency <em>ν</em> and stopping potential <em>V<sub>s</sub></em> for each colour filter in the observation table.</div></li><li><div class="step-content">Plot <em>V<sub>s</sub></em> against <em>ν</em>. Use the slope to determine Planck's constant and the intercept to determine the work function.</div></li></ol></section>
+
+<section id="calculator" class="content-block"><div class="eyebrow">06 / DIGITAL OBSERVATION TABLE</div><h2>Enter your actual filter readings</h2><div class="lab-panel">
+<div class="form-grid"><div class="field"><label>ELECTRON CHARGE e (C)</label><input id="charge" type="number" step="any" value="1.602176634e-19"></div><div class="field"><label>NUMBER OF READINGS</label><input id="count" type="number" value="5" min="2" max="5" disabled></div><div class="field"><label>GRAPH SLOPE UNIT</label><input value="V/Hz" disabled></div><div class="field"><label>INTERCEPT UNIT</label><input value="V" disabled></div></div>
+<div class="formula-note">For each filter, enter the frequency ν in Hz and the measured stopping potential V<sub>s</sub> in volts. The calculator performs a least-squares straight-line fit V<sub>s</sub> = mν + c.</div>
+<div class="table-wrap"><table class="obs-table"><thead><tr><th>Sl. No.</th><th>Filter / colour</th><th>Frequency ν (Hz)</th><th>Stopping potential V<sub>s</sub> (V)</th></tr></thead><tbody>
+<tr><td>1</td><td><input id="f1" value="Red"></td><td><input id="nu1" type="number" step="any" placeholder="4.72e14"></td><td><input id="vs1" type="number" step="any"></td></tr>
+<tr><td>2</td><td><input id="f2" value="Orange"></td><td><input id="nu2" type="number" step="any"></td><td><input id="vs2" type="number" step="any"></td></tr>
+<tr><td>3</td><td><input id="f3" value="Green"></td><td><input id="nu3" type="number" step="any"></td><td><input id="vs3" type="number" step="any"></td></tr>
+<tr><td>4</td><td><input id="f4" value="Blue"></td><td><input id="nu4" type="number" step="any"></td><td><input id="vs4" type="number" step="any"></td></tr>
+<tr><td>5</td><td><input id="f5" value="Violet"></td><td><input id="nu5" type="number" step="any"></td><td><input id="vs5" type="number" step="any"></td></tr>
+</tbody></table></div>
+<div class="note">Enter frequency directly in hertz (Hz) and the measured stopping potential in volts (V). At least two complete readings are required for the linear regression.</div>
+<button class="button-calc" onclick="calculatePhotoelectric()">Calculate</button><button class="button-reset" onclick="resetPhotoelectric()">Reset</button>
+<div class="result-grid"><div class="result"><span>PLANCK'S CONSTANT h</span><strong id="hOut">—</strong></div><div class="result"><span>WORK FUNCTION ϕ</span><strong id="phiOut">—</strong></div><div class="result"><span>THRESHOLD FREQUENCY ν₀</span><strong id="nu0Out">—</strong></div></div>
+<div class="result-grid"><div class="result"><span>GRAPH SLOPE</span><strong id="slopeOut">—</strong></div><div class="result"><span>Y-INTERCEPT</span><strong id="interceptOut">—</strong></div><div class="result"><span>FIT QUALITY R²</span><strong id="r2Out">—</strong></div></div>
+</div>
+<div class="graph-box"><div class="eyebrow">V<sub>s</sub> — ν GRAPH</div><svg id="photoGraph" viewBox="0 0 900 500" role="img" aria-label="Stopping potential versus frequency graph"></svg><div class="graph-downloads"><button id="downloadPng" class="graph-download-button" type="button" onclick="downloadGraphPNG()" disabled>↓ Download Graph (PNG)</button><button id="downloadSvg" class="graph-download-button secondary" type="button" onclick="downloadGraphSVG()" disabled>↓ Download Graph (SVG)</button></div><div class="graph-note">The fitted straight line represents the Einstein photoelectric equation, V<sub>s</sub> = (h/e)ν − ϕ/e. Therefore the theoretical line crosses the y-axis below zero at −ϕ/e and crosses the x-axis at the positive threshold frequency ν<sub>0</sub> = ϕ/h.</div></div>
+</section>
+
+<section id="calculations" class="content-block"><div class="eyebrow">07 / CALCULATIONS</div><h2>Extracting h and the work function</h2>
+<div class="equation">V<sub>s</sub> = (h/e)ν − ϕ/e = mν + c</div>
+<p class="prose">The graph is fitted using the ordinary least-squares linear regression method. For the measured pairs <em>(ν, V<sub>s</sub>)</em>, the calculator determines the best-fit line <em>V<sub>s</sub> = mν + c</em>.</p>
+<div class="lab-panel" style="margin:20px 0"><div class="eyebrow">LINEAR REGRESSION ALGORITHM</div><ol class="steps" style="max-width:none;margin-bottom:0"><li><div class="step-content">Let <em>x = ν</em> and <em>y = V<sub>s</sub></em> for each complete observation.</div></li><li><div class="step-content">Calculate the mean values <em>x̄</em> and <em>ȳ</em>.</div></li><li><div class="step-content">Calculate the slope: <strong>m = Σ(x − x̄)(y − ȳ) / Σ(x − x̄)²</strong>.</div></li><li><div class="step-content">Calculate the y-intercept: <strong>c = ȳ − mx̄</strong>.</div></li><li><div class="step-content">The fitted line is <strong>V<sub>s</sub> = mν + c</strong>. The coefficient of determination <em>R²</em> is also calculated to indicate the quality of the fit.</div></li></ol></div>
+<div class="equation">Planck's constant: &nbsp; h = e × slope = e × m</div>
+<div class="equation">Work function: &nbsp; ϕ = e × |y-intercept| = e × |c|</div>
+<div class="equation">Threshold frequency: &nbsp; ν<sub>0</sub> = −c/m = ϕ/h</div>
+<p class="formula-note">Here <em>e</em> is the electronic charge. The digital calculator performs a least-squares fit to the entered observations; the graph and numerical outputs are intended to reproduce the calculation described in the manual.</p>
+</section>
+
+<section id="result" class="content-block"><div class="eyebrow">08 / RESULT & CONCLUSION</div><h2>Experimental result</h2><div class="lab-panel"><p class="prose" style="margin:0">From the <em>V<sub>s</sub></em> versus <em>ν</em> graph, Planck's constant is found to be <strong id="resultH">—</strong> J·s and the work function of the material is <strong id="resultPhi">—</strong> J.</p></div></section>
+
+<section id="viva" class="content-block"><div class="eyebrow">09 / VIVA PRACTICE</div><h2>Test your understanding</h2>
+<div class="viva"><button onclick="toggleViva(this)">Suppose you double the intensity while keeping the frequency below the threshold frequency. Why should the photocurrent still remain zero?</button><div class="answer">Intensity tells you how many photons arrive, but each photon still carries too little energy to overcome the work function. More low-energy photons do not make an individual photon energetic enough to eject an electron.</div></div>
+<div class="viva"><button onclick="toggleViva(this)">Two light sources have the same intensity, but one has a higher frequency. What would you expect to change first in the photoelectric experiment?</button><div class="answer">The higher-frequency photons carry more energy per photon. If both frequencies are above threshold, the maximum kinetic energy of the emitted electrons and therefore the stopping potential should be larger for the higher frequency.</div></div>
+<div class="viva"><button onclick="toggleViva(this)">Why does the stopping potential tell us about the fastest emitted electrons rather than the average electron?</button><div class="answer">At the stopping potential, the reverse electric field is just strong enough to prevent even the most energetic photoelectrons from reaching the collector. Thus eVₛ corresponds to the maximum kinetic energy.</div></div>
+<div class="viva"><button onclick="toggleViva(this)">Imagine that the frequency is increased while the intensity is kept fixed. Why can the current and stopping potential behave differently?</button><div class="answer">Increasing frequency increases the energy of each photon, so the maximum electron energy and stopping potential rise. Intensity controls the rate at which photons arrive and therefore mainly affects how many electrons are emitted and the photocurrent.</div></div>
+<div class="viva"><button onclick="toggleViva(this)">Why should the Vₛ–ν graph be a straight line if Einstein's model is correct?</button><div class="answer">Einstein's equation is eVₛ = hν − ϕ. Rearranging gives Vₛ = (h/e)ν − ϕ/e, which has exactly the form y = mx + c.</div></div>
+<div class="viva"><button onclick="toggleViva(this)">If the fitted line has a steeper slope than expected, what part of the experiment would you inspect before claiming a new value of h?</button><div class="answer">Check the entered frequencies, voltage calibration, zero offset, contact-potential effects, electrical connections and whether the stopping-potential readings were taken consistently. A slope is meaningful only when the systematic effects are under control.</div></div>
+</section>
+</div></div></main>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="footer-brand">
+      <span class="footer-mark" aria-hidden="true"><img src="infinity-logo.png" alt=""></span>
+      <span>qpt Lab</span>
+    </span>
+  </div>
+</footer>
+
+<script>
+function num(id){const v=parseFloat(document.getElementById(id).value);return Number.isFinite(v)?v:null}
+function fmt(v,n=4){return Number.isFinite(v)?v.toFixed(n):'—'}
+function calcRows(){const rows=[];for(let i=1;i<=5;i++){const rawNu=num('nu'+i),vs=num('vs'+i);if(rawNu!=null&&vs!=null){/* Accept both Hz (e.g. 4.72e14) and the common lab-entry shorthand in units of 10^14 Hz (e.g. 4.72). */const nu=Math.abs(rawNu)<1e10?rawNu*1e14:rawNu;rows.push({i,nu,vs,filter:document.getElementById('f'+i).value||('Filter '+i)});}}return rows}
+function regression(rows){const n=rows.length;if(n<2)return null;const scale=1e14;const x=rows.map(r=>r.nu/scale),y=rows.map(r=>r.vs);const xbar=x.reduce((s,v)=>s+v,0)/n,ybar=y.reduce((s,v)=>s+v,0)/n;let ssxx=0,ssxy=0,ssyy=0;for(let i=0;i<n;i++){const dx=x[i]-xbar,dy=y[i]-ybar;ssxx+=dx*dx;ssxy+=dx*dy;ssyy+=dy*dy}if(ssxx===0)return null;const mScaled=ssxy/ssxx,c=ybar-mScaled*xbar;const m=mScaled/scale;let sse=0;for(let i=0;i<n;i++){const err=y[i]-(mScaled*x[i]+c);sse+=err*err}const r2=ssyy>0?1-sse/ssyy:1;return {m,c,r2}}
+function calculatePhotoelectric(){const rows=calcRows(),e=num('charge')||1.602176634e-19,fit=regression(rows);if(!fit){['hOut','phiOut','nu0Out','slopeOut','interceptOut','r2Out','resultH','resultPhi'].forEach(id=>document.getElementById(id).textContent='—');drawGraph([]);setGraphDownloadState(false);return}const h=e*fit.m;const phi=Math.abs(e*fit.c);const nu0=(fit.m>0&&fit.c<0)?-fit.c/fit.m:null;document.getElementById('hOut').textContent=Number.isFinite(h)?h.toExponential(5)+' J·s':'—';document.getElementById('phiOut').textContent=Number.isFinite(phi)?phi.toExponential(5)+' J':'—';document.getElementById('nu0Out').textContent=Number.isFinite(nu0)?nu0.toExponential(4)+' Hz':'—';document.getElementById('slopeOut').textContent=fit.m.toExponential(5)+' V/Hz';document.getElementById('interceptOut').textContent=fit.c.toFixed(5)+' V';document.getElementById('r2Out').textContent=fit.r2.toFixed(5);document.getElementById('resultH').textContent=Number.isFinite(h)?h.toExponential(5):'—';document.getElementById('resultPhi').textContent=Number.isFinite(phi)?phi.toExponential(5):'—';drawGraph(rows,fit,nu0);setGraphDownloadState(true)}
+function drawGraph(rows,fit,nu0){
+const svg=document.getElementById('photoGraph');
+const W=900,H=500,L=90,R=35,T=35,B=75;
+svg.innerHTML='';
+if(!rows.length){svg.innerHTML='<text x="450" y="250" text-anchor="middle" fill="#666b65" font-size="16">Enter at least two complete readings, then calculate.</text>';return}
+const xs=rows.map(r=>r.nu),ys=rows.map(r=>r.vs);
+/* The physical graph must include ν = 0 and Vₛ = 0.  This makes the
+   negative y-intercept (−φ/e) and the positive threshold frequency ν₀
+   visible instead of zooming only into the measured points. */
+let xmin=0;
+let xmax=Math.max(...xs,Number.isFinite(nu0)?nu0:0);
+if(!Number.isFinite(xmax)||xmax<=0)xmax=Math.max(...xs);
+xmax*=1.08;
+const theoreticalMin=fit&&Number.isFinite(fit.c)?fit.c:Math.min(...ys,0);
+let ymin=Math.min(theoreticalMin,...ys,0);
+let ymax=Math.max(...ys,0);
+const ySpan=Math.max(ymax-ymin,0.1);
+ymin-=ySpan*0.10;
+ymax+=ySpan*0.10;
+if(ymax<=0)ymax=0.1;
+const sx=x=>L+(x-xmin)/(xmax-xmin)*(W-L-R);
+const sy=y=>H-B-(y-ymin)/(ymax-ymin)*(H-T-B);
+const ns='http://www.w3.org/2000/svg';
+function el(tag,attrs,text){const e=document.createElementNS(ns,tag);Object.entries(attrs||{}).forEach(([k,v])=>e.setAttribute(k,v));if(text!=null)e.textContent=text;svg.appendChild(e);return e}
+/* Grid and ticks: x-axis is explicitly Vₛ = 0, while y-axis is ν = 0. */
+for(let i=0;i<=6;i++){
+  const xv=xmin+(xmax-xmin)*i/6;
+  el('line',{x1:sx(xv),y1:T,x2:sx(xv),y2:H-B,class:'gridline'});
+  el('text',{x:sx(xv),y:H-B+28,'text-anchor':'middle',class:'tick-label'},(xv/1e14).toFixed(2));
+}
+for(let i=0;i<=5;i++){
+  const yv=ymin+(ymax-ymin)*i/5;
+  el('line',{x1:L,y1:sy(yv),x2:W-R,y2:sy(yv),class:'gridline'});
+  el('text',{x:L-12,y:sy(yv)+4,'text-anchor':'end',class:'tick-label'},yv.toFixed(2));
+}
+/* Physical axes */
+el('line',{x1:L,y1:sy(0),x2:W-R,y2:sy(0),class:'plot-axis'});
+el('line',{x1:sx(0),y1:T,x2:sx(0),y2:H-B,class:'plot-axis'});
+el('text',{x:(L+W-R)/2,y:H-18,'text-anchor':'middle',class:'axis-label'},'Frequency ν (×10¹⁴ Hz)');
+el('text',{x:20,y:(T+H-B)/2,'text-anchor':'middle',class:'axis-label',transform:`rotate(-90 20 ${(T+H-B)/2})`},'Stopping potential Vₛ (V)');
+/* Einstein line is drawn from ν = 0 to beyond the measured region, so the
+   theoretical negative intercept is visible. */
+if(fit){
+  const lineX1=0,lineX2=xmax;
+  el('line',{x1:sx(lineX1),y1:sy(fit.c),x2:sx(lineX2),y2:sy(fit.m*lineX2+fit.c),class:'fit-line'});
+  if(fit.c<0){
+    el('circle',{cx:sx(0),cy:sy(fit.c),r:4,class:'data-point'});
+    el('text',{x:sx(0)+8,y:sy(fit.c)-8,class:'tick-label'},'−ϕ/e');
+  }
+}
+rows.forEach(r=>{
+  el('circle',{cx:sx(r.nu),cy:sy(r.vs),r:5,class:'data-point'});
+  el('text',{x:sx(r.nu)+8,y:sy(r.vs)-8,class:'tick-label'},r.filter);
+});
+/* Threshold frequency is the positive x-intercept of the fitted line. */
+if(fit&&Number.isFinite(nu0)&&nu0>0&&nu0<=xmax){
+  el('line',{x1:sx(nu0),y1:T,x2:sx(nu0),y2:H-B,class:'threshold-line'});
+  el('circle',{cx:sx(nu0),cy:sy(0),r:4,class:'data-point'});
+  el('text',{x:sx(nu0)+6,y:sy(0)-10,class:'tick-label'},'ν₀ = '+(nu0/1e14).toFixed(2)+' ×10¹⁴ Hz');
+}
+}
+function setGraphDownloadState(enabled){['downloadPng','downloadSvg'].forEach(id=>{const b=document.getElementById(id);if(b)b.disabled=!enabled;})}
+function graphSvgForDownload(){const svg=document.getElementById('photoGraph');if(!svg||!svg.querySelector('circle'))return null;const clone=svg.cloneNode(true);clone.setAttribute('xmlns','http://www.w3.org/2000/svg');clone.setAttribute('xmlns:xlink','http://www.w3.org/1999/xlink');const style=document.createElementNS('http://www.w3.org/2000/svg','style');style.textContent='.axis-label{font-family:Georgia,serif;font-size:13px;fill:#505650}.tick-label{font-family:Georgia,serif;font-size:11px;fill:#666b65}.gridline{stroke:#e3e7e1;stroke-width:1}.plot-axis{stroke:#6a716b;stroke-width:1.4}.fit-line{stroke:#174f38;stroke-width:2.5}.data-point{fill:#174f38}.threshold-line{stroke:#8a928b;stroke-width:1.5;stroke-dasharray:5 5}';clone.insertBefore(style,clone.firstChild);const bg=document.createElementNS('http://www.w3.org/2000/svg','rect');bg.setAttribute('x','0');bg.setAttribute('y','0');bg.setAttribute('width','900');bg.setAttribute('height','500');bg.setAttribute('fill','#ffffff');clone.insertBefore(bg,style.nextSibling);return clone}
+function downloadBlob(blob,filename){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function downloadGraphSVG(){const svg=graphSvgForDownload();if(!svg)return;const source=new XMLSerializer().serializeToString(svg);downloadBlob(new Blob([source],{type:'image/svg+xml;charset=utf-8'}),'photoelectric-effect-graph.svg')}
+function downloadGraphPNG(){const svg=graphSvgForDownload();if(!svg)return;const source=new XMLSerializer().serializeToString(svg);const svgBlob=new Blob([source],{type:'image/svg+xml;charset=utf-8'});const url=URL.createObjectURL(svgBlob);const img=new Image();img.onload=function(){const canvas=document.createElement('canvas');canvas.width=1800;canvas.height=1000;const ctx=canvas.getContext('2d');ctx.fillStyle='#ffffff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);URL.revokeObjectURL(url);canvas.toBlob(blob=>{if(blob)downloadBlob(blob,'photoelectric-effect-graph.png')},'image/png')};img.onerror=function(){URL.revokeObjectURL(url);alert('The graph could not be exported as PNG. Please try the SVG download instead.')};img.src=url}
+function resetPhotoelectric(){['f1','f2','f3','f4','f5'].forEach((id,i)=>document.getElementById(id).value=['Red','Orange','Green','Blue','Violet'][i]);['nu1','nu2','nu3','nu4','nu5','vs1','vs2','vs3','vs4','vs5'].forEach(id=>document.getElementById(id).value='');document.getElementById('charge').value='1.602176634e-19';['hOut','phiOut','nu0Out','slopeOut','interceptOut','r2Out','resultH','resultPhi'].forEach(id=>document.getElementById(id).textContent='—');drawGraph([]);setGraphDownloadState(false)}
+function toggleViva(btn){btn.parentElement.classList.toggle('open')}
+drawGraph([]);setGraphDownloadState(false);
+</script>
+
+
+
+<style id="v26-centered-reading-width">
+/* V26: keep experiment reading content centered at roughly 3/4 of the page width. */
+.experiment-page > main.section.container {
+  width: min(75vw, 1400px) !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.experiment-page > main.section.container .exp-layout,
+.experiment-page > main.section.container .exp4-layout {
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+@media (max-width: 900px) {
+  .experiment-page > main.section.container {
+    width: calc(100% - 32px) !important;
+  }
+}
+</style>
+
+<style id="v27-quick-access-below-hero">
+/* V27: quick access sits immediately below the black hero and aligns with the 3/4-width reading column. */
+.experiment-page > .quick-access-bar {
+  width: min(75vw, 1400px) !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+  background: var(--dark) !important;
+  border-top: 1px solid rgba(195,203,197,.28) !important;
+  border-bottom: 1px solid rgba(195,203,197,.18) !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-inner {
+  width: 100% !important;
+  min-height: 54px !important;
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-label {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 120px !important;
+  color: #b7d5c1 !important;
+  border-right: 1px solid rgba(195,203,197,.18) !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: stretch !important;
+  overflow-x: auto !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a {
+  flex: 1 1 0 !important;
+  justify-content: center !important;
+  min-width: 90px !important;
+  min-height: 54px !important;
+  color: #c3cbc5 !important;
+  border-left: 1px solid rgba(195,203,197,.17) !important;
+  padding: 0 12px !important;
+  white-space: nowrap !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:last-child {
+  border-right: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:hover,
+.experiment-page > .quick-access-bar .quick-access-links a:focus-visible {
+  background: rgba(183,213,193,.10) !important;
+  color: #fff !important;
+  outline: none !important;
+}
+@media (max-width: 900px) {
+  .experiment-page > .quick-access-bar { width: calc(100% - 32px) !important; }
+  .experiment-page > .quick-access-bar .quick-access-label { min-width: 105px !important; }
+  .experiment-page > .quick-access-bar .quick-access-links a { flex: 0 0 auto !important; min-width: 92px !important; }
+}
+</style>
+
+
+<script id="v28-quick-access-active">
+(() => {
+  const links = [...document.querySelectorAll('.quick-access-links a')];
+  if (!links.length) return;
+  const setActive = (link) => {
+    links.forEach(item => {
+      const active = item === link;
+      item.classList.toggle('active', active);
+      if (active) item.setAttribute('aria-current', 'location');
+      else item.removeAttribute('aria-current');
+    });
+  };
+  setActive(links[0]);
+  links.forEach(link => link.addEventListener('click', () => setActive(link)));
+})();
+</script>
+
+<style id="v30-header-height-refinement">
+/* V30: slightly taller experiment header for clearer separation from quick access. */
+.exp-hero, .exp4-hero {
+  padding-top: 45px !important;
+  padding-bottom: 34px !important;
+}
+@media (max-width: 900px) {
+  .exp-hero, .exp4-hero {
+    padding-top: 34px !important;
+    padding-bottom: 26px !important;
+  }
+}
+</style>
+
+<script id="search-jump-highlight">
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const query = (params.get('search') || '').trim();
+  if (!query) return;
+  const terms = query.toLowerCase().replace(/[–—−]/g,'-').replace(/[^\p{L}\p{N}]+/gu,' ').split(/\s+/).filter(Boolean);
+  const target = document.getElementById((window.location.hash || '').slice(1));
+  if (!target) return;
+
+  const style = document.createElement('style');
+  style.textContent = '.lab-search-hit{background:#dfeee5;box-shadow:0 0 0 3px rgba(23,79,59,.12);border-radius:2px;padding:0 .08em}.lab-search-target{outline:2px solid rgba(23,79,59,.22);outline-offset:10px;transition:outline-color .4s}';
+  document.head.appendChild(style);
+  target.classList.add('lab-search-target');
+  setTimeout(() => target.scrollIntoView({behavior:'smooth',block:'start'}), 80);
+
+  // Highlight the first matching text occurrence for each search term inside the target section.
+  const walker = document.createTreeWalker(target, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent || /^(SCRIPT|STYLE|INPUT|TEXTAREA|BUTTON|SELECT)$/.test(parent.tagName)) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  let highlighted=0;
+  for (const term of terms) {
+    const re = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), 'i');
+    const node = nodes.find(n => re.test(n.nodeValue || ''));
+    if (!node) continue;
+    const match = (node.nodeValue || '').match(re); if (!match) continue;
+    const frag = document.createDocumentFragment();
+    const before = node.nodeValue.slice(0, match.index);
+    const hit = document.createElement('mark'); hit.className='lab-search-hit'; hit.textContent=match[0];
+    const after = node.nodeValue.slice(match.index + match[0].length);
+    if (before) frag.appendChild(document.createTextNode(before));
+    frag.appendChild(hit);
+    if (after) frag.appendChild(document.createTextNode(after));
+    node.parentNode.replaceChild(frag,node);
+    highlighted++;
+  }
+  if (highlighted) setTimeout(() => target.querySelector('.lab-search-hit')?.scrollIntoView({behavior:'smooth',block:'center'}), 160);
+})();
+</script>
+
+<style id="qptlab-dark-final">
+html[data-theme="dark"] .site-header{background:rgba(17,21,19,.94)!important;border-bottom-color:#39423d!important}
+html[data-theme="dark"] .nav-links{background:#111513!important}
+html[data-theme="dark"] .nav-links a{color:var(--ink)}
+html[data-theme="dark"] .content-block h2,html[data-theme="dark"] .section-heading h2,html[data-theme="dark"] .card-body h3,html[data-theme="dark"] .feature h3,html[data-theme="dark"] .about-panel h2{color:var(--ink)}
+html[data-theme="dark"] .exp-hero,html[data-theme="dark"] .exp4-hero{background:#0b0e0c!important}
+html[data-theme="dark"] .lab-panel,html[data-theme="dark"] .visual-box,html[data-theme="dark"] .video-box,html[data-theme="dark"] .viva,html[data-theme="dark"] .result{color:var(--ink)!important}
+html[data-theme="dark"] .video-heading-content p,html[data-theme="dark"] .caption,html[data-theme="dark"] .formula-note,html[data-theme="dark"] .note{color:var(--muted)!important}
+html[data-theme="dark"] .obs-table th{color:var(--ink)!important;background:#252d28!important}
+html[data-theme="dark"] .obs-table td{background:#171c19!important;color:var(--ink)!important}
+html[data-theme="dark"] .obs-table input,html[data-theme="dark"] .field input{background:#0f1311!important;color:#eef2ee!important;border-color:#48534c!important}
+html[data-theme="dark"] .button.secondary{color:#eef2ee!important;border-color:#536158!important}
+html[data-theme="dark"] .quick-access-inner{color:var(--ink)!important}
+html[data-theme="dark"] .quick-access-label{color:var(--muted)!important}
+html[data-theme="dark"] .today-section,html[data-theme="dark"] .schedule-section{background:var(--bg)!important}
+html[data-theme="dark"] .session-card,html[data-theme="dark"] .today-empty{background:var(--surface)!important;border-color:var(--line)!important;color:var(--ink)!important}
+html[data-theme="dark"] .session-main span{color:var(--muted)!important}
+</style>
+
+<script id="qpt-static-theme-controller">
+(function(){
+  const KEY="qptlab-theme", root=document.documentElement;
+  function read(){ try { const q=new URLSearchParams(location.search).get("theme"); if(q==="dark"||q==="light") return q; const s=localStorage.getItem(KEY); if(s==="dark"||s==="light") return s; } catch(e){} return "light"; }
+  function apply(t){ t=(t==="dark")?"dark":"light"; root.setAttribute("data-theme",t); if(document.body) document.body.setAttribute("data-theme",t); document.querySelectorAll(".theme-toggle").forEach(btn=>{ const dark=t==="dark"; btn.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode"); btn.setAttribute("title",dark?"Switch to light mode":"Switch to dark mode"); const i=btn.querySelector(".theme-icon"), l=btn.querySelector(".theme-label"); if(i)i.textContent=dark?"☀":"☾"; if(l)l.textContent=dark?"Light":"Dark"; }); }
+  function save(t){ try{localStorage.setItem(KEY,t); document.cookie=KEY+"="+t+"; path=/; max-age=31536000; SameSite=Lax";}catch(e){} }
+  function addTheme(h){ try{ const u=new URL(h,location.href); if(u.origin!==location.origin) return h; if(!/\.html$/i.test(u.pathname)&&u.pathname!=="/"&&u.pathname!=="") return h; u.searchParams.set("theme",root.getAttribute("data-theme")==="dark"?"dark":"light"); return u.href; }catch(e){return h;} }
+  // Apply exactly once before first paint. Do not re-apply on DOMContentLoaded.
+  apply(read());
+  document.addEventListener("click",function(e){
+    const btn=e.target.closest&&e.target.closest(".theme-toggle");
+    if(btn){ const next=root.getAttribute("data-theme")==="dark"?"light":"dark"; save(next); apply(next); document.querySelectorAll("a[href]").forEach(a=>{const h=a.getAttribute("href"); if(h&&!h.startsWith("#")&&!h.startsWith("mailto:")&&!h.startsWith("javascript:")&&a.target!=="_blank"){const u=addTheme(h); if(u!==h)a.setAttribute("href",u);}}); return; }
+    const link=e.target.closest&&e.target.closest("a[href]");
+    if(link&&link.target!=="_blank"){const h=link.getAttribute("href"); if(h&&!h.startsWith("#")&&!h.startsWith("mailto:")&&!h.startsWith("javascript:")){const u=addTheme(h); if(u!==h)link.setAttribute("href",u);}}
+  },true);
+})();
+</script>
+<script id="qpt-v123-nav-mobile">
+(function(){
+  function init(){
+    var nav=document.querySelector('.tavus-exact-nav');
+    if(!nav) return;
+    var trigger=document.querySelector('.tavus-experiments-parent');
+    var menu=document.querySelector('.tavus-mega');
+    if(!trigger||!menu) return;
+    function position(){
+      var r=trigger.getBoundingClientRect(), n=nav.getBoundingClientRect();
+      var width=Math.min(650,Math.max(360,window.innerWidth-24));
+      var left=Math.min(Math.max(12,r.left),Math.max(12,window.innerWidth-width-12));
+      menu.style.width=width+'px'; menu.style.left=left+'px'; menu.style.top=(n.bottom+4)+'px'; menu.style.position='fixed';
+    }
+    function open(){position();menu.classList.add('qpt-mega-open');trigger.setAttribute('aria-expanded','true');}
+    function close(){menu.classList.remove('qpt-mega-open');trigger.setAttribute('aria-expanded','false');}
+    trigger.addEventListener('mouseenter',open); trigger.addEventListener('focus',open);
+    trigger.addEventListener('mouseleave',function(){setTimeout(function(){if(!menu.matches(':hover'))close();},140);});
+    trigger.addEventListener('click',function(e){e.preventDefault();menu.classList.contains('qpt-mega-open')?close():open();});
+    menu.addEventListener('mouseenter',open); menu.addEventListener('mouseleave',close);
+    document.addEventListener('click',function(e){if(!nav.contains(e.target)&&!menu.contains(e.target))close();});
+    window.addEventListener('scroll',function(){if(menu.classList.contains('qpt-mega-open'))position();},{passive:true});
+    window.addEventListener('resize',function(){if(menu.classList.contains('qpt-mega-open'))position();});
+    /* Keep the navigation truly sticky/fixed at the viewport top. */
+    var header=document.querySelector('.tavus-floating-header');
+    if(header) header.classList.add('qpt-nav-scrolled');
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+<script id="qpt-v136-tavus-nav-interactions">
+(function(){
+  function init(){
+    var nav=document.querySelector('.tavus-exact-nav');
+    var trigger=document.querySelector('.tavus-experiments-parent');
+    var menu=document.querySelector('.tavus-mega');
+    if(!nav||!trigger||!menu) return;
+
+    /* Move the mega-menu to body so the legacy paint-containment on the nav
+       cannot clip the fixed Tavus dropdown. */
+    if(menu.parentElement !== document.body) document.body.appendChild(menu);
+
+    var closeTimer=null;
+    function position(){
+      var r=trigger.getBoundingClientRect();
+      var n=nav.getBoundingClientRect();
+      var width=Math.min(650,Math.max(360,window.innerWidth-40));
+      var left=r.left;
+      if(left+width>window.innerWidth-18) left=Math.max(18,window.innerWidth-width-18);
+      menu.style.width=width+'px';
+      menu.style.left=left+'px';
+      menu.style.top=(n.bottom+4)+'px';
+      menu.style.position='fixed';
+    }
+    function open(){
+      clearTimeout(closeTimer);
+      position();
+      menu.classList.add('qpt-mega-open');
+      trigger.setAttribute('aria-expanded','true');
+    }
+    function scheduleClose(){
+      clearTimeout(closeTimer);
+      closeTimer=setTimeout(function(){
+        if(!menu.matches(':hover') && !trigger.matches(':hover')){
+          menu.classList.remove('qpt-mega-open');
+          trigger.setAttribute('aria-expanded','false');
+        }
+      },140);
+    }
+    trigger.addEventListener('mouseenter',open);
+    trigger.addEventListener('focus',open);
+    trigger.addEventListener('mouseleave',scheduleClose);
+    menu.addEventListener('mouseenter',open);
+    menu.addEventListener('mouseleave',scheduleClose);
+    trigger.addEventListener('click',function(e){
+      e.preventDefault();
+      menu.classList.contains('qpt-mega-open') ? (menu.classList.remove('qpt-mega-open'),trigger.setAttribute('aria-expanded','false')) : open();
+    });
+    document.addEventListener('click',function(e){
+      if(!trigger.contains(e.target) && !menu.contains(e.target)){
+        menu.classList.remove('qpt-mega-open');
+        trigger.setAttribute('aria-expanded','false');
+      }
+    });
+    window.addEventListener('scroll',function(){if(menu.classList.contains('qpt-mega-open'))position();},{passive:true});
+    window.addEventListener('resize',function(){if(menu.classList.contains('qpt-mega-open'))position();});
+    position();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+  <script src="qpt-search.js?v=152"></script>
+
+<script id="qpt-v194-build-experiment-section-frames">
+(function(){
+  function frameExperimentSections(){
+    if(!document.body.classList.contains('experiment-page')) return;
+    document.querySelectorAll('main.section.container .content-block').forEach(function(section){
+      if(section.dataset.qptFramed==='true') return;
+      var eyebrow=section.querySelector(':scope > .eyebrow');
+      var label='SECTION';
+      if(eyebrow){
+        label=(eyebrow.textContent||'').replace(/^\s*\d+\s*\/\s*/,'').trim();
+      } else if(section.id){ label=section.id.replace(/[-_]/g,' ').toUpperCase(); }
+      var top=document.createElement('div'); top.className='qpt-frame-top';
+      var dot=document.createElement('span'); dot.className='qpt-frame-dot'; dot.setAttribute('aria-hidden','true');
+      var title=document.createElement('span'); title.className='qpt-frame-label'; title.textContent=label;
+      var lines=document.createElement('span'); lines.className='qpt-frame-lines'; lines.setAttribute('aria-hidden','true');
+      var square=document.createElement('span'); square.className='qpt-frame-square'; square.setAttribute('aria-hidden','true');
+      top.append(dot,title,lines,square);
+      var bottom=document.createElement('div'); bottom.className='qpt-frame-bottom'; bottom.setAttribute('aria-hidden','true');
+      section.classList.add('qpt-frame-section');
+      section.insertBefore(top,section.firstChild); section.appendChild(bottom);
+      section.dataset.qptFramed='true';
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',frameExperimentSections); else frameExperimentSections();
+})();
+</script>
+
+
+<style id="qpt-section-motion-v198">
+/* V198: slower, softer section reveal. Keep the ready class so the browser can interpolate into the visible state. */
+.qpt-frame-section.qpt-motion-ready {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity 900ms cubic-bezier(.22, 1, .36, 1),
+    transform 900ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 320ms ease,
+    border-color 320ms ease;
+  will-change: opacity, transform;
+}
+.qpt-frame-section.qpt-motion-ready.qpt-motion-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+.qpt-frame-section.qpt-motion-visible {
+  transition:
+    opacity 900ms cubic-bezier(.22, 1, .36, 1),
+    transform 900ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 320ms ease,
+    border-color 320ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .qpt-frame-section.qpt-motion-visible:hover {
+    transform: translate3d(0, -3px, 0);
+    box-shadow: 0 9px 24px rgba(0,0,0,.075);
+    border-color: rgba(239, 91, 139, .38);
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  .qpt-frame-section.qpt-motion-visible:active {
+    box-shadow: 0 4px 14px rgba(0,0,0,.055);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qpt-frame-section.qpt-motion-ready,
+  .qpt-frame-section.qpt-motion-ready.qpt-motion-visible,
+  .qpt-frame-section.qpt-motion-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+}
+</style>
+
+<script id="qpt-section-motion-script-v198">
+(function(){
+  function initQptSectionMotion(){
+    var sections = Array.prototype.slice.call(document.querySelectorAll('.qpt-frame-section'));
+    if (!sections.length) return;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      sections.forEach(function(section){
+        section.classList.add('qpt-motion-visible');
+      });
+      return;
+    }
+
+    sections.forEach(function(section, index){
+      section.classList.add('qpt-motion-ready');
+      /* A small stagger gives a flowing sequence without making users wait. */
+      section.style.transitionDelay = (Math.min(index % 4, 3) * 55) + 'ms';
+    });
+
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          /* Reveal on entry; retain observation so the section can hide again on exit. */
+          entry.target.classList.add('qpt-motion-visible');
+        } else {
+          /* Reverse the transition when scrolling away, including when scrolling upward. */
+          entry.target.classList.remove('qpt-motion-visible');
+        }
+      });
+    }, {
+      threshold: 0.02,
+      rootMargin: '0px 0px -10% 0px'
+    });
+
+    sections.forEach(function(section){ observer.observe(section); });
+  }
+  if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initQptSectionMotion, {once:true});
+  } else {
+    initQptSectionMotion();
+  }
+})();
+</script>
+
+</body>
+</html>
+
+<style id="v29-quick-access-clean-light">
+/* V29: clean quick-access strip — no label box; all buttons match page background; active section uses schedule light green. */
+.experiment-page > .quick-access-bar {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--line) !important;
+  border-bottom: 1px solid var(--line) !important;
+  width: min(75vw, 1400px) !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+}
+.experiment-page > .quick-access-bar .quick-access-inner {
+  width: 100% !important;
+  min-height: 54px !important;
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-label {
+  display: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links {
+  width: 100% !important;
+  flex: 1 1 100% !important;
+  display: flex !important;
+  align-items: stretch !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links::-webkit-scrollbar {
+  display: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  min-height: 54px !important;
+  justify-content: center !important;
+  padding: 0 10px !important;
+  color: var(--ink) !important;
+  background: var(--bg) !important;
+  border-left: 1px solid var(--line) !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  transition: background .18s ease, color .18s ease, border-color .18s ease !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:first-child {
+  border-left: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:last-child {
+  border-right: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:hover,
+.experiment-page > .quick-access-bar .quick-access-links a:focus-visible {
+  background: var(--accent-2) !important;
+  color: var(--ink) !important;
+  outline: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a.active {
+  background: var(--accent-2) !important;
+  color: var(--accent-ink, #142319) !important;
+  border-color: #b9ccbF !important;
+  box-shadow: inset 0 0 0 1px #b9ccbF !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a.active + a {
+  border-left-color: #b9ccbF !important;
+}
+@media (max-width: 900px) {
+  .experiment-page > .quick-access-bar {
+    width: calc(100% - 32px) !important;
+  }
+  .experiment-page > .quick-access-bar .quick-access-links a {
+    flex: 0 0 112px !important;
+  }
+}
+</style>
+
+<style id="static-navigation-v60">
+/* V60: final header/hero state is painted directly; no navigation-load motion. */
+.site-header, .site-header *, .exp-hero, .exp4-hero, .exp-hero *, .exp4-hero *, .quick-access-bar, .quick-access-bar * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  will-change: auto !important;
+}
+</style>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Interactive FOUNDATION OF QUANTUM AND PHOTONIC TECHNOLOGIES LAB" name="description"/>
+<title>FOUNDATION OF QUANTUM AND PHOTONIC TECHNOLOGIES LAB</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="image" fetchpriority="high" href="hero-daily-4.jpg" rel="preload"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;display=block" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=block" rel="stylesheet"/>
+<script>
+(function(){
+  try {
+    var q=new URLSearchParams(location.search).get("theme");
+    var saved=localStorage.getItem("qptlab-theme");
+    var t=(q==="dark"||q==="light")?q:((saved==="dark"||saved==="light")?saved:"light");
+    document.documentElement.setAttribute("data-theme",t);
+  } catch(e) { document.documentElement.setAttribute("data-theme","light"); }
+  document.documentElement.style.setProperty("--hero-image", 'url("hero-daily-4.jpg")');
+})();
+</script>
+<link href="style.css" rel="stylesheet"/>
+<style id="playfair-global">
+html, body, body * {
+  font-family: "Playfair Display", Georgia, serif !important;
+}
+</style>
+<style id="static-header-navigation-v59">
+/* V59: static header/navigation. No opening sweep, reveal, fade, transform, or transition. */
+.site-header, .site-header *,
+.home-site-header, .home-site-header *,
+.exp-hero, .exp4-hero, .exp-hero *, .exp4-hero *,
+.quick-access-bar, .quick-access-bar * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  will-change: auto !important;
+}
+.exp-hero, .exp4-hero {
+  background: #111713 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+html[data-theme="dark"] .exp-hero,
+html[data-theme="dark"] .exp4-hero { background: #0b0e0c !important; }
+</style>
+<script id="qpt-static-navigation-init">
+/* QPT static navigation: prevent browser history from restoring an old scroll position during page navigation. */
+try { if ("scrollRestoration" in history) history.scrollRestoration = "manual"; } catch (e) {}
+</script>
+<style id="qpt-v63-paint-stability">
+/* V63: eliminate first-paint layout/compositing changes. */
+html{scroll-behavior:auto!important;scrollbar-gutter:stable!important;overflow-anchor:none!important;}
+body{overflow-anchor:none!important;font-synthesis:none;}
+.site-header,.home-site-header,.nav,.hero,.hero::before,.hero::after,.hero-grid,.exp-hero,.exp4-hero,.quick-access-bar{contain:layout paint!important;}
+.site-header,.home-site-header,.nav,.theme-toggle{backface-visibility:hidden!important;}
+.theme-toggle{width:74px!important;min-width:74px!important;flex:0 0 74px!important;box-sizing:border-box!important;}
+</style><style id="qpt-v123-nav-transplant">
+
+/* ================================================================
+   QPT NAV — transplanted from Tavus V123
+   Navigation only: keep the base QPT Lab page design unchanged.
+   ================================================================ */
+.tavus-floating-header{
+  position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;
+  height:70px!important;padding:10px 0 11px!important;margin:0!important;background:transparent!important;
+  border:0!important;z-index:2147483000!important;pointer-events:none!important;
+}
+.tavus-floating-header.qpt-nav-scrolled{top:0!important;}
+.tavus-exact-nav{
+  position:relative!important;width:calc(100% - 96px)!important;max-width:none!important;
+  height:49px!important;min-height:49px!important;margin:0 auto!important;padding:0!important;
+  display:block!important;background:transparent!important;border:0!important;box-shadow:none!important;
+  overflow:visible!important;isolation:auto!important;
+}
+.tavus-nav-left{
+  position:absolute!important;left:0!important;top:0!important;height:49px!important;width:auto!important;
+  max-width:none!important;min-width:0!important;margin:0!important;padding:0!important;display:flex!important;
+  align-items:stretch!important;background:#f8f7f0!important;border:1px solid #111!important;
+  box-shadow:6px 6px 0 #111!important;z-index:20!important;overflow:visible!important;
+}
+.tavus-brand{
+  flex:0 0 150px!important;width:150px!important;min-width:150px!important;height:47px!important;
+  padding:0 20px!important;border:0!important;border-right:1px solid #111!important;
+  box-shadow:none!important;background:#f8f7f0!important;display:flex!important;align-items:center!important;gap:9px!important;
+}
+.tavus-brand .brand-mark,.tavus-brand .brand-mark img{width:31px!important;height:31px!important;object-fit:contain!important;}
+.tavus-brand .brand-name{font:800 15px/1 "Manrope",Arial,sans-serif!important;letter-spacing:-.035em!important;color:#111!important;}
+.tavus-links{
+  display:flex!important;align-items:stretch!important;height:47px!important;background:#f8f7f0!important;
+}
+.tavus-links>a{
+  height:47px!important;min-width:116px!important;padding:0 15px!important;display:flex!important;
+  align-items:center!important;justify-content:center!important;gap:5px!important;border:0!important;
+  border-right:1px solid #111!important;box-shadow:none!important;border-radius:0!important;
+  background:#f8f7f0!important;color:#111!important;font:500 11px/1 "Manrope",Arial,sans-serif!important;
+  letter-spacing:-.01em!important;white-space:nowrap!important;
+}
+.tavus-links>a:hover{background:#efeee7!important;color:#111!important;transform:none!important;}
+.tavus-links>a>span:first-child{font-size:12px!important;margin:0!important;}
+.tavus-experiments-parent{position:relative!important;z-index:100!important;}
+.tavus-nav-right{
+  position:absolute!important;right:0!important;top:0!important;height:49px!important;width:130px!important;
+  min-width:130px!important;margin:0!important;padding:0!important;display:block!important;
+  background:#f8f7f0!important;border:1px solid #111!important;box-shadow:6px 6px 0 #111!important;
+  z-index:20!important;overflow:visible!important;
+}
+.tavus-search{
+  width:128px!important;min-width:128px!important;height:47px!important;border:0!important;
+  box-shadow:none!important;background:#f8f7f0!important;border-radius:0!important;
+}
+.tavus-search input{
+  width:92px!important;height:100%!important;padding:0 4px 0 13px!important;color:#111!important;
+  background:transparent!important;border:0!important;outline:0!important;font:500 10px/1 "Manrope",Arial,sans-serif!important;
+  letter-spacing:.02em!important;
+}
+.tavus-search input::placeholder{color:#333!important;opacity:1!important;}
+.tavus-search button{width:32px!important;height:100%!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#111!important;font-size:18px!important;cursor:pointer!important;}
+.tavus-exact-nav::before{display:none!important;content:none!important;}
+.tavus-mega{
+  position:fixed!important;z-index:2147483647!important;display:block!important;opacity:0!important;visibility:hidden!important;
+  pointer-events:none!important;transform:translateY(-2px)!important;background:#f8f7f0!important;color:#111!important;
+  border:1px solid #111!important;box-shadow:6px 6px 0 #111!important;overflow:hidden!important;
+}
+.tavus-mega.qpt-mega-open{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:translateY(0)!important;}
+.tavus-mega-title{position:relative!important;z-index:1!important;display:block!important;padding:15px 18px 12px!important;background:#f8f7f0!important;color:#111!important;font:700 10px/1 "Manrope",Arial,sans-serif!important;letter-spacing:.12em!important;border-bottom:1px solid #111!important;}
+.tavus-mega-grid{position:relative!important;z-index:1!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+.tavus-mega-grid>a{min-height:61px!important;padding:12px 15px!important;display:grid!important;grid-template-columns:32px 1fr!important;align-items:center!important;gap:10px!important;color:#111!important;border:0!important;border-right:1px solid #111!important;border-bottom:1px solid #111!important;border-radius:0!important;background:#f8f7f0!important;font:600 13px/1.25 "Manrope",Arial,sans-serif!important;}
+.tavus-mega-grid>a:nth-child(even){border-right:0!important;}
+.tavus-mega-grid>a:hover{background:#f06b9a!important;color:#111!important;}
+.tavus-mega-grid b{font:800 13px/1 "Manrope",Arial,sans-serif!important;}
+.tavus-mega-grid span{font:600 13px/1.25 "Manrope",Arial,sans-serif!important;}
+/* Override legacy navigation rules without touching the rest of the site. */
+.tavus-floating-header .menu-toggle{display:none!important;}
+.tavus-floating-header .nav-links{gap:0!important;}
+@media(max-width:1000px){
+  .tavus-exact-nav{width:calc(100% - 48px)!important;}
+  .tavus-brand{flex-basis:140px!important;width:140px!important;min-width:140px!important;padding:0 14px!important;}
+  .tavus-links>a{min-width:105px!important;padding:0 10px!important;font-size:10px!important;}
+}
+@media(max-width:760px){
+  .tavus-floating-header{height:58px!important;padding:7px 0 9px!important;}
+  .tavus-exact-nav{width:calc(100% - 24px)!important;height:52px!important;min-height:52px!important;}
+  .tavus-nav-left{height:52px!important;max-width:calc(100% - 104px)!important;overflow:hidden!important;}
+  .tavus-brand{flex-basis:112px!important;width:112px!important;min-width:112px!important;height:50px!important;padding:0 10px!important;}
+  .tavus-brand .brand-name{font-size:12px!important;}
+  .tavus-links>a{min-width:auto!important;padding:0 8px!important;height:50px!important;font-size:8px!important;}
+  .tavus-nav-right{height:52px!important;width:100px!important;min-width:100px!important;}
+  .tavus-search{width:98px!important;height:50px!important;}
+  .tavus-search input{display:none!important;}
+  .tavus-mega{left:12px!important;top:59px!important;width:calc(100vw - 24px)!important;max-width:none!important;}
+}
+/* Fixed navigation must not cover the first hero content. */
+.home-site-header.tavus-floating-header + main .hero{padding-top:70px!important;}
+body.experiment-page .tavus-floating-header + .exp-hero{padding-top:140px!important;}
+body.experiment-page .tavus-floating-header + .exp4-hero{padding-top:140px!important;}
+
+</style>
+
+<style id="qpt-v135-nav-interaction-fix">
+/* V135 interaction fix: the floating Tavus navigation is visually transparent at the
+   header layer, but its actual controls must remain clickable. */
+.tavus-floating-header,
+.tavus-exact-nav,
+.tavus-exact-nav * { pointer-events:auto !important; }
+.tavus-mega { pointer-events:none !important; }
+.tavus-mega.qpt-mega-open { pointer-events:auto !important; }
+</style>
+
+<style id="qpt-v184-hide-duplicate-section-headings">
+/* The frame rail already carries the section title; hide the repeated large title inside each panel. */
+.qpt-frame-section > h2 { display: none !important; }
+.qpt-frame-section .section-heading h2 { display: none !important; }
+/* Keep eyebrow labels, descriptive text, and any nested subheadings untouched. */
+</style>
+
+</head>
+<body>
+<header class="site-header tavus-floating-header">
+<nav class="nav tavus-exact-nav" aria-label="Primary navigation">
+  <div class="tavus-nav-left">
+    <a aria-label="QPT Lab home" class="tavus-brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true"><img src="infinity-logo.png" alt=""></span>
+      <span class="brand-name">QPT LAB</span>
+    </a>
+    <div class="tavus-links nav-links">
+      <a href="#home"><span aria-hidden="true">▪</span> HOME</a>
+      <a class="tavus-experiments-parent" href="#experiments" aria-haspopup="true" aria-expanded="false">
+        <span aria-hidden="true">▪</span> EXPERIMENTS
+      </a>
+      <div class="tavus-mega" aria-label="Experiments" role="menu">
+        <div class="tavus-mega-title">EXPERIMENTS 01—08</div>
+        <div class="tavus-mega-grid">
+          <a href="experiment-01.html"><b>01</b><span>Diffraction Grating</span></a>
+          <a href="experiment-02.html"><b>02</b><span>Refractive Index of Prism</span></a>
+          <a href="experiment-03.html"><b>03</b><span>Photoelectric Effect</span></a>
+          <a href="experiment-04.html"><b>04</b><span>Circular Coil</span></a>
+          <a href="experiment-05.html"><b>05</b><span>Newton’s Rings</span></a>
+          <a href="experiment-06.html"><b>06</b><span>Diffraction of Laser</span></a>
+          <a href="experiment-08.html"><b>08</b><span>P-N Junction Diode</span></a>
+          <a href="#experiments"><b>08</b><span>Experiment 08</span></a>
+        </div>
+      </div>
+      <a href="#features"><span aria-hidden="true">▪</span> FEATURES</a>
+      <a href="#about"><span aria-hidden="true">▪</span> ABOUT</a>
+    </div>
+  </div>
+  <div class="tavus-nav-right">
+    <div class="nav-search tavus-search" id="nav-search">
+      <label class="sr-only" for="nav-search-input">Search the lab</label>
+      <input aria-controls="nav-search-results" aria-expanded="false" aria-label="Search experiments, concepts and apparatus" autocomplete="off" id="nav-search-input" placeholder="SEARCH" spellcheck="false" type="search">
+      <button aria-label="Search" id="nav-search-button" title="Search" type="button">⌕</button>
+      <div aria-label="Search results" class="nav-search-results" id="nav-search-results" role="listbox"></div>
+    </div>
+  </div>
+</nav>
+</header>
+<main>
+<section class="hero" id="home">
+<div class="hero-grid"></div>
+<div class="container hero-content">
+<h1>Experiment.<br/><span>Measure.</span><br/>Understand.</h1>
+<p class="hero-description">
+          A digital laboratory companion for experiments, observations, calculations and
+          interactive visualizations.
+        </p>
+</div>
+<div aria-hidden="true" class="hero-equation">
+<span>∇ · B = 0</span>
+<span>E = hν</span>
+<span>d sin θ = nλ</span>
+</div>
+</section>
+<section class="section today-section" id="today-lab">
+<div class="container">
+<div class="section-heading today-heading">
+<div>
+<div class="eyebrow">WEEKLY TIMETABLE</div>
+<h2>Today in the lab</h2>
+</div>
+<div class="today-date" id="today-date">Loading today's schedule…</div>
+</div>
+<div class="today-panel">
+<div class="today-status" id="today-status"></div>
+<div aria-live="polite" class="session-list" id="session-list"></div>
+<button aria-controls="upcoming-wrap" aria-expanded="false" class="button secondary upcoming-toggle" id="upcoming-toggle" type="button">View next lab sessions →</button>
+<div class="upcoming-wrap" hidden="" id="upcoming-wrap">
+<div class="upcoming-heading">NEXT LAB SESSIONS</div>
+<div aria-live="polite" class="upcoming-list" id="upcoming-list"></div>
+</div>
+<div class="today-actions">
+<a class="button primary" href="Engineering_Physics_Odd_Sem_Time_Table_2026.pdf" rel="noopener" target="_blank">View Full Timetable →</a>
+<a class="button secondary dark-button" href="lab-schedule.html" rel="noopener" target="_blank">View Lab Schedule →</a>
+</div>
+</div>
+</div>
+</section>
+<section class="section container" id="experiments">
+<div class="section-heading">
+<div>
+<div class="eyebrow">LAB MANUAL • EXPERIMENTS 01–08</div>
+<h2>Choose an experiment</h2>
+</div>
+</div>
+<div class="experiment-grid">
+<article class="experiment-card featured">
+<div class="card-number">01</div>
+<div class="card-icon">λ</div>
+<div class="card-body">
+<span class="tag">OPTICS • SPECTROMETER</span>
+<h3>Diffraction Grating</h3>
+<p>Determine the wavelengths of prominent mercury spectral lines using a plane diffraction grating.</p>
+<a href="experiment-01.html">Open experiment <span>↗</span></a>
+</div>
+</article>
+<article class="experiment-card">
+<div class="card-number">02</div>
+<div class="card-icon">μ</div>
+<div class="card-body">
+<span class="tag">OPTICS • SPECTROMETER</span>
+<h3>Refractive Index of Prism</h3>
+<p>Determine the refractive index of the material of a prism using minimum deviation.</p>
+<a href="experiment-02.html">Open experiment <span>↗</span></a>
+</div>
+</article>
+<article class="experiment-card">
+<div class="card-number">03</div>
+<div class="card-icon">h</div>
+<div class="card-body">
+<span class="tag">MODERN PHYSICS</span>
+<h3>Photoelectric Effect</h3>
+<p>Determine Planck's constant and the work function of the particular material.</p>
+<a href="experiment-03.html">Open experiment <span>↗</span></a>
+</div>
+</article>
+<article class="experiment-card">
+<div class="card-number">04</div>
+<div class="card-icon">B</div>
+<div class="card-body">
+<span class="tag">ELECTROMAGNETISM</span>
+<h3>Circular Coil</h3>
+<p>Determine Earth's horizontal magnetic field and study field variation along the coil axis.</p>
+<a href="experiment-04.html">Open experiment <span>↗</span></a>
+</div>
+</article>
+<article class="experiment-card">
+<div class="card-number">05</div>
+<div class="card-icon">○</div>
+<div class="card-body">
+<span class="tag">OPTICS • INTERFERENCE</span>
+<h3>Newton’s Rings</h3>
+<p>Determine the wavelength of sodium light from the diameters of Newton’s rings.</p>
+<a href="experiment-05.html">Open experiment <span>↗</span></a>
+</div>
+</article>
+<article class="experiment-card">
+<div class="card-number">06</div>
+<div class="card-icon">λ</div>
+<div class="card-body">
+<span class="tag">OPTICS • DIFFRACTION</span>
+<h3>Diffraction of Laser</h3>
+<p>Determine the wavelength of He-Ne laser light using a diffraction grating.</p>
+<a href="experiment-06.html">Open experiment <span>↗</span></a>
+</div>
+</article>
+<article class="experiment-card">
+<div class="card-number">08</div>
+<div class="card-icon">D</div>
+<div class="card-body">
+<span class="tag">SEMICONDUCTOR ELECTRONICS</span>
+<h3>P-N Junction Diode Characteristics</h3>
+<p>Study and plot the V–I characteristics of a p-n junction diode in forward and reverse bias.</p>
+<a href="experiment-08.html">Open experiment <span>↗</span></a></div>
+</article>
+<article class="experiment-card placeholder-card">
+<div class="card-number">09</div>
+<div class="card-icon">—</div>
+<div class="card-body">
+<span class="tag">EXPERIMENT 08</span>
+<h3>Experiment 08</h3>
+<p>Content to be added.</p>
+</div>
+</article>
+</div>
+</section>
+<section class="section feature-section" id="features">
+<div class="container">
+<div class="section-heading">
+<div>
+<div class="eyebrow">MORE THAN A PDF</div>
+<h2>A lab that works with you</h2>
+</div>
+<p>The next stages will turn these experiment pages into interactive laboratory tools.</p>
+</div>
+<div class="feature-grid">
+<div class="feature">
+<span>01</span>
+<h3>Smart Calculations</h3>
+<p>Enter observations and let the website perform the required calculations automatically.</p>
+</div>
+<div class="feature">
+<span>02</span>
+<h3>Live Graphs</h3>
+<p>Plot experimental data directly in the browser and visualize the physics behind the measurements.</p>
+</div>
+<div class="feature">
+<span>03</span>
+<h3>Interactive Theory</h3>
+<p>Connect equations, apparatus and physical concepts instead of simply reading a procedure.</p>
+</div>
+<div class="feature">
+<span>04</span>
+<h3>Viva Practice</h3>
+<p>Prepare for laboratory viva questions experiment by experiment.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="about section container" id="about">
+<div class="about-panel">
+<div class="eyebrow">THE IDEA</div>
+<h2>From laboratory manual to digital laboratory.</h2>
+<p>
+          This website is being built around the four experiments in the supplied
+          laboratory manual. The original experiment structure will remain the
+          foundation; interactive calculations, graphs and visual explanations
+          will be added on top of it.
+        </p>
+</div>
+<div class="about-stat">
+<strong>04</strong>
+<span>Experiments<br/>in the first module</span>
+</div>
+</section>
+</main>
+<footer>
+<div class="container footer-inner">
+<span class="footer-brand"><span aria-hidden="true" class="footer-mark"><img alt="" src="infinity-logo.png"/></span><span>qpt Lab</span></span>
+</div>
+</footer>
+<script src="script-v139.js?v=139"></script>
+<style id="v30-header-height-refinement">
+/* V30: slightly taller experiment header for clearer separation from quick access. */
+.exp-hero, .exp4-hero {
+  padding-top: 45px !important;
+  padding-bottom: 34px !important;
+}
+@media (max-width: 900px) {
+  .exp-hero, .exp4-hero {
+    padding-top: 34px !important;
+    padding-bottom: 26px !important;
+  }
+}
+</style>
+<style id="qptlab-dark-final">
+html[data-theme="dark"] .site-header{background:rgba(17,21,19,.94)!important;border-bottom-color:#39423d!important}
+html[data-theme="dark"] .nav-links{background:#111513!important}
+html[data-theme="dark"] .nav-links a{color:var(--ink)}
+html[data-theme="dark"] .content-block h2,html[data-theme="dark"] .section-heading h2,html[data-theme="dark"] .card-body h3,html[data-theme="dark"] .feature h3,html[data-theme="dark"] .about-panel h2{color:var(--ink)}
+html[data-theme="dark"] .exp-hero,html[data-theme="dark"] .exp4-hero{background:#0b0e0c!important}
+html[data-theme="dark"] .lab-panel,html[data-theme="dark"] .visual-box,html[data-theme="dark"] .video-box,html[data-theme="dark"] .viva,html[data-theme="dark"] .result{color:var(--ink)!important}
+html[data-theme="dark"] .video-heading-content p,html[data-theme="dark"] .caption,html[data-theme="dark"] .formula-note,html[data-theme="dark"] .note{color:var(--muted)!important}
+html[data-theme="dark"] .obs-table th{color:var(--ink)!important;background:#252d28!important}
+html[data-theme="dark"] .obs-table td{background:#171c19!important;color:var(--ink)!important}
+html[data-theme="dark"] .obs-table input,html[data-theme="dark"] .field input{background:#0f1311!important;color:#eef2ee!important;border-color:#48534c!important}
+html[data-theme="dark"] .button.secondary{color:#eef2ee!important;border-color:#536158!important}
+html[data-theme="dark"] .quick-access-inner{color:var(--ink)!important}
+html[data-theme="dark"] .quick-access-label{color:var(--muted)!important}
+html[data-theme="dark"] .today-section,html[data-theme="dark"] .schedule-section{background:var(--bg)!important}
+html[data-theme="dark"] .session-card,html[data-theme="dark"] .today-empty{background:var(--surface)!important;border-color:var(--line)!important;color:var(--ink)!important}
+html[data-theme="dark"] .session-main span{color:var(--muted)!important}
+</style>
+<style id="homepage-dark-mode-hero-lock">
+/* Final homepage-only theme lock: dark mode must not alter the hero/navigation appearance. */
+html[data-theme="dark"] .home-site-header {
+  background: rgba(5,8,7,.22) !important;
+  border-bottom: 1px solid rgba(255,255,255,.16) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+html[data-theme="dark"] .home-site-header .nav-links {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+html[data-theme="dark"] .home-site-header .nav-links a {
+  color: #fff !important;
+  background: rgba(10,15,18,.16) !important;
+  border: 1px solid rgba(255,255,255,.28) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(7px) !important;
+  -webkit-backdrop-filter: blur(7px) !important;
+}
+html[data-theme="dark"] .home-site-header .nav-links a:hover {
+  color: #fff !important;
+  background: rgba(255,255,255,.12) !important;
+  border-color: rgba(255,255,255,.55) !important;
+}
+html[data-theme="dark"] .home-site-header .theme-toggle {
+  background: rgba(255,255,255,.94) !important;
+  color: #183327 !important;
+  border-color: rgba(255,255,255,.75) !important;
+  box-shadow: none !important;
+}
+html[data-theme="dark"] .home-site-header .theme-toggle:hover {
+  background: #fff !important;
+  color: #183327 !important;
+  border-color: #fff !important;
+}
+</style>
+<script id="qpt-static-theme-controller">
+(function(){
+  const KEY="qptlab-theme", root=document.documentElement;
+  function read(){ try { const q=new URLSearchParams(location.search).get("theme"); if(q==="dark"||q==="light") return q; const s=localStorage.getItem(KEY); if(s==="dark"||s==="light") return s; } catch(e){} return "light"; }
+  function apply(t){ t=(t==="dark")?"dark":"light"; root.setAttribute("data-theme",t); if(document.body) document.body.setAttribute("data-theme",t); document.querySelectorAll(".theme-toggle").forEach(btn=>{ const dark=t==="dark"; btn.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode"); btn.setAttribute("title",dark?"Switch to light mode":"Switch to dark mode"); const i=btn.querySelector(".theme-icon"), l=btn.querySelector(".theme-label"); if(i)i.textContent=dark?"☀":"☾"; if(l)l.textContent=dark?"Light":"Dark"; }); }
+  function save(t){ try{localStorage.setItem(KEY,t); document.cookie=KEY+"="+t+"; path=/; max-age=31536000; SameSite=Lax";}catch(e){} }
+  function addTheme(h){ try{ const u=new URL(h,location.href); if(u.origin!==location.origin) return h; if(!/\.html$/i.test(u.pathname)&&u.pathname!=="/"&&u.pathname!=="") return h; u.searchParams.set("theme",root.getAttribute("data-theme")==="dark"?"dark":"light"); return u.href; }catch(e){return h;} }
+  // Apply exactly once before first paint. Do not re-apply on DOMContentLoaded.
+  apply(read());
+  document.addEventListener("click",function(e){
+    const btn=e.target.closest&&e.target.closest(".theme-toggle");
+    if(btn){ const next=root.getAttribute("data-theme")==="dark"?"light":"dark"; save(next); apply(next); document.querySelectorAll("a[href]").forEach(a=>{const h=a.getAttribute("href"); if(h&&!h.startsWith("#")&&!h.startsWith("mailto:")&&!h.startsWith("javascript:")&&a.target!=="_blank"){const u=addTheme(h); if(u!==h)a.setAttribute("href",u);}}); return; }
+    const link=e.target.closest&&e.target.closest("a[href]");
+    if(link&&link.target!=="_blank"){const h=link.getAttribute("href"); if(h&&!h.startsWith("#")&&!h.startsWith("mailto:")&&!h.startsWith("javascript:")){const u=addTheme(h); if(u!==h)link.setAttribute("href",u);}}
+  },true);
+})();
+</script>
+<script id="qpt-v123-nav-mobile">
+(function(){
+  function init(){
+    var nav=document.querySelector('.tavus-exact-nav');
+    if(!nav) return;
+    var trigger=document.querySelector('.tavus-experiments-parent');
+    var menu=document.querySelector('.tavus-mega');
+    if(!trigger||!menu) return;
+    function position(){
+      var r=trigger.getBoundingClientRect(), n=nav.getBoundingClientRect();
+      var width=Math.min(650,Math.max(360,window.innerWidth-24));
+      var left=Math.min(Math.max(12,r.left),Math.max(12,window.innerWidth-width-12));
+      menu.style.width=width+'px'; menu.style.left=left+'px'; menu.style.top=(n.bottom+4)+'px'; menu.style.position='fixed';
+    }
+    function open(){position();menu.classList.add('qpt-mega-open');trigger.setAttribute('aria-expanded','true');}
+    function close(){menu.classList.remove('qpt-mega-open');trigger.setAttribute('aria-expanded','false');}
+    trigger.addEventListener('mouseenter',open); trigger.addEventListener('focus',open);
+    trigger.addEventListener('mouseleave',function(){setTimeout(function(){if(!menu.matches(':hover'))close();},140);});
+    trigger.addEventListener('click',function(e){e.preventDefault();menu.classList.contains('qpt-mega-open')?close():open();});
+    menu.addEventListener('mouseenter',open); menu.addEventListener('mouseleave',close);
+    document.addEventListener('click',function(e){if(!nav.contains(e.target)&&!menu.contains(e.target))close();});
+    window.addEventListener('scroll',function(){if(menu.classList.contains('qpt-mega-open'))position();},{passive:true});
+    window.addEventListener('resize',function(){if(menu.classList.contains('qpt-mega-open'))position();});
+    /* Keep the navigation truly sticky/fixed at the viewport top. */
+    var header=document.querySelector('.tavus-floating-header');
+    if(header) header.classList.add('qpt-nav-scrolled');
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+<script id="qpt-v136-tavus-nav-interactions">
+(function(){
+  function init(){
+    var nav=document.querySelector('.tavus-exact-nav');
+    var trigger=document.querySelector('.tavus-experiments-parent');
+    var menu=document.querySelector('.tavus-mega');
+    if(!nav||!trigger||!menu) return;
+
+    /* Move the mega-menu to body so the legacy paint-containment on the nav
+       cannot clip the fixed Tavus dropdown. */
+    if(menu.parentElement !== document.body) document.body.appendChild(menu);
+
+    var closeTimer=null;
+    function position(){
+      var r=trigger.getBoundingClientRect();
+      var n=nav.getBoundingClientRect();
+      var width=Math.min(650,Math.max(360,window.innerWidth-40));
+      var left=r.left;
+      if(left+width>window.innerWidth-18) left=Math.max(18,window.innerWidth-width-18);
+      menu.style.width=width+'px';
+      menu.style.left=left+'px';
+      menu.style.top=(n.bottom+4)+'px';
+      menu.style.position='fixed';
+    }
+    function open(){
+      clearTimeout(closeTimer);
+      position();
+      menu.classList.add('qpt-mega-open');
+      trigger.setAttribute('aria-expanded','true');
+    }
+    function scheduleClose(){
+      clearTimeout(closeTimer);
+      closeTimer=setTimeout(function(){
+        if(!menu.matches(':hover') && !trigger.matches(':hover')){
+          menu.classList.remove('qpt-mega-open');
+          trigger.setAttribute('aria-expanded','false');
+        }
+      },140);
+    }
+    trigger.addEventListener('mouseenter',open);
+    trigger.addEventListener('focus',open);
+    trigger.addEventListener('mouseleave',scheduleClose);
+    menu.addEventListener('mouseenter',open);
+    menu.addEventListener('mouseleave',scheduleClose);
+    trigger.addEventListener('click',function(e){
+      e.preventDefault();
+      menu.classList.contains('qpt-mega-open') ? (menu.classList.remove('qpt-mega-open'),trigger.setAttribute('aria-expanded','false')) : open();
+    });
+    document.addEventListener('click',function(e){
+      if(!trigger.contains(e.target) && !menu.contains(e.target)){
+        menu.classList.remove('qpt-mega-open');
+        trigger.setAttribute('aria-expanded','false');
+      }
+    });
+    window.addEventListener('scroll',function(){if(menu.classList.contains('qpt-mega-open'))position();},{passive:true});
+    window.addEventListener('resize',function(){if(menu.classList.contains('qpt-mega-open'))position();});
+    position();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+</body>
+</html>

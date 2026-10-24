@@ -1,0 +1,1969 @@
+
+:root {
+  --bg: #f5f5f0;
+  --surface: #ffffff;
+  --ink: #111311;
+  --muted: #666b65;
+  --line: #d9ddd5;
+  --accent: #174f38;
+  --accent-2: #dce9df;
+  --dark: #111713;
+  --max: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Manrope", sans-serif;
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+.container { width: min(calc(100% - 40px), var(--max)); margin: auto; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(245,245,240,.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(217,221,213,.8);
+}
+.nav {
+  min-height: 76px; display: flex; align-items: center; justify-content: space-between;
+}
+.brand { display:flex; align-items:center; gap:12px; }
+.brand-mark {
+  width:42px; height:42px; display:grid; place-items:center;
+  border:0; border-radius:0; font-size:22px;
+}
+.brand-mark img { width:42px; height:42px; object-fit:contain; display:block; }
+.brand-name { font:600 14px/1.1 "Manrope", sans-serif; letter-spacing:.08em; text-transform:none; }
+.brand strong { display:block; font-size:13px; letter-spacing:.16em; }
+.brand small { display:block; color:var(--muted); font-size:10px; letter-spacing:.03em; }
+.nav-links { display:flex; gap:30px; font-size:13px; font-weight:600; }
+.nav-links a:hover { color:var(--accent); }
+.menu-toggle { display:none; background:none; border:0; font-size:24px; }
+
+/* Homepage: navigation floats over the hero, like a modern landing-page masthead. */
+.home-site-header {
+  position:absolute; top:0; left:0; right:0; z-index:50;
+  background:transparent;
+  border-bottom:0;
+  backdrop-filter:none;
+}
+.home-site-header .nav {
+  min-height:72px;
+  padding-top:4px;
+}
+.home-site-header .brand {
+  color:#fff;
+  text-shadow:0 1px 10px rgba(0,0,0,.55);
+}
+.home-site-header .brand-name {
+  color:#fff;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:.08em;
+}
+.home-site-header .brand-mark img {
+  filter:brightness(0) invert(1);
+}
+.home-site-header .nav-links {
+  gap:4px;
+  align-items:center;
+}
+.home-site-header .nav-links a {
+  color:#fff;
+  background:rgba(10,15,18,.16);
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:999px;
+  padding:7px 14px;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.02em;
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+  text-shadow:0 1px 6px rgba(0,0,0,.45);
+}
+.home-site-header .nav-links a:hover {
+  color:#fff;
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.55);
+  transform:translateY(-1px);
+}
+.home-site-header .theme-toggle {
+  color:#fff;
+  background:rgba(10,15,18,.16);
+  border-color:rgba(255,255,255,.32);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+  text-shadow:0 1px 6px rgba(0,0,0,.45);
+}
+.home-site-header .theme-toggle:hover {
+  color:#fff;
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.55);
+}
+
+/* Homepage navigation search: compact, transparent and overlaid so results never change header height. */
+.home-nav-tools{display:flex;align-items:center;gap:8px;margin-left:auto;position:relative;z-index:120;}
+.nav-search{position:relative;display:flex;align-items:center;height:34px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(10,15,18,.16);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);}
+.nav-search:focus-within{border-color:rgba(255,255,255,.55);background:rgba(10,15,18,.25);}
+.nav-search input{width:112px;min-width:0;border:0;outline:0;background:transparent;color:#fff;padding:7px 4px 7px 13px;font:500 11px/1.1 "Manrope",sans-serif;}
+.nav-search input::placeholder{color:rgba(255,255,255,.72);}
+.nav-search button{width:30px;height:30px;margin-right:2px;border:0;border-radius:50%;background:transparent;color:#fff;cursor:pointer;font:20px/1 Georgia,serif;padding:0;text-shadow:0 1px 6px rgba(0,0,0,.45);}
+.nav-search button:hover{background:rgba(255,255,255,.12);}
+.nav-search-results{position:fixed;top:0;left:0;right:auto;width:320px;max-height:360px;overflow:auto;padding:7px;border:1px solid rgba(255,255,255,.22);border-radius:14px;background:rgba(10,15,18,.90);box-shadow:0 18px 45px rgba(0,0,0,.38);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:none;z-index:2147483647;box-sizing:border-box;}
+.nav-search-results.open{display:block;}
+.nav-search-result{display:block;width:100%;box-sizing:border-box;padding:10px 11px;border:0;border-radius:9px;text-decoration:none;color:#fff;text-align:left;background:transparent;cursor:pointer;}
+.nav-search-result:hover,.nav-search-result:focus{background:rgba(255,255,255,.10);outline:none;}
+.nav-search-result strong{display:block;font:600 12px/1.25 "Manrope",sans-serif;color:#fff;}
+.nav-search-result span{display:block;margin-top:3px;font:11px/1.4 "Manrope",sans-serif;color:rgba(255,255,255,.68);}
+.nav-search-result em{font-style:normal;color:#9bd8bb;}
+.nav-search-message{padding:11px;font:11px/1.45 "Manrope",sans-serif;color:rgba(255,255,255,.68);}
+.nav-search-results::-webkit-scrollbar{width:7px}.nav-search-results::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:999px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+@media (max-width:900px){
+  .home-nav-tools{gap:5px;}
+  .nav-search input{width:88px;}
+  .nav-search-results{width:min(310px,calc(100vw - 30px));}
+}
+@media (max-width:680px){
+  .home-nav-tools{flex-wrap:nowrap;}
+  .nav-search{order:0;}
+  .nav-search input{width:72px;padding-left:10px;}
+  .nav-search button{width:28px;}
+}
+
+.hero {
+  min-height: 440px; position:relative; overflow:hidden;
+  background: var(--dark); color:white; display:flex; align-items:center;
+  isolation:isolate;
+}
+.hero::before {
+  content:""; position:absolute; inset:0; z-index:-2;
+  background-image: var(--hero-image, url("qpt-hero-wave-clean3.webp"));
+  background-size:cover; background-position:center;
+  background-repeat:no-repeat;
+  transform:none;
+}
+/* A restrained overlay keeps the typography readable without hiding the physics imagery. */
+.hero::after {
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(90deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.42) 48%, rgba(0,0,0,.18) 78%, rgba(0,0,0,.32) 100%);
+}
+.hero-grid {
+  position:absolute; inset:0; opacity:.07; z-index:0; pointer-events:none;
+  background-image: linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image:none;
+  -webkit-mask-image:none;
+}
+ .hero-content { position:relative; z-index:2; padding:62px 0 48px; max-width:var(--max); }
+.eyebrow {
+  font: 500 11px/1.2 "Manrope", sans-serif;
+  letter-spacing:.16em; color:var(--accent);
+}
+.hero .eyebrow { color:#b7d5c1; }
+ .hero h1 {
+  font-size:clamp(48px, 6.2vw, 82px);
+  line-height:.94;
+  letter-spacing:-.055em;
+  max-width:760px;
+  margin:22px 0 18px;
+  font-weight:700;
+}
+.hero h1 span { color:#a7cdb4; }
+/* About section: keep “laboratory manual” italic, light-weight, and subtly tilted. */
+.about-panel h2 .laboratory-manual-emphasis {
+  display: inline-block;
+  font-style: italic;
+  font-weight: 400;
+  transform: skewX(-7deg);
+  transform-origin: left center;
+}
+
+/* Homepage hero: tilt only the highlighted word “Measure.” */
+.hero-copy h1 > span {
+  display: inline-block;
+  font-style: italic;
+  font-weight: 400;
+  transform: skewX(-7deg);
+  transform-origin: left center;
+}
+.hero .hero-description {
+  max-width:590px;
+  margin:0;
+  color:#d3d8d4;
+  font-size:15px;
+  line-height:1.55;
+}
+.hero-actions { display:flex; gap:12px; margin-top:34px; flex-wrap:wrap; }
+.button {
+  display:inline-flex; align-items:center; padding:13px 18px;
+  border-radius:5px; font-size:13px; font-weight:700;
+}
+.button.primary { background:#dfeee3; color:#142319; }
+.button.secondary { border:1px solid #536158; color:white; }
+.hero-visual-dots {
+  position:absolute;
+  left:30px;
+  bottom:30px;
+  z-index:3;
+  display:flex;
+  gap:6px;
+}
+.hero-visual-dots span {
+  width:6px;height:6px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.75);
+  background:rgba(255,255,255,.12);
+}
+.hero-visual-dots span:first-child { background:#fff; }
+
+.hero-equation {
+  position:absolute; right:7%; top:20%; display:flex; flex-direction:column;
+  gap:20px; color:#6f8276; font:500 18px "Manrope",sans-serif;
+  transform:rotate(-7deg);
+}
+.hero-equation span:nth-child(2) { margin-left:65px; }
+.hero-equation span:nth-child(3) { margin-left:15px; }
+
+.section { padding:100px 0; }
+.section-heading {
+  display:flex; justify-content:space-between; gap:40px; align-items:end; margin-bottom:38px;
+}
+.section-heading h2 { font-size:clamp(34px,5vw,54px); line-height:1; letter-spacing:-.04em; margin:12px 0 0; }
+.section-heading > p { max-width:380px; color:var(--muted); font-size:14px; margin:0; }
+
+
+.experiment-search-heading { width:min(520px, 100%); margin-top:4px; }
+.experiment-search-wrap { max-width:none; margin-top:0; }
+.experiment-search-results { max-width:none; }
+
+.experiment-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+.experiment-card {
+  min-height:300px; background:var(--surface); border:1px solid var(--line);
+  padding:28px; position:relative; display:flex; flex-direction:column;
+  transition:transform .2s, border-color .2s;
+}
+.experiment-card:hover { transform:translateY(-4px); border-color:#9ca89d; }
+.experiment-card.featured { background:#edf3ed; }
+.card-number { position:absolute; right:25px; top:25px; font:12px "Manrope",sans-serif; color:#8a908a; }
+.card-icon {
+  width:58px; height:58px; border:1px solid #b7c1b7; border-radius:50%;
+  display:grid; place-items:center; font:24px "Manrope",sans-serif; margin-bottom:55px;
+}
+.tag { font:10px "Manrope",sans-serif; letter-spacing:.12em; color:var(--accent); }
+.card-body h3 { font-size:25px; letter-spacing:-.03em; margin:9px 0; }
+.card-body p { color:var(--muted); font-size:13px; max-width:440px; }
+.card-body a { display:inline-block; margin-top:12px; font-size:12px; font-weight:800; }
+.card-body a span { margin-left:6px; }
+
+.feature-section { background:#e9ede7; }
+.feature-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:#cdd3ca; border:1px solid #cdd3ca; }
+.feature { background:#e9ede7; padding:28px; min-height:220px; }
+.feature > span { font:11px "Manrope",sans-serif; color:var(--accent); }
+.feature h3 { margin:50px 0 8px; font-size:18px; }
+.feature p { margin:0; color:var(--muted); font-size:13px; }
+
+.about { display:grid; grid-template-columns:1fr 280px; gap:16px; }
+.about-panel, .about-stat { background:var(--surface); border:1px solid var(--line); padding:40px; }
+.about-panel h2 { max-width:700px; font-size:clamp(32px,4vw,52px); line-height:1.02; letter-spacing:-.045em; margin:20px 0; }
+.about-panel p { max-width:650px; color:var(--muted); }
+.about-stat { display:flex; flex-direction:column; justify-content:space-between; }
+.about-stat strong { font-size:90px; line-height:1; letter-spacing:-.08em; }
+.about-stat span { color:var(--muted); font-size:13px; }
+
+footer { background:var(--dark); color:#aeb8b1; padding:30px 0; font:11px "Manrope",sans-serif; }
+.footer-inner { display:flex; justify-content:space-between; }
+
+@media (max-width: 800px) {
+  .nav-links {
+    display:none; position:absolute; top:76px; left:0; right:0;
+    background:var(--bg); padding:20px; border-bottom:1px solid var(--line);
+    flex-direction:column; gap:16px;
+  }
+  .nav-links.open { display:flex; }
+  .menu-toggle { display:block; }
+  .home-site-header .nav { min-height:70px; }
+  .hero { min-height:400px; }
+  .hero-content { padding:62px 0 42px; }
+  .hero h1 { font-size:clamp(34px, 9vw, 58px); }
+  .hero .hero-tagline { font-size:21px; }
+  .hero-equation { opacity:.25; right:-30px; }
+  .section-heading { flex-direction:column; align-items:start; }
+  .experiment-grid, .feature-grid, .about { grid-template-columns:1fr; }
+  .feature-grid { background:none; border:0; gap:1px; }
+  .feature { min-height:auto; }
+  .about-stat { min-height:220px; }
+  .footer-inner { flex-direction:column; gap:8px; }
+}
+
+/* Academic typography: Playfair Display */
+html, body, body * {
+  font-family: "Playfair Display", Georgia, serif !important;
+}
+
+/* Experiment 02 visual sizing: keep the detailed prism diagram compact. */
+.prism-diagram-small{display:block;width:50%;height:auto;max-width:450px;min-width:280px;margin:0 auto;}
+@media(max-width:600px){.prism-diagram-small{width:88%;min-width:0;max-width:420px;}}
+/* Header illustration removed from Experiment 02; let the hero text use the full width. */
+.exp-hero-grid{grid-template-columns:1fr;}
+
+/* Robust layout for all numbered step rows: keep formatted text inside the content column. */
+.steps > li > .step-content { min-width: 0; display: block; overflow-wrap: normal; word-break: normal; }
+
+/* Robust layout for theory fact rows: keep the numeral and text in separate columns. */
+.facts-list li:before { content: none !important; display: none !important; }
+.facts-list li {
+  display: grid !important;
+  grid-template-columns: 36px minmax(0, 1fr) !important;
+  align-items: start;
+  gap: 18px !important;
+  line-height: 1.65 !important;
+}
+.facts-list .step-marker {
+  display: block;
+  font-size: 11px;
+  line-height: 1.65;
+  color: var(--accent);
+  padding-top: 1px;
+}
+.facts-list .step-content {
+  min-width: 0;
+  display: block;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.facts-list .step-content strong {
+  display: inline;
+  line-height: inherit;
+}
+@media (max-width: 560px) {
+  .facts-list li { grid-template-columns: 28px minmax(0, 1fr) !important; gap: 12px !important; }
+}
+
+/* Full-width page sections: prevent layout clipping/side overflow on desktop and mobile. */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Background sections must span the complete viewport, while their inner
+   content remains constrained by .container. */
+.exp4-hero,
+.site-header {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Keep the main content container centered without allowing wide children
+   to expand the page itself. */
+main.section.container,
+.exp4-layout,
+.exp4-layout > div {
+  min-width: 0;
+}
+
+/* The observation table is intentionally horizontally scrollable inside its
+   own wrapper; it must never create page-level horizontal scrolling. */
+.table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+
+/* TODAY IN THE LAB — dynamic timetable */
+.today-section { background:#f5f5f0; padding-top:75px; padding-bottom:90px; }
+.today-heading { margin-bottom:30px; }
+.today-date { color:var(--muted); font-size:14px; text-align:right; }
+.today-panel { background:var(--surface); border:1px solid var(--line); padding:30px; }
+.today-status { font-size:13px; color:var(--muted); margin-bottom:18px; letter-spacing:.01em; }
+.session-list { display:grid; gap:10px; }
+.session-card { display:grid; grid-template-columns:145px 1fr; gap:24px; align-items:center; border:1px solid var(--line); background:#f7f8f5; padding:18px 20px; }
+.session-time { font-size:18px; line-height:1.2; }
+.session-time small { display:block; margin-top:4px; font-size:10px; letter-spacing:.12em; color:var(--muted); }
+.session-main { border-left:1px solid var(--line); padding-left:24px; }
+.session-main strong { display:block; font-size:17px; }
+.session-main span { display:block; margin-top:4px; color:var(--muted); font-size:12px; }
+.today-empty { padding:26px 20px; border:1px dashed #c9cec7; color:var(--muted); font-size:13px; background:#fafbf8; }
+.upcoming-heading { margin-top:28px; margin-bottom:12px; padding-top:22px; border-top:1px solid var(--line); font-size:10px; letter-spacing:.18em; color:var(--muted); }
+.upcoming-list { display:grid; gap:8px; }
+.upcoming-card { display:grid; grid-template-columns:125px 1fr; gap:16px; align-items:stretch; border:1px solid var(--line); background:transparent; padding:13px 16px; }
+.upcoming-date { font-size:12px; color:var(--muted); display:flex; align-items:center; }
+.upcoming-sessions { display:flex; align-items:stretch; min-width:0; flex:1 1 auto; }
+.upcoming-session { flex:1 1 0; min-width:0; padding-left:16px; }
+.upcoming-session + .upcoming-session { border-left:1px solid var(--line); margin-left:16px; }
+.upcoming-time { font-size:14px; }
+.upcoming-main { margin-top:3px; }
+.upcoming-main strong { display:block; font-size:13px; }
+.upcoming-main span { display:block; margin-top:3px; color:var(--muted); font-size:11px; }
+.today-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
+.today-actions .dark-button { color:var(--ink) !important; border:1px solid var(--line); background:transparent; text-decoration:none; }
+.today-actions .dark-button:hover { color:var(--ink) !important; background:#f1f4ef; }
+@media(max-width:600px){ .today-panel { padding:20px; } .today-date { text-align:left; } .session-card { grid-template-columns:1fr; gap:10px; } .session-main { border-left:0; border-top:1px solid var(--line); padding-left:0; padding-top:12px; } .upcoming-card { grid-template-columns:1fr; gap:10px; } .upcoming-sessions { flex-direction:column; gap:10px; } .upcoming-session { padding-left:0; } .upcoming-session + .upcoming-session { border-left:0; border-top:1px solid var(--line); margin-left:0; padding-left:0; padding-top:10px; } .today-actions .button { width:100%; justify-content:center; } }
+
+/* Lab identity mark — matching infinity symbol in a circle */
+.brand-mark {
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: 26px;
+  line-height: 1;
+}
+.footer-brand { display:flex; align-items:center; gap:12px; }
+.footer-mark {
+  width:40px; height:40px; display:grid; place-items:center;
+  border:1px solid currentColor; border-radius:50%;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size:24px; line-height:1;
+  color:#dceee2;
+  flex:0 0 auto;
+}
+
+/* V13 refinement: compact experiment cards and full-width experiment content */
+.experiment-card {
+  min-height: 0 !important;
+}
+.experiment-card .card-icon {
+  margin-bottom: 34px !important;
+}
+
+/* Let experiment content use the complete column to the right of the quick-access navigation. */
+.exp-layout > div,
+.exp4-layout > div {
+  min-width: 0 !important;
+  width: 100% !important;
+}
+.exp-layout .prose,
+.exp4-layout .prose,
+.exp-layout .steps,
+.exp4-layout .steps {
+  max-width: none !important;
+  width: 100% !important;
+}
+.exp-layout .content-block,
+.exp4-layout .content-block {
+  width: 100% !important;
+}
+/* Updated infinity logo — standalone mark, no surrounding circle */
+.brand-mark { border:0 !important; width:52px !important; height:38px !important; display:flex !important; align-items:center !important; justify-content:center !important; font-size:0 !important; }
+.brand-mark img { width:48px; height:auto; display:block; }
+.footer-mark { border:0 !important; width:58px !important; height:38px !important; display:flex !important; align-items:center !important; justify-content:center !important; font-size:0 !important; }
+.footer-mark img { width:54px; height:auto; display:block; filter: invert(1); }
+
+/* V18: four-column experiment showcase, aligned like the feature reference */
+.experiment-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: #cdd3ca;
+  border: 1px solid #cdd3ca;
+}
+
+.experiment-card {
+  min-height: 285px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 28px !important;
+  background: var(--surface);
+}
+
+.experiment-card.featured {
+  background: var(--surface);
+}
+
+.experiment-card:hover,
+.experiment-card:focus-within {
+  background: #edf3ed;
+  border-color: #9fb4a5 !important;
+  box-shadow: inset 0 0 0 1px #9fb4a5;
+}
+
+.experiment-card .card-icon {
+  margin-bottom: 30px !important;
+}
+
+.experiment-card .card-body {
+  margin-top: auto;
+}
+
+.experiment-card .card-body h3 {
+  font-size: 21px !important;
+  line-height: 1.12 !important;
+  letter-spacing: -.025em !important;
+  margin: 9px 0 10px !important;
+  min-height: 47px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.experiment-card .card-body p {
+  margin: 0;
+  min-height: 52px;
+}
+
+.experiment-card .card-body a {
+  margin-top: 14px;
+}
+
+@media (max-width: 1050px) {
+  .experiment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .experiment-grid { grid-template-columns: 1fr; }
+  .experiment-card { min-height: 250px !important; }
+}
+
+/* V23: equal-width quick-access cells aligned exactly to the experiment content container. */
+.exp-hero .quick-access-bar, .exp4-hero .quick-access-bar {
+  width:100% !important;
+  box-sizing:border-box !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+  border-left:0 !important;
+  border-right:0 !important;
+}
+.exp-hero .quick-access-inner, .exp4-hero .quick-access-inner {
+  width:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  display:grid !important;
+  grid-template-columns:repeat(10, minmax(0, 1fr)) !important;
+  gap:0 !important;
+  min-height:50px !important;
+}
+.exp-hero .quick-access-label, .exp4-hero .quick-access-label {
+  min-width:0 !important;
+  width:auto !important;
+  height:50px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 10px !important;
+  box-sizing:border-box !important;
+  border-right:1px solid rgba(195,203,197,.22) !important;
+}
+.exp-hero .quick-access-links, .exp4-hero .quick-access-links {
+  display:contents !important;
+  overflow:visible !important;
+}
+.exp-hero .quick-access-links a, .exp4-hero .quick-access-links a {
+  width:auto !important;
+  min-width:0 !important;
+  height:50px !important;
+  min-height:50px !important;
+  padding:0 8px !important;
+  box-sizing:border-box !important;
+  justify-content:center !important;
+  text-align:center !important;
+  border-left:1px solid rgba(195,203,197,.22) !important;
+  border-right:0 !important;
+}
+.exp-hero .quick-access-links a:last-child, .exp4-hero .quick-access-links a:last-child {
+  border-right:1px solid rgba(195,203,197,.22) !important;
+}
+@media(max-width:900px){
+  .exp-hero .quick-access-inner, .exp4-hero .quick-access-inner {
+    grid-template-columns:repeat(10, minmax(92px, 1fr)) !important;
+    overflow-x:auto !important;
+  }
+  .exp-hero .quick-access-label, .exp4-hero .quick-access-label {
+    position:sticky !important; left:0 !important; z-index:2 !important;
+    background:#111713 !important;
+  }
+}
+
+/* V24: keep the quick-access boundary exactly aligned with the hero/content container. */
+.exp-hero-grid > .quick-access-bar,
+.exp4-hero > .container > .quick-access-bar {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
+}
+.exp-hero-grid > .quick-access-bar {
+  justify-self: stretch !important;
+}
+
+
+/* V25: placeholder cards for experiments 05–08. Content will be replaced later. */
+.experiment-card.placeholder-card .card-body p { opacity: .65; }
+
+/* V41: book/chapter reference blocks */
+.deep-references{margin-top:24px;padding:24px 26px;background:#eef3ed;border:1px solid #d1dbd1}
+.deep-references .eyebrow{margin-bottom:8px}
+.deep-references-intro{margin:0 0 18px;max-width:760px;color:var(--muted);font-size:13px;line-height:1.7}
+.deep-reference-list{display:grid;grid-template-columns:1fr;gap:10px}
+.deep-reference{border:1px solid #dfe3dd;background:#fafbf8;padding:15px 16px}
+.deep-reference-title{font-size:13px;color:var(--ink);line-height:1.45}
+.deep-reference-topic{margin-top:5px;font-size:11px;line-height:1.55;color:var(--muted)}
+@media(max-width:900px){.deep-references{padding:20px}}
+
+/* V42: Student quick-access tools for the completed Cycle 1 homepage. */
+.student-tools-section { background:#f5f5f0; padding-top:80px; padding-bottom:85px; }
+.student-tools-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.student-tool { position:relative; min-height:300px; padding:28px; border:1px solid var(--line); background:var(--surface); overflow:hidden; }
+.student-tool.schedule-tool { background:#edf3ed; }
+.student-tool-number { position:absolute; top:24px; right:26px; font-size:11px; color:var(--muted); letter-spacing:.08em; }
+.student-tool-icon { width:48px; height:48px; border:1px solid #cdd3ca; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:25px; line-height:1; margin-bottom:46px; }
+.student-tool-body .tag { display:block; margin-bottom:8px; }
+.student-tool-body h3 { margin:0 0 10px; font-size:25px; letter-spacing:-.025em; }
+.student-tool-body p { max-width:470px; margin:0 0 18px; color:var(--muted); font-size:13px; line-height:1.7; }
+.student-tool-link { display:inline-flex; align-items:center; gap:8px; color:var(--ink); text-decoration:none; font-size:13px; border-bottom:1px solid #aeb8af; padding-bottom:4px; }
+.student-tool-link:hover { border-color:var(--accent); color:var(--accent); }
+.lab-search-wrap { display:flex; max-width:520px; margin-top:18px; border:1px solid #cdd3ca; background:#fff; }
+.lab-search-wrap input { flex:1; min-width:0; border:0; outline:0; background:transparent; padding:12px 13px; font:13px "Playfair Display",Georgia,serif; color:var(--ink); }
+.lab-search-wrap input::placeholder { color:#8b928d; }
+.lab-search-wrap button { border:0; border-left:1px solid #cdd3ca; background:#174f3b; color:#fff; padding:0 17px; font:13px "Playfair Display",Georgia,serif; cursor:pointer; }
+.lab-search-wrap button:hover { background:#123f30; }
+.lab-search-results { max-width:520px; margin-top:10px; }
+.lab-search-empty { color:var(--muted); font-size:12px; padding:8px 0; }
+.lab-search-result { display:flex; align-items:flex-start; justify-content:space-between; gap:14px; padding:10px 0; border-top:1px solid #dfe3dd; text-decoration:none; color:var(--ink); }
+.lab-search-result:first-child { border-top:0; }
+.lab-search-result strong { display:block; font-size:13px; margin-bottom:3px; }
+.lab-search-result span { display:block; color:var(--muted); font-size:11px; line-height:1.45; }
+.lab-search-result .result-arrow { flex:0 0 auto; color:var(--accent); font-size:15px; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+@media(max-width:800px){
+  .student-tools-grid { grid-template-columns:1fr; }
+  .student-tool { min-height:auto; }
+}
+@media(max-width:560px){
+  .student-tools-section { padding-top:65px; padding-bottom:70px; }
+  .student-tool { padding:22px; }
+  .student-tool-icon { margin-bottom:34px; }
+  .lab-search-wrap { flex-direction:column; }
+  .lab-search-wrap button { min-height:44px; border-left:0; border-top:1px solid #cdd3ca; }
+}
+
+.lab-search-result span:not(.result-arrow){max-width:720px}.lab-search-result:hover{background:rgba(23,79,59,.035)}
+
+
+/* V28: unified vertical rhythm across the homepage. */
+.section { padding: 64px 0 !important; }
+.today-section { padding-top: 64px !important; padding-bottom: 64px !important; }
+.section-heading { margin-bottom: 32px; }
+@media (max-width: 800px) {
+  .section { padding: 48px 0 !important; }
+  .today-section { padding-top: 48px !important; padding-bottom: 48px !important; }
+}
+
+/* Colored navigation boxes */
+.nav-links a {
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  
+}
+
+@media (max-width: 800px) {
+  .nav-links a { display: block; width: 100%; }
+}
+
+/* V31: site-wide dark mode */
+.theme-toggle{
+  display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid var(--line);
+  border-radius:999px;background:var(--surface);color:var(--ink);font:600 12px "Playfair Display",Georgia,serif;
+  cursor:pointer;
+  margin-left:10px;white-space:nowrap;
+}
+.theme-toggle:hover{transform:translateY(-1px);border-color:var(--accent)}
+.theme-icon{font-size:15px;line-height:1}
+.nav .theme-toggle{flex:0 0 auto}
+
+html[data-theme="dark"]{
+  --bg:#111513;--surface:#1a201d;--ink:#eef2ee;--muted:#aab3ad;--line:#39423d;
+  --accent:#8fc7a7;--accent-2:#26382e;--dark:#0b0e0c;
+}
+html[data-theme="dark"] body{background:var(--bg);color:var(--ink)}
+html[data-theme="dark"] .site-header{background:rgba(17,21,19,.88);border-bottom-color:rgba(57,66,61,.9)}
+html[data-theme="dark"] .brand-mark{border-color:var(--ink)}
+/* V27: keep the QPT Lab infinity mark visible in dark mode on every page, including the homepage. */
+html[data-theme="dark"] .home-site-header .brand-mark img{filter:brightness(0) invert(1) !important;}
+html[data-theme="dark"] .home-site-header .brand-name{color:#fff !important;}
+html[data-theme="dark"] footer .footer-mark img{filter:invert(1) !important;}
+html[data-theme="dark"] .nav-links a:hover{color:var(--accent)}
+html[data-theme="dark"] .nav-links a:nth-child(1){background:#20382b;border-color:#31533f;color:#a9d6ba}
+html[data-theme="dark"] .nav-links a:nth-child(2){background:#223140;border-color:#354a5c;color:#aec9df}
+html[data-theme="dark"] .nav-links a:nth-child(3){background:#3b3524;border-color:#5b4e30;color:#dec994}
+html[data-theme="dark"] .nav-links a:nth-child(4){background:#382d3d;border-color:#55455d;color:#d0b8d8}
+html[data-theme="dark"] .nav-links a:nth-child(1):hover{background:#294936}
+html[data-theme="dark"] .nav-links a:nth-child(2):hover{background:#2c4052}
+html[data-theme="dark"] .nav-links a:nth-child(3):hover{background:#4a412c}
+html[data-theme="dark"] .nav-links a:nth-child(4):hover{background:#493a50}
+html[data-theme="dark"] .experiment-card,
+html[data-theme="dark"] .about-panel,
+html[data-theme="dark"] .about-stat,
+html[data-theme="dark"] .visual-box,
+html[data-theme="dark"] .lab-panel,
+html[data-theme="dark"] .viva,
+html[data-theme="dark"] .today-panel{background:var(--surface);border-color:var(--line)}
+html[data-theme="dark"] .experiment-card.featured{background:#202a24}
+html[data-theme="dark"] .feature-section{background:#18201c}
+html[data-theme="dark"] .feature-grid{background:#344039;border-color:#344039}
+html[data-theme="dark"] .feature{background:#18201c}
+html[data-theme="dark"] .feature p,
+html[data-theme="dark"] .card-body p,
+html[data-theme="dark"] .about-panel p,
+html[data-theme="dark"] .section-heading>p,
+html[data-theme="dark"] .about-stat span{color:var(--muted)}
+html[data-theme="dark"] .equation{background:#202b24}
+html[data-theme="dark"] .chip{background:#202621;border-color:var(--line);color:var(--ink)}
+html[data-theme="dark"] .visual-box{background:#171c19}
+html[data-theme="dark"] .lab-panel{background:#171c19}
+html[data-theme="dark"] .field input,
+html[data-theme="dark"] .obs-table input{background:#111613;color:var(--ink);border-color:#48534c}
+html[data-theme="dark"] .obs-table th{background:#252d28;border-color:var(--line)}
+html[data-theme="dark"] .obs-table td{border-color:var(--line)}
+html[data-theme="dark"] .result{background:#202b24;border-color:#35453b}
+html[data-theme="dark"] .button-reset{background:#1a201d;color:var(--ink);border-color:var(--line)}
+html[data-theme="dark"] .note{background:#1d2420;color:var(--muted)}
+html[data-theme="dark"] .quick-access-bar{background:#151a17!important;border-color:var(--line)!important}
+html[data-theme="dark"] .quick-access-links a{color:var(--muted)!important}
+html[data-theme="dark"] .quick-access-links a:hover{color:var(--accent)!important}
+html[data-theme="dark"] .lab-search-wrap{background:#171c19;border-color:var(--line)}
+html[data-theme="dark"] .lab-search-wrap input{color:var(--ink)}
+html[data-theme="dark"] .lab-search-wrap input::placeholder{color:#7f8982}
+html[data-theme="dark"] .lab-search-wrap button{background:#2b684d;border-color:var(--line)}
+html[data-theme="dark"] .lab-search-result{color:var(--ink);border-color:var(--line)}
+html[data-theme="dark"] .lab-search-result:hover{background:rgba(143,199,167,.07)}
+html[data-theme="dark"] canvas{background:#101411;border-color:var(--line)}
+html[data-theme="dark"] footer{background:#090c0a}
+html[data-theme="dark"] .exp-hero,.exp4-hero{color:#fff}
+html[data-theme="dark"] .prose,
+html[data-theme="dark"] .steps li{color:#c0c8c3}
+html[data-theme="dark"] .side-nav a{color:var(--muted);border-color:var(--line)}
+html[data-theme="dark"] .side-nav a:hover{color:var(--accent)}
+html[data-theme="dark"] .theme-toggle{background:#1a201d;color:var(--ink);border-color:#4a564e}
+html[data-theme="dark"] .deep-references{background:#eef3ed!important;border-color:#d1dbd1!important;color:#111311!important}
+html[data-theme="dark"] .deep-references .eyebrow{color:#174f38!important}
+html[data-theme="dark"] .deep-references-intro{color:#666b65!important}
+html[data-theme="dark"] .deep-reference-title{color:#111311!important}
+html[data-theme="dark"] .deep-reference-topic{color:#666b65!important}
+
+/* Dark mode for the standalone schedule page */
+html[data-theme="dark"] body.schedule-page{background:#111513}
+html[data-theme="dark"] body.schedule-page header{background:#171c19!important;border-color:var(--line)!important}
+html[data-theme="dark"] body.schedule-page nav a{color:var(--ink)}
+html[data-theme="dark"] body.schedule-page .toolbar,
+html[data-theme="dark"] body.schedule-page .table-wrap,
+html[data-theme="dark"] body.schedule-page .cycle{background:#1a201d;border-color:var(--line)}
+html[data-theme="dark"] body.schedule-page .filter,
+html[data-theme="dark"] body.schedule-page .student-search-inline input,
+html[data-theme="dark"] body.schedule-page .student-search-inline button{background:#111613;color:var(--ink);border-color:var(--line)}
+html[data-theme="dark"] body.schedule-page .schedule-table th{background:#252d28}
+html[data-theme="dark"] body.schedule-page .schedule-table td,
+html[data-theme="dark"] body.schedule-page .schedule-table th{border-color:var(--line)}
+html[data-theme="dark"] body.schedule-page .action{background:#1a201d;color:var(--ink);border-color:var(--line)}
+html[data-theme="dark"] body.schedule-page footer{background:#090c0a}
+
+@media(max-width:800px){
+  .theme-toggle{margin-left:0;margin-top:4px;justify-content:center}
+  .nav-links.open .theme-toggle{display:inline-flex}
+}
+
+/* V32: site-wide dark theme variables and component overrides */
+html[data-theme="dark"] {
+  --bg:#0f1311;
+  --surface:#171c19;
+  --ink:#eef2ee;
+  --muted:#aab4ad;
+  --line:#39433d;
+  --accent:#8fc5a7;
+  --accent-2:#24382c;
+  --dark:#090c0a;
+  color-scheme:dark;
+}
+html[data-theme="dark"] body{background:var(--bg)!important;color:var(--ink)!important}
+html[data-theme="dark"] .site-header{background:rgba(15,19,17,.94)!important;border-bottom-color:var(--line)!important}
+html[data-theme="dark"] .nav-links a,html[data-theme="dark"] .brand strong,html[data-theme="dark"] .brand-title{color:var(--ink)!important}
+html[data-theme="dark"] .nav-links a:hover{color:var(--accent)!important}
+html[data-theme="dark"] .content-block h2,html[data-theme="dark"] .content-block h3,html[data-theme="dark"] .section-heading h2,html[data-theme="dark"] .card-body h3,html[data-theme="dark"] .feature h3,html[data-theme="dark"] .about-panel h2{color:var(--ink)!important}
+html[data-theme="dark"] .prose,html[data-theme="dark"] .steps li{color:#c5cec8!important}
+html[data-theme="dark"] .equation{background:#1d2821!important;color:var(--ink)!important;border-left-color:var(--accent)!important}
+html[data-theme="dark"] .chip{background:#1b211e!important;color:var(--ink)!important;border-color:var(--line)!important}
+html[data-theme="dark"] .visual-box,html[data-theme="dark"] .lab-panel,html[data-theme="dark"] .video-box,html[data-theme="dark"] .viva,html[data-theme="dark"] .result{background:var(--surface)!important;color:var(--ink)!important;border-color:var(--line)!important}
+html[data-theme="dark"] .field label,html[data-theme="dark"] .caption,html[data-theme="dark"] .formula-note,html[data-theme="dark"] .note,html[data-theme="dark"] .video-heading-content p{color:var(--muted)!important}
+html[data-theme="dark"] .field input,html[data-theme="dark"] .obs-table input{background:#0b0f0d!important;color:#eef2ee!important;border-color:#4a564e!important}
+html[data-theme="dark"] .obs-table th{background:#252d28!important;color:var(--ink)!important;border-color:var(--line)!important}
+html[data-theme="dark"] .obs-table td{background:#171c19!important;color:var(--ink)!important;border-color:var(--line)!important}
+/* Upcoming-lab toggle: keep text readable in both themes */
+html[data-theme="light"] .upcoming-toggle {
+  background: transparent !important;
+  color: var(--ink) !important;
+  border-color: var(--line) !important;
+}
+html[data-theme="light"] .upcoming-toggle:hover {
+  background: #f1f4ef !important;
+  color: var(--ink) !important;
+}
+
+html[data-theme="dark"] .button.secondary{background:#171c19!important;color:var(--ink)!important;border-color:#536158!important}
+html[data-theme="dark"] .quick-access-bar,html[data-theme="dark"] .quick-access-inner,html[data-theme="dark"] .quick-access-links a{background:var(--bg)!important;color:var(--ink)!important;border-color:var(--line)!important}
+html[data-theme="dark"] .quick-access-links a:hover,html[data-theme="dark"] .quick-access-links a.active{background:var(--accent-2)!important;color:var(--ink)!important}
+html[data-theme="dark"] .theme-toggle{background:#202923!important;color:#eef2ee!important;border-color:#536158!important}
+
+
+/* QPT Lab homepage header — transparent overlay on the hero */
+.home-site-header{
+  position:absolute !important;
+  top:0; left:0; right:0;
+  z-index:100 !important;
+  background:rgba(5,8,7,.22) !important;
+  border-bottom:1px solid rgba(255,255,255,.16) !important;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.home-site-header .nav{
+  min-height:78px;
+}
+.home-site-header .brand{
+  color:#fff !important;
+  gap:10px;
+}
+.home-site-header .brand-name{
+  display:block;
+  color:#fff;
+  font-size:17px;
+  font-weight:600;
+  letter-spacing:.10em;
+  text-transform:none;
+  white-space:nowrap;
+}
+.home-site-header .brand-mark{
+  width:48px !important;
+  height:38px !important;
+  border:0 !important;
+}
+.home-site-header .brand-mark img{
+  width:48px;
+  filter:brightness(0) invert(1);
+}
+.home-site-header .nav-links{
+  align-items:center;
+  gap:10px;
+}
+.home-site-header .nav-links a{
+  font-size:12px;
+  padding:8px 13px;
+}
+.home-site-header .theme-toggle{
+  margin-left:2px;
+  background:rgba(255,255,255,.94);
+  color:#183327;
+  border-color:rgba(255,255,255,.75);
+}
+.home-site-header .theme-toggle:hover{
+  background:#fff;
+}
+html[data-theme="dark"] .home-site-header{
+  background:rgba(4,7,6,.30) !important;
+  border-bottom-color:rgba(255,255,255,.13) !important;
+}
+html[data-theme="dark"] .home-site-header .brand-name,
+html[data-theme="dark"] .home-site-header .brand{
+  color:#fff !important;
+}
+
+@media (max-width:800px){
+  .home-site-header .nav{
+    min-height:68px;
+  }
+  .home-site-header .brand-name{
+    font-size:14px;
+    letter-spacing:.07em;
+  }
+  .home-site-header .brand-mark,
+  .home-site-header .brand-mark img{
+    width:40px !important;
+  }
+  .home-site-header .nav-links{
+    background:rgba(10,14,12,.96) !important;
+    border:1px solid rgba(255,255,255,.14);
+    padding:12px;
+    border-radius:8px;
+  }
+  .home-site-header .theme-toggle{
+    margin-left:6px;
+  }
+}
+
+
+/* Homepage hero masthead remains over the hero in both themes. */
+html[data-theme="dark"] .home-site-header { background:transparent!important; border-bottom:0!important; }
+html[data-theme="dark"] .home-site-header .brand,
+html[data-theme="dark"] .home-site-header .brand-name,
+html[data-theme="dark"] .home-site-header .nav-links a { color:#fff!important; }
+html[data-theme="dark"] .home-site-header .brand-mark img { filter:brightness(0) invert(1); }
+
+
+@media (max-width: 800px) {
+  .home-site-header .nav {
+    min-height:64px;
+  }
+  .home-site-header .nav-links a {
+    border-radius:999px;
+  }
+  .hero-content {
+    padding-top:118px;
+    padding-bottom:70px;
+  }
+  .hero h1 {
+    font-size:clamp(42px, 12vw, 62px);
+  }
+  .home-site-header .theme-toggle {
+    margin-left:4px;
+  }
+}
+
+
+/* V19 — compact homepage hero/header spacing */
+.home-site-header + .hero {
+  min-height: 500px !important;
+}
+.home-site-header ~ .hero .hero-content {
+  padding-top: 92px !important;
+  padding-bottom: 42px !important;
+}
+@media (max-width: 900px) {
+  .home-site-header + .hero {
+    min-height: 480px !important;
+  }
+  .home-site-header ~ .hero .hero-content {
+    padding-top: 82px !important;
+    padding-bottom: 36px !important;
+  }
+}
+
+/* V21 — keep the homepage masthead/navigation visually identical in light and dark modes. */
+.home-site-header,
+html[data-theme="dark"] .home-site-header {
+  background:rgba(5,8,7,.22) !important;
+  border-bottom:1px solid rgba(255,255,255,.16) !important;
+  backdrop-filter:blur(10px) !important;
+  -webkit-backdrop-filter:blur(10px) !important;
+}
+.home-site-header .brand,
+.home-site-header .brand-name,
+html[data-theme="dark"] .home-site-header .brand,
+html[data-theme="dark"] .home-site-header .brand-name {
+  color:#fff !important;
+}
+.home-site-header .brand-mark img,
+html[data-theme="dark"] .home-site-header .brand-mark img {
+  filter:brightness(0) invert(1) !important;
+}
+.home-site-header .nav-links a,
+html[data-theme="dark"] .home-site-header .nav-links a,
+html[data-theme="dark"] .home-site-header .nav-links a:nth-child(1),
+html[data-theme="dark"] .home-site-header .nav-links a:nth-child(2),
+html[data-theme="dark"] .home-site-header .nav-links a:nth-child(3),
+html[data-theme="dark"] .home-site-header .nav-links a:nth-child(4) {
+  color:#fff !important;
+  background:rgba(10,15,18,.16) !important;
+  border:1px solid rgba(255,255,255,.28) !important;
+  box-shadow:none !important;
+}
+.home-site-header .nav-links a:hover,
+html[data-theme="dark"] .home-site-header .nav-links a:hover,
+html[data-theme="dark"] .home-site-header .nav-links a:nth-child(1):hover,
+html[data-theme="dark"] .home-site-header .nav-links a:nth-child(2):hover,
+html[data-theme="dark"] .home-site-header .nav-links a:nth-child(3):hover,
+html[data-theme="dark"] .home-site-header .nav-links a:nth-child(4):hover {
+  color:#fff !important;
+  background:rgba(255,255,255,.12) !important;
+  border-color:rgba(255,255,255,.55) !important;
+}
+.home-site-header .theme-toggle,
+html[data-theme="dark"] .home-site-header .theme-toggle {
+  background:rgba(255,255,255,.94) !important;
+  color:#183327 !important;
+  border-color:rgba(255,255,255,.75) !important;
+  box-shadow:none !important;
+}
+.home-site-header .theme-toggle:hover,
+html[data-theme="dark"] .home-site-header .theme-toggle:hover {
+  background:#fff !important;
+  color:#183327 !important;
+  border-color:#fff !important;
+}
+.home-site-header + .hero,
+html[data-theme="dark"] .home-site-header + .hero {
+  background-color:#000 !important;
+}
+
+@media (max-width:800px){
+  .home-site-header .nav-links,
+  html[data-theme="dark"] .home-site-header .nav-links {
+    background:rgba(10,14,12,.96) !important;
+    border-color:rgba(255,255,255,.14) !important;
+  }
+}
+
+
+/* V24 — keep homepage navigation controls grouped at the right */
+@media (min-width: 801px) {
+  .home-site-header .nav {
+    justify-content: flex-start;
+  }
+  .home-site-header .brand {
+    margin-right: auto;
+  }
+  .home-site-header .nav-links {
+    margin-left: auto;
+    gap: 4px;
+  }
+  .home-site-header .theme-toggle {
+    margin-left: 8px;
+  }
+}
+
+/* V26: keep the QPT Lab infinity mark visible on dark experiment pages. */
+html[data-theme="dark"] .site-header .brand-mark img {
+  filter: invert(1) brightness(1.08) !important;
+}
+
+/* Do not affect the homepage hero branding; its header logo is already light. */
+html[data-theme="dark"] .home-site-header .brand-mark img {
+  filter: brightness(0) invert(1) !important;
+}
+
+
+/* V34: Experiment section quick-access navigation — transparent pills over hero.
+   The section navigation now overlays the bottom of the experiment header,
+   matching the homepage navigation treatment without adding a separate strip. */
+.experiment-page .exp-hero,
+.experiment-page .exp4-hero{
+  padding:58px 0 78px !important;
+  position:relative !important;
+}
+.experiment-page .exp-hero .quick-access-bar,
+.experiment-page .exp4-hero .quick-access-bar{
+  position:absolute !important;
+  left:50% !important;
+  bottom:16px !important;
+  transform:translateX(-50%) !important;
+  width:min(calc(100% - 40px), var(--max)) !important;
+  max-width:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  z-index:6 !important;
+  box-sizing:border-box !important;
+}
+.experiment-page .exp-hero .quick-access-inner,
+.experiment-page .exp4-hero .quick-access-inner{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:7px !important;
+  min-height:0 !important;
+  width:100% !important;
+  padding:0 !important;
+  overflow:visible !important;
+}
+.experiment-page .exp-hero .quick-access-label,
+.experiment-page .exp4-hero .quick-access-label{display:none !important;}
+.experiment-page .exp-hero .quick-access-links,
+.experiment-page .exp4-hero .quick-access-links{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:7px !important;
+  flex:0 1 auto !important;
+  width:auto !important;
+  overflow-x:auto !important;
+  scrollbar-width:none !important;
+}
+.experiment-page .exp-hero .quick-access-links::-webkit-scrollbar,
+.experiment-page .exp4-hero .quick-access-links::-webkit-scrollbar{display:none !important;}
+.experiment-page .exp-hero .quick-access-links a,
+.experiment-page .exp4-hero .quick-access-links a{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:38px !important;
+  height:38px !important;
+  min-width:auto !important;
+  width:auto !important;
+  padding:0 13px !important;
+  border:1px solid rgba(255,255,255,.34) !important;
+  border-radius:999px !important;
+  background:rgba(8,12,10,.18) !important;
+  color:rgba(255,255,255,.92) !important;
+  font-size:11px !important;
+  white-space:nowrap !important;
+  text-decoration:none !important;
+  
+}
+.experiment-page .exp-hero .quick-access-links a:last-child,
+.experiment-page .exp4-hero .quick-access-links a:last-child{border-right:1px solid rgba(255,255,255,.34) !important;}
+.experiment-page .exp-hero .quick-access-links a:hover,
+.experiment-page .exp4-hero .quick-access-links a:hover,
+.experiment-page .exp-hero .quick-access-links a:focus-visible,
+.experiment-page .exp4-hero .quick-access-links a:focus-visible{
+  background:rgba(255,255,255,.12) !important;
+  border-color:rgba(255,255,255,.62) !important;
+  color:#fff !important;
+  transform:translateY(-1px) !important;
+  outline:none !important;
+}
+.experiment-page .exp-hero .quick-access-links a.active,
+.experiment-page .exp4-hero .quick-access-links a.active{
+  background:rgba(183,213,193,.16) !important;
+  border-color:rgba(183,213,193,.65) !important;
+  color:#fff !important;
+}
+@media(max-width:1000px){
+  .experiment-page .exp-hero .quick-access-bar,
+  .experiment-page .exp4-hero .quick-access-bar{width:calc(100% - 32px) !important;}
+  .experiment-page .exp-hero .quick-access-inner,
+  .experiment-page .exp4-hero .quick-access-inner{justify-content:flex-start !important;}
+  .experiment-page .exp-hero .quick-access-links,
+  .experiment-page .exp4-hero .quick-access-links{justify-content:flex-start !important;max-width:100% !important;}
+}
+@media(max-width:700px){
+  .experiment-page .exp-hero,
+  .experiment-page .exp4-hero{padding:48px 0 72px !important;}
+  .experiment-page .exp-hero .quick-access-links a,
+  .experiment-page .exp4-hero .quick-access-links a{min-height:35px !important;height:35px !important;padding:0 11px !important;font-size:10px !important;}
+}
+
+/* V35: quick-access navigation sits directly below the experiment subtitle and is centered. */
+.experiment-page .exp-hero .quick-access-bar,
+.experiment-page .exp4-hero .quick-access-bar{
+  position:relative !important;
+  left:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+  width:100% !important;
+  max-width:none !important;
+  margin:24px 0 0 !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  z-index:4 !important;
+  box-sizing:border-box !important;
+}
+.experiment-page .exp-hero .quick-access-inner,
+.experiment-page .exp4-hero .quick-access-inner{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:0 !important;
+  min-height:0 !important;
+  width:100% !important;
+  padding:0 !important;
+  overflow:visible !important;
+}
+.experiment-page .exp-hero .quick-access-links,
+.experiment-page .exp4-hero .quick-access-links{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:7px !important;
+  flex:0 1 auto !important;
+  width:auto !important;
+  max-width:100% !important;
+  overflow-x:auto !important;
+  scrollbar-width:none !important;
+}
+.experiment-page .exp-hero .quick-access-links a,
+.experiment-page .exp4-hero .quick-access-links a{
+  flex:0 0 auto !important;
+}
+.experiment-page .exp-hero,
+.experiment-page .exp4-hero{
+  padding-bottom:42px !important;
+}
+@media(max-width:1000px){
+  .experiment-page .exp-hero .quick-access-links,
+  .experiment-page .exp4-hero .quick-access-links{
+    justify-content:flex-start !important;
+  }
+}
+@media(max-width:700px){
+  .experiment-page .exp-hero,
+  .experiment-page .exp4-hero{padding-bottom:34px !important;}
+  .experiment-page .exp-hero .quick-access-bar,
+  .experiment-page .exp4-hero .quick-access-bar{margin-top:18px !important;}
+}
+
+/* V35: concise experiment hero inspiration line */
+.exp-hero .hero-inspiration, .exp4-hero .hero-inspiration{
+  max-width:760px;
+  margin-top:12px !important;
+  color:#c3cbc5 !important;
+  font-size:15px;
+  line-height:1.55;
+}
+@media(max-width:700px){
+  .exp-hero .hero-inspiration, .exp4-hero .hero-inspiration{font-size:14px;line-height:1.5;}
+}
+
+
+
+/* Compact grouped upcoming lab row: one date, all same-day sessions inline. */
+.upcoming-inline-row {
+  display:flex; align-items:center; gap:12px;
+  min-height:58px; padding:14px 16px;
+  border:1px solid var(--line); background:transparent;
+  font-size:13px; white-space:nowrap; overflow-x:auto;
+}
+.upcoming-inline-date { color:var(--muted); flex:0 0 auto; }
+.upcoming-inline-sep { color:var(--line); flex:0 0 auto; }
+.upcoming-inline-sessions { color:var(--ink); flex:0 0 auto; }
+@media(max-width:600px){
+  .upcoming-inline-row { white-space:normal; align-items:flex-start; flex-wrap:wrap; gap:7px 9px; }
+  .upcoming-inline-sessions { flex:1 1 100%; line-height:1.7; }
+  .upcoming-inline-sep { display:none; }
+}
+
+/* Upcoming lab sessions: reveal on demand */
+.upcoming-toggle { margin-top: 18px; }
+.upcoming-wrap[hidden] { display: none !important; }
+.upcoming-wrap { margin-top: 2px; }
+@media(max-width:600px){ .upcoming-toggle { width:100%; justify-content:center; } }
+
+/* V51: keep the homepage theme-toggle footprint identical in both modes so the
+   navigation links never shift when the label changes between Dark and Light. */
+.home-site-header .theme-toggle {
+  width: 74px;
+  min-width: 74px;
+  box-sizing: border-box;
+  justify-content: center;
+  flex: 0 0 74px;
+}
+
+
+
+
+/* STATIC EXPERIMENT HEADERS — no page-load sweep, reveal, or transition. */
+html:has(body.experiment-page) { scroll-behavior: auto; overflow-anchor: none; }
+body.experiment-page { overflow-anchor: none; }
+.experiment-page .exp-hero,
+.experiment-page .exp4-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #111713;
+  color: #fff;
+}
+.experiment-page .exp-hero > .container,
+.experiment-page .exp4-hero > .container {
+  position: relative;
+  z-index: 2;
+  visibility: visible;
+  opacity: 1;
+}
+.experiment-page .exp-hero h1,
+.experiment-page .exp4-hero h1,
+.experiment-page .exp-hero p,
+.experiment-page .exp4-hero p,
+.experiment-page .exp-hero .eyebrow,
+.experiment-page .exp4-hero .eyebrow {
+  visibility: visible;
+  opacity: 1;
+}
+@media (min-width:901px){
+  .experiment-page .exp-hero{min-height:370px;}
+  .experiment-page .exp4-hero{min-height:260px;}
+}
+@media (max-width:900px){
+  .experiment-page .exp-hero,.experiment-page .exp4-hero{min-height:0;}
+}
+
+
+/* V59 global safety: experiment header/navigation never animate on page load. */
+body.experiment-page .site-header,
+body.experiment-page .site-header *,
+body.experiment-page .exp-hero,
+body.experiment-page .exp4-hero,
+body.experiment-page .exp-hero *,
+body.experiment-page .exp4-hero * {
+  animation: none !important;
+  transition: none !important;
+}
+
+
+/* V59: hard static header/navigation rule for every page. */
+.site-header, .site-header *,
+.home-site-header, .home-site-header *,
+body.experiment-page .exp-hero, body.experiment-page .exp4-hero,
+body.experiment-page .exp-hero *, body.experiment-page .exp4-hero *,
+body.experiment-page .quick-access-bar, body.experiment-page .quick-access-bar * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  will-change: auto !important;
+}
+
+
+/* V60: page navigation stability. Headers and hero layers are static during navigation. */
+.site-header, .site-header *,
+.home-site-header, .home-site-header *,
+.hero, .hero::before, .hero::after, .hero-grid, .hero-content,
+.exp-hero, .exp4-hero, .exp-hero *, .exp4-hero *,
+.quick-access-bar, .quick-access-bar * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  will-change: auto !important;
+}
+.hero::before { transform: none !important; }
+.hero-grid { mask-image: none !important; -webkit-mask-image: none !important; }
+
+
+/* V61 — static first-paint navigation stability.
+   Prevent browser scroll anchoring/history restoration from producing a visible jump.
+   Header/hero geometry is fixed before any content or fonts settle. */
+html, body { overflow-anchor: none !important; }
+.site-header { min-height: 76px !important; }
+.site-header .nav { min-height: 76px !important; }
+.home-site-header { min-height: 72px !important; height: 72px !important; }
+.home-site-header .nav { min-height: 72px !important; height: 72px !important; }
+.home-site-header + .hero { min-height: 500px !important; }
+.exp-hero, .exp4-hero { min-height: 370px !important; }
+.site-header, .site-header *, .home-site-header, .home-site-header *, .exp-hero, .exp4-hero, .quick-access-bar, .quick-access-bar * {
+  animation: none !important;
+  transition: none !important;
+}
+
+
+/* V62: static-first navigation/hero. No load-time visual state changes. */
+.site-header, .home-site-header, .nav, .home-site-header .nav,
+.exp-hero, .exp4-hero, .quick-access-bar,
+.home-site-header .brand, .home-site-header .nav-links, .home-nav-tools, .nav-search, .theme-toggle {
+  animation: none !important;
+  transition: none !important;
+  will-change: auto !important;
+}
+.home-site-header { position:absolute !important; top:0 !important; left:0 !important; right:0 !important; height:72px !important; min-height:72px !important; }
+.home-site-header .nav { height:72px !important; min-height:72px !important; }
+.hero { min-height:500px !important; height:500px !important; }
+.hero::before, .hero::after, .hero-grid { transform:none !important; animation:none !important; transition:none !important; }
+
+/* V64: compact experiment headers — remove excess empty space below quick access. */
+@media (min-width: 901px) {
+  .experiment-page .exp4-hero {
+    min-height: 0 !important;
+    padding-bottom: 20px !important;
+  }
+}
+@media (max-width: 900px) {
+  .experiment-page .exp4-hero {
+    min-height: 0 !important;
+    padding-bottom: 24px !important;
+  }
+}
+
+
+/* Search-results portal: keep the panel above the hero image and outside every header/hero clipping context. */
+.home-site-header,
+.home-site-header .nav,
+.home-nav-tools,
+.nav-search { overflow: visible !important; }
+.nav-search-results { pointer-events: auto !important; }
+
+/* V139 FINAL: same-date upcoming lab sessions are one continuous timetable row. */
+#upcoming-list .upcoming-inline-row {
+  display:flex !important;
+  align-items:center !important;
+  gap:0 !important;
+  min-height:58px !important;
+  padding:14px 16px !important;
+  border:1px solid var(--line) !important;
+  background:transparent !important;
+  font-size:13px !important;
+  white-space:nowrap !important;
+  overflow-x:auto !important;
+  box-sizing:border-box !important;
+}
+#upcoming-list .upcoming-inline-date,
+#upcoming-list .upcoming-inline-sep,
+#upcoming-list .upcoming-inline-sessions { flex:0 0 auto !important; }
+#upcoming-list .upcoming-inline-date { color:var(--muted) !important; margin-right:16px !important; }
+#upcoming-list .upcoming-inline-sep { color:var(--line) !important; margin-right:16px !important; }
+#upcoming-list .upcoming-inline-sessions { color:var(--ink) !important; }
+@media(max-width:600px){
+  #upcoming-list .upcoming-inline-row { white-space:normal !important; flex-wrap:wrap !important; gap:7px 9px !important; }
+  #upcoming-list .upcoming-inline-date { margin-right:0 !important; }
+  #upcoming-list .upcoming-inline-sep { display:inline !important; margin-right:0 !important; }
+  #upcoming-list .upcoming-inline-sessions { flex:1 1 100% !important; line-height:1.7 !important; }
+}
+
+/* FINAL SCHEDULE PRESENTATION: one continuous row for all sessions on the same date. */
+#upcoming-list .upcoming-exact-row{
+  display:flex !important;
+  align-items:center !important;
+  width:100% !important;
+  min-height:58px !important;
+  box-sizing:border-box !important;
+  padding:14px 16px !important;
+  border:1px solid #e9a8bd !important;
+  background:#fce5ed !important;
+  color:var(--ink) !important;
+  font-size:13px !important;
+  line-height:1.5 !important;
+  white-space:nowrap !important;
+  overflow-x:auto !important;
+  gap:0 !important;
+}
+#upcoming-list .upcoming-exact-date{flex:0 0 auto !important;color:var(--muted) !important;}
+#upcoming-list .upcoming-exact-separator{flex:0 0 auto !important;margin:0 16px !important;color:var(--line) !important;}
+#upcoming-list .upcoming-exact-session{flex:0 0 auto !important;color:var(--ink) !important;}
+@media(max-width:600px){
+  #upcoming-list .upcoming-exact-row{white-space:normal !important;align-items:flex-start !important;flex-wrap:wrap !important;gap:5px 8px !important;overflow-x:visible !important;}
+  #upcoming-list .upcoming-exact-separator{margin:0 !important;}
+  #upcoming-list .upcoming-exact-session{flex:1 1 100% !important;line-height:1.8 !important;}
+}
+
+
+/* Experiment 07: supplied visual references */
+.diode-visuals{padding:22px 24px 28px;}
+.diode-visual-item{padding:8px 0 24px;text-align:center;}
+.diode-visual-item + .diode-visual-item{border-top:1px solid var(--line);padding-top:28px;}
+.diode-visual-item h3{margin:0 0 16px;font-size:15px;letter-spacing:.01em;}
+.diode-visual-item .visual-image{display:block;width:auto;height:auto;max-width:100%;margin:0 auto;object-fit:contain;}
+.diode-bias-image{max-width:760px!important;}
+.diode-vi-image{max-width:700px!important;}
+@media(max-width:760px){.diode-visuals{padding:16px 12px 20px;}.diode-visual-item + .diode-visual-item{padding-top:22px;}}
+
+
+/* V173 TRIAL — grid-only dark technical background; decorative rings removed.
+   Scoped to experiment pages only; homepage and all experiment functionality stay unchanged. */
+body.experiment-page {
+  --qpt-trial-bg: #151918;
+  --qpt-trial-grid: rgba(151, 190, 181, .075);
+  background-color: var(--qpt-trial-bg) !important;
+  /* Grid-only backdrop: decorative teal rings removed at the user's request. */
+  background-image:
+    linear-gradient(to right, var(--qpt-trial-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--qpt-trial-grid) 1px, transparent 1px) !important;
+  background-size: 38px 38px, 38px 38px !important;
+  background-position: 0 0, 0 0 !important;
+  background-attachment: fixed !important;
+  color: #202725;
+}
+
+/* Keep the actual learning material bright and readable above the dark backdrop. */
+body.experiment-page main,
+body.experiment-page .content-block,
+body.experiment-page .lab-panel,
+body.experiment-page .exp-content,
+body.experiment-page .experiment-content {
+  position: relative;
+}
+body.experiment-page main.section.container {
+  background: #f7f6f0;
+  border-left: 1px solid rgba(211, 222, 214, .82);
+  border-right: 1px solid rgba(211, 222, 214, .82);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, .14);
+}
+body.experiment-page .site-header {
+  background: rgba(245, 245, 240, .92);
+  border-bottom-color: rgba(201, 216, 208, .8);
+}
+body.experiment-page .exp-hero,
+body.experiment-page .exp4-hero {
+  border-bottom: 1px solid rgba(53, 194, 174, .20);
+}
+@media (max-width: 700px) {
+  body.experiment-page {
+    background-size: 30px 30px, 30px 30px !important;
+  }
+  body.experiment-page main.section.container {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .10);
+  }
+}
+
+
+/* V172 TRIAL — separated experiment sections + integrated experiment header.
+   Keeps the existing page content and functionality; the grid is visible in the gaps. */
+body.experiment-page main.section.container {
+  width: min(82vw, 1500px) !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+  padding: 28px 0 64px !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+body.experiment-page main.section.container > div {
+  width: 100%;
+  min-width: 0;
+  background: transparent !important;
+}
+body.experiment-page main.section.container .content-block {
+  box-sizing: border-box;
+  background: #f7f6f0 !important;
+  border: 1px solid rgba(196, 211, 202, .95);
+  border-left: 3px solid #238f81;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .10);
+  padding: clamp(22px, 3.2vw, 42px) !important;
+  margin: 0 0 clamp(18px, 2.4vw, 30px) !important;
+  scroll-margin-top: 108px;
+  overflow-wrap: anywhere;
+}
+body.experiment-page main.section.container .content-block:last-child { margin-bottom: 0 !important; }
+body.experiment-page main.section.container .content-block h2 { margin-top: 10px; }
+body.experiment-page main.section.container .content-block .table-wrap,
+body.experiment-page main.section.container .content-block .table-responsive,
+body.experiment-page main.section.container .content-block .chart-wrap {
+  max-width: 100%;
+}
+/* Large dark experiment title band, aligned with the new section-card column. */
+body.experiment-page .exp-hero,
+body.experiment-page .exp4-hero {
+  position: relative;
+  isolation: isolate;
+  background-color: #111816 !important;
+  background-image:
+    radial-gradient(ellipse at 0% 15%, transparent 0 78px, rgba(30,174,157,.22) 79px 85px, transparent 86px 126px, rgba(30,174,157,.12) 127px 133px, transparent 134px),
+    radial-gradient(ellipse at 100% 78%, transparent 0 95px, rgba(30,174,157,.19) 96px 102px, transparent 103px 146px, rgba(30,174,157,.11) 147px 153px, transparent 154px),
+    linear-gradient(to right, rgba(151,190,181,.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(151,190,181,.055) 1px, transparent 1px) !important;
+  background-size: 420px 520px, 440px 560px, 38px 38px, 38px 38px !important;
+  border-bottom: 1px solid rgba(53,194,174,.35) !important;
+  padding-bottom: 42px !important;
+}
+body.experiment-page .exp-hero .container,
+body.experiment-page .exp4-hero .container {
+  width: min(82vw, 1500px) !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+body.experiment-page .exp-hero h1,
+body.experiment-page .exp4-hero h1 {
+  max-width: 980px;
+  text-wrap: balance;
+}
+/* Keep the section navigation inside the hero; style it as a single compact tab row. */
+body.experiment-page .exp-hero .quick-access-bar,
+body.experiment-page .exp4-hero .quick-access-bar {
+  margin-top: 28px !important;
+  border-top: 1px solid rgba(195,203,197,.28) !important;
+  border-bottom: 0 !important;
+  padding-top: 13px !important;
+}
+body.experiment-page .exp-hero .quick-access-inner,
+body.experiment-page .exp4-hero .quick-access-inner {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 9px !important;
+  align-items: center !important;
+  min-height: 42px !important;
+}
+body.experiment-page .exp-hero .quick-access-label,
+body.experiment-page .exp4-hero .quick-access-label {
+  margin-right: 8px;
+}
+body.experiment-page .exp-hero .quick-access-links,
+body.experiment-page .exp4-hero .quick-access-links {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 9px !important;
+}
+body.experiment-page .exp-hero .quick-access-links a,
+body.experiment-page .exp4-hero .quick-access-links a {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 7px 14px !important;
+  border: 1px solid rgba(210,225,216,.35) !important;
+  border-radius: 999px !important;
+  color: #f7f6f0 !important;
+  background: rgba(255,255,255,.025) !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+body.experiment-page .exp-hero .quick-access-links a:hover,
+body.experiment-page .exp4-hero .quick-access-links a:hover,
+body.experiment-page .exp-hero .quick-access-links a:focus-visible,
+body.experiment-page .exp4-hero .quick-access-links a:focus-visible {
+  background: rgba(35,143,129,.24) !important;
+  border-color: #4cc6b5 !important;
+  outline-offset: 3px;
+}
+@media (max-width: 760px) {
+  body.experiment-page main.section.container,
+  body.experiment-page .exp-hero .container,
+  body.experiment-page .exp4-hero .container {
+    width: min(92vw, 1500px) !important;
+  }
+  body.experiment-page main.section.container { padding-top: 16px !important; padding-bottom: 34px !important; }
+  body.experiment-page main.section.container .content-block { padding: 22px 18px !important; margin-bottom: 16px !important; }
+  body.experiment-page .exp-hero .quick-access-label,
+  body.experiment-page .exp4-hero .quick-access-label { width: 100%; }
+  body.experiment-page .exp-hero .quick-access-links a,
+  body.experiment-page .exp4-hero .quick-access-links a { min-height: 34px; padding: 6px 11px !important; font-size: 12px; }
+}
+
+/* V174 FIX — remove remaining decorative rings from the experiment title hero.
+   Keep only the subtle grid pattern, matching the page background. */
+body.experiment-page .exp-hero,
+body.experiment-page .exp4-hero {
+  background-color: #111816 !important;
+  background-image:
+    linear-gradient(to right, rgba(151,190,181,.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(151,190,181,.055) 1px, transparent 1px) !important;
+  background-size: 38px 38px, 38px 38px !important;
+  background-position: 0 0, 0 0 !important;
+}
+
+
+/* V177 TRIAL — homepage restyled to match the experiment pages.
+   CSS-only redesign: preserves homepage markup, section order, links, and widgets. */
+body:not(.experiment-page) {
+  background-color: #111816 !important;
+  background-image:
+    linear-gradient(to right, rgba(151,190,181,.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(151,190,181,.055) 1px, transparent 1px) !important;
+  background-size: 38px 38px, 38px 38px !important;
+  background-position: 0 0, 0 0 !important;
+  background-attachment: fixed !important;
+}
+
+/* Keep the original homepage hero and its content, but use the same clean grid-only
+   technical banner as the experiment title headers. */
+body:not(.experiment-page) main > .hero {
+  min-height: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: clamp(118px, 13vw, 176px) 0 clamp(42px, 5vw, 66px) !important;
+  background-color: #111816 !important;
+  background-image:
+    linear-gradient(to right, rgba(151,190,181,.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(151,190,181,.055) 1px, transparent 1px) !important;
+  background-size: 38px 38px, 38px 38px !important;
+  border-bottom: 1px solid rgba(53,194,174,.35) !important;
+}
+body:not(.experiment-page) main > .hero::before {
+  background-image: none !important;
+  background: transparent !important;
+  opacity: 0 !important;
+}
+body:not(.experiment-page) main > .hero::after {
+  background: transparent !important;
+  opacity: 0 !important;
+}
+body:not(.experiment-page) .hero-content,
+body:not(.experiment-page) .hero-equation,
+body:not(.experiment-page) .hero-grid {
+  position: relative;
+  z-index: 1;
+}
+body:not(.experiment-page) .hero-content {
+  width: min(82vw, 1500px) !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+body:not(.experiment-page) .hero h1 {
+  color: #f7f6f0 !important;
+  max-width: 980px;
+  text-wrap: balance;
+}
+body:not(.experiment-page) .hero-description,
+body:not(.experiment-page) .hero-equation {
+  color: #d8e2dc !important;
+}
+body:not(.experiment-page) .hero-grid {
+  opacity: 0 !important;
+  display: none !important;
+}
+
+/* Each original homepage section becomes its own light card; the grid remains
+   visible in the spacing between them. */
+body:not(.experiment-page) main > #today-lab,
+body:not(.experiment-page) main > #experiments,
+body:not(.experiment-page) main > #features,
+body:not(.experiment-page) main > #about {
+  box-sizing: border-box !important;
+  width: min(82vw, 1500px) !important;
+  max-width: none !important;
+  margin: clamp(18px, 2.4vw, 30px) auto !important;
+  padding: clamp(24px, 3.2vw, 44px) !important;
+  background: #f7f6f0 !important;
+  color: #172323 !important;
+  border: 1px solid rgba(196,211,202,.95) !important;
+  border-left: 3px solid #238f81 !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.10) !important;
+}
+
+/* Restore full-width inner layout within the new section cards. */
+body:not(.experiment-page) #today-lab > .container,
+body:not(.experiment-page) #features > .container {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body:not(.experiment-page) #experiments {
+  padding-left: clamp(24px, 3.2vw, 44px) !important;
+  padding-right: clamp(24px, 3.2vw, 44px) !important;
+}
+body:not(.experiment-page) #today-lab,
+body:not(.experiment-page) #experiments,
+body:not(.experiment-page) #features,
+body:not(.experiment-page) #about {
+  background-image: none !important;
+}
+body:not(.experiment-page) #today-lab .section-heading h2,
+body:not(.experiment-page) #experiments .section-heading h2,
+body:not(.experiment-page) #features .section-heading h2,
+body:not(.experiment-page) #about h2 {
+  color: #172323 !important;
+}
+body:not(.experiment-page) #today-lab .section-heading > p,
+body:not(.experiment-page) #features .section-heading > p,
+body:not(.experiment-page) #about p {
+  color: #485650 !important;
+}
+
+/* Preserve the existing about-section two-column layout without nesting cards. */
+body:not(.experiment-page) main > #about {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, 280px) !important;
+  gap: clamp(18px, 2.4vw, 30px) !important;
+}
+body:not(.experiment-page) #about .about-panel,
+body:not(.experiment-page) #about .about-stat {
+  min-width: 0;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+body:not(.experiment-page) #about .about-stat strong {
+  color: #172323 !important;
+}
+body:not(.experiment-page) #about .about-stat span {
+  color: #485650 !important;
+}
+
+@media (max-width: 760px) {
+  body:not(.experiment-page) .hero-content {
+    width: min(92vw, 1500px) !important;
+  }
+  body:not(.experiment-page) main > #today-lab,
+  body:not(.experiment-page) main > #experiments,
+  body:not(.experiment-page) main > #features,
+  body:not(.experiment-page) main > #about {
+    width: calc(100% - 28px) !important;
+    margin: 14px auto !important;
+    padding: 22px 18px !important;
+  }
+  body:not(.experiment-page) main > #about {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  body:not(.experiment-page) .section-heading {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+/* V188 FIX — keep the About section's frame rails spanning the full grid.
+   Without this, the injected top/bottom rails occupy individual grid cells and
+   push the About copy and statistic into the wrong columns. */
+body:not(.experiment-page) main > #about.qpt-frame-section > .qpt-frame-top,
+body:not(.experiment-page) main > #about.qpt-frame-section > .qpt-frame-bottom {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+body:not(.experiment-page) main > #about.qpt-frame-section > .about-panel {
+  grid-column: 1 !important;
+  grid-row: auto !important;
+}
+body:not(.experiment-page) main > #about.qpt-frame-section > .about-stat {
+  grid-column: 2 !important;
+  grid-row: auto !important;
+}
+@media (max-width: 760px) {
+  body:not(.experiment-page) main > #about.qpt-frame-section > .about-panel,
+  body:not(.experiment-page) main > #about.qpt-frame-section > .about-stat {
+    grid-column: 1 !important;
+  }
+}
+
+
+/* V201 TRIAL — scientist spotlight in the unused right side of the homepage hero. */
+.hero-content-scientist {
+  width: min(var(--max), calc(100% - 48px));
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(390px, .82fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 82px);
+  padding-top: 72px !important;
+  padding-bottom: 58px !important;
+}
+.hero-copy { min-width: 0; }
+.hero-copy .hero h1 { max-width: 700px; }
+.scientist-feature {
+  min-width: 0;
+  color: #f7f5ed;
+  background: rgba(10, 17, 14, .68);
+  border: 1px solid rgba(220, 232, 223, .42);
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, .68);
+  padding: 14px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transform: translateY(0);
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.scientist-feature:hover {
+  transform: translateY(-4px);
+  border-color: #f05b8d;
+  box-shadow: 10px 12px 0 rgba(0, 0, 0, .72);
+}
+.scientist-feature-top {
+  display: flex; align-items: center; gap: 9px;
+  min-width: 0; padding: 1px 1px 12px;
+  border-bottom: 1px solid rgba(247,245,237,.55);
+  color: #f7f5ed; font: 700 10px/1.3 "Manrope", sans-serif;
+  letter-spacing: .11em;
+}
+.scientist-pink-square { display: inline-block; flex: 0 0 10px; width: 10px; height: 10px; background: #f05b8d; }
+.scientist-feature-index { margin-left: auto; color: #b7d5c1; white-space: nowrap; }
+.scientist-feature-body { display: grid; grid-template-columns: minmax(110px, .72fr) minmax(0, 1.25fr); gap: 18px; padding-top: 15px; align-items: stretch; }
+.scientist-portrait-wrap { min-height: 245px; background: #e8e3da; border: 1px solid rgba(247,245,237,.45); overflow: hidden; }
+.scientist-portrait { display: block; width: 100%; height: 100%; min-height: 245px; object-fit: cover; object-position: center top; filter: saturate(.88); transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.scientist-feature:hover .scientist-portrait { transform: scale(1.035); }
+.scientist-profile-copy { min-width: 0; display: flex; flex-direction: column; }
+.scientist-field { margin: 2px 0 8px; color: #a7cdb4; font: 600 9px/1.4 "Manrope", sans-serif; letter-spacing: .12em; }
+/* Daily scientist names: match the homepage's light italic, subtly tilted emphasis. */
+.scientist-profile-copy h2 { margin: 0; color: #f7f5ed; font-size: clamp(22px, 2vw, 31px); line-height: 1.02; letter-spacing: -.04em; font-style: italic; font-weight: 400; transform: none; }
+.scientist-years { margin: 7px 0 10px; color: #b8c4bb; font: 500 11px/1.4 "Manrope", sans-serif; }
+.scientist-profile-copy ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.scientist-profile-copy li { position: relative; padding-left: 0; color: #e0e4df; font-size: 14px; line-height: 1.55; }
+.scientist-profile-copy li::before { content: none; display: none; }
+.scientist-feature-bottom { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 14px; color: #a7cdb4; font: 600 8px/1.3 "Manrope", sans-serif; letter-spacing: .09em; }
+.scientist-progress { display: block; height: 2px; flex: 1; background: rgba(255,255,255,.22); overflow: hidden; }
+.scientist-progress i { display: block; width: 18%; height: 100%; background: #f05b8d; }
+@media (max-width: 1050px) {
+  .hero-content-scientist { grid-template-columns: minmax(0, 1fr) minmax(330px, .9fr); gap: 28px; }
+  .scientist-feature-body { grid-template-columns: minmax(95px, .62fr) minmax(0, 1.38fr); gap: 13px; }
+  .scientist-portrait-wrap, .scientist-portrait { min-height: 230px; }
+}
+@media (max-width: 800px) {
+  .hero-content-scientist { grid-template-columns: minmax(0, 1fr); gap: 30px; padding-top: 118px !important; padding-bottom: 44px !important; }
+  .hero-copy h1 { max-width: 680px; }
+  .scientist-feature { max-width: 620px; width: 100%; justify-self: end; }
+  .scientist-feature-body { grid-template-columns: minmax(115px, .55fr) minmax(0, 1.45fr); }
+  .scientist-portrait-wrap, .scientist-portrait { min-height: 220px; }
+}
+@media (max-width: 480px) {
+  .hero-content-scientist { width: min(92vw, 1500px) !important; padding-top: 100px !important; gap: 24px; }
+  .scientist-feature { padding: 10px; }
+  .scientist-feature-body { grid-template-columns: 100px minmax(0, 1fr); gap: 11px; }
+  .scientist-portrait-wrap, .scientist-portrait { min-height: 205px; }
+  .scientist-profile-copy h2 { font-size: 22px; }
+  .scientist-profile-copy li { font-size: 13px; line-height: 1.5; }
+  .scientist-feature-bottom { font-size: 7px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scientist-feature, .scientist-portrait { transition: none !important; }
+}
+
+
+/* V210: retain the scientist card's horizontal rules, remove its vertical side borders. */
+.hero-content-scientist .scientist-feature {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+
+/* V217 — repeat the same restrained teal EM-wave motif across the whole site background.
+   The overlay sits behind page content and is visible in the dark grid gaps between section cards. */
+.qpt-global-em-waves {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+  opacity: .36;
+}
+.qpt-global-em-waves svg { display:block; width:100%; height:100%; }
+.qpt-global-em-waves .global-wave { fill:none; stroke:#286456; stroke-width:1.05; vector-effect:non-scaling-stroke; opacity:.30; stroke-linecap:round; stroke-linejoin:round; }
+.qpt-global-em-waves .global-wave-broad { stroke:#285e52; stroke-width:1.2; opacity:.30; }
+.qpt-global-em-waves .global-wave-dense { stroke:#286456; stroke-width:.85; opacity:.24; }
+.qpt-global-em-waves .global-wave-dense-soft { stroke:#23584d; stroke-width:.72; opacity:.17; }
+body:not(.experiment-page) > header, body:not(.experiment-page) > main, body:not(.experiment-page) > footer { position:relative; z-index:1; }
+@media (max-width:760px) {
+ .qpt-global-em-waves { opacity:.36; }
+ .qpt-global-em-waves .global-wave { stroke-width:.9; }
+}
+@media (prefers-reduced-motion:reduce) { .qpt-global-em-waves { display:block; } }
+
+/* V223: align the first text line across all experiment cards. Keep card copy
+   anchored at a common position below the icons, with links aligned at the bottom. */
+.experiment-card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.experiment-card .card-body {
+  margin-top: 0 !important;
+  display: flex !important;
+  flex: 1 1 auto !important;
+  flex-direction: column !important;
+}
+.experiment-card .card-body a {
+  margin-top: auto !important;
+  padding-top: 14px !important;
+}
+
+
+/* V239 — place the period label above the time range for clearer, compact reading. */
+#today-lab .session-time { display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:center !important; gap:7px !important; white-space:nowrap !important; }
+#today-lab .session-time-period { order:0; font:italic 600 12px/1.1 "Playfair Display", Georgia, serif !important; letter-spacing:.12em; color:#376b5a; transform:rotate(-4deg); }
+#today-lab .session-time-range { order:1; display:flex; align-items:baseline; justify-content:center; gap:7px; white-space:nowrap; }
+#today-lab .session-time-range strong { display:inline !important; font:700 clamp(18px,1.65vw,27px)/1 Georgia,"Times New Roman",serif !important; color:#103a30; }
+#today-lab .session-time-range-dash { font:400 16px/1 Georgia,"Times New Roman",serif; color:#103a30; }
+#today-lab .session-time small { order:2; display:none !important; }
+@media(max-width:760px){#today-lab .session-time{gap:6px!important}#today-lab .session-time-period{font-size:10px!important}#today-lab .session-time-range{gap:5px}#today-lab .session-time-range strong{font-size:18px!important}}
+
+
+/* V255 — keep the mobile scientist card/header stable during typewriter reveal.
+   The script reserves each text element's final rendered height before typing. */
+@media (max-width: 800px) {
+  .hero-content-scientist,
+  .hero-content-scientist .scientist-feature,
+  .hero-content-scientist .scientist-feature-body,
+  .hero-content-scientist .scientist-profile-copy { min-width: 0; }
+  .hero-content-scientist .scientist-profile-copy ul,
+  .hero-content-scientist .scientist-profile-copy li { min-width: 0; }
+}
+
+/* V257 — subtle grey drafting grid confined to the About/Idea panel. */
+body:not(.experiment-page) main > #about.qpt-frame-section {
+  background-color: #f7f5ed !important;
+  background-image:
+    linear-gradient(to right, rgba(91, 105, 98, 0.13) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(91, 105, 98, 0.13) 1px, transparent 1px) !important;
+  background-size: 56px 56px !important;
+  background-position: 0 0 !important;
+}
+
+
+/* V258 — extend the About panel's subtle grey drafting grid to the other homepage section cards.
+   Keep the same line color, spacing, and alignment so the homepage feels cohesive. */
+body:not(.experiment-page) main > #today-lab,
+body:not(.experiment-page) main > #experiments,
+body:not(.experiment-page) main > #features {
+  background-color: #f7f5ed !important;
+  background-image:
+    linear-gradient(to right, rgba(91, 105, 98, 0.13) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(91, 105, 98, 0.13) 1px, transparent 1px) !important;
+  background-size: 56px 56px !important;
+  background-position: 0 0 !important;
+}

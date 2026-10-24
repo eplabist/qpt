@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<script>(function(){try{var q=new URLSearchParams(location.search).get("theme");var t=(q==="dark"||q==="light")?q:localStorage.getItem("qptlab-theme")||"light";if(t!=="dark"&&t!=="light")t="light";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light"); }})();</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="image" fetchpriority="high" href="infinity-logo.png" rel="preload"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;display=block" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=block" rel="stylesheet"/>
+<title>Experiment 08 | P-N Junction Diode Characteristics</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<style>
+html,body,body *{font-family:"Playfair Display",Georgia,serif!important}
+.exp4-hero{background:var(--dark);color:#fff;padding:70px 0 58px;position:relative;overflow:hidden}
+.exp4-hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 45%,rgba(71,112,89,.25),transparent 40%);pointer-events:none}
+.exp4-hero .container{position:relative;z-index:1}.exp4-hero .eyebrow{color:#b7d5c1}.exp4-hero h1{font-size:clamp(42px,6vw,76px);line-height:.98;letter-spacing:-.055em;max-width:900px;margin:18px 0}.exp4-hero p{color:#c3cbc5;max-width:760px;font-size:16px}
+.exp4-layout{display:grid;grid-template-columns:210px 1fr;gap:42px}.side-nav{position:sticky;top:100px;height:max-content}.side-nav a{display:block;padding:9px 0;color:var(--muted);font-size:12px;border-bottom:1px solid var(--line)}.side-nav a:hover{color:var(--accent)}
+.content-block{margin-bottom:70px}.content-block h2{font-size:32px;letter-spacing:-.04em;margin:0 0 18px}.content-block h3{font-size:19px;margin:30px 0 10px}.prose{color:#505650;max-width:820px}.equation{background:#eef3ed;border-left:3px solid var(--accent);padding:20px 24px;font-size:18px;margin:20px 0;overflow:auto}.equation.center{text-align:center}.apparatus{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:9px 12px;background:#f0f1ed;border:1px solid var(--line);font-size:11px}.steps{counter-reset:step;list-style:none;padding:0;max-width:820px}.steps li{counter-increment:step;display:grid;grid-template-columns:40px 1fr;gap:15px;padding:14px 0;border-bottom:1px solid var(--line);color:#505650}.steps li:before{content:counter(step,lower-roman);font-size:11px;color:var(--accent);padding-top:4px}
+.lab-panel,.visual-box,.graph-box,.reference{background:#fff;border:1px solid var(--line)}.lab-panel{padding:25px}.visual-box{padding:22px;margin-top:20px}.visual-box svg{display:block;width:100%;height:auto}.visual-image{display:block;width:100%;height:auto;max-width:760px;margin:0 auto}.visual-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:center}.visual-pair .visual-item{display:flex;align-items:center;justify-content:center;min-width:0}.visual-pair .visual-image{max-width:100%;margin:0 auto}.visual-pair .visual-item + .visual-item{border-top:0;padding-top:0}.visual-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:center}.visual-item{padding:4px 0 18px}.visual-item + .visual-item{border-top:1px solid var(--line);padding-top:28px}.visual-image-biot{max-width:650px}.visual-image-arrangement{max-width:680px}.caption,.graph-note{font-size:10px;color:var(--muted);margin:12px auto 0;max-width:760px;line-height:1.6;text-align:center}.form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.field label{display:block;font-size:10px;letter-spacing:.08em;color:var(--muted);margin-bottom:7px}.field input{width:100%;padding:11px 12px;border:1px solid #cdd2cb;background:#fbfcfa;font-size:13px;outline:none}.field input:focus{border-color:var(--accent)}
+.table-wrap{overflow-x:auto;margin-top:25px}.obs-table{width:100%;border-collapse:collapse;min-width:1280px}.obs-table th,.obs-table td{border:1px solid #d4d8d1;padding:8px;text-align:center;font-size:10px}.obs-table th{background:#eef1ec;font-size:9px}.obs-table input{width:72px;padding:7px;border:1px solid #d2d7d0;font-size:10px;text-align:center;background:#fff}.obs-table .readonly{background:#f6f8f4;color:#4f594f}
+.button-calc,.button-reset{cursor:pointer;padding:12px 18px;font-size:12px;font-weight:700}.button-calc{border:0;background:var(--accent);color:white;margin-top:18px}.button-reset{border:1px solid var(--line);background:#fff;color:var(--ink);margin:18px 0 0 7px}.note{margin-top:15px;padding:12px 14px;background:#f7f7f3;color:var(--muted);font-size:11px}.result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.result{background:#edf3ed;border:1px solid #d1dbd1;padding:17px}.result span{display:block;font-size:9px;color:var(--muted);text-transform:uppercase}.result strong{display:block;font-size:19px;margin-top:8px;word-break:break-word}.formula-note{font-size:12px;color:var(--muted);margin-top:10px}
+/* Experiment demonstration video — matched to Experiment 01 */
+.video-box{padding:18px}.video-frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#111}.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}.youtube-embed-frame{background:#000;border-radius:2px;box-shadow:0 8px 24px rgba(0,0,0,.08)}.video-heading-content{text-align:center;padding:6px 18px 18px;max-width:820px;margin:0 auto}.video-heading-content .video-title{font-size:20px;letter-spacing:.04em;margin-bottom:9px}.video-heading-content p{font:12px "Manrope",sans-serif;color:var(--muted);line-height:1.7;margin:0 auto;max-width:720px}@media(max-width:560px){.video-heading-content .video-title{font-size:17px}.video-heading-content{padding-left:4px;padding-right:4px}.video-box{padding:12px}}
+.graph-box{padding:18px;margin-top:20px}.graph-box svg{width:100%;height:auto;display:block}.graph-downloads{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.graph-download-button{border:1px solid var(--accent);cursor:pointer;background:var(--accent);color:#fff;padding:10px 14px;font-size:11px;font-weight:700}.graph-download-button.secondary{background:#fff;color:var(--accent)}.graph-download-button:disabled{opacity:.45;cursor:not-allowed}.axis-label{font-size:13px;fill:#505650}.tick-label{font-size:11px;fill:#666b65}.gridline{stroke:#e3e7e1;stroke-width:1}.plot-axis{stroke:#6a716b;stroke-width:1.4}.data-point{fill:#174f38}.theory-line{stroke:#8a928b;stroke-width:2;stroke-dasharray:6 5}
+.vector-controls{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.vector-controls label{font-size:10px;color:var(--muted);display:block}.vector-controls input{width:100%;margin-top:6px}.vector-readout{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.mini-result{background:#f7f8f4;border:1px solid var(--line);padding:12px}.mini-result span{display:block;font-size:9px;color:var(--muted)}.mini-result strong{font-size:16px;display:block;margin-top:5px}
+.viva{border:1px solid var(--line);background:#fff;margin:10px 0}.viva button{width:100%;border:0;background:none;text-align:left;padding:16px;cursor:pointer;font-weight:400}.viva .answer{display:none;padding:0 16px 16px;color:var(--muted);font-size:13px}.viva.open .answer{display:block}.reference{margin-top:18px;padding:16px 18px;font-size:12px;color:var(--muted)}.reference a{color:var(--accent);text-decoration:underline}
+@media(max-width:900px){.exp4-layout{grid-template-columns:1fr}.side-nav{position:static;display:flex;overflow:auto;gap:20px;border-bottom:1px solid var(--line)}.side-nav a{white-space:nowrap;border:0}.form-grid{grid-template-columns:repeat(2,1fr)}.vector-controls{grid-template-columns:repeat(2,1fr)}.result-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.form-grid,.result-grid,.vector-readout{grid-template-columns:1fr}.vector-controls{grid-template-columns:1fr}.button-reset{margin-left:0}.obs-table{min-width:1120px}.exp4-hero{padding-top:50px}}
+
+/* V20: horizontal quick-access navigation above the experiment hero */
+.quick-access-bar{background:#f7f8f4;border-bottom:1px solid var(--line);border-top:1px solid var(--line);position:relative;z-index:5}
+.quick-access-inner{display:flex;align-items:center;gap:28px;min-height:54px}
+.quick-access-label{font-size:10px;letter-spacing:.16em;color:var(--accent);white-space:nowrap}
+.quick-access-links{display:flex;align-items:center;gap:0;flex:1;overflow-x:auto;scrollbar-width:thin}
+.quick-access-links a{display:inline-flex;align-items:center;min-height:54px;padding:0 17px;color:var(--muted);font-size:12px;text-decoration:none;border-left:1px solid var(--line);white-space:nowrap;transition:color .15s ease,background .15s ease}
+.quick-access-links a:last-child{border-right:1px solid var(--line)}
+.quick-access-links a:hover,.quick-access-links a:focus-visible{color:var(--ink);background:#eef3ed;outline:none}
+@media(max-width:900px){.quick-access-inner{gap:14px}.quick-access-label{display:none}.quick-access-links a{padding:0 14px}}
+@media(max-width:760px){.visual-pair{grid-template-columns:1fr;gap:18px}.visual-pair .visual-item + .visual-item{border-top:1px solid var(--line);padding-top:18px}}
+</style>
+<style id="quick-access-in-hero">
+/* V21: quick access sits inside the dark hero, directly below the experiment title and subtitle. */
+.exp-hero .quick-access-bar, .exp4-hero .quick-access-bar{
+  background:transparent;
+  border:0;
+  border-top:1px solid rgba(195,203,197,.32);
+  position:relative;
+  z-index:4;
+  margin-top:32px;
+}
+.exp-hero .quick-access-inner, .exp4-hero .quick-access-inner{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  min-height:50px;
+}
+.exp-hero .quick-access-label, .exp4-hero .quick-access-label{
+  color:#b7d5c1;
+  font-size:9px;
+  letter-spacing:.18em;
+  white-space:nowrap;
+}
+.exp-hero .quick-access-links, .exp4-hero .quick-access-links{
+  display:flex;
+  align-items:stretch;
+  flex:1;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.exp-hero .quick-access-links::-webkit-scrollbar, .exp4-hero .quick-access-links::-webkit-scrollbar{display:none}
+.exp-hero .quick-access-links a, .exp4-hero .quick-access-links a{
+  display:inline-flex;
+  align-items:center;
+  min-height:50px;
+  padding:0 16px;
+  color:#c3cbc5;
+  font-size:11px;
+  text-decoration:none;
+  border-left:1px solid rgba(195,203,197,.18);
+  white-space:nowrap;
+  transition:background .18s ease,color .18s ease;
+}
+.exp-hero .quick-access-links a:last-child, .exp4-hero .quick-access-links a:last-child{border-right:1px solid rgba(195,203,197,.18)}
+.exp-hero .quick-access-links a:hover, .exp-hero .quick-access-links a:focus-visible,
+.exp4-hero .quick-access-links a:hover, .exp4-hero .quick-access-links a:focus-visible{
+  background:rgba(183,213,193,.10);
+  color:#fff;
+  outline:none;
+}
+@media(max-width:900px){
+  .exp-hero .quick-access-inner, .exp4-hero .quick-access-inner{gap:12px}
+  .exp-hero .quick-access-label, .exp4-hero .quick-access-label{display:none}
+  .exp-hero .quick-access-links a, .exp4-hero .quick-access-links a{padding:0 13px}
+}
+</style>
+<style id="quick-access-in-hero-v21">
+/* V21: Quick access is part of the dark hero, immediately below the title and subtitle. */
+.exp-hero .quick-access-bar,.exp4-hero .quick-access-bar{background:transparent!important;border:0!important;border-top:1px solid rgba(195,203,197,.30)!important;position:relative;z-index:4;margin-top:30px!important;}
+.exp-hero .quick-access-inner,.exp4-hero .quick-access-inner{display:flex;align-items:center;gap:24px;min-height:48px;}
+.exp-hero .quick-access-label,.exp4-hero .quick-access-label{color:#b7d5c1;font-size:9px;letter-spacing:.18em;white-space:nowrap;}
+.exp-hero .quick-access-links,.exp4-hero .quick-access-links{display:flex;align-items:stretch;flex:1;overflow-x:auto;scrollbar-width:none;}
+.exp-hero .quick-access-links::-webkit-scrollbar,.exp4-hero .quick-access-links::-webkit-scrollbar{display:none;}
+.exp-hero .quick-access-links a,.exp4-hero .quick-access-links a{display:inline-flex;align-items:center;min-height:48px;padding:0 15px;color:#c3cbc5;font-size:11px;text-decoration:none;border-left:1px solid rgba(195,203,197,.17);white-space:nowrap;transition:background .18s ease,color .18s ease;}
+.exp-hero .quick-access-links a:last-child,.exp4-hero .quick-access-links a:last-child{border-right:1px solid rgba(195,203,197,.17);}
+.exp-hero .quick-access-links a:hover,.exp-hero .quick-access-links a:focus-visible,.exp4-hero .quick-access-links a:hover,.exp4-hero .quick-access-links a:focus-visible{background:rgba(183,213,193,.10);color:#fff;outline:none;}
+@media(max-width:900px){.exp-hero .quick-access-inner,.exp4-hero .quick-access-inner{gap:12px}.exp-hero .quick-access-label,.exp4-hero .quick-access-label{display:none}.exp-hero .quick-access-links a,.exp4-hero .quick-access-links a{padding:0 13px;}}
+</style>
+<style id="v22-compact-fullwidth">
+/* V22: compact experiment hero and full-width experiment content. */
+.exp-hero,.exp4-hero{padding-top:42px!important;padding-bottom:0!important;}
+.exp-hero h1,.exp4-hero h1{margin-top:12px!important;margin-bottom:12px!important;}
+.exp-hero p,.exp4-hero p{max-width:none!important;margin-bottom:0!important;}
+.exp-hero .quick-access-bar,.exp4-hero .quick-access-bar{margin-top:22px!important;}
+.exp-hero .quick-access-inner,.exp4-hero .quick-access-inner{min-height:48px!important;}
+.exp-layout{display:block!important;width:100%!important;}
+.exp-layout>.side-nav{display:none!important;}
+.exp-layout>main,.exp-layout>.exp-main,.exp-layout>.content{width:100%!important;max-width:none!important;min-width:0!important;}
+.content-block{width:100%!important;max-width:none!important;}
+.content-block .prose,.prose,.steps{max-width:none!important;width:100%!important;}
+.equation,.visual-box,.lab-panel,.reference{max-width:none!important;width:100%;box-sizing:border-box;}
+@media(max-width:900px){.exp-hero,.exp4-hero{padding-top:32px!important;padding-bottom:0!important;}}
+</style>
+<style id="v22-final-page-width">
+/* V22 final: compact hero + broad reading column, matching the approved preview. */
+.exp-hero,.exp4-hero{padding-top:38px!important;padding-bottom:0!important;}
+.exp-hero h1,.exp4-hero h1{margin:10px 0 10px!important;}
+.exp-hero p,.exp4-hero p{max-width:none!important;margin:0!important;}
+.exp-hero .quick-access-bar,.exp4-hero .quick-access-bar{margin-top:20px!important;}
+.exp-hero>.container,.exp4-hero>.container,main.section.container{width:calc(100% - 80px)!important;max-width:1440px!important;}
+main.section.container .content-block,main.section.container .prose,main.section.container .steps{width:100%!important;max-width:none!important;}
+main.section.container .equation,main.section.container .visual-box,main.section.container .lab-panel,main.section.container .reference{width:100%!important;max-width:none!important;}
+@media(max-width:900px){.exp-hero>.container,.exp4-hero>.container,main.section.container{width:calc(100% - 40px)!important}.exp-hero,.exp4-hero{padding-top:30px!important;}}
+</style>
+<style id="v28-quick-access-light-active">
+/* V28: quiet cream navigation with the same light-green selection used in the lab schedule. */
+.experiment-page > .quick-access-bar {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--line) !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+.experiment-page > .quick-access-bar .quick-access-label {
+  color: var(--muted) !important;
+  border-right: 1px solid var(--line) !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a {
+  color: var(--ink) !important;
+  background: var(--bg) !important;
+  border-left: 1px solid var(--line) !important;
+  transition: background .18s ease, color .18s ease, border-color .18s ease !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:hover,
+.experiment-page > .quick-access-bar .quick-access-links a:focus-visible {
+  background: var(--accent-2) !important;
+  color: var(--ink) !important;
+  outline: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a.active {
+  background: var(--accent-2) !important;
+  color: var(--accent-ink, #142319) !important;
+  border-color: #b9ccbF !important;
+  box-shadow: inset 0 0 0 1px #b9ccbF !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a.active + a {
+  border-left-color: #b9ccbF !important;
+}
+</style>
+<style id="v28-unified-experiment-spacing">
+/* V28: unified vertical rhythm across all individual experiment pages. */
+.experiment-page > main.section.container {
+  padding-top: 64px !important;
+  padding-bottom: 64px !important;
+}
+.experiment-page > main.section.container .content-block {
+  margin-bottom: 56px !important;
+}
+.experiment-page > main.section.container .content-block:last-child {
+  margin-bottom: 0 !important;
+}
+@media (max-width: 900px) {
+  .experiment-page > main.section.container {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+  .experiment-page > main.section.container .content-block {
+    margin-bottom: 44px !important;
+  }
+}
+</style>
+<style id="quick-access-centered-final">
+/* Final: center the experiment quick-access pills beneath the inspiration line. */
+.exp-hero .quick-access-bar,
+.exp4-hero .quick-access-bar {
+  width: 100% !important;
+  margin-top: 22px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+.exp-hero .quick-access-inner,
+.exp4-hero .quick-access-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  min-height: 0 !important;
+  width: 100% !important;
+}
+.exp-hero .quick-access-label,
+.exp4-hero .quick-access-label {
+  display: none !important;
+}
+.exp-hero .quick-access-links,
+.exp4-hero .quick-access-links {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+}
+.exp-hero .quick-access-links::-webkit-scrollbar,
+.exp4-hero .quick-access-links::-webkit-scrollbar { display: none !important; }
+.exp-hero .quick-access-links a,
+.exp4-hero .quick-access-links a {
+  flex: 0 0 auto !important;
+  min-width: 0 !important;
+  min-height: 38px !important;
+  height: 38px !important;
+  padding: 0 15px !important;
+  margin: 0 3px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(195,203,197,.45) !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  color: #c3cbc5 !important;
+  white-space: nowrap !important;
+}
+.exp-hero .quick-access-links a:hover,
+.exp-hero .quick-access-links a:focus-visible,
+.exp4-hero .quick-access-links a:hover,
+.exp4-hero .quick-access-links a:focus-visible {
+  background: rgba(183,213,193,.10) !important;
+  color: #fff !important;
+}
+@media (max-width: 900px) {
+  .exp-hero .quick-access-links,
+  .exp4-hero .quick-access-links {
+    justify-content: flex-start !important;
+    width: 100% !important;
+  }
+  .exp-hero .quick-access-links a,
+  .exp4-hero .quick-access-links a {
+    padding: 0 13px !important;
+  }
+}
+</style>
+<style id="quick-access-centered-v38">
+/* V38: center the experiment quick-access pills as one compact group. */
+.exp-hero .quick-access-bar,
+.exp4-hero .quick-access-bar{
+  width:100%;
+}
+.exp-hero .quick-access-inner,
+.exp4-hero .quick-access-inner{
+  justify-content:center;
+  gap:0;
+}
+.exp-hero .quick-access-label,
+.exp4-hero .quick-access-label{
+  display:none !important;
+}
+.exp-hero .quick-access-links,
+.exp4-hero .quick-access-links{
+  flex:0 1 auto !important;
+  width:max-content;
+  max-width:100%;
+  margin:0 auto;
+  justify-content:center;
+}
+@media(max-width:900px){
+  .exp-hero .quick-access-links,
+  .exp4-hero .quick-access-links{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    justify-content:flex-start;
+  }
+}
+</style>
+<style id="v40-quick-access-true-centered">
+/* V40: force the quick-access group to use the full hero width on every experiment page. */
+.exp-hero .exp-hero-grid > *,
+.exp4-hero .exp-hero-grid > * {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+.exp-hero .quick-access-bar,
+.exp4-hero .quick-access-bar {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.exp-hero .quick-access-inner,
+.exp4-hero .quick-access-inner {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.exp-hero .quick-access-links,
+.exp4-hero .quick-access-links {
+  flex: 0 0 auto !important;
+  width: max-content !important;
+  max-width: calc(100% - 8px) !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+@media (max-width: 900px) {
+  .exp-hero .quick-access-links,
+  .exp4-hero .quick-access-links {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+  }
+}
+</style>
+<style id="static-header-navigation-v59">
+/* V59: static header/navigation. No opening sweep, reveal, fade, transform, or transition. */
+.site-header, .site-header *,
+.home-site-header, .home-site-header *,
+.exp-hero, .exp4-hero, .exp-hero *, .exp4-hero *,
+.quick-access-bar, .quick-access-bar * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  will-change: auto !important;
+}
+.exp-hero, .exp4-hero {
+  background: #111713 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+html[data-theme="dark"] .exp-hero,
+html[data-theme="dark"] .exp4-hero { background: #0b0e0c !important; }
+</style>
+<script id="qpt-static-navigation-init">
+/* QPT static navigation: prevent browser history from restoring an old scroll position during page navigation. */
+try { if ("scrollRestoration" in history) history.scrollRestoration = "manual"; } catch (e) {}
+</script>
+<style id="qpt-v63-paint-stability">
+/* V63: eliminate first-paint layout/compositing changes. */
+html{scroll-behavior:auto!important;scrollbar-gutter:stable!important;overflow-anchor:none!important;}
+body{overflow-anchor:none!important;font-synthesis:none;}
+.site-header,.home-site-header,.nav,.hero,.hero::before,.hero::after,.hero-grid,.exp-hero,.exp4-hero,.quick-access-bar{contain:layout paint!important;}
+.site-header,.home-site-header,.nav,.theme-toggle{backface-visibility:hidden!important;}
+.theme-toggle{width:74px!important;min-width:74px!important;flex:0 0 74px!important;box-sizing:border-box!important;}
+</style>
+<style id="exp5-newton-visual-white-background">
+/* Experiment 5: clean two-column figure layout; white in both themes. */
+.exp5-newton-visual-box {
+  background: #ffffff !important;
+  border-color: #d8ddd7 !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 28px !important;
+  align-items: start !important;
+  padding: 28px !important;
+  box-sizing: border-box !important;
+}
+.exp5-newton-visual-item {
+  background: #ffffff !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  box-sizing: border-box !important;
+}
+.exp5-newton-visual-item .visual-image {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 390px !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  margin: 0 auto !important;
+  background: #ffffff !important;
+}
+.exp5-newton-caption {
+  color: #555b56 !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 14px 0 0 !important;
+  padding: 0 8px !important;
+  box-sizing: border-box !important;
+  text-align: center !important;
+  line-height: 1.45 !important;
+  min-height: 30px !important;
+}
+html[data-theme="dark"] .exp5-newton-visual-box,
+html[data-theme="dark"] .exp5-newton-visual-item,
+html[data-theme="dark"] .exp5-newton-visual-item .visual-image {
+  background: #ffffff !important;
+  border-color: #d8ddd7 !important;
+}
+html[data-theme="dark"] .exp5-newton-caption {
+  color: #555b56 !important;
+}
+@media(max-width:760px){
+  .exp5-newton-visual-box {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding: 20px !important;
+  }
+  .exp5-newton-visual-item .visual-image {
+    height: auto !important;
+    max-height: none !important;
+  }
+}
+</style>
+<style id="exp5-procedure-formula-fix">
+/* Keep inline Newton's-rings notation together inside procedure steps. */
+.steps .procedure-formula { white-space: nowrap; display: inline-block; vertical-align: baseline; line-height: inherit; }
+</style>
+<style id="exp5-procedure-alignment-fix">
+/* Keep each procedure step as one continuous text flow; prevents formula spans from becoming separate grid items. */
+#procedure .steps li {
+  display: block;
+  position: relative;
+  padding-left: 55px;
+}
+#procedure .steps li:before {
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 40px;
+}
+#procedure .steps .procedure-formula {
+  white-space: nowrap;
+  display: inline;
+  vertical-align: baseline;
+}
+</style>
+<style id="exp5-reference-section">
+#references .reference{color:#4f5650}
+#references .reference p{margin:0 0 8px}
+#references .reference p:last-child{margin-bottom:0}
+html[data-theme="dark"] #references .reference{background:#fff!important;color:#4f5650!important;border-color:#d8ddd7!important}
+</style>
+<style id="qpt-v123-nav-transplant">
+
+/* ================================================================
+   QPT NAV — transplanted from Tavus V123
+   Navigation only: keep the base QPT Lab page design unchanged.
+   ================================================================ */
+.tavus-floating-header{
+  position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;
+  height:70px!important;padding:10px 0 11px!important;margin:0!important;background:transparent!important;
+  border:0!important;z-index:2147483000!important;pointer-events:none!important;
+}
+.tavus-floating-header.qpt-nav-scrolled{top:0!important;}
+.tavus-exact-nav{
+  position:relative!important;width:calc(100% - 96px)!important;max-width:none!important;
+  height:49px!important;min-height:49px!important;margin:0 auto!important;padding:0!important;
+  display:block!important;background:transparent!important;border:0!important;box-shadow:none!important;
+  overflow:visible!important;isolation:auto!important;
+}
+.tavus-nav-left{
+  position:absolute!important;left:0!important;top:0!important;height:49px!important;width:auto!important;
+  max-width:none!important;min-width:0!important;margin:0!important;padding:0!important;display:flex!important;
+  align-items:stretch!important;background:#f8f7f0!important;border:1px solid #111!important;
+  box-shadow:6px 6px 0 #000!important;z-index:20!important;overflow:visible!important;
+}
+.tavus-brand{
+  flex:0 0 150px!important;width:150px!important;min-width:150px!important;height:47px!important;
+  padding:0 20px!important;border:0!important;border-right:1px solid #111!important;
+  box-shadow:none!important;background:#f8f7f0!important;display:flex!important;align-items:center!important;gap:9px!important;
+}
+.tavus-brand .brand-mark,.tavus-brand .brand-mark img{width:31px!important;height:31px!important;object-fit:contain!important;}
+.tavus-brand .brand-name{font:800 15px/1 "Manrope",Arial,sans-serif!important;letter-spacing:-.035em!important;color:#111!important;}
+.tavus-links{
+  display:flex!important;align-items:stretch!important;height:47px!important;background:#f8f7f0!important;
+}
+.tavus-links>a{
+  height:47px!important;min-width:116px!important;padding:0 15px!important;display:flex!important;
+  align-items:center!important;justify-content:center!important;gap:5px!important;border:0!important;
+  border-right:1px solid #111!important;box-shadow:none!important;border-radius:0!important;
+  background:#f8f7f0!important;color:#111!important;font:500 11px/1 "Manrope",Arial,sans-serif!important;
+  letter-spacing:-.01em!important;white-space:nowrap!important;
+}
+.tavus-links>a:hover{background:#efeee7!important;color:#111!important;transform:none!important;}
+.tavus-links>a>span:first-child{font-size:12px!important;margin:0!important;}
+.tavus-experiments-parent{position:relative!important;z-index:100!important;}
+.tavus-nav-right{
+  position:absolute!important;right:0!important;top:0!important;height:49px!important;width:130px!important;
+  min-width:130px!important;margin:0!important;padding:0!important;display:block!important;
+  background:#f8f7f0!important;border:1px solid #111!important;box-shadow:6px 6px 0 #111!important;
+  z-index:20!important;overflow:visible!important;
+}
+.tavus-search{
+  width:128px!important;min-width:128px!important;height:47px!important;border:0!important;
+  box-shadow:none!important;background:#f8f7f0!important;border-radius:0!important;
+}
+.tavus-search input{
+  width:92px!important;height:100%!important;padding:0 4px 0 13px!important;color:#111!important;
+  background:transparent!important;border:0!important;outline:0!important;font:500 10px/1 "Manrope",Arial,sans-serif!important;
+  letter-spacing:.02em!important;
+}
+.tavus-search input::placeholder{color:#333!important;opacity:1!important;}
+.tavus-search button{width:32px!important;height:100%!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#111!important;font-size:18px!important;cursor:pointer!important;}
+.tavus-exact-nav::before{display:none!important;content:none!important;}
+.tavus-mega{
+  position:fixed!important;z-index:2147483647!important;display:block!important;opacity:0!important;visibility:hidden!important;
+  pointer-events:none!important;transform:translateY(-2px)!important;background:#f8f7f0!important;color:#111!important;
+  border:1px solid #111!important;box-shadow:6px 6px 0 #111!important;overflow:hidden!important;
+}
+.tavus-mega.qpt-mega-open{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:translateY(0)!important;}
+.tavus-mega-title{position:relative!important;z-index:1!important;display:block!important;padding:15px 18px 12px!important;background:#f8f7f0!important;color:#111!important;font:700 10px/1 "Manrope",Arial,sans-serif!important;letter-spacing:.12em!important;border-bottom:1px solid #111!important;}
+.tavus-mega-grid{position:relative!important;z-index:1!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+.tavus-mega-grid>a{min-height:61px!important;padding:12px 15px!important;display:grid!important;grid-template-columns:32px 1fr!important;align-items:center!important;gap:10px!important;color:#111!important;border:0!important;border-right:1px solid #111!important;border-bottom:1px solid #111!important;border-radius:0!important;background:#f8f7f0!important;font:600 13px/1.25 "Manrope",Arial,sans-serif!important;}
+.tavus-mega-grid>a:nth-child(even){border-right:0!important;}
+.tavus-mega-grid>a:hover{background:#f06b9a!important;color:#111!important;}
+.tavus-mega-grid b{font:800 13px/1 "Manrope",Arial,sans-serif!important;}
+.tavus-mega-grid span{font:600 13px/1.25 "Manrope",Arial,sans-serif!important;}
+/* Override legacy navigation rules without touching the rest of the site. */
+.tavus-floating-header .menu-toggle{display:none!important;}
+.tavus-floating-header .nav-links{gap:0!important;}
+@media(max-width:1000px){
+  .tavus-exact-nav{width:calc(100% - 48px)!important;}
+  .tavus-brand{flex-basis:140px!important;width:140px!important;min-width:140px!important;padding:0 14px!important;}
+  .tavus-links>a{min-width:105px!important;padding:0 10px!important;font-size:10px!important;}
+}
+@media(max-width:760px){
+  .tavus-floating-header{height:58px!important;padding:7px 0 9px!important;}
+  .tavus-exact-nav{width:calc(100% - 24px)!important;height:52px!important;min-height:52px!important;}
+  .tavus-nav-left{height:52px!important;max-width:calc(100% - 104px)!important;overflow:hidden!important;}
+  .tavus-brand{flex-basis:112px!important;width:112px!important;min-width:112px!important;height:50px!important;padding:0 10px!important;}
+  .tavus-brand .brand-name{font-size:12px!important;}
+  .tavus-links>a{min-width:auto!important;padding:0 8px!important;height:50px!important;font-size:8px!important;}
+  .tavus-nav-right{height:52px!important;width:100px!important;min-width:100px!important;}
+  .tavus-search{width:98px!important;height:50px!important;}
+  .tavus-search input{display:none!important;}
+  .tavus-mega{left:12px!important;top:59px!important;width:calc(100vw - 24px)!important;max-width:none!important;}
+}
+/* Fixed navigation must not cover the first hero content. */
+.home-site-header.tavus-floating-header + main .hero{padding-top:70px!important;}
+body.experiment-page .tavus-floating-header + .exp-hero{padding-top:140px!important;}
+body.experiment-page .tavus-floating-header + .exp4-hero{padding-top:140px!important;}
+
+</style>
+
+<style id="qpt-v135-nav-interaction-fix">
+/* V135 interaction fix: the floating Tavus navigation is visually transparent at the
+   header layer, but its actual controls must remain clickable. */
+.tavus-floating-header,
+.tavus-exact-nav,
+.tavus-exact-nav * { pointer-events:auto !important; }
+.tavus-mega { pointer-events:none !important; }
+.tavus-mega.qpt-mega-open { pointer-events:auto !important; }
+</style>
+
+<style id="qpt-v183-section-frame-rails">
+/* Section frame rails inspired by the reference's labelled monitor border. */
+.qpt-frame-section{position:relative!important;box-sizing:border-box!important;border:1px solid #111!important;overflow:visible!important;padding-top:0!important;padding-bottom:0!important;}
+.qpt-frame-top{height:35px;display:flex;align-items:center;gap:9px;padding:0 9px;background:#f8f7f0;border-bottom:1px solid #111;box-sizing:border-box;color:#111;font:600 10px/1 "Manrope",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;}
+.qpt-frame-dot{display:inline-block;flex:0 0 12px;width:12px;height:12px;background:#f15b83;}
+.qpt-frame-label{white-space:nowrap;max-width:45%;overflow:hidden;text-overflow:ellipsis;font-size:12px!important;font-weight:700!important;letter-spacing:.08em!important;}
+.qpt-frame-lines{height:17px;flex:1;min-width:12px;background:repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 4px);}
+.qpt-frame-square{width:25px;height:25px;flex:0 0 25px;border:1px solid #111;display:flex;align-items:center;justify-content:center;box-sizing:border-box;background:#f8f7f0;}
+.qpt-frame-square:before{content:"";width:10px;height:10px;border:1px solid #111;box-shadow:3px 3px 0 -1px #f8f7f0,3px 3px 0 0 #111;}
+.qpt-frame-bottom{height:12px;display:flex;align-items:center;padding:0 9px;border-top:1px solid #111;background:#f8f7f0;box-sizing:border-box;}
+.qpt-frame-bottom:before{content:"";display:block;width:100%;height:5px;background:repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 3px);}
+/* Keep content panels and their original internal spacing. */
+.qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom){margin-left:0; margin-right:0;}
+.qpt-frame-section > .section-heading:first-of-type{padding-top:24px;}
+.qpt-frame-section.content-block{margin-bottom:56px!important;}
+#today-lab.qpt-frame-section,#experiments.qpt-frame-section,#features.qpt-frame-section,#about.qpt-frame-section{padding-left:0!important;padding-right:0!important;}
+@media(max-width:700px){.qpt-frame-top{height:32px;gap:7px;padding:0 7px}.qpt-frame-label{font-size:11px!important;font-weight:700!important;max-width:55%}.qpt-frame-square{width:22px;height:22px;flex-basis:22px}.qpt-frame-section.content-block{margin-bottom:38px!important}}
+</style>
+<script id="qpt-v183-section-frame-script">
+(function(){
+ function addFrames(){
+  var isExperiment=document.body.classList.contains('experiment-page');
+  var targets=isExperiment?Array.from(document.querySelectorAll('main.section.container > section.content-block')):Array.from(document.querySelectorAll('main > section#today-lab, main > section#experiments, main > section#features, main > section#about'));
+  targets.forEach(function(section){
+   if(section.classList.contains('qpt-frame-section')) return;
+   var heading=section.querySelector('h2');
+   if(!heading) return;
+   var label=(heading.textContent||'').replace(/\s+/g,' ').trim();
+   if(!label) label=section.id.replace(/-/g,' ');
+   section.classList.add('qpt-frame-section');
+   var top=document.createElement('div');top.className='qpt-frame-top';top.setAttribute('aria-hidden','true');
+   var dot=document.createElement('span');dot.className='qpt-frame-dot';
+   var text=document.createElement('span');text.className='qpt-frame-label';text.textContent=label;
+   var lines=document.createElement('span');lines.className='qpt-frame-lines';
+   var square=document.createElement('span');square.className='qpt-frame-square';
+   top.append(dot,text,lines,square);
+   var bottom=document.createElement('div');bottom.className='qpt-frame-bottom';bottom.setAttribute('aria-hidden','true');
+   section.insertBefore(top,section.firstChild);section.appendChild(bottom);
+  });
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addFrames);else addFrames();
+})();
+</script>
+
+
+<style id="qpt-v184-hide-duplicate-section-headings">
+/* The frame rail already carries the section title; hide the repeated large title inside each panel. */
+.qpt-frame-section > h2 { display: none !important; }
+.qpt-frame-section .section-heading h2 { display: none !important; }
+/* Keep eyebrow labels, descriptive text, and any nested subheadings untouched. */
+</style>
+
+
+<style id="qpt-v193-experiment-section-reference-style">
+/* Bring experiment sections closer to the framed, editorial card treatment in the reference. */
+body.experiment-page > main.section.container > section.content-block.qpt-frame-section {
+  background: #f8f7f0 !important;
+  border: 1px solid #d4d8cf !important;
+  border-left: 3px solid #6ea99a !important;
+  box-sizing: border-box !important;
+  padding: 0 0 26px !important;
+  margin: 0 0 54px !important;
+  overflow: visible !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top {
+  height: 40px !important;
+  margin: 0 !important;
+  padding: 0 12px !important;
+  gap: 10px !important;
+  background: #f8f7f0 !important;
+  border-bottom: 1px solid #171717 !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top .qpt-frame-label {
+  max-width: 52% !important;
+  font-family: "Manrope", Arial, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: .07em !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top .qpt-frame-lines {
+  height: 17px !important;
+  background: repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 4px) !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top .qpt-frame-square {
+  width: 25px !important;
+  height: 25px !important;
+  flex-basis: 25px !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-bottom {
+  margin: 0 !important;
+  height: 12px !important;
+  padding: 0 10px !important;
+  border-top: 1px solid #171717 !important;
+}
+body.experiment-page .qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom) {
+  margin-left: 28px !important;
+  margin-right: 28px !important;
+}
+body.experiment-page .qpt-frame-section > .eyebrow {
+  padding-top: 19px !important;
+  margin-bottom: 14px !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .section-heading {
+  padding-top: 18px !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + h2 {
+  display: none !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow {
+  padding-top: 19px !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + p,
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + div,
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + ol,
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + ul {
+  margin-top: 0 !important;
+}
+@media (max-width: 700px) {
+  body.experiment-page > main.section.container > section.content-block.qpt-frame-section {
+    padding-bottom: 20px !important;
+    margin-bottom: 34px !important;
+  }
+  body.experiment-page .qpt-frame-section > .qpt-frame-top {
+    height: 36px !important;
+    padding: 0 7px !important;
+    gap: 7px !important;
+  }
+  body.experiment-page .qpt-frame-section > .qpt-frame-top .qpt-frame-label {
+    font-size: 10px !important;
+    max-width: 58% !important;
+  }
+  body.experiment-page .qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom) {
+    margin-left: 14px !important;
+    margin-right: 14px !important;
+  }
+  body.experiment-page .qpt-frame-section > .eyebrow {
+    padding-top: 15px !important;
+  }
+}
+</style>
+
+
+<style id="qpt-v194-experiment-section-frames">
+/* Actual section frame markup for experiment pages, matching the homepage feature panel reference. */
+body.experiment-page main.section.container .content-block.qpt-frame-section {
+  display:block!important; box-sizing:border-box!important; background:#f8f7f0!important;
+  border:1px solid #cfd4cc!important; border-left:2px solid #66b7a5!important;
+  margin:0 0 30px!important; padding:0 0 12px!important; overflow:visible!important;
+}
+.qpt-frame-top {height:42px;display:flex;align-items:center;gap:10px;padding:0 12px;margin:0 12px;background:transparent;border-bottom:1px solid #171717;box-sizing:border-box;color:#111;}
+.qpt-frame-dot {display:block;flex:0 0 15px;width:15px;height:15px;background:#f15b83;}
+.qpt-frame-label {white-space:nowrap;max-width:45%;overflow:hidden;text-overflow:ellipsis;font-family:"Playfair Display",Georgia,serif;font-size:15px!important;font-weight:700!important;letter-spacing:.055em!important;color:#111;}
+.qpt-frame-lines {height:18px;flex:1;min-width:12px;background:repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 4px);}
+.qpt-frame-square {width:30px;height:30px;flex:0 0 30px;border:1px solid #111;display:flex;align-items:center;justify-content:center;box-sizing:border-box;background:#f8f7f0;}
+.qpt-frame-square:before {content:"";width:12px;height:12px;border:1px solid #111;box-shadow:4px 4px 0 -1px #f8f7f0,4px 4px 0 0 #111;}
+.qpt-frame-bottom {height:12px;display:flex;align-items:center;margin:0 12px;padding:0 10px;border-top:1px solid #171717;box-sizing:border-box;background:transparent;}
+.qpt-frame-bottom:before {content:"";display:block;width:100%;height:5px;background:repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 3px);}
+body.experiment-page main.section.container .content-block.qpt-frame-section > .eyebrow {display:none!important;}
+body.experiment-page main.section.container .content-block.qpt-frame-section > h2 {margin-top:24px!important;padding-left:30px!important;padding-right:30px!important;}
+body.experiment-page main.section.container .content-block.qpt-frame-section > p,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .prose,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .apparatus,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .equation,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .visual-card,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .procedure-list,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .table-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section > table,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .calculator,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .graph-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .result-card,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .viva-list {margin-left:30px!important;margin-right:30px!important;}
+body.experiment-page main.section.container .content-block.qpt-frame-section > *:last-child:not(.qpt-frame-bottom) {margin-bottom:18px;}
+@media(max-width:700px){
+ body.experiment-page main.section.container .content-block.qpt-frame-section{margin-bottom:20px!important;}
+ .qpt-frame-top{height:38px;margin:0 7px;padding:0 6px;gap:7px;}
+ .qpt-frame-label{font-size:12px!important;max-width:52%;}
+ .qpt-frame-square{width:24px;height:24px;flex-basis:24px;}
+ body.experiment-page main.section.container .content-block.qpt-frame-section > h2{padding-left:18px!important;padding-right:18px!important;}
+ body.experiment-page main.section.container .content-block.qpt-frame-section > p,
+ body.experiment-page main.section.container .content-block.qpt-frame-section > .prose,
+ body.experiment-page main.section.container .content-block.qpt-frame-section > .apparatus,
+ body.experiment-page main.section.container .content-block.qpt-frame-section > .equation,
+ body.experiment-page main.section.container .content-block.qpt-frame-section > *:not(.qpt-frame-top):not(.qpt-frame-bottom):not(.eyebrow):not(h2){margin-left:18px!important;margin-right:18px!important;}
+}
+</style>
+
+
+<style id="qpt-v195-section-content-containment">
+/* Keep every section's contents inside its cream frame. Some legacy blocks use
+   width:100% plus horizontal margins, which otherwise pushes them past the border. */
+body.experiment-page main.section.container .content-block.qpt-frame-section,
+body.experiment-page main.section.container .content-block.qpt-frame-section * {
+  box-sizing: border-box !important;
+}
+body.experiment-page main.section.container .content-block.qpt-frame-section {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+body.experiment-page main.section.container .content-block.qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom):not(.eyebrow):not(h2) {
+  width: auto !important;
+  max-width: calc(100% - 60px) !important;
+  min-width: 0 !important;
+}
+body.experiment-page main.section.container .content-block.qpt-frame-section .equation,
+body.experiment-page main.section.container .content-block.qpt-frame-section .visual-card,
+body.experiment-page main.section.container .content-block.qpt-frame-section .table-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section .calculator,
+body.experiment-page main.section.container .content-block.qpt-frame-section .graph-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section .result-card,
+body.experiment-page main.section.container .content-block.qpt-frame-section table {
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+body.experiment-page main.section.container .content-block.qpt-frame-section .table-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section .graph-wrap {
+  overflow-x: auto !important;
+}
+@media (max-width:700px) {
+  body.experiment-page main.section.container .content-block.qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom):not(.eyebrow):not(h2) {
+    max-width: calc(100% - 36px) !important;
+  }
+}
+</style>
+
+<style id="qpt-shared-retro-video-layout-v270">
+.qpt-video-companion{padding:18px!important;background:var(--surface,#fff)!important;}
+.qpt-video-companion .video-heading-content{max-width:none;text-align:left;padding:2px 0 16px;margin:0;}
+.qpt-video-companion .video-heading-content p{max-width:none;margin:0;font-size:12px;}
+.qpt-video-notes-layout{display:grid;grid-template-columns:minmax(0,3fr) minmax(290px,2fr);gap:14px;align-items:stretch;}
+.qpt-video-column{min-width:0;display:flex;flex-direction:column;}
+.qpt-video-column .video-frame{aspect-ratio:16/9;flex:none;margin:0;}
+.qpt-video-column iframe{display:block;width:100%;height:100%;}
+.qpt-video-foot{display:flex;justify-content:space-between;gap:12px;padding:10px 2px 0;color:var(--muted);font:9px "Manrope",sans-serif;letter-spacing:.12em;}
+.qpt-retro-panel{min-width:0;min-height:0;box-sizing:border-box;background:#000!important;border:1px solid #777;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;}
+.qpt-retro-panel .qpt-retro-computer{width:100%;height:100%;min-height:0;box-sizing:border-box;display:flex;align-items:center;justify-content:center;background:#000;padding:0;}
+.qpt-retro-panel svg{display:block;width:180px;height:150px;max-width:100%;flex:0 0 180px;}
+@media(max-width:760px){.qpt-video-notes-layout{grid-template-columns:minmax(0,1fr);}.qpt-retro-panel{min-height:260px;height:300px;}.qpt-video-column .video-frame{aspect-ratio:16/9;}}
+</style>
+</head>
+<body class="experiment-page">
+<header class="site-header tavus-floating-header">
+<nav class="nav tavus-exact-nav" aria-label="Primary navigation">
+  <div class="tavus-nav-left">
+    <a aria-label="QPT Lab home" class="tavus-brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true"><img src="infinity-logo.png" alt=""></span>
+      <span class="brand-name">QPT LAB</span>
+    </a>
+    <div class="tavus-links nav-links">
+      <a href="index.html#home"><span aria-hidden="true">▪</span> HOME</a>
+      <a class="tavus-experiments-parent" href="index.html#experiments" aria-haspopup="true" aria-expanded="false">
+        <span aria-hidden="true">▪</span> EXPERIMENTS
+      </a>
+      <div class="tavus-mega" aria-label="Experiments" role="menu">
+        <div class="tavus-mega-title">EXPERIMENTS 01—08</div>
+        <div class="tavus-mega-grid">
+          <a href="experiment-01.html"><b>01</b><span>Diffraction Grating</span></a>
+          <a href="experiment-02.html"><b>02</b><span>Refractive Index of Prism</span></a>
+          <a href="experiment-03.html"><b>03</b><span>Photoelectric Effect</span></a>
+          <a href="experiment-04.html"><b>04</b><span>Circular Coil</span></a>
+          <a href="experiment-05.html"><b>05</b><span>Newton’s Rings</span></a>
+          <a href="experiment-06.html"><b>06</b><span>Diffraction of Laser</span></a>
+          <a href="experiment-07.html"><b>07</b><span>Energy Bandgap of Semiconductor</span></a>
+          <a href="experiment-08.html"><b>08</b><span>P-N Junction Diode</span></a>
+        </div>
+      </div>
+      <a href="index.html#features"><span aria-hidden="true">▪</span> FEATURES</a>
+      <a href="index.html#about"><span aria-hidden="true">▪</span> ABOUT</a>
+    </div>
+  </div>
+  <div class="tavus-nav-right">
+    <div class="nav-search tavus-search" id="nav-search">
+      <label class="sr-only" for="nav-search-input">Search the lab</label>
+      <input aria-controls="nav-search-results" aria-expanded="false" aria-label="Search experiments, concepts and apparatus" autocomplete="off" id="nav-search-input" placeholder="SEARCH" spellcheck="false" type="search">
+      <button aria-label="Search" id="nav-search-button" title="Search" type="button">⌕</button>
+      <div aria-label="Search results" class="nav-search-results" id="nav-search-results" role="listbox"></div>
+    </div>
+  </div>
+</nav>
+</header>
+<section class="exp4-hero"><div class="container">
+<div class="eyebrow">EXPERIMENT 08 • SEMICONDUCTOR ELECTRONICS</div>
+<h1>P-N Junction Diode Characteristics</h1>
+<p class="hero-inspiration">Trace how a semiconductor junction responds to forward and reverse bias — from the knee of the curve to the onset of breakdown.</p>
+<div class="quick-access-bar"><div class="quick-access-inner"><div class="quick-access-label">QUICK ACCESS</div><nav aria-label="Experiment sections" class="quick-access-links"><a href="#aim">Aim</a><a href="#apparatus">Apparatus</a><a href="#theory">Theory</a><a href="#references">References</a><a href="#visualize">Visualize</a><a href="#demonstration">Demonstration</a><a href="#procedure">Procedure</a><a href="#observations">Observations</a><a href="#calculations">Calculations</a><a href="#result">Result</a><a href="#viva">Viva</a></nav></div></div>
+</div></section>
+<main class="section container"><div><section class="content-block" id="aim"><div class="eyebrow">01 / AIM</div><h2>What are we measuring?</h2><p class="prose">To study and plot the <strong>V–I characteristics</strong> of a p-n junction diode in forward and reverse bias, and to determine characteristic quantities such as the knee voltage and resistance from the measured data.</p></section><section class="content-block" id="apparatus"><div class="eyebrow">02 / APPARATUS</div><h2>Equipment</h2><div class="apparatus"><span class="chip">p-n junction diode</span><span class="chip">DC variable power supply</span><span class="chip">Series resistor / rheostat</span><span class="chip">Milliammeter</span><span class="chip">Microammeter</span><span class="chip">Voltmeter / digital multimeter</span><span class="chip">Switch</span><span class="chip">Connecting wires / breadboard</span></div></section><section class="content-block" id="theory"><div class="eyebrow">03 / THEORY</div><h2>How does a p-n junction diode respond to voltage?</h2><p class="prose">A p-n junction diode is a two-terminal semiconductor device formed by joining p-type and n-type regions. At equilibrium, a depletion region and built-in potential form around the junction. Applying an external voltage changes the junction barrier and therefore the current through the device.</p><p class="prose">In <strong>forward bias</strong>, the p-side is connected to the positive terminal and the n-side to the negative terminal. The applied voltage reduces the effective barrier and narrows the depletion region, allowing majority carriers to cross the junction. The forward current rises rapidly after the characteristic knee (cut-in) voltage.</p><div class="equation center">I = I<sub>S</sub> [ exp(V<sub>D</sub> / ηV<sub>T</sub>) − 1 ]</div><p class="prose">Here I<sub>S</sub> is the reverse saturation current, η is the ideality factor, and V<sub>T</sub> = kT/q is the thermal voltage. The ideal diode equation describes the exponential trend; a real diode also includes series resistance and other non-ideal effects.</p><p class="prose">In <strong>reverse bias</strong>, the n-side is connected to the positive terminal and the p-side to the negative terminal. The depletion region widens and the current is small over the reverse-saturation region. At sufficiently high reverse voltage, breakdown can occur and the reverse current rises sharply. A general-purpose diode should not be driven into breakdown unless the device is specifically designed for it.</p><p class="prose">For a silicon diode, a commonly quoted room-temperature knee voltage is about 0.7 V; for a germanium diode it is about 0.3 V. These are typical values rather than universal constants and depend on device and measurement conditions.</p><div class="equation center">r<sub>d</sub> = ΔV / ΔI</div><p class="prose">The dynamic (small-signal) resistance at a point on the characteristic is obtained from the local slope. A simple dc resistance at a chosen operating point is R = V/I.</p>
+<div class="deep-references" id="references"><div class="eyebrow">04 / REFERENCES · GO DEEPER</div><p class="deep-references-intro">These resources develop p-n junction formation, forward and reverse bias, diode current–voltage characteristics, resistance, and breakdown. The experiment procedure is also cross-checked against IIT Virtual Labs and NPTEL laboratory material.</p><div class="deep-reference-list"><div class="deep-reference"><div class="deep-reference-title">Ben G. Streetman &amp; Sanjay Banerjee — Solid State Electronic Devices, 7th ed.</div><div class="deep-reference-topic">Chapter 5: Junctions · equilibrium conditions · forward- and reverse-biased junctions · reverse-bias breakdown.</div></div><div class="deep-reference"><div class="deep-reference-title">Adel S. Sedra &amp; Kenneth C. Smith — Microelectronic Circuits, 7th ed.</div><div class="deep-reference-topic">Diode circuits · diode current–voltage characteristics · constant-voltage and exponential models · small-signal resistance.</div></div><div class="deep-reference"><div class="deep-reference-title">S. M. Sze &amp; Kwok K. Ng — Physics of Semiconductor Devices, 3rd ed.</div><div class="deep-reference-topic">p-n junction physics · carrier injection and transport · reverse characteristics · breakdown mechanisms.</div></div></div></div>
+</section><section class="content-block" id="visualize"><div class="eyebrow">05 / VISUAL EXPLANATION</div><h2>See the diode characteristic as a circuit and a curve</h2><div class="visual-box diode-visuals">
+<div class="diode-visual-item">
+<h3>Forward and reverse bias conditions</h3>
+<img class="visual-image diode-bias-image" src="pn-junction-forward-reverse-bias.png" alt="Forward-bias and reverse-bias conditions of a p-n junction diode, showing the depletion region and circuit connections" loading="lazy">
+<p class="caption">Forward bias narrows the depletion layer and allows majority carriers to cross the junction; reverse bias widens the depletion layer and strongly limits current.</p>
+</div>
+<div class="diode-visual-item">
+<h3>Typical V–I characteristic of a p-n junction diode</h3>
+<img class="visual-image diode-vi-image" src="pn-junction-vi-characteristic.png" alt="Typical current-voltage characteristic of a p-n junction diode showing forward bias, knee voltage, reverse leakage current and breakdown" loading="lazy">
+<p class="caption">The characteristic shows the small reverse leakage current, reverse breakdown region, knee voltage, and the rapid rise of forward current.</p>
+</div>
+</div></section><section class="content-block" id="demonstration"><div class="eyebrow">06 / EXPERIMENT DEMONSTRATION</div><h2>See the experiment in the laboratory</h2><div class="video-box qpt-video-companion" id="qpt-video-companion-exp08">
+<div class="video-heading-content"><p>Watch a clear explanation of the p-n junction diode, including forward bias, reverse bias, depletion region and diode behaviour.</p></div>
+<div class="qpt-video-notes-layout">
+<div class="qpt-video-column"><div class="video-frame youtube-embed-frame"><iframe src="https://www.youtube.com/embed/USrY0JspDEg?start=16&rel=0" title="How Does a PN Junction Diode Control Current?" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class="qpt-video-foot"><span>EXPERIMENT 08</span><span>READY TO PLAY</span></div></div>
+<aside class="qpt-retro-panel" aria-label="Feature update"><div class="qpt-retro-computer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 150" width="180" height="150" style="display:block;width:180px;height:150px;max-width:100%;flex:0 0 180px;" role="img" aria-label="Retro computer displaying Feature Update Coming Soon..."><rect width="180" height="150" fill="#000"/><!-- compact pixel-art monitor --><rect x="16" y="9" width="148" height="104" fill="#f3edc9" stroke="#171914" stroke-width="2.5"/><rect x="21" y="14" width="138" height="94" fill="#b9b99b" stroke="#171914" stroke-width="1"/><rect x="25" y="18" width="130" height="85" fill="#050806" stroke="#e9e2b8" stroke-width="2"/><rect x="47.30" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="48.42" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="49.54" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="50.66" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="51.78" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="48.42" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="49.54" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="50.66" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="60.62" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="62.86" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="60.62" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="62.86" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="62.86" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="60.62" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="65.60" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="70.08" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="68.96" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="75.06" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="72.82" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="73.94" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="80.04" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="81.16" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="78.92" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="85.02" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="86.14" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="87.26" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="83.90" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="88.38" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="83.90" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="85.02" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="86.14" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="87.26" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="88.38" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="83.90" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="83.90" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="88.38" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="85.02" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="86.14" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="87.26" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="97.22" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="98.34" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="99.46" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="103.32" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="104.44" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="105.56" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="103.32" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="104.44" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="105.56" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="109.42" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="110.54" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="111.66" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="109.42" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="110.54" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="111.66" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="115.52" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="115.52" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="114.40" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="114.40" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="115.52" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="120.50" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="122.74" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="124.98" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="122.74" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="123.86" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="127.72" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="126.60" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="131.08" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="126.60" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="127.72" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="131.08" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="126.60" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="126.60" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="131.08" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="127.72" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="48.42" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="49.54" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="50.66" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="51.78" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="48.42" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="49.54" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="50.66" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="51.78" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="60.62" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="62.86" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="68.96" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="73.94" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="75.06" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="72.82" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="78.92" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="80.04" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="81.16" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="78.92" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="80.04" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="81.16" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="78.92" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="80.04" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="81.16" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="91.12" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="92.24" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="93.36" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="94.48" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="90.00" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="90.00" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="91.12" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="92.24" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="93.36" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="94.48" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="94.48" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="90.00" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="91.12" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="92.24" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="93.36" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="97.22" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="98.34" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="99.46" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="97.22" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="98.34" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="99.46" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="103.32" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="104.44" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="105.56" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="103.32" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="104.44" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="105.56" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="110.54" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="111.66" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="109.42" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="122.74" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="123.86" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="122.74" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="123.86" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="70" y="112" width="40" height="10" fill="#f3edc9" stroke="#171914" stroke-width="2.5"/><rect x="22" y="121" width="136" height="11" fill="#f3edc9" stroke="#171914" stroke-width="2.5"/><rect x="30" y="125" width="14" height="3" fill="#171914"/><rect x="112" y="125" width="38" height="3" fill="#171914"/></svg></div></aside>
+</div></div></section><section class="content-block" id="procedure"><div class="eyebrow">07 / PROCEDURE</div><h2>Experimental sequence</h2><ol class="steps"><li><span class="step-text">Switch off the supply and make the forward-bias circuit with the p-side connected to the positive terminal and the n-side to the negative terminal. Use a suitable series resistance to limit current.</span></li><li><span class="step-text">Connect the voltmeter across the diode and the milliammeter in series with the diode. Check the polarity and meter ranges before switching on the supply.</span></li><li><span class="step-text">Increase the applied voltage gradually. For each setting, record the voltage across the diode V and the forward current I in the observation table. Use smaller voltage steps near the knee region.</span></li><li><span class="step-text">Continue the forward-bias measurements only within the safe current rating of the diode and the selected meter range.</span></li><li><span class="step-text">Switch off the supply. Reverse the diode connections to obtain reverse bias, so that the n-side is positive with respect to the p-side. Change to the appropriate low-current meter range.</span></li><li><span class="step-text">Increase the reverse-bias voltage gradually and record the reverse current. Do not approach breakdown unless the diode is specifically rated for the experiment.</span></li><li><span class="step-text">Plot I versus V separately for forward and reverse bias. Identify the knee region from the forward characteristic and obtain resistance from the appropriate slope or operating point.</span></li></ol></section><section class="content-block" id="observations"><div class="eyebrow">08 / DIGITAL OBSERVATION TABLE</div><h2>Enter your diode readings</h2><div class="lab-panel"><div class="form-grid"><div class="field"><label>DIODE TYPE</label><input id="diodeType" placeholder="e.g. Silicon" step="any" type="text"/></div><div class="field"><label>KNEE VOLTAGE FROM GRAPH (V)</label><input id="kneeVoltage" placeholder="e.g. 0.70" step="any" type="number"/></div></div><div class="note">Enter measured values only. Forward current is entered in mA; reverse current is entered in μA. Keep the reverse-bias voltage below the diode’s rated breakdown voltage unless a breakdown characteristic is intentionally being studied.</div><h3>Forward-bias readings</h3><div class="table-wrap"><table class="obs-table" style="min-width:760px"><thead><tr><th>Reading</th><th>V (V)</th><th>I (mA)</th><th>V/I (Ω)</th></tr></thead><tbody id="forwardBody"></tbody></table></div><h3>Reverse-bias readings</h3><div class="table-wrap"><table class="obs-table" style="min-width:760px"><thead><tr><th>Reading</th><th>|V| (V)</th><th>|I| (μA)</th><th>|V|/|I| (kΩ)</th></tr></thead><tbody id="reverseBody"></tbody></table></div><button class="button-calc" onclick="calculateDiode()">Calculate &amp; Plot</button><button class="button-reset" onclick="resetDiode()">Reset</button></div></section><section class="content-block" id="calculations"><div class="eyebrow">09 / CALCULATIONS</div><h2>From measured V–I data to diode parameters</h2><div class="equation center">R<sub>dc</sub> = V / I</div><div class="equation center">r<sub>d</sub> ≈ ΔV / ΔI</div><div class="equation center">V<sub>k</sub> = knee / cut-in voltage read from the forward characteristic</div><p class="prose">For the forward characteristic, the dc resistance at a measured point is R<sub>dc</sub> = V/I. The dynamic resistance is estimated from the slope between two nearby forward-bias points. For reverse bias, the magnitude |V|/|I| gives the dc resistance at that reading. The knee voltage is read from the plotted forward characteristic rather than treated as a universal constant.</p><div class="visual-pair"><div class="visual-item"><h3>Forward characteristic: I vs V</h3><div class="graph-box"><canvas height="260" id="forwardPlot" style="width:100%;height:260px"></canvas></div><p class="caption">Current I (mA)</p></div><div class="visual-item"><h3>Reverse characteristic: |I| vs |V|</h3><div class="graph-box"><canvas height="260" id="reversePlot" style="width:100%;height:260px"></canvas></div><p class="caption">Reverse current |I| (μA)</p></div></div><div class="result-grid"><div class="result"><span>Forward dc resistance</span><strong id="forwardResistance">—</strong></div><div class="result"><span>Approx. dynamic resistance</span><strong id="dynamicResistance">—</strong></div><div class="result"><span>Reverse dc resistance</span><strong id="reverseResistance">—</strong></div><div class="result"><span>Status</span><strong id="calcStatus">Waiting</strong></div></div></section><section class="content-block" id="result"><div class="eyebrow">10 / RESULT &amp; CONCLUSION</div><h2>Experimental result</h2><div class="lab-panel"><p class="prose">The measured V–I data should show the characteristic nonlinear forward response of the p-n junction and a much smaller reverse current over the reverse-saturation region. The final values below are filled from the student’s observations.</p><div class="result-grid"><div class="result"><span>Knee voltage</span><strong id="finalKnee">—</strong></div><div class="result"><span>Forward resistance</span><strong id="finalForward">—</strong></div><div class="result"><span>Dynamic resistance</span><strong id="finalDynamic">—</strong></div><div class="result"><span>Reverse resistance</span><strong id="finalReverse">—</strong></div></div></div></section><section class="content-block" id="viva"><div class="eyebrow">11 / VIVA PRACTICE</div><h2>Test your understanding</h2><div class="viva"><button onclick="toggleViva(this)">Why is a p-n junction called a diode?</button><div class="answer">It is a two-terminal device whose junction structure produces strongly asymmetric current–voltage behavior: current is much easier in forward bias than in reverse bias over the normal operating range.</div></div><div class="viva"><button onclick="toggleViva(this)">What physically changes during forward bias?</button><div class="answer">The applied polarity opposes the built-in junction field, reducing the effective barrier and depletion width so that majority carriers can cross the junction more readily.</div></div><div class="viva"><button onclick="toggleViva(this)">Why is reverse current much smaller than forward current?</button><div class="answer">In reverse bias, the barrier increases and majority-carrier injection is suppressed. The measured current is mainly associated with minority carriers and generation processes, so it is much smaller before breakdown.</div></div><div class="viva"><button onclick="toggleViva(this)">What does the knee voltage mean physically?</button><div class="answer">It marks the region of the forward characteristic where the current begins increasing rapidly. It is a practical characteristic of the measured diode, not an exact step-function threshold.</div></div><div class="viva"><button onclick="toggleViva(this)">Why must a series resistor be used?</button><div class="answer">Once the diode enters strong forward conduction, a small increase in voltage can produce a large current increase. The resistor limits current and protects the diode and measuring instruments.</div></div><div class="viva"><button onclick="toggleViva(this)">What is the difference between dc and dynamic resistance?</button><div class="answer">Dc resistance at an operating point is V/I. Dynamic resistance describes the local slope of the characteristic and is approximated by ΔV/ΔI over a small interval.</div></div><div class="viva"><button onclick="toggleViva(this)">What happens at reverse breakdown?</button><div class="answer">The reverse current rises sharply when the applied reverse voltage reaches the device’s breakdown region. The mechanism may involve Zener or avalanche processes depending on the junction and doping conditions.</div></div></section></div></main>
+<footer>
+<div class="container footer-inner">
+<span class="footer-brand">
+<span aria-hidden="true" class="footer-mark"><img alt="" src="infinity-logo.png"/></span>
+<span>qpt Lab</span>
+</span>
+</div>
+</footer>
+
+<style id="v26-centered-reading-width">
+/* V26: keep experiment reading content centered at roughly 3/4 of the page width. */
+.experiment-page > main.section.container {
+  width: min(75vw, 1400px) !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.experiment-page > main.section.container .exp-layout,
+.experiment-page > main.section.container .exp4-layout {
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+@media (max-width: 900px) {
+  .experiment-page > main.section.container {
+    width: calc(100% - 32px) !important;
+  }
+}
+</style>
+<style id="v27-quick-access-below-hero">
+/* V27: quick access sits immediately below the black hero and aligns with the 3/4-width reading column. */
+.experiment-page > .quick-access-bar {
+  width: min(75vw, 1400px) !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+  background: var(--dark) !important;
+  border-top: 1px solid rgba(195,203,197,.28) !important;
+  border-bottom: 1px solid rgba(195,203,197,.18) !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-inner {
+  width: 100% !important;
+  min-height: 54px !important;
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-label {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 120px !important;
+  color: #b7d5c1 !important;
+  border-right: 1px solid rgba(195,203,197,.18) !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: stretch !important;
+  overflow-x: auto !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a {
+  flex: 1 1 0 !important;
+  justify-content: center !important;
+  min-width: 90px !important;
+  min-height: 54px !important;
+  color: #c3cbc5 !important;
+  border-left: 1px solid rgba(195,203,197,.17) !important;
+  padding: 0 12px !important;
+  white-space: nowrap !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:last-child {
+  border-right: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:hover,
+.experiment-page > .quick-access-bar .quick-access-links a:focus-visible {
+  background: rgba(183,213,193,.10) !important;
+  color: #fff !important;
+  outline: none !important;
+}
+@media (max-width: 900px) {
+  .experiment-page > .quick-access-bar { width: calc(100% - 32px) !important; }
+  .experiment-page > .quick-access-bar .quick-access-label { min-width: 105px !important; }
+  .experiment-page > .quick-access-bar .quick-access-links a { flex: 0 0 auto !important; min-width: 92px !important; }
+}
+</style>
+
+<style id="v30-header-height-refinement">
+/* V30: slightly taller experiment header for clearer separation from quick access. */
+.exp-hero, .exp4-hero {
+  padding-top: 45px !important;
+  padding-bottom: 34px !important;
+}
+@media (max-width: 900px) {
+  .exp-hero, .exp4-hero {
+    padding-top: 34px !important;
+    padding-bottom: 26px !important;
+  }
+}
+</style>
+
+<style id="qptlab-dark-final">
+html[data-theme="dark"] .site-header{background:rgba(17,21,19,.94)!important;border-bottom-color:#39423d!important}
+html[data-theme="dark"] .nav-links{background:#111513!important}
+html[data-theme="dark"] .nav-links a{color:var(--ink)}
+html[data-theme="dark"] .content-block h2,html[data-theme="dark"] .section-heading h2,html[data-theme="dark"] .card-body h3,html[data-theme="dark"] .feature h3,html[data-theme="dark"] .about-panel h2{color:var(--ink)}
+html[data-theme="dark"] .exp-hero,html[data-theme="dark"] .exp4-hero{background:#0b0e0c!important}
+html[data-theme="dark"] .lab-panel,html[data-theme="dark"] .visual-box,html[data-theme="dark"] .video-box,html[data-theme="dark"] .viva,html[data-theme="dark"] .result{color:var(--ink)!important}
+html[data-theme="dark"] .video-heading-content p,html[data-theme="dark"] .caption,html[data-theme="dark"] .formula-note,html[data-theme="dark"] .note{color:var(--muted)!important}
+html[data-theme="dark"] .obs-table th{color:var(--ink)!important;background:#252d28!important}
+html[data-theme="dark"] .obs-table td{background:#171c19!important;color:var(--ink)!important}
+html[data-theme="dark"] .obs-table input,html[data-theme="dark"] .field input{background:#0f1311!important;color:#eef2ee!important;border-color:#48534c!important}
+html[data-theme="dark"] .button.secondary{color:#eef2ee!important;border-color:#536158!important}
+html[data-theme="dark"] .quick-access-inner{color:var(--ink)!important}
+html[data-theme="dark"] .quick-access-label{color:var(--muted)!important}
+html[data-theme="dark"] .today-section,html[data-theme="dark"] .schedule-section{background:var(--bg)!important}
+html[data-theme="dark"] .session-card,html[data-theme="dark"] .today-empty{background:var(--surface)!important;border-color:var(--line)!important;color:var(--ink)!important}
+html[data-theme="dark"] .session-main span{color:var(--muted)!important}
+</style>
+
+<style id="v29-quick-access-clean-light">
+/* V29: clean quick-access strip — no label box; all buttons match page background; active section uses schedule light green. */
+.experiment-page > .quick-access-bar {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--line) !important;
+  border-bottom: 1px solid var(--line) !important;
+  width: min(75vw, 1400px) !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+}
+.experiment-page > .quick-access-bar .quick-access-inner {
+  width: 100% !important;
+  min-height: 54px !important;
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-label {
+  display: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links {
+  width: 100% !important;
+  flex: 1 1 100% !important;
+  display: flex !important;
+  align-items: stretch !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links::-webkit-scrollbar {
+  display: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  min-height: 54px !important;
+  justify-content: center !important;
+  padding: 0 10px !important;
+  color: var(--ink) !important;
+  background: var(--bg) !important;
+  border-left: 1px solid var(--line) !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  transition: background .18s ease, color .18s ease, border-color .18s ease !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:first-child {
+  border-left: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:last-child {
+  border-right: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:hover,
+.experiment-page > .quick-access-bar .quick-access-links a:focus-visible {
+  background: var(--accent-2) !important;
+  color: var(--ink) !important;
+  outline: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a.active {
+  background: var(--accent-2) !important;
+  color: var(--accent-ink, #142319) !important;
+  border-color: #b9ccbF !important;
+  box-shadow: inset 0 0 0 1px #b9ccbF !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a.active + a {
+  border-left-color: #b9ccbF !important;
+}
+@media (max-width: 900px) {
+  .experiment-page > .quick-access-bar {
+    width: calc(100% - 32px) !important;
+  }
+  .experiment-page > .quick-access-bar .quick-access-links a {
+    flex: 0 0 112px !important;
+  }
+}
+</style>
+<style id="static-navigation-v60">
+/* V60: final header/hero state is painted directly; no navigation-load motion. */
+.site-header, .site-header *, .exp-hero, .exp4-hero, .exp-hero *, .exp4-hero *, .quick-access-bar, .quick-access-bar * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  will-change: auto !important;
+}
+</style>
+<script>const forwardCount=8, reverseCount=8;
+function buildDiodeRows(){const fb=document.getElementById("forwardBody"),rb=document.getElementById("reverseBody");if(!fb||!rb)return;fb.innerHTML="";rb.innerHTML="";for(let i=1;i<=forwardCount;i++)fb.insertAdjacentHTML("beforeend",`<tr><td>${i}</td><td><input id="fv${i}" type="number" step="any"></td><td><input id="fi${i}" type="number" step="any"></td><td class="readonly" id="fr${i}">—</td></tr>`);for(let i=1;i<=reverseCount;i++)rb.insertAdjacentHTML("beforeend",`<tr><td>${i}</td><td><input id="rv${i}" type="number" step="any"></td><td><input id="ri${i}" type="number" step="any"></td><td class="readonly" id="rr${i}">—</td></tr>`);}
+function readRows(prefix,count){const out=[];for(let i=1;i<=count;i++){const v=parseFloat(document.getElementById(prefix+"v"+i)?.value),cur=parseFloat(document.getElementById(prefix+"i"+i)?.value);if(Number.isFinite(v)&&Number.isFinite(cur)&&cur!==0)out.push({v,i:cur,r:Math.abs(v/(prefix==="f"?cur/1000:cur/1000000))});}return out;}
+function calculateDiode(){const F=readRows("f",forwardCount),R=readRows("r",reverseCount);F.forEach((d,i)=>{document.getElementById("fr"+(i+1)).textContent=d.r.toFixed(2);});R.forEach((d,i)=>{document.getElementById("rr"+(i+1)).textContent=(d.r/1000).toFixed(2);});drawPlot("forwardPlot",F,"forward");drawPlot("reversePlot",R,"reverse");let fr="—",dr="—",rr="—";if(F.length)fr=F[F.length-1].r.toFixed(2)+" Ω";if(F.length>=2){const a=F[F.length-2],b=F[F.length-1],di=(b.i-a.i)/1000,dv=b.v-a.v;if(di!==0)dr=Math.abs(dv/di).toFixed(2)+" Ω";}if(R.length)rr=(R[R.length-1].r/1000).toFixed(2)+" kΩ";document.getElementById("forwardResistance").textContent=fr;document.getElementById("dynamicResistance").textContent=dr;document.getElementById("reverseResistance").textContent=rr;const knee=document.getElementById("kneeVoltage").value.trim();document.getElementById("finalKnee").textContent=knee?knee+" V":"—";document.getElementById("finalForward").textContent=fr;document.getElementById("finalDynamic").textContent=dr;document.getElementById("finalReverse").textContent=rr;document.getElementById("calcStatus").textContent=(F.length>=2||R.length>=2)?"Calculated":"Enter readings";}
+function drawPlot(id,data,mode){const c=document.getElementById(id);if(!c)return;const dpr=Math.min(devicePixelRatio||1,2),w=c.clientWidth||600,h=260;c.width=w*dpr;c.height=h*dpr;const ctx=c.getContext("2d");ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);ctx.fillStyle="#fff";ctx.fillRect(0,0,w,h);const m={l:48,r:18,t:18,b:38},W=w-m.l-m.r,H=h-m.t-m.b;ctx.strokeStyle="#8a948d";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(m.l,m.t);ctx.lineTo(m.l,h-m.b);ctx.lineTo(w-m.r,h-m.b);ctx.stroke();if(!data.length){ctx.fillStyle="#6b746d";ctx.font="12px Georgia";ctx.fillText("Enter readings, then select Calculate & Plot.",m.l+15,h/2);return;}const xmax=Math.max(...data.map(d=>d.v))*1.1||1,ymax=Math.max(...data.map(d=>d.i))*1.1||1,sx=x=>m.l+(x/xmax)*W,sy=y=>h-m.b-(y/ymax)*H;ctx.strokeStyle="#4f6f5a";ctx.lineWidth=2.5;ctx.beginPath();data.forEach((d,i)=>{const x=sx(d.v),y=sy(d.i);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);});ctx.stroke();ctx.fillStyle="#4f6f5a";data.forEach(d=>{ctx.beginPath();ctx.arc(sx(d.v),sy(d.i),3.5,0,Math.PI*2);ctx.fill();});ctx.fillStyle="#354039";ctx.font="12px Georgia";ctx.fillText(mode==="forward"?"V (V)":"|V| (V)",w/2-18,h-10);ctx.save();ctx.translate(13,h/2+30);ctx.rotate(-Math.PI/2);ctx.fillText(mode==="forward"?"I (mA)":"|I| (μA)",0,0);ctx.restore();}
+function resetDiode(){document.getElementById("diodeType").value="";document.getElementById("kneeVoltage").value="";for(let i=1;i<=forwardCount;i++){document.getElementById("fv"+i).value="";document.getElementById("fi"+i).value="";document.getElementById("fr"+i).textContent="—";}for(let i=1;i<=reverseCount;i++){document.getElementById("rv"+i).value="";document.getElementById("ri"+i).value="";document.getElementById("rr"+i).textContent="—";}["forwardResistance","dynamicResistance","reverseResistance","finalKnee","finalForward","finalDynamic","finalReverse"].forEach(id=>document.getElementById(id).textContent="—");document.getElementById("calcStatus").textContent="Waiting";drawPlot("forwardPlot",[],"forward");drawPlot("reversePlot",[],"reverse");}
+buildDiodeRows();
+function toggleViva(btn){btn.parentElement.classList.toggle("open");}</script><script id="v28-quick-access-active">
+(() => {
+  const links = [...document.querySelectorAll('.quick-access-links a')];
+  if (!links.length) return;
+  const setActive = (link) => {
+    links.forEach(item => {
+      const active = item === link;
+      item.classList.toggle('active', active);
+      if (active) item.setAttribute('aria-current', 'location');
+      else item.removeAttribute('aria-current');
+    });
+  };
+  setActive(links[0]);
+  links.forEach(link => link.addEventListener('click', () => setActive(link)));
+})();
+</script><script id="search-jump-highlight">
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const query = (params.get('search') || '').trim();
+  if (!query) return;
+  const terms = query.toLowerCase().replace(/[–—−]/g,'-').replace(/[^\p{L}\p{N}]+/gu,' ').split(/\s+/).filter(Boolean);
+  const target = document.getElementById((window.location.hash || '').slice(1));
+  if (!target) return;
+
+  const style = document.createElement('style');
+  style.textContent = '.lab-search-hit{background:#dfeee5;box-shadow:0 0 0 3px rgba(23,79,59,.12);border-radius:2px;padding:0 .08em}.lab-search-target{outline:2px solid rgba(23,79,59,.22);outline-offset:10px;transition:outline-color .4s}';
+  document.head.appendChild(style);
+  target.classList.add('lab-search-target');
+  setTimeout(() => target.scrollIntoView({behavior:'smooth',block:'start'}), 80);
+
+  // Highlight the first matching text occurrence for each search term inside the target section.
+  const walker = document.createTreeWalker(target, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent || /^(SCRIPT|STYLE|INPUT|TEXTAREA|BUTTON|SELECT)$/.test(parent.tagName)) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  let highlighted=0;
+  for (const term of terms) {
+    const re = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), 'i');
+    const node = nodes.find(n => re.test(n.nodeValue || ''));
+    if (!node) continue;
+    const match = (node.nodeValue || '').match(re); if (!match) continue;
+    const frag = document.createDocumentFragment();
+    const before = node.nodeValue.slice(0, match.index);
+    const hit = document.createElement('mark'); hit.className='lab-search-hit'; hit.textContent=match[0];
+    const after = node.nodeValue.slice(match.index + match[0].length);
+    if (before) frag.appendChild(document.createTextNode(before));
+    frag.appendChild(hit);
+    if (after) frag.appendChild(document.createTextNode(after));
+    node.parentNode.replaceChild(frag,node);
+    highlighted++;
+  }
+  if (highlighted) setTimeout(() => target.querySelector('.lab-search-hit')?.scrollIntoView({behavior:'smooth',block:'center'}), 160);
+})();
+</script><script id="qpt-static-theme-controller">
+(function(){
+  const KEY="qptlab-theme", root=document.documentElement;
+  function read(){ try { const q=new URLSearchParams(location.search).get("theme"); if(q==="dark"||q==="light") return q; const s=localStorage.getItem(KEY); if(s==="dark"||s==="light") return s; } catch(e){} return "light"; }
+  function apply(t){ t=(t==="dark")?"dark":"light"; root.setAttribute("data-theme",t); if(document.body) document.body.setAttribute("data-theme",t); document.querySelectorAll(".theme-toggle").forEach(btn=>{ const dark=t==="dark"; btn.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode"); btn.setAttribute("title",dark?"Switch to light mode":"Switch to dark mode"); const i=btn.querySelector(".theme-icon"), l=btn.querySelector(".theme-label"); if(i)i.textContent=dark?"☀":"☾"; if(l)l.textContent=dark?"Light":"Dark"; }); }
+  function save(t){ try{localStorage.setItem(KEY,t); document.cookie=KEY+"="+t+"; path=/; max-age=31536000; SameSite=Lax";}catch(e){} }
+  function addTheme(h){ try{ const u=new URL(h,location.href); if(u.origin!==location.origin) return h; if(!/\.html$/i.test(u.pathname)&&u.pathname!=="/"&&u.pathname!=="") return h; u.searchParams.set("theme",root.getAttribute("data-theme")==="dark"?"dark":"light"); return u.href; }catch(e){return h;} }
+  // Apply exactly once before first paint. Do not re-apply on DOMContentLoaded.
+  apply(read());
+  document.addEventListener("click",function(e){
+    const btn=e.target.closest&&e.target.closest(".theme-toggle");
+    if(btn){ const next=root.getAttribute("data-theme")==="dark"?"light":"dark"; save(next); apply(next); document.querySelectorAll("a[href]").forEach(a=>{const h=a.getAttribute("href"); if(h&&!h.startsWith("#")&&!h.startsWith("mailto:")&&!h.startsWith("javascript:")&&a.target!=="_blank"){const u=addTheme(h); if(u!==h)a.setAttribute("href",u);}}); return; }
+    const link=e.target.closest&&e.target.closest("a[href]");
+    if(link&&link.target!=="_blank"){const h=link.getAttribute("href"); if(h&&!h.startsWith("#")&&!h.startsWith("mailto:")&&!h.startsWith("javascript:")){const u=addTheme(h); if(u!==h)link.setAttribute("href",u);}}
+  },true);
+})();
+</script><script id="qpt-v123-nav-mobile">
+(function(){
+  function init(){
+    var nav=document.querySelector('.tavus-exact-nav');
+    if(!nav) return;
+    var trigger=document.querySelector('.tavus-experiments-parent');
+    var menu=document.querySelector('.tavus-mega');
+    if(!trigger||!menu) return;
+    function position(){
+      var r=trigger.getBoundingClientRect(), n=nav.getBoundingClientRect();
+      var width=Math.min(650,Math.max(360,window.innerWidth-24));
+      var left=Math.min(Math.max(12,r.left),Math.max(12,window.innerWidth-width-12));
+      menu.style.width=width+'px'; menu.style.left=left+'px'; menu.style.top=(n.bottom+4)+'px'; menu.style.position='fixed';
+    }
+    function open(){position();menu.classList.add('qpt-mega-open');trigger.setAttribute('aria-expanded','true');}
+    function close(){menu.classList.remove('qpt-mega-open');trigger.setAttribute('aria-expanded','false');}
+    trigger.addEventListener('mouseenter',open); trigger.addEventListener('focus',open);
+    trigger.addEventListener('mouseleave',function(){setTimeout(function(){if(!menu.matches(':hover'))close();},140);});
+    trigger.addEventListener('click',function(e){e.preventDefault();menu.classList.contains('qpt-mega-open')?close():open();});
+    menu.addEventListener('mouseenter',open); menu.addEventListener('mouseleave',close);
+    document.addEventListener('click',function(e){if(!nav.contains(e.target)&&!menu.contains(e.target))close();});
+    window.addEventListener('scroll',function(){if(menu.classList.contains('qpt-mega-open'))position();},{passive:true});
+    window.addEventListener('resize',function(){if(menu.classList.contains('qpt-mega-open'))position();});
+    /* Keep the navigation truly sticky/fixed at the viewport top. */
+    var header=document.querySelector('.tavus-floating-header');
+    if(header) header.classList.add('qpt-nav-scrolled');
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+<script id="qpt-v136-tavus-nav-interactions">
+(function(){
+  function init(){
+    var nav=document.querySelector('.tavus-exact-nav');
+    var trigger=document.querySelector('.tavus-experiments-parent');
+    var menu=document.querySelector('.tavus-mega');
+    if(!nav||!trigger||!menu) return;
+
+    /* Move the mega-menu to body so the legacy paint-containment on the nav
+       cannot clip the fixed Tavus dropdown. */
+    if(menu.parentElement !== document.body) document.body.appendChild(menu);
+
+    var closeTimer=null;
+    function position(){
+      var r=trigger.getBoundingClientRect();
+      var n=nav.getBoundingClientRect();
+      var width=Math.min(650,Math.max(360,window.innerWidth-40));
+      var left=r.left;
+      if(left+width>window.innerWidth-18) left=Math.max(18,window.innerWidth-width-18);
+      menu.style.width=width+'px';
+      menu.style.left=left+'px';
+      menu.style.top=(n.bottom+4)+'px';
+      menu.style.position='fixed';
+    }
+    function open(){
+      clearTimeout(closeTimer);
+      position();
+      menu.classList.add('qpt-mega-open');
+      trigger.setAttribute('aria-expanded','true');
+    }
+    function scheduleClose(){
+      clearTimeout(closeTimer);
+      closeTimer=setTimeout(function(){
+        if(!menu.matches(':hover') && !trigger.matches(':hover')){
+          menu.classList.remove('qpt-mega-open');
+          trigger.setAttribute('aria-expanded','false');
+        }
+      },140);
+    }
+    trigger.addEventListener('mouseenter',open);
+    trigger.addEventListener('focus',open);
+    trigger.addEventListener('mouseleave',scheduleClose);
+    menu.addEventListener('mouseenter',open);
+    menu.addEventListener('mouseleave',scheduleClose);
+    trigger.addEventListener('click',function(e){
+      e.preventDefault();
+      menu.classList.contains('qpt-mega-open') ? (menu.classList.remove('qpt-mega-open'),trigger.setAttribute('aria-expanded','false')) : open();
+    });
+    document.addEventListener('click',function(e){
+      if(!trigger.contains(e.target) && !menu.contains(e.target)){
+        menu.classList.remove('qpt-mega-open');
+        trigger.setAttribute('aria-expanded','false');
+      }
+    });
+    window.addEventListener('scroll',function(){if(menu.classList.contains('qpt-mega-open'))position();},{passive:true});
+    window.addEventListener('resize',function(){if(menu.classList.contains('qpt-mega-open'))position();});
+    position();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+  <script src="qpt-search.js?v=152"></script>
+
+<script id="qpt-v194-build-experiment-section-frames">
+(function(){
+  function frameExperimentSections(){
+    if(!document.body.classList.contains('experiment-page')) return;
+    document.querySelectorAll('main.section.container .content-block').forEach(function(section){
+      if(section.dataset.qptFramed==='true') return;
+      var eyebrow=section.querySelector(':scope > .eyebrow');
+      var label='SECTION';
+      if(eyebrow){
+        label=(eyebrow.textContent||'').replace(/^\s*\d+\s*\/\s*/,'').trim();
+      } else if(section.id){ label=section.id.replace(/[-_]/g,' ').toUpperCase(); }
+      var top=document.createElement('div'); top.className='qpt-frame-top';
+      var dot=document.createElement('span'); dot.className='qpt-frame-dot'; dot.setAttribute('aria-hidden','true');
+      var title=document.createElement('span'); title.className='qpt-frame-label'; title.textContent=label;
+      var lines=document.createElement('span'); lines.className='qpt-frame-lines'; lines.setAttribute('aria-hidden','true');
+      var square=document.createElement('span'); square.className='qpt-frame-square'; square.setAttribute('aria-hidden','true');
+      top.append(dot,title,lines,square);
+      var bottom=document.createElement('div'); bottom.className='qpt-frame-bottom'; bottom.setAttribute('aria-hidden','true');
+      section.classList.add('qpt-frame-section');
+      section.insertBefore(top,section.firstChild); section.appendChild(bottom);
+      section.dataset.qptFramed='true';
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',frameExperimentSections); else frameExperimentSections();
+})();
+</script>
+
+
+<style id="qpt-section-motion-v198">
+/* V198: slower, softer section reveal. Keep the ready class so the browser can interpolate into the visible state. */
+.qpt-frame-section.qpt-motion-ready {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity 900ms cubic-bezier(.22, 1, .36, 1),
+    transform 900ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 320ms ease,
+    border-color 320ms ease;
+  will-change: opacity, transform;
+}
+.qpt-frame-section.qpt-motion-ready.qpt-motion-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+.qpt-frame-section.qpt-motion-visible {
+  transition:
+    opacity 900ms cubic-bezier(.22, 1, .36, 1),
+    transform 900ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 320ms ease,
+    border-color 320ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .qpt-frame-section.qpt-motion-visible:hover {
+    transform: translate3d(0, -3px, 0);
+    box-shadow: 0 9px 24px rgba(0,0,0,.075);
+    border-color: rgba(239, 91, 139, .38);
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  .qpt-frame-section.qpt-motion-visible:active {
+    box-shadow: 0 4px 14px rgba(0,0,0,.055);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qpt-frame-section.qpt-motion-ready,
+  .qpt-frame-section.qpt-motion-ready.qpt-motion-visible,
+  .qpt-frame-section.qpt-motion-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+}
+</style>
+
+<script id="qpt-section-motion-script-v198">
+(function(){
+  function initQptSectionMotion(){
+    var sections = Array.prototype.slice.call(document.querySelectorAll('.qpt-frame-section'));
+    if (!sections.length) return;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      sections.forEach(function(section){
+        section.classList.add('qpt-motion-visible');
+      });
+      return;
+    }
+
+    sections.forEach(function(section, index){
+      section.classList.add('qpt-motion-ready');
+      /* A small stagger gives a flowing sequence without making users wait. */
+      section.style.transitionDelay = (Math.min(index % 4, 3) * 55) + 'ms';
+    });
+
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          /* Reveal on entry; retain observation so the section can hide again on exit. */
+          entry.target.classList.add('qpt-motion-visible');
+        } else {
+          /* Reverse the transition when scrolling away, including when scrolling upward. */
+          entry.target.classList.remove('qpt-motion-visible');
+        }
+      });
+    }, {
+      threshold: 0.02,
+      rootMargin: '0px 0px -10% 0px'
+    });
+
+    sections.forEach(function(section){ observer.observe(section); });
+  }
+  if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initQptSectionMotion, {once:true});
+  } else {
+    initQptSectionMotion();
+  }
+})();
+</script>
+
+</body>
+</html>

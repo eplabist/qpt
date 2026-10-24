@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){try{var q=new URLSearchParams(location.search).get("theme");var t=(q==="dark"||q==="light")?q:localStorage.getItem("qptlab-theme")||"light";if(t!=="dark"&&t!=="light")t="light";document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light"); }})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="infinity-logo.png" fetchpriority="high">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=block">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=block">
+
+
+<title>Experiment 06 | Diffraction of Laser</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+html,body,body *{font-family:"Playfair Display",Georgia,serif!important}
+.exp4-hero{background:var(--dark);color:#fff;padding:70px 0 58px;position:relative;overflow:hidden}
+.exp4-hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 45%,rgba(71,112,89,.25),transparent 40%);pointer-events:none}
+.exp4-hero .container{position:relative;z-index:1}.exp4-hero .eyebrow{color:#b7d5c1}.exp4-hero h1{font-size:clamp(42px,6vw,76px);line-height:.98;letter-spacing:-.055em;max-width:900px;margin:18px 0}.exp4-hero p{color:#c3cbc5;max-width:760px;font-size:16px}
+.exp4-layout{display:grid;grid-template-columns:210px 1fr;gap:42px}.side-nav{position:sticky;top:100px;height:max-content}.side-nav a{display:block;padding:9px 0;color:var(--muted);font-size:12px;border-bottom:1px solid var(--line)}.side-nav a:hover{color:var(--accent)}
+.content-block{margin-bottom:70px}.content-block h2{font-size:32px;letter-spacing:-.04em;margin:0 0 18px}.content-block h3{font-size:19px;margin:30px 0 10px}.prose{color:#505650;max-width:820px}.equation{background:#eef3ed;border-left:3px solid var(--accent);padding:20px 24px;font-size:18px;margin:20px 0;overflow:auto}.equation.center{text-align:center}.apparatus{display:flex;flex-wrap:wrap;gap:8px}.chip{padding:9px 12px;background:#f0f1ed;border:1px solid var(--line);font-size:11px}.steps{counter-reset:step;list-style:none;padding:0;max-width:820px}.steps li{counter-increment:step;display:grid;grid-template-columns:40px 1fr;gap:15px;padding:14px 0;border-bottom:1px solid var(--line);color:#505650}.steps li:before{content:counter(step,lower-roman);font-size:11px;color:var(--accent);padding-top:4px}
+.lab-panel,.visual-box,.graph-box,.reference{background:#fff;border:1px solid var(--line)}.lab-panel{padding:25px}.visual-box{padding:22px;margin-top:20px}.visual-box svg{display:block;width:100%;height:auto}.visual-image{display:block;width:100%;height:auto;max-width:760px;margin:0 auto}.visual-pair{display:grid;grid-template-columns:1fr;gap:28px}.visual-item{padding:4px 0 18px}.visual-item + .visual-item{border-top:1px solid var(--line);padding-top:28px}.visual-image-biot{max-width:650px}.visual-image-arrangement{max-width:680px}.caption,.graph-note{font-size:10px;color:var(--muted);margin:12px auto 0;max-width:760px;line-height:1.6;text-align:center}.form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.field label{display:block;font-size:10px;letter-spacing:.08em;color:var(--muted);margin-bottom:7px}.field input{width:100%;padding:11px 12px;border:1px solid #cdd2cb;background:#fbfcfa;font-size:13px;outline:none}.field input:focus{border-color:var(--accent)}
+.table-wrap{overflow-x:auto;margin-top:25px}.obs-table{width:100%;border-collapse:collapse;min-width:1280px}.obs-table th,.obs-table td{border:1px solid #d4d8d1;padding:8px;text-align:center;font-size:10px}.obs-table th{background:#eef1ec;font-size:9px}.obs-table input{width:72px;padding:7px;border:1px solid #d2d7d0;font-size:10px;text-align:center;background:#fff}.obs-table .readonly{background:#f6f8f4;color:#4f594f}
+.button-calc,.button-reset{cursor:pointer;padding:12px 18px;font-size:12px;font-weight:700}.button-calc{border:0;background:var(--accent);color:white;margin-top:18px}.button-reset{border:1px solid var(--line);background:#fff;color:var(--ink);margin:18px 0 0 7px}.note{margin-top:15px;padding:12px 14px;background:#f7f7f3;color:var(--muted);font-size:11px}.result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.result{background:#edf3ed;border:1px solid #d1dbd1;padding:17px}.result span{display:block;font-size:9px;color:var(--muted);text-transform:uppercase}.result strong{display:block;font-size:19px;margin-top:8px;word-break:break-word}.formula-note{font-size:12px;color:var(--muted);margin-top:10px}
+/* Experiment demonstration video — matched to Experiment 01 */
+.video-box{padding:18px}.video-frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#111}.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}.youtube-embed-frame{background:#000;border-radius:2px;box-shadow:0 8px 24px rgba(0,0,0,.08)}.video-heading-content{text-align:center;padding:6px 18px 18px;max-width:820px;margin:0 auto}.video-heading-content .video-title{font-size:20px;letter-spacing:.04em;margin-bottom:9px}.video-heading-content p{font:12px "Manrope",sans-serif;color:var(--muted);line-height:1.7;margin:0 auto;max-width:720px}@media(max-width:560px){.video-heading-content .video-title{font-size:17px}.video-heading-content{padding-left:4px;padding-right:4px}.video-box{padding:12px}}
+.graph-box{padding:18px;margin-top:20px}.graph-box svg{width:100%;height:auto;display:block}.graph-downloads{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.graph-download-button{border:1px solid var(--accent);cursor:pointer;background:var(--accent);color:#fff;padding:10px 14px;font-size:11px;font-weight:700}.graph-download-button.secondary{background:#fff;color:var(--accent)}.graph-download-button:disabled{opacity:.45;cursor:not-allowed}.axis-label{font-size:13px;fill:#505650}.tick-label{font-size:11px;fill:#666b65}.gridline{stroke:#e3e7e1;stroke-width:1}.plot-axis{stroke:#6a716b;stroke-width:1.4}.data-point{fill:#174f38}.theory-line{stroke:#8a928b;stroke-width:2;stroke-dasharray:6 5}
+.vector-controls{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.vector-controls label{font-size:10px;color:var(--muted);display:block}.vector-controls input{width:100%;margin-top:6px}.vector-readout{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}.mini-result{background:#f7f8f4;border:1px solid var(--line);padding:12px}.mini-result span{display:block;font-size:9px;color:var(--muted)}.mini-result strong{font-size:16px;display:block;margin-top:5px}
+.viva{border:1px solid var(--line);background:#fff;margin:10px 0}.viva button{width:100%;border:0;background:none;text-align:left;padding:16px;cursor:pointer;font-weight:400}.viva .answer{display:none;padding:0 16px 16px;color:var(--muted);font-size:13px}.viva.open .answer{display:block}.reference{margin-top:18px;padding:16px 18px;font-size:12px;color:var(--muted)}.reference a{color:var(--accent);text-decoration:underline}
+@media(max-width:900px){.exp4-layout{grid-template-columns:1fr}.side-nav{position:static;display:flex;overflow:auto;gap:20px;border-bottom:1px solid var(--line)}.side-nav a{white-space:nowrap;border:0}.form-grid{grid-template-columns:repeat(2,1fr)}.vector-controls{grid-template-columns:repeat(2,1fr)}.result-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.form-grid,.result-grid,.vector-readout{grid-template-columns:1fr}.vector-controls{grid-template-columns:1fr}.button-reset{margin-left:0}.obs-table{min-width:1120px}.exp4-hero{padding-top:50px}}
+
+/* V20: horizontal quick-access navigation above the experiment hero */
+.quick-access-bar{background:#f7f8f4;border-bottom:1px solid var(--line);border-top:1px solid var(--line);position:relative;z-index:5}
+.quick-access-inner{display:flex;align-items:center;gap:28px;min-height:54px}
+.quick-access-label{font-size:10px;letter-spacing:.16em;color:var(--accent);white-space:nowrap}
+.quick-access-links{display:flex;align-items:center;gap:0;flex:1;overflow-x:auto;scrollbar-width:thin}
+.quick-access-links a{display:inline-flex;align-items:center;min-height:54px;padding:0 17px;color:var(--muted);font-size:12px;text-decoration:none;border-left:1px solid var(--line);white-space:nowrap;transition:color .15s ease,background .15s ease}
+.quick-access-links a:last-child{border-right:1px solid var(--line)}
+.quick-access-links a:hover,.quick-access-links a:focus-visible{color:var(--ink);background:#eef3ed;outline:none}
+@media(max-width:900px){.quick-access-inner{gap:14px}.quick-access-label{display:none}.quick-access-links a{padding:0 14px}}
+</style>
+
+<style id="quick-access-in-hero">
+/* V21: quick access sits inside the dark hero, directly below the experiment title and subtitle. */
+.exp-hero .quick-access-bar, .exp4-hero .quick-access-bar{
+  background:transparent;
+  border:0;
+  border-top:1px solid rgba(195,203,197,.32);
+  position:relative;
+  z-index:4;
+  margin-top:32px;
+}
+.exp-hero .quick-access-inner, .exp4-hero .quick-access-inner{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  min-height:50px;
+}
+.exp-hero .quick-access-label, .exp4-hero .quick-access-label{
+  color:#b7d5c1;
+  font-size:9px;
+  letter-spacing:.18em;
+  white-space:nowrap;
+}
+.exp-hero .quick-access-links, .exp4-hero .quick-access-links{
+  display:flex;
+  align-items:stretch;
+  flex:1;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.exp-hero .quick-access-links::-webkit-scrollbar, .exp4-hero .quick-access-links::-webkit-scrollbar{display:none}
+.exp-hero .quick-access-links a, .exp4-hero .quick-access-links a{
+  display:inline-flex;
+  align-items:center;
+  min-height:50px;
+  padding:0 16px;
+  color:#c3cbc5;
+  font-size:11px;
+  text-decoration:none;
+  border-left:1px solid rgba(195,203,197,.18);
+  white-space:nowrap;
+  transition:background .18s ease,color .18s ease;
+}
+.exp-hero .quick-access-links a:last-child, .exp4-hero .quick-access-links a:last-child{border-right:1px solid rgba(195,203,197,.18)}
+.exp-hero .quick-access-links a:hover, .exp-hero .quick-access-links a:focus-visible,
+.exp4-hero .quick-access-links a:hover, .exp4-hero .quick-access-links a:focus-visible{
+  background:rgba(183,213,193,.10);
+  color:#fff;
+  outline:none;
+}
+@media(max-width:900px){
+  .exp-hero .quick-access-inner, .exp4-hero .quick-access-inner{gap:12px}
+  .exp-hero .quick-access-label, .exp4-hero .quick-access-label{display:none}
+  .exp-hero .quick-access-links a, .exp4-hero .quick-access-links a{padding:0 13px}
+}
+</style>
+
+<style id="quick-access-in-hero-v21">
+/* V21: Quick access is part of the dark hero, immediately below the title and subtitle. */
+.exp-hero .quick-access-bar,.exp4-hero .quick-access-bar{background:transparent!important;border:0!important;border-top:1px solid rgba(195,203,197,.30)!important;position:relative;z-index:4;margin-top:30px!important;}
+.exp-hero .quick-access-inner,.exp4-hero .quick-access-inner{display:flex;align-items:center;gap:24px;min-height:48px;}
+.exp-hero .quick-access-label,.exp4-hero .quick-access-label{color:#b7d5c1;font-size:9px;letter-spacing:.18em;white-space:nowrap;}
+.exp-hero .quick-access-links,.exp4-hero .quick-access-links{display:flex;align-items:stretch;flex:1;overflow-x:auto;scrollbar-width:none;}
+.exp-hero .quick-access-links::-webkit-scrollbar,.exp4-hero .quick-access-links::-webkit-scrollbar{display:none;}
+.exp-hero .quick-access-links a,.exp4-hero .quick-access-links a{display:inline-flex;align-items:center;min-height:48px;padding:0 15px;color:#c3cbc5;font-size:11px;text-decoration:none;border-left:1px solid rgba(195,203,197,.17);white-space:nowrap;transition:background .18s ease,color .18s ease;}
+.exp-hero .quick-access-links a:last-child,.exp4-hero .quick-access-links a:last-child{border-right:1px solid rgba(195,203,197,.17);}
+.exp-hero .quick-access-links a:hover,.exp-hero .quick-access-links a:focus-visible,.exp4-hero .quick-access-links a:hover,.exp4-hero .quick-access-links a:focus-visible{background:rgba(183,213,193,.10);color:#fff;outline:none;}
+@media(max-width:900px){.exp-hero .quick-access-inner,.exp4-hero .quick-access-inner{gap:12px}.exp-hero .quick-access-label,.exp4-hero .quick-access-label{display:none}.exp-hero .quick-access-links a,.exp4-hero .quick-access-links a{padding:0 13px;}}
+</style>
+
+<style id="v22-compact-fullwidth">
+/* V22: compact experiment hero and full-width experiment content. */
+.exp-hero,.exp4-hero{padding-top:42px!important;padding-bottom:0!important;}
+.exp-hero h1,.exp4-hero h1{margin-top:12px!important;margin-bottom:12px!important;}
+.exp-hero p,.exp4-hero p{max-width:none!important;margin-bottom:0!important;}
+.exp-hero .quick-access-bar,.exp4-hero .quick-access-bar{margin-top:22px!important;}
+.exp-hero .quick-access-inner,.exp4-hero .quick-access-inner{min-height:48px!important;}
+.exp-layout{display:block!important;width:100%!important;}
+.exp-layout>.side-nav{display:none!important;}
+.exp-layout>main,.exp-layout>.exp-main,.exp-layout>.content{width:100%!important;max-width:none!important;min-width:0!important;}
+.content-block{width:100%!important;max-width:none!important;}
+.content-block .prose,.prose,.steps{max-width:none!important;width:100%!important;}
+.equation,.visual-box,.lab-panel,.reference{max-width:none!important;width:100%;box-sizing:border-box;}
+@media(max-width:900px){.exp-hero,.exp4-hero{padding-top:32px!important;padding-bottom:0!important;}}
+</style>
+
+<style id="v22-final-page-width">
+/* V22 final: compact hero + broad reading column, matching the approved preview. */
+.exp-hero,.exp4-hero{padding-top:38px!important;padding-bottom:0!important;}
+.exp-hero h1,.exp4-hero h1{margin:10px 0 10px!important;}
+.exp-hero p,.exp4-hero p{max-width:none!important;margin:0!important;}
+.exp-hero .quick-access-bar,.exp4-hero .quick-access-bar{margin-top:20px!important;}
+.exp-hero>.container,.exp4-hero>.container,main.section.container{width:calc(100% - 80px)!important;max-width:1440px!important;}
+main.section.container .content-block,main.section.container .prose,main.section.container .steps{width:100%!important;max-width:none!important;}
+main.section.container .equation,main.section.container .visual-box,main.section.container .lab-panel,main.section.container .reference{width:100%!important;max-width:none!important;}
+@media(max-width:900px){.exp-hero>.container,.exp4-hero>.container,main.section.container{width:calc(100% - 40px)!important}.exp-hero,.exp4-hero{padding-top:30px!important;}}
+</style>
+
+<style id="v28-quick-access-light-active">
+/* V28: quiet cream navigation with the same light-green selection used in the lab schedule. */
+.experiment-page > .quick-access-bar {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--line) !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+.experiment-page > .quick-access-bar .quick-access-label {
+  color: var(--muted) !important;
+  border-right: 1px solid var(--line) !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a {
+  color: var(--ink) !important;
+  background: var(--bg) !important;
+  border-left: 1px solid var(--line) !important;
+  transition: background .18s ease, color .18s ease, border-color .18s ease !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:hover,
+.experiment-page > .quick-access-bar .quick-access-links a:focus-visible {
+  background: var(--accent-2) !important;
+  color: var(--ink) !important;
+  outline: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a.active {
+  background: var(--accent-2) !important;
+  color: var(--accent-ink, #142319) !important;
+  border-color: #b9ccbF !important;
+  box-shadow: inset 0 0 0 1px #b9ccbF !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a.active + a {
+  border-left-color: #b9ccbF !important;
+}
+</style>
+
+<style id="v28-unified-experiment-spacing">
+/* V28: unified vertical rhythm across all individual experiment pages. */
+.experiment-page > main.section.container {
+  padding-top: 64px !important;
+  padding-bottom: 64px !important;
+}
+.experiment-page > main.section.container .content-block {
+  margin-bottom: 56px !important;
+}
+.experiment-page > main.section.container .content-block:last-child {
+  margin-bottom: 0 !important;
+}
+@media (max-width: 900px) {
+  .experiment-page > main.section.container {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+  .experiment-page > main.section.container .content-block {
+    margin-bottom: 44px !important;
+  }
+}
+</style>
+
+
+<style id="quick-access-centered-final">
+/* Final: center the experiment quick-access pills beneath the inspiration line. */
+.exp-hero .quick-access-bar,
+.exp4-hero .quick-access-bar {
+  width: 100% !important;
+  margin-top: 22px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+.exp-hero .quick-access-inner,
+.exp4-hero .quick-access-inner {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  min-height: 0 !important;
+  width: 100% !important;
+}
+.exp-hero .quick-access-label,
+.exp4-hero .quick-access-label {
+  display: none !important;
+}
+.exp-hero .quick-access-links,
+.exp4-hero .quick-access-links {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+}
+.exp-hero .quick-access-links::-webkit-scrollbar,
+.exp4-hero .quick-access-links::-webkit-scrollbar { display: none !important; }
+.exp-hero .quick-access-links a,
+.exp4-hero .quick-access-links a {
+  flex: 0 0 auto !important;
+  min-width: 0 !important;
+  min-height: 38px !important;
+  height: 38px !important;
+  padding: 0 15px !important;
+  margin: 0 3px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(195,203,197,.45) !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  color: #c3cbc5 !important;
+  white-space: nowrap !important;
+}
+.exp-hero .quick-access-links a:hover,
+.exp-hero .quick-access-links a:focus-visible,
+.exp4-hero .quick-access-links a:hover,
+.exp4-hero .quick-access-links a:focus-visible {
+  background: rgba(183,213,193,.10) !important;
+  color: #fff !important;
+}
+@media (max-width: 900px) {
+  .exp-hero .quick-access-links,
+  .exp4-hero .quick-access-links {
+    justify-content: flex-start !important;
+    width: 100% !important;
+  }
+  .exp-hero .quick-access-links a,
+  .exp4-hero .quick-access-links a {
+    padding: 0 13px !important;
+  }
+}
+</style>
+
+
+<style id="quick-access-centered-v38">
+/* V38: center the experiment quick-access pills as one compact group. */
+.exp-hero .quick-access-bar,
+.exp4-hero .quick-access-bar{
+  width:100%;
+}
+.exp-hero .quick-access-inner,
+.exp4-hero .quick-access-inner{
+  justify-content:center;
+  gap:0;
+}
+.exp-hero .quick-access-label,
+.exp4-hero .quick-access-label{
+  display:none !important;
+}
+.exp-hero .quick-access-links,
+.exp4-hero .quick-access-links{
+  flex:0 1 auto !important;
+  width:max-content;
+  max-width:100%;
+  margin:0 auto;
+  justify-content:center;
+}
+@media(max-width:900px){
+  .exp-hero .quick-access-links,
+  .exp4-hero .quick-access-links{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    justify-content:flex-start;
+  }
+}
+</style>
+<style id="v40-quick-access-true-centered">
+/* V40: force the quick-access group to use the full hero width on every experiment page. */
+.exp-hero .exp-hero-grid > *,
+.exp4-hero .exp-hero-grid > * {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+.exp-hero .quick-access-bar,
+.exp4-hero .quick-access-bar {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.exp-hero .quick-access-inner,
+.exp4-hero .quick-access-inner {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.exp-hero .quick-access-links,
+.exp4-hero .quick-access-links {
+  flex: 0 0 auto !important;
+  width: max-content !important;
+  max-width: calc(100% - 8px) !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+@media (max-width: 900px) {
+  .exp-hero .quick-access-links,
+  .exp4-hero .quick-access-links {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+  }
+}
+</style>
+
+<style id="static-header-navigation-v59">
+/* V59: static header/navigation. No opening sweep, reveal, fade, transform, or transition. */
+.site-header, .site-header *,
+.home-site-header, .home-site-header *,
+.exp-hero, .exp4-hero, .exp-hero *, .exp4-hero *,
+.quick-access-bar, .quick-access-bar * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  will-change: auto !important;
+}
+.exp-hero, .exp4-hero {
+  background: #111713 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+html[data-theme="dark"] .exp-hero,
+html[data-theme="dark"] .exp4-hero { background: #0b0e0c !important; }
+</style>
+<script id="qpt-static-navigation-init">
+/* QPT static navigation: prevent browser history from restoring an old scroll position during page navigation. */
+try { if ("scrollRestoration" in history) history.scrollRestoration = "manual"; } catch (e) {}
+</script>
+<style id="qpt-v63-paint-stability">
+/* V63: eliminate first-paint layout/compositing changes. */
+html{scroll-behavior:auto!important;scrollbar-gutter:stable!important;overflow-anchor:none!important;}
+body{overflow-anchor:none!important;font-synthesis:none;}
+.site-header,.home-site-header,.nav,.hero,.hero::before,.hero::after,.hero-grid,.exp-hero,.exp4-hero,.quick-access-bar{contain:layout paint!important;}
+.site-header,.home-site-header,.nav,.theme-toggle{backface-visibility:hidden!important;}
+.theme-toggle{width:74px!important;min-width:74px!important;flex:0 0 74px!important;box-sizing:border-box!important;}
+</style><style id="laser-3d-visual">
+/* Experiment 06 — physically arranged, self-contained rotatable 3D diffraction model */
+.laser-3d-box{padding:18px!important;background:#fff!important}
+.laser-3d-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:0 2px 14px}
+.laser-3d-toolbar strong{display:block;font-size:14px;color:var(--ink);letter-spacing:.01em}
+.laser-3d-toolbar span{display:block;margin-top:4px;font:10px "Manrope",sans-serif;color:var(--muted);letter-spacing:.02em}
+.laser-3d-reset{border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 12px;font:10px "Manrope",sans-serif;cursor:pointer}
+.laser-3d-reset:hover{background:#eef3ed}
+.laser-3d-stage{position:relative;width:100%;height:560px;min-height:420px;overflow:hidden;border:1px solid #d8ddd7;background:linear-gradient(180deg,#f7f9f6 0%,#e9eeea 100%);touch-action:none;cursor:grab}
+.laser-3d-stage.dragging{cursor:grabbing}
+#laser3dCanvas{display:block;width:100%;height:100%}
+@media(max-width:700px){.laser-3d-stage{height:470px;min-height:380px}.laser-3d-toolbar{align-items:flex-start}.laser-3d-toolbar span{max-width:250px;line-height:1.45}}
+</style>
+
+<style id="procedure-step-inline-fix">
+.steps li > .step-text{grid-column:2;display:block;min-width:0;}
+.steps li > .step-text sub,.steps li > .step-text sup{display:inline;line-height:0;}
+</style>
+<style id="qpt-v123-nav-transplant">
+
+/* ================================================================
+   QPT NAV — transplanted from Tavus V123
+   Navigation only: keep the base QPT Lab page design unchanged.
+   ================================================================ */
+.tavus-floating-header{
+  position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;
+  height:70px!important;padding:10px 0 11px!important;margin:0!important;background:transparent!important;
+  border:0!important;z-index:2147483000!important;pointer-events:none!important;
+}
+.tavus-floating-header.qpt-nav-scrolled{top:0!important;}
+.tavus-exact-nav{
+  position:relative!important;width:calc(100% - 96px)!important;max-width:none!important;
+  height:49px!important;min-height:49px!important;margin:0 auto!important;padding:0!important;
+  display:block!important;background:transparent!important;border:0!important;box-shadow:none!important;
+  overflow:visible!important;isolation:auto!important;
+}
+.tavus-nav-left{
+  position:absolute!important;left:0!important;top:0!important;height:49px!important;width:auto!important;
+  max-width:none!important;min-width:0!important;margin:0!important;padding:0!important;display:flex!important;
+  align-items:stretch!important;background:#f8f7f0!important;border:1px solid #111!important;
+  box-shadow:6px 6px 0 #000!important;z-index:20!important;overflow:visible!important;
+}
+.tavus-brand{
+  flex:0 0 150px!important;width:150px!important;min-width:150px!important;height:47px!important;
+  padding:0 20px!important;border:0!important;border-right:1px solid #111!important;
+  box-shadow:none!important;background:#f8f7f0!important;display:flex!important;align-items:center!important;gap:9px!important;
+}
+.tavus-brand .brand-mark,.tavus-brand .brand-mark img{width:31px!important;height:31px!important;object-fit:contain!important;}
+.tavus-brand .brand-name{font:800 15px/1 "Manrope",Arial,sans-serif!important;letter-spacing:-.035em!important;color:#111!important;}
+.tavus-links{
+  display:flex!important;align-items:stretch!important;height:47px!important;background:#f8f7f0!important;
+}
+.tavus-links>a{
+  height:47px!important;min-width:116px!important;padding:0 15px!important;display:flex!important;
+  align-items:center!important;justify-content:center!important;gap:5px!important;border:0!important;
+  border-right:1px solid #111!important;box-shadow:none!important;border-radius:0!important;
+  background:#f8f7f0!important;color:#111!important;font:500 11px/1 "Manrope",Arial,sans-serif!important;
+  letter-spacing:-.01em!important;white-space:nowrap!important;
+}
+.tavus-links>a:hover{background:#efeee7!important;color:#111!important;transform:none!important;}
+.tavus-links>a>span:first-child{font-size:12px!important;margin:0!important;}
+.tavus-experiments-parent{position:relative!important;z-index:100!important;}
+.tavus-nav-right{
+  position:absolute!important;right:0!important;top:0!important;height:49px!important;width:130px!important;
+  min-width:130px!important;margin:0!important;padding:0!important;display:block!important;
+  background:#f8f7f0!important;border:1px solid #111!important;box-shadow:6px 6px 0 #111!important;
+  z-index:20!important;overflow:visible!important;
+}
+.tavus-search{
+  width:128px!important;min-width:128px!important;height:47px!important;border:0!important;
+  box-shadow:none!important;background:#f8f7f0!important;border-radius:0!important;
+}
+.tavus-search input{
+  width:92px!important;height:100%!important;padding:0 4px 0 13px!important;color:#111!important;
+  background:transparent!important;border:0!important;outline:0!important;font:500 10px/1 "Manrope",Arial,sans-serif!important;
+  letter-spacing:.02em!important;
+}
+.tavus-search input::placeholder{color:#333!important;opacity:1!important;}
+.tavus-search button{width:32px!important;height:100%!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#111!important;font-size:18px!important;cursor:pointer!important;}
+.tavus-exact-nav::before{display:none!important;content:none!important;}
+.tavus-mega{
+  position:fixed!important;z-index:2147483647!important;display:block!important;opacity:0!important;visibility:hidden!important;
+  pointer-events:none!important;transform:translateY(-2px)!important;background:#f8f7f0!important;color:#111!important;
+  border:1px solid #111!important;box-shadow:6px 6px 0 #111!important;overflow:hidden!important;
+}
+.tavus-mega.qpt-mega-open{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:translateY(0)!important;}
+.tavus-mega-title{position:relative!important;z-index:1!important;display:block!important;padding:15px 18px 12px!important;background:#f8f7f0!important;color:#111!important;font:700 10px/1 "Manrope",Arial,sans-serif!important;letter-spacing:.12em!important;border-bottom:1px solid #111!important;}
+.tavus-mega-grid{position:relative!important;z-index:1!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+.tavus-mega-grid>a{min-height:61px!important;padding:12px 15px!important;display:grid!important;grid-template-columns:32px 1fr!important;align-items:center!important;gap:10px!important;color:#111!important;border:0!important;border-right:1px solid #111!important;border-bottom:1px solid #111!important;border-radius:0!important;background:#f8f7f0!important;font:600 13px/1.25 "Manrope",Arial,sans-serif!important;}
+.tavus-mega-grid>a:nth-child(even){border-right:0!important;}
+.tavus-mega-grid>a:hover{background:#f06b9a!important;color:#111!important;}
+.tavus-mega-grid b{font:800 13px/1 "Manrope",Arial,sans-serif!important;}
+.tavus-mega-grid span{font:600 13px/1.25 "Manrope",Arial,sans-serif!important;}
+/* Override legacy navigation rules without touching the rest of the site. */
+.tavus-floating-header .menu-toggle{display:none!important;}
+.tavus-floating-header .nav-links{gap:0!important;}
+@media(max-width:1000px){
+  .tavus-exact-nav{width:calc(100% - 48px)!important;}
+  .tavus-brand{flex-basis:140px!important;width:140px!important;min-width:140px!important;padding:0 14px!important;}
+  .tavus-links>a{min-width:105px!important;padding:0 10px!important;font-size:10px!important;}
+}
+@media(max-width:760px){
+  .tavus-floating-header{height:58px!important;padding:7px 0 9px!important;}
+  .tavus-exact-nav{width:calc(100% - 24px)!important;height:52px!important;min-height:52px!important;}
+  .tavus-nav-left{height:52px!important;max-width:calc(100% - 104px)!important;overflow:hidden!important;}
+  .tavus-brand{flex-basis:112px!important;width:112px!important;min-width:112px!important;height:50px!important;padding:0 10px!important;}
+  .tavus-brand .brand-name{font-size:12px!important;}
+  .tavus-links>a{min-width:auto!important;padding:0 8px!important;height:50px!important;font-size:8px!important;}
+  .tavus-nav-right{height:52px!important;width:100px!important;min-width:100px!important;}
+  .tavus-search{width:98px!important;height:50px!important;}
+  .tavus-search input{display:none!important;}
+  .tavus-mega{left:12px!important;top:59px!important;width:calc(100vw - 24px)!important;max-width:none!important;}
+}
+/* Fixed navigation must not cover the first hero content. */
+.home-site-header.tavus-floating-header + main .hero{padding-top:70px!important;}
+body.experiment-page .tavus-floating-header + .exp-hero{padding-top:140px!important;}
+body.experiment-page .tavus-floating-header + .exp4-hero{padding-top:140px!important;}
+
+</style>
+
+<style id="qpt-v135-nav-interaction-fix">
+/* V135 interaction fix: the floating Tavus navigation is visually transparent at the
+   header layer, but its actual controls must remain clickable. */
+.tavus-floating-header,
+.tavus-exact-nav,
+.tavus-exact-nav * { pointer-events:auto !important; }
+.tavus-mega { pointer-events:none !important; }
+.tavus-mega.qpt-mega-open { pointer-events:auto !important; }
+</style>
+
+<style id="qpt-v183-section-frame-rails">
+/* Section frame rails inspired by the reference's labelled monitor border. */
+.qpt-frame-section{position:relative!important;box-sizing:border-box!important;border:1px solid #111!important;overflow:visible!important;padding-top:0!important;padding-bottom:0!important;}
+.qpt-frame-top{height:35px;display:flex;align-items:center;gap:9px;padding:0 9px;background:#f8f7f0;border-bottom:1px solid #111;box-sizing:border-box;color:#111;font:600 10px/1 "Manrope",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;}
+.qpt-frame-dot{display:inline-block;flex:0 0 12px;width:12px;height:12px;background:#f15b83;}
+.qpt-frame-label{white-space:nowrap;max-width:45%;overflow:hidden;text-overflow:ellipsis;font-size:12px!important;font-weight:700!important;letter-spacing:.08em!important;}
+.qpt-frame-lines{height:17px;flex:1;min-width:12px;background:repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 4px);}
+.qpt-frame-square{width:25px;height:25px;flex:0 0 25px;border:1px solid #111;display:flex;align-items:center;justify-content:center;box-sizing:border-box;background:#f8f7f0;}
+.qpt-frame-square:before{content:"";width:10px;height:10px;border:1px solid #111;box-shadow:3px 3px 0 -1px #f8f7f0,3px 3px 0 0 #111;}
+.qpt-frame-bottom{height:12px;display:flex;align-items:center;padding:0 9px;border-top:1px solid #111;background:#f8f7f0;box-sizing:border-box;}
+.qpt-frame-bottom:before{content:"";display:block;width:100%;height:5px;background:repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 3px);}
+/* Keep content panels and their original internal spacing. */
+.qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom){margin-left:0; margin-right:0;}
+.qpt-frame-section > .section-heading:first-of-type{padding-top:24px;}
+.qpt-frame-section.content-block{margin-bottom:56px!important;}
+#today-lab.qpt-frame-section,#experiments.qpt-frame-section,#features.qpt-frame-section,#about.qpt-frame-section{padding-left:0!important;padding-right:0!important;}
+@media(max-width:700px){.qpt-frame-top{height:32px;gap:7px;padding:0 7px}.qpt-frame-label{font-size:11px!important;font-weight:700!important;max-width:55%}.qpt-frame-square{width:22px;height:22px;flex-basis:22px}.qpt-frame-section.content-block{margin-bottom:38px!important}}
+</style>
+<script id="qpt-v183-section-frame-script">
+(function(){
+ function addFrames(){
+  var isExperiment=document.body.classList.contains('experiment-page');
+  var targets=isExperiment?Array.from(document.querySelectorAll('main.section.container > section.content-block')):Array.from(document.querySelectorAll('main > section#today-lab, main > section#experiments, main > section#features, main > section#about'));
+  targets.forEach(function(section){
+   if(section.classList.contains('qpt-frame-section')) return;
+   var heading=section.querySelector('h2');
+   if(!heading) return;
+   var label=(heading.textContent||'').replace(/\s+/g,' ').trim();
+   if(!label) label=section.id.replace(/-/g,' ');
+   section.classList.add('qpt-frame-section');
+   var top=document.createElement('div');top.className='qpt-frame-top';top.setAttribute('aria-hidden','true');
+   var dot=document.createElement('span');dot.className='qpt-frame-dot';
+   var text=document.createElement('span');text.className='qpt-frame-label';text.textContent=label;
+   var lines=document.createElement('span');lines.className='qpt-frame-lines';
+   var square=document.createElement('span');square.className='qpt-frame-square';
+   top.append(dot,text,lines,square);
+   var bottom=document.createElement('div');bottom.className='qpt-frame-bottom';bottom.setAttribute('aria-hidden','true');
+   section.insertBefore(top,section.firstChild);section.appendChild(bottom);
+  });
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addFrames);else addFrames();
+})();
+</script>
+
+
+<style id="qpt-v184-hide-duplicate-section-headings">
+/* The frame rail already carries the section title; hide the repeated large title inside each panel. */
+.qpt-frame-section > h2 { display: none !important; }
+.qpt-frame-section .section-heading h2 { display: none !important; }
+/* Keep eyebrow labels, descriptive text, and any nested subheadings untouched. */
+</style>
+
+
+<style id="qpt-v193-experiment-section-reference-style">
+/* Bring experiment sections closer to the framed, editorial card treatment in the reference. */
+body.experiment-page > main.section.container > section.content-block.qpt-frame-section {
+  background: #f8f7f0 !important;
+  border: 1px solid #d4d8cf !important;
+  border-left: 3px solid #6ea99a !important;
+  box-sizing: border-box !important;
+  padding: 0 0 26px !important;
+  margin: 0 0 54px !important;
+  overflow: visible !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top {
+  height: 40px !important;
+  margin: 0 !important;
+  padding: 0 12px !important;
+  gap: 10px !important;
+  background: #f8f7f0 !important;
+  border-bottom: 1px solid #171717 !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top .qpt-frame-label {
+  max-width: 52% !important;
+  font-family: "Manrope", Arial, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: .07em !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top .qpt-frame-lines {
+  height: 17px !important;
+  background: repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 4px) !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top .qpt-frame-square {
+  width: 25px !important;
+  height: 25px !important;
+  flex-basis: 25px !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-bottom {
+  margin: 0 !important;
+  height: 12px !important;
+  padding: 0 10px !important;
+  border-top: 1px solid #171717 !important;
+}
+body.experiment-page .qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom) {
+  margin-left: 28px !important;
+  margin-right: 28px !important;
+}
+body.experiment-page .qpt-frame-section > .eyebrow {
+  padding-top: 19px !important;
+  margin-bottom: 14px !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .section-heading {
+  padding-top: 18px !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + h2 {
+  display: none !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow {
+  padding-top: 19px !important;
+}
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + p,
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + div,
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + ol,
+body.experiment-page .qpt-frame-section > .qpt-frame-top + .eyebrow + ul {
+  margin-top: 0 !important;
+}
+@media (max-width: 700px) {
+  body.experiment-page > main.section.container > section.content-block.qpt-frame-section {
+    padding-bottom: 20px !important;
+    margin-bottom: 34px !important;
+  }
+  body.experiment-page .qpt-frame-section > .qpt-frame-top {
+    height: 36px !important;
+    padding: 0 7px !important;
+    gap: 7px !important;
+  }
+  body.experiment-page .qpt-frame-section > .qpt-frame-top .qpt-frame-label {
+    font-size: 10px !important;
+    max-width: 58% !important;
+  }
+  body.experiment-page .qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom) {
+    margin-left: 14px !important;
+    margin-right: 14px !important;
+  }
+  body.experiment-page .qpt-frame-section > .eyebrow {
+    padding-top: 15px !important;
+  }
+}
+</style>
+
+
+<style id="qpt-v194-experiment-section-frames">
+/* Actual section frame markup for experiment pages, matching the homepage feature panel reference. */
+body.experiment-page main.section.container .content-block.qpt-frame-section {
+  display:block!important; box-sizing:border-box!important; background:#f8f7f0!important;
+  border:1px solid #cfd4cc!important; border-left:2px solid #66b7a5!important;
+  margin:0 0 30px!important; padding:0 0 12px!important; overflow:visible!important;
+}
+.qpt-frame-top {height:42px;display:flex;align-items:center;gap:10px;padding:0 12px;margin:0 12px;background:transparent;border-bottom:1px solid #171717;box-sizing:border-box;color:#111;}
+.qpt-frame-dot {display:block;flex:0 0 15px;width:15px;height:15px;background:#f15b83;}
+.qpt-frame-label {white-space:nowrap;max-width:45%;overflow:hidden;text-overflow:ellipsis;font-family:"Playfair Display",Georgia,serif;font-size:15px!important;font-weight:700!important;letter-spacing:.055em!important;color:#111;}
+.qpt-frame-lines {height:18px;flex:1;min-width:12px;background:repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 4px);}
+.qpt-frame-square {width:30px;height:30px;flex:0 0 30px;border:1px solid #111;display:flex;align-items:center;justify-content:center;box-sizing:border-box;background:#f8f7f0;}
+.qpt-frame-square:before {content:"";width:12px;height:12px;border:1px solid #111;box-shadow:4px 4px 0 -1px #f8f7f0,4px 4px 0 0 #111;}
+.qpt-frame-bottom {height:12px;display:flex;align-items:center;margin:0 12px;padding:0 10px;border-top:1px solid #171717;box-sizing:border-box;background:transparent;}
+.qpt-frame-bottom:before {content:"";display:block;width:100%;height:5px;background:repeating-linear-gradient(to bottom,#171717 0,#171717 1px,transparent 1px,transparent 3px);}
+body.experiment-page main.section.container .content-block.qpt-frame-section > .eyebrow {display:none!important;}
+body.experiment-page main.section.container .content-block.qpt-frame-section > h2 {margin-top:24px!important;padding-left:30px!important;padding-right:30px!important;}
+body.experiment-page main.section.container .content-block.qpt-frame-section > p,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .prose,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .apparatus,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .equation,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .visual-card,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .procedure-list,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .table-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section > table,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .calculator,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .graph-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .result-card,
+body.experiment-page main.section.container .content-block.qpt-frame-section > .viva-list {margin-left:30px!important;margin-right:30px!important;}
+body.experiment-page main.section.container .content-block.qpt-frame-section > *:last-child:not(.qpt-frame-bottom) {margin-bottom:18px;}
+@media(max-width:700px){
+ body.experiment-page main.section.container .content-block.qpt-frame-section{margin-bottom:20px!important;}
+ .qpt-frame-top{height:38px;margin:0 7px;padding:0 6px;gap:7px;}
+ .qpt-frame-label{font-size:12px!important;max-width:52%;}
+ .qpt-frame-square{width:24px;height:24px;flex-basis:24px;}
+ body.experiment-page main.section.container .content-block.qpt-frame-section > h2{padding-left:18px!important;padding-right:18px!important;}
+ body.experiment-page main.section.container .content-block.qpt-frame-section > p,
+ body.experiment-page main.section.container .content-block.qpt-frame-section > .prose,
+ body.experiment-page main.section.container .content-block.qpt-frame-section > .apparatus,
+ body.experiment-page main.section.container .content-block.qpt-frame-section > .equation,
+ body.experiment-page main.section.container .content-block.qpt-frame-section > *:not(.qpt-frame-top):not(.qpt-frame-bottom):not(.eyebrow):not(h2){margin-left:18px!important;margin-right:18px!important;}
+}
+</style>
+
+
+<style id="qpt-v195-section-content-containment">
+/* Keep every section's contents inside its cream frame. Some legacy blocks use
+   width:100% plus horizontal margins, which otherwise pushes them past the border. */
+body.experiment-page main.section.container .content-block.qpt-frame-section,
+body.experiment-page main.section.container .content-block.qpt-frame-section * {
+  box-sizing: border-box !important;
+}
+body.experiment-page main.section.container .content-block.qpt-frame-section {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+body.experiment-page main.section.container .content-block.qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom):not(.eyebrow):not(h2) {
+  width: auto !important;
+  max-width: calc(100% - 60px) !important;
+  min-width: 0 !important;
+}
+body.experiment-page main.section.container .content-block.qpt-frame-section .equation,
+body.experiment-page main.section.container .content-block.qpt-frame-section .visual-card,
+body.experiment-page main.section.container .content-block.qpt-frame-section .table-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section .calculator,
+body.experiment-page main.section.container .content-block.qpt-frame-section .graph-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section .result-card,
+body.experiment-page main.section.container .content-block.qpt-frame-section table {
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+body.experiment-page main.section.container .content-block.qpt-frame-section .table-wrap,
+body.experiment-page main.section.container .content-block.qpt-frame-section .graph-wrap {
+  overflow-x: auto !important;
+}
+@media (max-width:700px) {
+  body.experiment-page main.section.container .content-block.qpt-frame-section > :not(.qpt-frame-top):not(.qpt-frame-bottom):not(.eyebrow):not(h2) {
+    max-width: calc(100% - 36px) !important;
+  }
+}
+</style>
+
+<style id="qpt-shared-retro-video-layout-v270">
+.qpt-video-companion{padding:18px!important;background:var(--surface,#fff)!important;}
+.qpt-video-companion .video-heading-content{max-width:none;text-align:left;padding:2px 0 16px;margin:0;}
+.qpt-video-companion .video-heading-content p{max-width:none;margin:0;font-size:12px;}
+.qpt-video-notes-layout{display:grid;grid-template-columns:minmax(0,3fr) minmax(290px,2fr);gap:14px;align-items:stretch;}
+.qpt-video-column{min-width:0;display:flex;flex-direction:column;}
+.qpt-video-column .video-frame{aspect-ratio:16/9;flex:none;margin:0;}
+.qpt-video-column iframe{display:block;width:100%;height:100%;}
+.qpt-video-foot{display:flex;justify-content:space-between;gap:12px;padding:10px 2px 0;color:var(--muted);font:9px "Manrope",sans-serif;letter-spacing:.12em;}
+.qpt-retro-panel{min-width:0;min-height:0;box-sizing:border-box;background:#000!important;border:1px solid #777;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0;}
+.qpt-retro-panel .qpt-retro-computer{width:100%;height:100%;min-height:0;box-sizing:border-box;display:flex;align-items:center;justify-content:center;background:#000;padding:0;}
+.qpt-retro-panel svg{display:block;width:180px;height:150px;max-width:100%;flex:0 0 180px;}
+@media(max-width:760px){.qpt-video-notes-layout{grid-template-columns:minmax(0,1fr);}.qpt-retro-panel{min-height:260px;height:300px;}.qpt-video-column .video-frame{aspect-ratio:16/9;}}
+</style>
+</head>
+<body class="experiment-page">
+<header class="site-header tavus-floating-header">
+<nav class="nav tavus-exact-nav" aria-label="Primary navigation">
+  <div class="tavus-nav-left">
+    <a aria-label="QPT Lab home" class="tavus-brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true"><img src="infinity-logo.png" alt=""></span>
+      <span class="brand-name">QPT LAB</span>
+    </a>
+    <div class="tavus-links nav-links">
+      <a href="index.html#home"><span aria-hidden="true">▪</span> HOME</a>
+      <a class="tavus-experiments-parent" href="index.html#experiments" aria-haspopup="true" aria-expanded="false">
+        <span aria-hidden="true">▪</span> EXPERIMENTS
+      </a>
+      <div class="tavus-mega" aria-label="Experiments" role="menu">
+        <div class="tavus-mega-title">EXPERIMENTS 01—08</div>
+        <div class="tavus-mega-grid">
+          <a href="experiment-01.html"><b>01</b><span>Diffraction Grating</span></a>
+          <a href="experiment-02.html"><b>02</b><span>Refractive Index of Prism</span></a>
+          <a href="experiment-03.html"><b>03</b><span>Photoelectric Effect</span></a>
+          <a href="experiment-04.html"><b>04</b><span>Circular Coil</span></a>
+          <a href="experiment-05.html"><b>05</b><span>Newton’s Rings</span></a>
+          <a href="experiment-06.html"><b>06</b><span>Diffraction of Laser</span></a>
+          <a href="experiment-07.html"><b>07</b><span>Energy Bandgap of Semiconductor</span></a>
+          <a href="experiment-08.html"><b>08</b><span>P-N Junction Diode</span></a>
+        </div>
+      </div>
+      <a href="index.html#features"><span aria-hidden="true">▪</span> FEATURES</a>
+      <a href="index.html#about"><span aria-hidden="true">▪</span> ABOUT</a>
+    </div>
+  </div>
+  <div class="tavus-nav-right">
+    <div class="nav-search tavus-search" id="nav-search">
+      <label class="sr-only" for="nav-search-input">Search the lab</label>
+      <input aria-controls="nav-search-results" aria-expanded="false" aria-label="Search experiments, concepts and apparatus" autocomplete="off" id="nav-search-input" placeholder="SEARCH" spellcheck="false" type="search">
+      <button aria-label="Search" id="nav-search-button" title="Search" type="button">⌕</button>
+      <div aria-label="Search results" class="nav-search-results" id="nav-search-results" role="listbox"></div>
+    </div>
+  </div>
+</nav>
+</header>
+
+<section class="exp4-hero"><div class="container">
+<div class="eyebrow">EXPERIMENT 06 • OPTICS • DIFFRACTION</div>
+<h1>Diffraction of Laser.</h1>
+<p class="hero-inspiration">Turn a laser beam into a measurable pattern — locate the diffraction orders and let geometry reveal its wavelength.</p>
+<div class="quick-access-bar"><div class="quick-access-inner"><div class="quick-access-label">QUICK ACCESS</div><nav class="quick-access-links" aria-label="Experiment sections"><a href="#aim">Aim</a><a href="#apparatus">Apparatus</a><a href="#theory">Theory</a><a href="#visualize">Visualize</a><a href="#demonstration">Demonstration</a><a href="#procedure">Procedure</a><a href="#observations">Observations</a><a href="#calculations">Calculations</a><a href="#result">Result</a><a href="#viva">Viva</a></nav></div></div>
+</div></section>
+
+<main class="section container">
+<div>
+
+<section id="aim" class="content-block"><div class="eyebrow">01 / AIM</div><h2>What are we measuring?</h2><div class="prose"><p>To determine the wavelength (λ) of He-Ne laser light.</p></div></section>
+
+<section id="apparatus" class="content-block"><div class="eyebrow">02 / APPARATUS</div><h2>Equipment</h2><div class="apparatus"><span class="chip">He-Ne laser apparatus</span><span class="chip">Diffraction grating</span><span class="chip">Scale</span><span class="chip">Screen</span></div></section>
+
+<section id="theory" class="content-block"><div class="eyebrow">03 / THEORY</div><h2>How does a grating reveal the laser wavelength?</h2>
+<p class="prose">A diffraction grating consists of a large number of equally spaced, parallel slits or rulings. When laser light passes through the grating, diffraction and interference produce a characteristic pattern of bright and dark fringes.</p>
+<p class="prose">The grating equation used in the manual is:</p>
+<div class="equation center">d sin θ = nλ</div>
+<p class="prose">Here d is the grating element, θ is the diffraction angle, n is the order of diffraction and λ is the wavelength. If N is the number of lines per specified unit length, the manual gives d = 1/N.</p>
+<div class="equation center">λ = sin θ / (nN)</div>
+<p class="prose">For the screen arrangement, the diffraction angle is obtained from the mean displacement Y and the grating-to-screen distance D:</p>
+<div class="equation center">θ = tan<sup>−1</sup>(Y / D)</div>
+<p class="prose">Different wavelengths are diffracted at different angles, which is the basis of spectral dispersion and the use of gratings in spectroscopy and monochromators.</p>
+
+<div class="deep-references" id="references"><div class="eyebrow">04 / REFERENCES · GO DEEPER</div><p class="deep-references-intro">These resources explain Fraunhofer diffraction, diffraction gratings, and the grating equation used to determine the laser wavelength.</p><div class="deep-reference-list"><div class="deep-reference"><div class="deep-reference-title">Eugene Hecht — <em>Optics</em>, 5th ed.</div><div class="deep-reference-topic">Diffraction and diffraction gratings; angular positions of principal maxima.</div></div><div class="deep-reference"><div class="deep-reference-title">Jenkins &amp; White — <em>Fundamentals of Optics</em></div><div class="deep-reference-topic">Fraunhofer diffraction, grating spectra and wavelength measurement.</div></div><div class="deep-reference"><div class="deep-reference-title">NPTEL — Optics / Wave Optics</div><div class="deep-reference-topic">Diffraction, interference and applications of diffraction gratings.</div></div></div></div>
+</section>
+
+<section id="visualize" class="content-block"><div class="eyebrow">04 / VISUAL EXPLANATION</div><h2>Explore the diffraction arrangement in 3D</h2>
+<div class="visual-box laser-3d-box">
+  <div class="laser-3d-toolbar">
+    <div><strong>Interactive 3D model</strong><span>Drag to rotate • Scroll to zoom • Double-click to reset</span></div>
+    <button type="button" class="laser-3d-reset" id="laser3dReset">Reset view</button>
+  </div>
+  <div class="laser-3d-stage" id="laser3dStage" aria-label="Interactive three-dimensional laser diffraction grating arrangement">
+    <canvas id="laser3dCanvas"></canvas>
+  </div>
+  <p class="caption">Interactive 3D representation of the laser diffraction setup. The diffraction orders, screen displacements y₁ and y₂, and grating-to-screen distance D are marked to connect the physical arrangement with the measurement geometry.</p>
+</div></section>
+
+<section id="demonstration" class="content-block">
+<div class="eyebrow">06 / EXPERIMENT DEMONSTRATION</div>
+<h2>See the experiment in the laboratory</h2>
+<div class="video-box qpt-video-companion" id="qpt-video-companion-exp06">
+<div class="video-heading-content">
+<p>Watch a laboratory demonstration of determining the wavelength of laser light using a plane diffraction grating.</p>
+</div>
+<div class="qpt-video-notes-layout">
+<div class="qpt-video-column"><div class="video-frame youtube-embed-frame"><iframe src="https://www.youtube.com/embed/ya_v3mgr79I?rel=0" title="Laser wavelength using a plane diffraction grating — experiment demonstration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><div class="qpt-video-foot"><span>EXPERIMENT 06</span><span>READY TO PLAY</span></div></div>
+<aside class="qpt-retro-panel" aria-label="Feature update"><div class="qpt-retro-computer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 150" width="180" height="150" style="display:block;width:180px;height:150px;max-width:100%;flex:0 0 180px;" role="img" aria-label="Retro computer displaying Feature Update Coming Soon..."><rect width="180" height="150" fill="#000"/><!-- compact pixel-art monitor --><rect x="16" y="9" width="148" height="104" fill="#f3edc9" stroke="#171914" stroke-width="2.5"/><rect x="21" y="14" width="138" height="94" fill="#b9b99b" stroke="#171914" stroke-width="1"/><rect x="25" y="18" width="130" height="85" fill="#050806" stroke="#e9e2b8" stroke-width="2"/><rect x="47.30" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="48.42" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="49.54" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="50.66" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="51.78" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="48.42" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="49.54" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="50.66" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="60.62" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="62.86" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="60.62" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="62.86" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="62.86" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="60.62" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="65.60" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="70.08" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="68.96" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="75.06" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="72.82" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="73.94" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="80.04" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="81.16" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="78.92" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="85.02" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="86.14" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="87.26" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="83.90" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="88.38" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="83.90" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="85.02" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="86.14" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="87.26" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="88.38" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="83.90" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="83.90" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="88.38" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="85.02" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="86.14" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="87.26" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="97.22" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="98.34" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="99.46" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="103.32" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="104.44" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="105.56" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="103.32" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="104.44" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="105.56" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="109.42" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="110.54" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="111.66" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="109.42" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="110.54" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="111.66" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="115.52" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="115.52" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="114.40" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="114.40" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="115.52" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="118.88" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="47.00" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="120.50" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="122.74" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="121.62" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="124.98" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="122.74" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="123.86" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="127.72" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="48.12" width="1.12" height="1.12" fill="#00f044"/><rect x="126.60" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="131.08" y="49.24" width="1.12" height="1.12" fill="#00f044"/><rect x="126.60" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="127.72" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="131.08" y="50.36" width="1.12" height="1.12" fill="#00f044"/><rect x="126.60" y="51.48" width="1.12" height="1.12" fill="#00f044"/><rect x="126.60" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="131.08" y="52.60" width="1.12" height="1.12" fill="#00f044"/><rect x="127.72" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="53.72" width="1.12" height="1.12" fill="#00f044"/><rect x="48.42" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="49.54" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="50.66" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="51.78" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="47.30" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="48.42" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="49.54" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="50.66" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="51.78" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="53.40" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="57.88" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="54.52" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="55.64" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="56.76" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="60.62" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="62.86" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="59.50" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="61.74" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="63.98" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="66.72" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="67.84" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="68.96" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="73.94" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="75.06" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="72.82" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="71.70" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="76.18" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="78.92" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="80.04" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="81.16" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="78.92" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="80.04" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="81.16" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="82.28" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="77.80" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="78.92" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="80.04" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="81.16" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="91.12" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="92.24" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="93.36" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="94.48" y="61.00" width="1.12" height="1.12" fill="#00f044"/><rect x="90.00" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="90.00" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="91.12" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="92.24" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="93.36" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="94.48" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="94.48" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="90.00" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="91.12" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="92.24" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="93.36" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="97.22" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="98.34" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="99.46" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="96.10" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="100.58" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="97.22" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="98.34" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="99.46" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="103.32" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="104.44" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="105.56" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="102.20" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="106.68" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="103.32" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="104.44" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="105.56" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="110.54" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="111.66" y="62.12" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="109.42" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="63.24" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="64.36" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="65.48" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="108.30" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="112.78" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="116.64" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="117.76" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="122.74" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="123.86" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="122.74" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="123.86" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="66.60" width="1.12" height="1.12" fill="#00f044"/><rect x="128.84" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="129.96" y="67.72" width="1.12" height="1.12" fill="#00f044"/><rect x="70" y="112" width="40" height="10" fill="#f3edc9" stroke="#171914" stroke-width="2.5"/><rect x="22" y="121" width="136" height="11" fill="#f3edc9" stroke="#171914" stroke-width="2.5"/><rect x="30" y="125" width="14" height="3" fill="#171914"/><rect x="112" y="125" width="38" height="3" fill="#171914"/></svg></div></aside>
+</div></div>
+</section>
+
+<section id="procedure" class="content-block"><div class="eyebrow">05 / PROCEDURE</div><h2>Experimental sequence</h2><ol class="steps">
+<li><span class="step-text">Switch on the electric power supply to the He-Ne laser apparatus.</span></li>
+<li><span class="step-text">Observe the diffraction pattern produced on the screen.</span></li>
+<li><span class="step-text">Measure the distance D between the diffraction grating and the screen.</span></li>
+<li><span class="step-text">For the first-order spectrum, measure the left and right distances y<sub>1</sub> and y<sub>2</sub>.</span></li>
+<li><span class="step-text">Repeat the measurement for the second-order spectrum.</span></li>
+<li><span class="step-text">Calculate the mean displacement Y = (y<sub>1</sub> + y<sub>2</sub>)/2 for each order.</span></li>
+<li><span class="step-text">Determine θ = tan<sup>−1</sup>(Y/D), then calculate λ using λ = sin θ/(nN).</span></li>
+</ol></section>
+
+<section id="observations" class="content-block"><div class="eyebrow">07 / DIGITAL OBSERVATION TABLE</div><h2>Enter your diffraction readings</h2>
+<div class="lab-panel">
+<div class="form-grid"><div class="field"><label>GRATING LINES N (per cm)</label><input id="linesN" type="number" step="any" value="600"></div></div>
+<div class="note">Enter the grating-to-screen distance D and the left/right displacements for the first and second orders. The calculation follows the observation table and equations in the supplied manual.</div>
+<div class="table-wrap"><table class="obs-table" style="min-width:1150px"><thead><tr><th>Order n</th><th>Distance D (cm)</th><th>Left y₁ (cm)</th><th>Right y₂ (cm)</th><th>Mean Y (cm)</th><th>θ = tan⁻¹(Y/D)</th><th>sin θ</th><th>λ (nm)</th></tr></thead><tbody id="laserBody"></tbody></table></div>
+<button class="button-calc" onclick="calculateLaser()">Calculate</button><button class="button-reset" onclick="resetLaser()">Reset</button>
+</div></section>
+
+<section id="calculations" class="content-block"><div class="eyebrow">08 / CALCULATIONS</div><h2>From diffraction angle to wavelength</h2>
+<div class="equation center">Y = (y₁ + y₂) / 2</div>
+<div class="equation center">θ = tan<sup>−1</sup>(Y / D)</div>
+<div class="equation center">λ = sin θ / (nN)</div>
+<p class="formula-note">The calculator treats N as the number of grating lines per centimetre, consistent with the manual’s d = 1/N notation, and converts the resulting wavelength to nanometres.</p>
+<div class="result-grid"><div class="result"><span>First-order wavelength</span><strong id="lambda1">—</strong></div><div class="result"><span>Second-order wavelength</span><strong id="lambda2">—</strong></div><div class="result"><span>Mean wavelength</span><strong id="lambdaMean">—</strong></div><div class="result"><span>Status</span><strong id="laserStatus">Waiting</strong></div></div>
+</section>
+
+<section id="result" class="content-block"><div class="eyebrow">09 / RESULT & CONCLUSION</div><h2>Experimental result</h2><div class="lab-panel"><p class="prose">The wavelength of the He-Ne laser is determined from the diffraction angles for the first and second orders.</p><div class="result-grid"><div class="result"><span>Wavelength of He-Ne laser</span><strong id="finalLaser">—</strong></div><div class="result"><span>Status</span><strong id="finalLaserStatus">Waiting</strong></div></div></div></section>
+
+<section id="viva" class="content-block"><div class="eyebrow">10 / VIVA PRACTICE</div><h2>Test your understanding</h2>
+<div class="viva"><button onclick="toggleViva(this)">Why does a diffraction grating produce distinct orders?</button><div class="answer">The waves emerging from the many equally spaced rulings interfere constructively at particular angles, producing bright maxima corresponding to different diffraction orders.</div></div>
+<div class="viva"><button onclick="toggleViva(this)">Why are the left and right distances averaged?</button><div class="answer">The mean Y = (y₁ + y₂)/2 reduces the effect of small asymmetries in locating the two sides of the diffraction pattern.</div></div>
+<div class="viva"><button onclick="toggleViva(this)">What does the order n represent?</button><div class="answer">n identifies the diffraction maximum: n = 0 is the central maximum, while n = 1, 2, … correspond to the first, second and higher orders.</div></div>
+<div class="viva"><button onclick="toggleViva(this)">What happens to the diffraction angle for a higher order?</button><div class="answer">For fixed grating spacing and wavelength, sin θ increases with n, so higher orders occur at larger diffraction angles, as long as the order is physically allowed.</div></div>
+<div class="viva"><button onclick="toggleViva(this)">Why is a laser useful in this experiment?</button><div class="answer">The laser provides a well-defined, nearly monochromatic beam, making the diffraction maxima clear and allowing the wavelength to be determined from the grating relation.</div></div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="footer-brand">
+      <span class="footer-mark" aria-hidden="true"><img src="infinity-logo.png" alt=""></span>
+      <span>qpt Lab</span>
+    </span>
+  </div>
+</footer>
+\n<script id="laser-3d-interactive">
+(function(){
+  const canvas=document.getElementById('laser3dCanvas');
+  const stage=document.getElementById('laser3dStage');
+  const resetBtn=document.getElementById('laser3dReset');
+  if(!canvas||!stage)return;
+  const ctx=canvas.getContext('2d');
+  const TAU=Math.PI*2;
+  // Default view: optical bench is BELOW the apparatus, matching the laboratory setup.
+  const state={yaw:2.84,pitch:-0.16,roll:0,zoom:1};
+  let dragging=false,lastX=0,lastY=0;
+  const BENCH_Y=-72;
+
+  function resize(){
+    const dpr=Math.min(window.devicePixelRatio||1,2),r=stage.getBoundingClientRect();
+    canvas.width=Math.max(1,Math.round(r.width*dpr));canvas.height=Math.max(1,Math.round(r.height*dpr));
+    canvas.style.width=r.width+'px';canvas.style.height=r.height+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);draw();
+  }
+  // X = optical axis (laser -> grating -> screen)
+  // Y = vertical (up from the blue bench)
+  // Z = horizontal direction across the screen / diffraction pattern
+  function camera(p){
+    let [x,y,z]=p;
+    const cy=Math.cos(state.yaw),sy=Math.sin(state.yaw);
+    let x1=x*cy-z*sy, z1=x*sy+z*cy;
+    const cp=Math.cos(state.pitch),sp=Math.sin(state.pitch);
+    let y1=y*cp-z1*sp, z2=y*sp+z1*cp;
+    const cr=Math.cos(state.roll),sr=Math.sin(state.roll);
+    let x2=x1*cr-y1*sr, y2=x1*sr+y1*cr;
+    return [x2,y2,z2];
+  }
+  function project(p){
+    const [x,y,z]=camera(p),r=stage.getBoundingClientRect();
+    const f=820*state.zoom, depth=f/(f+z*1.9);
+    return [r.width/2+x*depth,r.height/2-y*depth,z,depth];
+  }
+  function line3(a,b,style,width=1,dash=[]){
+    const A=project(a),B=project(b);ctx.save();ctx.strokeStyle=style;ctx.lineWidth=width;ctx.setLineDash(dash);ctx.beginPath();ctx.moveTo(A[0],A[1]);ctx.lineTo(B[0],B[1]);ctx.stroke();ctx.restore();
+  }
+  function poly(points,fill,stroke='#7b847d',width=1){
+    const q=points.map(project);ctx.save();ctx.beginPath();ctx.moveTo(q[0][0],q[0][1]);for(let i=1;i<q.length;i++)ctx.lineTo(q[i][0],q[i][1]);ctx.closePath();ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=stroke;ctx.lineWidth=width;ctx.stroke();ctx.restore();
+  }
+  function dot(p,r,fill,stroke='rgba(255,255,255,.85)'){
+    const q=project(p);ctx.save();ctx.beginPath();ctx.arc(q[0],q[1],r,0,TAU);ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=stroke;ctx.stroke();ctx.restore();
+  }
+  function text3(txt,p,size=13,fill='#354039',align='center'){
+    const q=project(p);ctx.save();ctx.font=`600 ${size}px Georgia, serif`;ctx.fillStyle=fill;ctx.textAlign=align;ctx.textBaseline='middle';ctx.shadowColor='rgba(255,255,255,.95)';ctx.shadowBlur=4;ctx.fillText(txt,q[0],q[1]);ctx.restore();
+  }
+  function arrow(a,b,style='#56615a',width=1.4){
+    line3(a,b,style,width);const A=project(a),B=project(b),ang=Math.atan2(B[1]-A[1],B[0]-A[0]),len=9;
+    ctx.save();ctx.fillStyle=style;ctx.beginPath();ctx.moveTo(B[0],B[1]);ctx.lineTo(B[0]-len*Math.cos(ang-.46),B[1]-len*Math.sin(ang-.46));ctx.lineTo(B[0]-len*Math.cos(ang+.46),B[1]-len*Math.sin(ang+.46));ctx.closePath();ctx.fill();ctx.restore();
+  }
+  function laserBeam(a,b,alpha=1,width=3){
+    const A=project(a),B=project(b);ctx.save();ctx.lineCap='round';ctx.shadowColor='rgba(235,46,112,.75)';ctx.shadowBlur=9;ctx.strokeStyle=`rgba(236,49,115,${alpha})`;ctx.lineWidth=width;ctx.beginPath();ctx.moveTo(A[0],A[1]);ctx.lineTo(B[0],B[1]);ctx.stroke();ctx.shadowBlur=0;ctx.strokeStyle='rgba(255,167,205,.95)';ctx.lineWidth=1;ctx.stroke();ctx.restore();
+  }
+  function support(x,baseY,topY,z){
+    line3([x,baseY,z],[x,topY,z],'#59625c',7);
+    dot([x,baseY,z],7,'#252c28');
+  }
+  function screenFrame(){
+    const x=-255,w=112,h=62;
+    poly([[x,-5,-w],[x,h,-w],[x,h,w],[x,-5,w]],'#eef2ef','#68736b',1.6);
+    line3([x,-5,-w],[x,h,-w],'#465048',4);line3([x,-5,w],[x,h,w],'#465048',4);
+    line3([x,-5,-w],[x,-5,w],'#59635c',3);line3([x,h,-w],[x,h,w],'#59635c',3);
+    for(let z=-w+28;z<w;z+=28) line3([x,0,z],[x,h-4,z],'rgba(98,112,103,.14)',.7);
+    for(let y=20;y<h;y+=20) line3([x,y,-w+4],[x,y,w-4],'rgba(98,112,103,.14)',.7);
+    text3('SCREEN',[x-7,h+17,0],14,'#39443d');
+    support(x,BENCH_Y,-5,-w+14);support(x,BENCH_Y,-5,w-14);
+  }
+  function grating(){
+    const x=-10,w=54,h=58;
+    poly([[x,-4,-w],[x,h,-w],[x,h,w],[x,-4,w]],'#dbe5df','#4f5b54',1.5);
+    // Rulings are vertical: diffraction spreads horizontally across Z.
+    for(let z=-w+5;z<=w-5;z+=5) line3([x-1,-1,z],[x-1,h-2,z],'#718078',.75);
+    support(x,BENCH_Y,-4,-w+12);support(x,BENCH_Y,-4,w-12);
+    text3('DIFFRACTION GRATING',[x-2,-20,0],14,'#303a34');
+  }
+  function laser(){
+    const x0=175, beamY=22;
+    // Laser body is centred on the same horizontal optical plane as the grating and screen.
+    line3([x0,beamY,0],[x0+78,beamY,0],'#202722',24);
+    line3([x0+78,beamY,0],[x0+100,beamY,0],'#3c4640',17);
+    line3([x0+100,beamY,0],[x0+114,beamY,0],'#202722',7);
+    support(x0+60,BENCH_Y,beamY,0);
+    text3('LASER POINTER',[x0+18,beamY+30,0],14,'#303a34');
+    // Incident laser trajectory: perfectly collinear with the optical axis before the grating.
+    laserBeam([x0+99,beamY,0],[-10,beamY,0],1,4);
+  }
+  function draw(){
+    const r=stage.getBoundingClientRect();ctx.clearRect(0,0,r.width,r.height);
+    const bg=ctx.createLinearGradient(0,0,0,r.height);bg.addColorStop(0,'#f9fbf8');bg.addColorStop(1,'#e8ede9');ctx.fillStyle=bg;ctx.fillRect(0,0,r.width,r.height);
+
+    // Blue optical bench stays physically horizontal and below every component.
+    poly([[-305,BENCH_Y,-165],[305,BENCH_Y,-165],[305,BENCH_Y,165],[-305,BENCH_Y,165]],'#6fa9c8','#687c86',1.2);
+    for(let x=-290;x<=290;x+=24) for(let z=-150;z<=150;z+=22) dot([x,BENCH_Y-1,z],1.6,'#59666d','rgba(255,255,255,.25)');
+
+    // D: along the optical axis, from screen plane to grating plane.
+    const screenX=-255, gratingX=-10, dimY=BENCH_Y+8, dimZ=-145;
+    line3([screenX,dimY,dimZ],[gratingX,dimY,dimZ],'#5d675f',1.2,[6,5]);
+    arrow([screenX,dimY,dimZ],[gratingX,dimY,dimZ],'#536057',1.2);arrow([gratingX,dimY,dimZ],[screenX,dimY,dimZ],'#536057',1.2);
+    text3('D',[(screenX+gratingX)/2,dimY+12,dimZ],15,'#3d4841');
+
+    screenFrame();grating();laser();
+
+    // Diffraction maxima spread horizontally across the screen (Z direction).
+    const screenZs=[-92,-46,0,46,92];
+    const labels=['m = −2','m = −1','m = 0','m = +1','m = +2'];
+    const start=[gratingX,22,0];
+    screenZs.forEach((z,i)=>{
+      const alpha=i===2?1:.72;
+      laserBeam(start,[screenX,22,z],alpha,i===2?3.2:2.3);
+      dot([screenX-1,22,z],6,'#ff4c98');
+      text3(labels[i],[screenX-9,39,z],12,'#344038');
+    });
+
+    // y1 = centre to first order; y2 = centre to second order.
+    const my=5;
+    line3([screenX-3,my,0],[screenX-3,my,46],'#536058',1.3);arrow([screenX-3,my,0],[screenX-3,my,46],'#536058',1.2);arrow([screenX-3,my,46],[screenX-3,my,0],'#536058',1.2);
+    line3([screenX-3,my,-46],[screenX-3,my,0],'#536058',1.3);arrow([screenX-3,my,-46],[screenX-3,my,0],'#536058',1.2);arrow([screenX-3,my,0],[screenX-3,my,-46],'#536058',1.2);
+    text3('y₁',[screenX-12,my+12,23],12,'#3f4942');text3('y₂',[screenX-12,my+12,-23],12,'#3f4942');
+  }
+  function reset(){state.yaw=2.84;state.pitch=-0.16;state.roll=0;state.zoom=1;draw();}
+  stage.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;stage.classList.add('dragging');stage.setPointerCapture(e.pointerId)});
+  stage.addEventListener('pointermove',e=>{if(!dragging)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;lastX=e.clientX;lastY=e.clientY;state.yaw+=dx*.008;state.pitch+=dy*.006;state.pitch=Math.max(-1.05,Math.min(.8,state.pitch));draw()});
+  stage.addEventListener('pointerup',()=>{dragging=false;stage.classList.remove('dragging')});stage.addEventListener('pointercancel',()=>{dragging=false;stage.classList.remove('dragging')});
+  stage.addEventListener('wheel',e=>{e.preventDefault();state.zoom*=Math.exp(-e.deltaY*.001);state.zoom=Math.max(.65,Math.min(1.55,state.zoom));draw()},{passive:false});
+  stage.addEventListener('dblclick',reset);resetBtn.addEventListener('click',reset);window.addEventListener('resize',resize);resize();
+})();
+</script>\n
+<script>
+const laserOrders=[1,2,3,4];
+function buildLaserRows(){const b=document.getElementById('laserBody');b.innerHTML='';laserOrders.forEach(n=>b.insertAdjacentHTML('beforeend',`<tr><td>${n}</td><td><input id="D${n}" type="number" step="any"></td><td><input id="y1_${n}" type="number" step="any"></td><td><input id="y2_${n}" type="number" step="any"></td><td id="Y${n}" class="readonly">—</td><td id="theta${n}" class="readonly">—</td><td id="sin${n}" class="readonly">—</td><td id="lam${n}" class="readonly">—</td></tr>`));}
+function lval(id){const v=parseFloat(document.getElementById(id)?.value);return Number.isFinite(v)?v:null}
+function calculateLaser(){const N=lval('linesN');if(N==null||N<=0){alert('Please enter a valid grating line density N.');return}const lambdas=[];laserOrders.forEach(n=>{const D=lval('D'+n),y1=lval('y1_'+n),y2=lval('y2_'+n);if([D,y1,y2].every(v=>v!=null)&&D>0){const Y=(y1+y2)/2;const theta=Math.atan(Y/D);const s=Math.sin(theta);const lambdaCm=s/(n*N);const lambdaNm=lambdaCm*1e7;document.getElementById('Y'+n).textContent=Y.toFixed(4);document.getElementById('theta'+n).textContent=(theta*180/Math.PI).toFixed(4)+'°';document.getElementById('sin'+n).textContent=s.toFixed(6);document.getElementById('lam'+n).textContent=lambdaNm.toFixed(3);lambdas.push(lambdaNm)}else{['Y','theta','sin','lam'].forEach(p=>document.getElementById(p+n).textContent='—')}});document.getElementById('lambda1').textContent=lambdas[0]!=null?lambdas[0].toFixed(3)+' nm':'—';document.getElementById('lambda2').textContent=lambdas[1]!=null?lambdas[1].toFixed(3)+' nm':'—';const mean=lambdas.length?lambdas.reduce((a,b)=>a+b,0)/lambdas.length:null;document.getElementById('lambdaMean').textContent=mean!=null?mean.toFixed(3)+' nm':'—';document.getElementById('laserStatus').textContent=lambdas.length?'Calculated':'Waiting';document.getElementById('finalLaser').textContent=mean!=null?mean.toFixed(3)+' nm':'—';document.getElementById('finalLaserStatus').textContent=mean!=null?'Calculated':'Enter readings'}
+function resetLaser(){document.getElementById('linesN').value=600;buildLaserRows();['lambda1','lambda2','lambdaMean','finalLaser'].forEach(id=>document.getElementById(id).textContent='—');document.getElementById('laserStatus').textContent='Waiting';document.getElementById('finalLaserStatus').textContent='Waiting'}
+function toggleViva(btn){btn.parentElement.classList.toggle('open')}
+buildLaserRows();
+
+</script>
+<style id="v26-centered-reading-width">
+/* V26: keep experiment reading content centered at roughly 3/4 of the page width. */
+.experiment-page > main.section.container {
+  width: min(75vw, 1400px) !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.experiment-page > main.section.container .exp-layout,
+.experiment-page > main.section.container .exp4-layout {
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+@media (max-width: 900px) {
+  .experiment-page > main.section.container {
+    width: calc(100% - 32px) !important;
+  }
+}
+</style>
+
+<style id="v27-quick-access-below-hero">
+/* V27: quick access sits immediately below the black hero and aligns with the 3/4-width reading column. */
+.experiment-page > .quick-access-bar {
+  width: min(75vw, 1400px) !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+  background: var(--dark) !important;
+  border-top: 1px solid rgba(195,203,197,.28) !important;
+  border-bottom: 1px solid rgba(195,203,197,.18) !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-inner {
+  width: 100% !important;
+  min-height: 54px !important;
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-label {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 120px !important;
+  color: #b7d5c1 !important;
+  border-right: 1px solid rgba(195,203,197,.18) !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: stretch !important;
+  overflow-x: auto !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a {
+  flex: 1 1 0 !important;
+  justify-content: center !important;
+  min-width: 90px !important;
+  min-height: 54px !important;
+  color: #c3cbc5 !important;
+  border-left: 1px solid rgba(195,203,197,.17) !important;
+  padding: 0 12px !important;
+  white-space: nowrap !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:last-child {
+  border-right: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:hover,
+.experiment-page > .quick-access-bar .quick-access-links a:focus-visible {
+  background: rgba(183,213,193,.10) !important;
+  color: #fff !important;
+  outline: none !important;
+}
+@media (max-width: 900px) {
+  .experiment-page > .quick-access-bar { width: calc(100% - 32px) !important; }
+  .experiment-page > .quick-access-bar .quick-access-label { min-width: 105px !important; }
+  .experiment-page > .quick-access-bar .quick-access-links a { flex: 0 0 auto !important; min-width: 92px !important; }
+}
+</style>
+
+
+<script id="v28-quick-access-active">
+(() => {
+  const links = [...document.querySelectorAll('.quick-access-links a')];
+  if (!links.length) return;
+  const setActive = (link) => {
+    links.forEach(item => {
+      const active = item === link;
+      item.classList.toggle('active', active);
+      if (active) item.setAttribute('aria-current', 'location');
+      else item.removeAttribute('aria-current');
+    });
+  };
+  setActive(links[0]);
+  links.forEach(link => link.addEventListener('click', () => setActive(link)));
+})();
+</script>
+
+<style id="v30-header-height-refinement">
+/* V30: slightly taller experiment header for clearer separation from quick access. */
+.exp-hero, .exp4-hero {
+  padding-top: 45px !important;
+  padding-bottom: 34px !important;
+}
+@media (max-width: 900px) {
+  .exp-hero, .exp4-hero {
+    padding-top: 34px !important;
+    padding-bottom: 26px !important;
+  }
+}
+</style>
+
+<script id="search-jump-highlight">
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const query = (params.get('search') || '').trim();
+  if (!query) return;
+  const terms = query.toLowerCase().replace(/[–—−]/g,'-').replace(/[^\p{L}\p{N}]+/gu,' ').split(/\s+/).filter(Boolean);
+  const target = document.getElementById((window.location.hash || '').slice(1));
+  if (!target) return;
+
+  const style = document.createElement('style');
+  style.textContent = '.lab-search-hit{background:#dfeee5;box-shadow:0 0 0 3px rgba(23,79,59,.12);border-radius:2px;padding:0 .08em}.lab-search-target{outline:2px solid rgba(23,79,59,.22);outline-offset:10px;transition:outline-color .4s}';
+  document.head.appendChild(style);
+  target.classList.add('lab-search-target');
+  setTimeout(() => target.scrollIntoView({behavior:'smooth',block:'start'}), 80);
+
+  // Highlight the first matching text occurrence for each search term inside the target section.
+  const walker = document.createTreeWalker(target, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent || /^(SCRIPT|STYLE|INPUT|TEXTAREA|BUTTON|SELECT)$/.test(parent.tagName)) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  let highlighted=0;
+  for (const term of terms) {
+    const re = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), 'i');
+    const node = nodes.find(n => re.test(n.nodeValue || ''));
+    if (!node) continue;
+    const match = (node.nodeValue || '').match(re); if (!match) continue;
+    const frag = document.createDocumentFragment();
+    const before = node.nodeValue.slice(0, match.index);
+    const hit = document.createElement('mark'); hit.className='lab-search-hit'; hit.textContent=match[0];
+    const after = node.nodeValue.slice(match.index + match[0].length);
+    if (before) frag.appendChild(document.createTextNode(before));
+    frag.appendChild(hit);
+    if (after) frag.appendChild(document.createTextNode(after));
+    node.parentNode.replaceChild(frag,node);
+    highlighted++;
+  }
+  if (highlighted) setTimeout(() => target.querySelector('.lab-search-hit')?.scrollIntoView({behavior:'smooth',block:'center'}), 160);
+})();
+</script>
+
+<style id="qptlab-dark-final">
+html[data-theme="dark"] .site-header{background:rgba(17,21,19,.94)!important;border-bottom-color:#39423d!important}
+html[data-theme="dark"] .nav-links{background:#111513!important}
+html[data-theme="dark"] .nav-links a{color:var(--ink)}
+html[data-theme="dark"] .content-block h2,html[data-theme="dark"] .section-heading h2,html[data-theme="dark"] .card-body h3,html[data-theme="dark"] .feature h3,html[data-theme="dark"] .about-panel h2{color:var(--ink)}
+html[data-theme="dark"] .exp-hero,html[data-theme="dark"] .exp4-hero{background:#0b0e0c!important}
+html[data-theme="dark"] .lab-panel,html[data-theme="dark"] .visual-box,html[data-theme="dark"] .video-box,html[data-theme="dark"] .viva,html[data-theme="dark"] .result{color:var(--ink)!important}
+html[data-theme="dark"] .video-heading-content p,html[data-theme="dark"] .caption,html[data-theme="dark"] .formula-note,html[data-theme="dark"] .note{color:var(--muted)!important}
+html[data-theme="dark"] .obs-table th{color:var(--ink)!important;background:#252d28!important}
+html[data-theme="dark"] .obs-table td{background:#171c19!important;color:var(--ink)!important}
+html[data-theme="dark"] .obs-table input,html[data-theme="dark"] .field input{background:#0f1311!important;color:#eef2ee!important;border-color:#48534c!important}
+html[data-theme="dark"] .button.secondary{color:#eef2ee!important;border-color:#536158!important}
+html[data-theme="dark"] .quick-access-inner{color:var(--ink)!important}
+html[data-theme="dark"] .quick-access-label{color:var(--muted)!important}
+html[data-theme="dark"] .today-section,html[data-theme="dark"] .schedule-section{background:var(--bg)!important}
+html[data-theme="dark"] .session-card,html[data-theme="dark"] .today-empty{background:var(--surface)!important;border-color:var(--line)!important;color:var(--ink)!important}
+html[data-theme="dark"] .session-main span{color:var(--muted)!important}
+</style>
+
+<script id="qpt-static-theme-controller">
+(function(){
+  const KEY="qptlab-theme", root=document.documentElement;
+  function read(){ try { const q=new URLSearchParams(location.search).get("theme"); if(q==="dark"||q==="light") return q; const s=localStorage.getItem(KEY); if(s==="dark"||s==="light") return s; } catch(e){} return "light"; }
+  function apply(t){ t=(t==="dark")?"dark":"light"; root.setAttribute("data-theme",t); if(document.body) document.body.setAttribute("data-theme",t); document.querySelectorAll(".theme-toggle").forEach(btn=>{ const dark=t==="dark"; btn.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode"); btn.setAttribute("title",dark?"Switch to light mode":"Switch to dark mode"); const i=btn.querySelector(".theme-icon"), l=btn.querySelector(".theme-label"); if(i)i.textContent=dark?"☀":"☾"; if(l)l.textContent=dark?"Light":"Dark"; }); }
+  function save(t){ try{localStorage.setItem(KEY,t); document.cookie=KEY+"="+t+"; path=/; max-age=31536000; SameSite=Lax";}catch(e){} }
+  function addTheme(h){ try{ const u=new URL(h,location.href); if(u.origin!==location.origin) return h; if(!/\.html$/i.test(u.pathname)&&u.pathname!=="/"&&u.pathname!=="") return h; u.searchParams.set("theme",root.getAttribute("data-theme")==="dark"?"dark":"light"); return u.href; }catch(e){return h;} }
+  // Apply exactly once before first paint. Do not re-apply on DOMContentLoaded.
+  apply(read());
+  document.addEventListener("click",function(e){
+    const btn=e.target.closest&&e.target.closest(".theme-toggle");
+    if(btn){ const next=root.getAttribute("data-theme")==="dark"?"light":"dark"; save(next); apply(next); document.querySelectorAll("a[href]").forEach(a=>{const h=a.getAttribute("href"); if(h&&!h.startsWith("#")&&!h.startsWith("mailto:")&&!h.startsWith("javascript:")&&a.target!=="_blank"){const u=addTheme(h); if(u!==h)a.setAttribute("href",u);}}); return; }
+    const link=e.target.closest&&e.target.closest("a[href]");
+    if(link&&link.target!=="_blank"){const h=link.getAttribute("href"); if(h&&!h.startsWith("#")&&!h.startsWith("mailto:")&&!h.startsWith("javascript:")){const u=addTheme(h); if(u!==h)link.setAttribute("href",u);}}
+  },true);
+})();
+</script>
+
+<style id="v29-quick-access-clean-light">
+/* V29: clean quick-access strip — no label box; all buttons match page background; active section uses schedule light green. */
+.experiment-page > .quick-access-bar {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--line) !important;
+  border-bottom: 1px solid var(--line) !important;
+  width: min(75vw, 1400px) !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+}
+.experiment-page > .quick-access-bar .quick-access-inner {
+  width: 100% !important;
+  min-height: 54px !important;
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-label {
+  display: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links {
+  width: 100% !important;
+  flex: 1 1 100% !important;
+  display: flex !important;
+  align-items: stretch !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links::-webkit-scrollbar {
+  display: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  min-height: 54px !important;
+  justify-content: center !important;
+  padding: 0 10px !important;
+  color: var(--ink) !important;
+  background: var(--bg) !important;
+  border-left: 1px solid var(--line) !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  transition: background .18s ease, color .18s ease, border-color .18s ease !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:first-child {
+  border-left: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:last-child {
+  border-right: 0 !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a:hover,
+.experiment-page > .quick-access-bar .quick-access-links a:focus-visible {
+  background: var(--accent-2) !important;
+  color: var(--ink) !important;
+  outline: none !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a.active {
+  background: var(--accent-2) !important;
+  color: var(--accent-ink, #142319) !important;
+  border-color: #b9ccbF !important;
+  box-shadow: inset 0 0 0 1px #b9ccbF !important;
+}
+.experiment-page > .quick-access-bar .quick-access-links a.active + a {
+  border-left-color: #b9ccbF !important;
+}
+@media (max-width: 900px) {
+  .experiment-page > .quick-access-bar {
+    width: calc(100% - 32px) !important;
+  }
+  .experiment-page > .quick-access-bar .quick-access-links a {
+    flex: 0 0 112px !important;
+  }
+}
+</style>
+
+<style id="static-navigation-v60">
+/* V60: final header/hero state is painted directly; no navigation-load motion. */
+.site-header, .site-header *, .exp-hero, .exp4-hero, .exp-hero *, .exp4-hero *, .quick-access-bar, .quick-access-bar * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  will-change: auto !important;
+}
+</style>
+
+<script id="qpt-v123-nav-mobile">
+(function(){
+  function init(){
+    var nav=document.querySelector('.tavus-exact-nav');
+    if(!nav) return;
+    var trigger=document.querySelector('.tavus-experiments-parent');
+    var menu=document.querySelector('.tavus-mega');
+    if(!trigger||!menu) return;
+    function position(){
+      var r=trigger.getBoundingClientRect(), n=nav.getBoundingClientRect();
+      var width=Math.min(650,Math.max(360,window.innerWidth-24));
+      var left=Math.min(Math.max(12,r.left),Math.max(12,window.innerWidth-width-12));
+      menu.style.width=width+'px'; menu.style.left=left+'px'; menu.style.top=(n.bottom+4)+'px'; menu.style.position='fixed';
+    }
+    function open(){position();menu.classList.add('qpt-mega-open');trigger.setAttribute('aria-expanded','true');}
+    function close(){menu.classList.remove('qpt-mega-open');trigger.setAttribute('aria-expanded','false');}
+    trigger.addEventListener('mouseenter',open); trigger.addEventListener('focus',open);
+    trigger.addEventListener('mouseleave',function(){setTimeout(function(){if(!menu.matches(':hover'))close();},140);});
+    trigger.addEventListener('click',function(e){e.preventDefault();menu.classList.contains('qpt-mega-open')?close():open();});
+    menu.addEventListener('mouseenter',open); menu.addEventListener('mouseleave',close);
+    document.addEventListener('click',function(e){if(!nav.contains(e.target)&&!menu.contains(e.target))close();});
+    window.addEventListener('scroll',function(){if(menu.classList.contains('qpt-mega-open'))position();},{passive:true});
+    window.addEventListener('resize',function(){if(menu.classList.contains('qpt-mega-open'))position();});
+    /* Keep the navigation truly sticky/fixed at the viewport top. */
+    var header=document.querySelector('.tavus-floating-header');
+    if(header) header.classList.add('qpt-nav-scrolled');
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
+
+<script id="qpt-v136-tavus-nav-interactions">
+(function(){
+  function init(){
+    var nav=document.querySelector('.tavus-exact-nav');
+    var trigger=document.querySelector('.tavus-experiments-parent');
+    var menu=document.querySelector('.tavus-mega');
+    if(!nav||!trigger||!menu) return;
+
+    /* Move the mega-menu to body so the legacy paint-containment on the nav
+       cannot clip the fixed Tavus dropdown. */
+    if(menu.parentElement !== document.body) document.body.appendChild(menu);
+
+    var closeTimer=null;
+    function position(){
+      var r=trigger.getBoundingClientRect();
+      var n=nav.getBoundingClientRect();
+      var width=Math.min(650,Math.max(360,window.innerWidth-40));
+      var left=r.left;
+      if(left+width>window.innerWidth-18) left=Math.max(18,window.innerWidth-width-18);
+      menu.style.width=width+'px';
+      menu.style.left=left+'px';
+      menu.style.top=(n.bottom+4)+'px';
+      menu.style.position='fixed';
+    }
+    function open(){
+      clearTimeout(closeTimer);
+      position();
+      menu.classList.add('qpt-mega-open');
+      trigger.setAttribute('aria-expanded','true');
+    }
+    function scheduleClose(){
+      clearTimeout(closeTimer);
+      closeTimer=setTimeout(function(){
+        if(!menu.matches(':hover') && !trigger.matches(':hover')){
+          menu.classList.remove('qpt-mega-open');
+          trigger.setAttribute('aria-expanded','false');
+        }
+      },140);
+    }
+    trigger.addEventListener('mouseenter',open);
+    trigger.addEventListener('focus',open);
+    trigger.addEventListener('mouseleave',scheduleClose);
+    menu.addEventListener('mouseenter',open);
+    menu.addEventListener('mouseleave',scheduleClose);
+    trigger.addEventListener('click',function(e){
+      e.preventDefault();
+      menu.classList.contains('qpt-mega-open') ? (menu.classList.remove('qpt-mega-open'),trigger.setAttribute('aria-expanded','false')) : open();
+    });
+    document.addEventListener('click',function(e){
+      if(!trigger.contains(e.target) && !menu.contains(e.target)){
+        menu.classList.remove('qpt-mega-open');
+        trigger.setAttribute('aria-expanded','false');
+      }
+    });
+    window.addEventListener('scroll',function(){if(menu.classList.contains('qpt-mega-open'))position();},{passive:true});
+    window.addEventListener('resize',function(){if(menu.classList.contains('qpt-mega-open'))position();});
+    position();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+  <script src="qpt-search.js?v=152"></script>
+
+<script id="qpt-v194-build-experiment-section-frames">
+(function(){
+  function frameExperimentSections(){
+    if(!document.body.classList.contains('experiment-page')) return;
+    document.querySelectorAll('main.section.container .content-block').forEach(function(section){
+      if(section.dataset.qptFramed==='true') return;
+      var eyebrow=section.querySelector(':scope > .eyebrow');
+      var label='SECTION';
+      if(eyebrow){
+        label=(eyebrow.textContent||'').replace(/^\s*\d+\s*\/\s*/,'').trim();
+      } else if(section.id){ label=section.id.replace(/[-_]/g,' ').toUpperCase(); }
+      var top=document.createElement('div'); top.className='qpt-frame-top';
+      var dot=document.createElement('span'); dot.className='qpt-frame-dot'; dot.setAttribute('aria-hidden','true');
+      var title=document.createElement('span'); title.className='qpt-frame-label'; title.textContent=label;
+      var lines=document.createElement('span'); lines.className='qpt-frame-lines'; lines.setAttribute('aria-hidden','true');
+      var square=document.createElement('span'); square.className='qpt-frame-square'; square.setAttribute('aria-hidden','true');
+      top.append(dot,title,lines,square);
+      var bottom=document.createElement('div'); bottom.className='qpt-frame-bottom'; bottom.setAttribute('aria-hidden','true');
+      section.classList.add('qpt-frame-section');
+      section.insertBefore(top,section.firstChild); section.appendChild(bottom);
+      section.dataset.qptFramed='true';
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',frameExperimentSections); else frameExperimentSections();
+})();
+</script>
+
+
+<style id="qpt-section-motion-v198">
+/* V198: slower, softer section reveal. Keep the ready class so the browser can interpolate into the visible state. */
+.qpt-frame-section.qpt-motion-ready {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity 900ms cubic-bezier(.22, 1, .36, 1),
+    transform 900ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 320ms ease,
+    border-color 320ms ease;
+  will-change: opacity, transform;
+}
+.qpt-frame-section.qpt-motion-ready.qpt-motion-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+.qpt-frame-section.qpt-motion-visible {
+  transition:
+    opacity 900ms cubic-bezier(.22, 1, .36, 1),
+    transform 900ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 320ms ease,
+    border-color 320ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .qpt-frame-section.qpt-motion-visible:hover {
+    transform: translate3d(0, -3px, 0);
+    box-shadow: 0 9px 24px rgba(0,0,0,.075);
+    border-color: rgba(239, 91, 139, .38);
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  .qpt-frame-section.qpt-motion-visible:active {
+    box-shadow: 0 4px 14px rgba(0,0,0,.055);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qpt-frame-section.qpt-motion-ready,
+  .qpt-frame-section.qpt-motion-ready.qpt-motion-visible,
+  .qpt-frame-section.qpt-motion-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+}
+</style>
+
+<script id="qpt-section-motion-script-v198">
+(function(){
+  function initQptSectionMotion(){
+    var sections = Array.prototype.slice.call(document.querySelectorAll('.qpt-frame-section'));
+    if (!sections.length) return;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      sections.forEach(function(section){
+        section.classList.add('qpt-motion-visible');
+      });
+      return;
+    }
+
+    sections.forEach(function(section, index){
+      section.classList.add('qpt-motion-ready');
+      /* A small stagger gives a flowing sequence without making users wait. */
+      section.style.transitionDelay = (Math.min(index % 4, 3) * 55) + 'ms';
+    });
+
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          /* Reveal on entry; retain observation so the section can hide again on exit. */
+          entry.target.classList.add('qpt-motion-visible');
+        } else {
+          /* Reverse the transition when scrolling away, including when scrolling upward. */
+          entry.target.classList.remove('qpt-motion-visible');
+        }
+      });
+    }, {
+      threshold: 0.02,
+      rootMargin: '0px 0px -10% 0px'
+    });
+
+    sections.forEach(function(section){ observer.observe(section); });
+  }
+  if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initQptSectionMotion, {once:true});
+  } else {
+    initQptSectionMotion();
+  }
+})();
+</script>
+
+</body>
+</html>

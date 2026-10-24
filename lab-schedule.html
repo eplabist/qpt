@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="infinity-logo.png" fetchpriority="high">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=block">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=block">
+
+<title>Lab Schedule | FOUNDATION OF QUANTUM AND PHOTONIC TECHNOLOGIES LAB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+:root{--paper:#f5f5f0;--ink:#111613;--muted:#68706a;--line:#d4d8d1;--panel:#fbfbf8;--accent:#dceee2;--accent-ink:#315d4a}
+*{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font-family:"Playfair Display",Georgia,serif}
+header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 8%;background:#f8f8f4}
+.brand{display:flex;gap:14px;align-items:center}.brand-mark{width:40px;height:40px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:26px;line-height:1;font-family:Georgia,"Times New Roman",serif}.footer-inner{max-width:1180px;margin:0 auto;padding:28px 30px}.footer-brand{display:flex;align-items:center;gap:12px}.footer-mark{width:40px;height:40px;border:1px solid currentColor;border-radius:50%;display:grid;place-items:center;font-size:24px;line-height:1;font-family:Georgia,"Times New Roman",serif;color:#dceee2;flex:0 0 auto}footer{background:#111613;color:#aeb8b1;font-size:11px}.brand-title{font-weight:700;letter-spacing:.16em;font-size:13px}.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.03em;margin-top:2px}
+nav a{color:var(--ink);text-decoration:none;margin-left:28px;font-size:13px;font-weight:600}
+main{max-width:1180px;margin:0 auto;padding:76px 30px 90px}.eyebrow{font-size:12px;letter-spacing:.28em;color:var(--accent-ink);font-weight:600}.title{font-size:54px;line-height:1.05;margin:16px 0 12px}.intro{max-width:760px;color:var(--muted);font-size:16px;line-height:1.8;margin-bottom:42px}
+.toolbar{border:1px solid var(--line);background:var(--panel);padding:28px}.toolbar-label{font-size:12px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:14px}
+.toolbar-controls{display:flex;align-items:flex-end;justify-content:space-between;gap:28px}.filters{display:flex;flex-wrap:wrap;gap:10px}.filter{font:600 14px "Playfair Display",Georgia,serif;border:1px solid #c9cec8;background:#fff;padding:12px 22px;cursor:pointer;color:var(--ink);transition:.2s}.filter:hover{background:#f0f3ee}.filter.active{background:var(--accent);border-color:#b9ccbF;color:var(--accent-ink)}
+.cyclebar{display:flex;align-items:center;justify-content:space-between;margin:32px 0 18px}.cycle-title{font-size:30px;margin:0}.cycle-tabs{display:flex;gap:8px}.cycle{font:600 13px "Playfair Display",Georgia,serif;border:1px solid var(--line);background:var(--panel);padding:9px 16px;cursor:pointer}.cycle.active{background:var(--ink);color:white;border-color:var(--ink)}
+.student-search-inline{min-width:390px;flex:1;max-width:560px}.student-search-label{font-size:12px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:10px}.student-search-row{display:flex;gap:10px;align-items:center}.student-search-inline input{flex:1;min-width:0;font:400 14px "Playfair Display",Georgia,serif;border:1px solid #c9cec8;background:#fff;color:var(--ink);padding:13px 15px;outline:none}.student-search-inline input:focus{border-color:#9fb5a7;box-shadow:0 0 0 2px rgba(220,238,226,.6)}.student-search-inline button{font:600 13px "Playfair Display",Georgia,serif;border:1px solid var(--line);background:#fff;color:var(--ink);padding:13px 17px;cursor:pointer}.student-search-inline button:hover{background:#f0f3ee}.search-hint{margin-top:10px;color:var(--muted);font-size:12px}.meta{color:var(--muted);font-size:14px;margin-bottom:18px}.table-wrap{background:var(--panel);border:1px solid var(--line);overflow:auto}.schedule-table{width:100%;border-collapse:collapse;min-width:760px}.schedule-table th,.schedule-table td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left}.schedule-table th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:#f1f3ef}.schedule-table td{font-size:14px}.schedule-table tr:last-child td{border-bottom:0}.schedule-table td:first-child{width:70px;color:var(--muted)}
+.lab1,.lab2,.lab3,.lab4{font-weight:600}.lab1{color:#315d4a}.lab2{color:#6c4c2f}.lab3{color:#4b5c7b}.lab4{color:#6b486d}.lab2b{color:#76512e}
+.actions{display:flex;gap:12px;margin-top:28px}.action{display:inline-block;text-decoration:none;padding:13px 20px;border:1px solid var(--line);color:var(--ink);font-weight:600;font-size:13px}.action.primary{background:var(--accent);border-color:#b9ccbF}.note{margin-top:32px;color:var(--muted);font-size:13px;line-height:1.7}
+@media(max-width:700px){header{padding:0 5%}nav{display:none}main{padding:52px 18px 70px}.title{font-size:40px}.toolbar{padding:20px}.toolbar-controls{display:block}.student-search-inline{min-width:0;max-width:none;margin-top:18px}.cyclebar{display:block}.cycle-tabs{margin-top:14px}.filter{flex:1;min-width:120px}.actions{flex-direction:column}.action{text-align:center}}
+</style>
+
+<style id="static-header-navigation-v59">
+/* V59: static header/navigation. No opening sweep, reveal, fade, transform, or transition. */
+.site-header, .site-header *,
+.home-site-header, .home-site-header *,
+.exp-hero, .exp4-hero, .exp-hero *, .exp4-hero *,
+.quick-access-bar, .quick-access-bar * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  will-change: auto !important;
+}
+.exp-hero, .exp4-hero {
+  background: #111713 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+html[data-theme="dark"] .exp-hero,
+html[data-theme="dark"] .exp4-hero { background: #0b0e0c !important; }
+</style>
+<script id="qpt-static-navigation-init">
+/* QPT static navigation: prevent browser history from restoring an old scroll position during page navigation. */
+try { if ("scrollRestoration" in history) history.scrollRestoration = "manual"; } catch (e) {}
+</script>
+<style id="qpt-v63-paint-stability">
+/* V63: eliminate first-paint layout/compositing changes. */
+html{scroll-behavior:auto!important;scrollbar-gutter:stable!important;overflow-anchor:none!important;}
+body{overflow-anchor:none!important;font-synthesis:none;}
+.site-header,.home-site-header,.nav,.hero,.hero::before,.hero::after,.hero-grid,.exp-hero,.exp4-hero,.quick-access-bar{contain:layout paint!important;}
+.site-header,.home-site-header,.nav,.theme-toggle{backface-visibility:hidden!important;}
+.theme-toggle{width:74px!important;min-width:74px!important;flex:0 0 74px!important;box-sizing:border-box!important;}
+</style>
+<style id="qpt-v135-nav-interaction-fix">
+/* V135 interaction fix: the floating Tavus navigation is visually transparent at the
+   header layer, but its actual controls must remain clickable. */
+.tavus-floating-header,
+.tavus-exact-nav,
+.tavus-exact-nav * { pointer-events:auto !important; }
+.tavus-mega { pointer-events:none !important; }
+.tavus-mega.qpt-mega-open { pointer-events:auto !important; }
+</style>
+
+<style id="qpt-v184-hide-duplicate-section-headings">
+/* The frame rail already carries the section title; hide the repeated large title inside each panel. */
+.qpt-frame-section > h2 { display: none !important; }
+.qpt-frame-section .section-heading h2 { display: none !important; }
+/* Keep eyebrow labels, descriptive text, and any nested subheadings untouched. */
+</style>
+
+</head>
+<body class="schedule-page">
+<header><div class="brand"><div class="brand-mark" aria-hidden="true"><img src="infinity-logo.png" alt=""></div><div><div class="brand-title">qpt Lab</div></div></div><nav><a href="index.html">Home</a><a href="index.html#experiments">Experiments</a></nav></header>
+<main>
+<div class="eyebrow">FOUNDATION OF QUANTUM AND PHOTONIC TECHNOLOGIES LAB</div>
+<h1 class="title">Lab Schedule</h1>
+<p class="intro">Find the experiment sequence for your batch and cycle without searching through the complete schedule. Select your batch below, then switch between Cycle 1 and Cycle 2.</p>
+<section class="toolbar"><div class="toolbar-label">Select your batch</div><div class="toolbar-controls"><div class="filters"><button class="filter active" data-batch="ECE">BTech. ECE</button><button class="filter" data-batch="CSE1">BTech. CSE 1</button><button class="filter" data-batch="CSE2">BTech. CSE 2</button></div><div class="student-search-inline"><div class="student-search-label">Find your schedule</div><div class="student-search-row"><input id="studentSearch" type="search" placeholder="Search student name..." autocomplete="off" aria-label="Search student name"><button id="clearSearch" type="button">Clear</button></div></div></div><div class="search-hint">Type a student's name to show only their experiment sequence.</div></section>
+<section><div class="cyclebar"><h2 class="cycle-title" id="batchTitle">BTech. ECE</h2><div class="cycle-tabs"><button class="cycle active" data-cycle="1">Cycle 1</button><button class="cycle" data-cycle="2">Cycle 2</button></div></div><div class="meta" id="count"></div><div class="table-wrap"><table class="schedule-table"><thead><tr><th>No.</th><th>Student Name</th><th>Lab 1</th><th>Lab 2</th><th>Lab 3</th><th>Lab 4</th></tr></thead><tbody id="scheduleBody"></tbody></table></div></section>
+<div class="actions"><a class="action primary" href="Btech_ECE_CSE_Lab_Schedule_Odd_sem_2026_2027.pdf" target="_blank">Open Full Schedule PDF →</a><a class="action" href="index.html">← Back to Lab Home</a></div>
+<p class="note">This interactive view is derived from the supplied Odd Semester 2026–2027 lab schedule. The experiment numbers and student allocations are shown as provided in the original document.</p>
+</main>
+<script>
+const data={
+ECE:{name:'BTech. ECE',cycles:{
+1:[['Abhishek Sunil','1','2.a','3','4'],['Bharadwaj Pradeep','1','2.a','3','4'],['Chembukuri Vamsi','1','2.a','3','4'],['Chris George','1','2.a','3','4'],['Devaj Deepak','1','2.a','3','4'],['Dharmala Shri Dharshini Reddy','1','2.a','3','4'],['Gautham P Nair','2.a','3','4','1'],['Jai Vishnu A','2.a','3','4','1'],['Krishna Renish','2.a','3','4','1'],['Lijesh D R','2.a','3','4','1'],['Merin Sabu','2.a','3','4','1'],['Nandhana H','2.a','3','4','1'],['Neha S','3','4','1','2.a'],['P. Padmasri','3','4','1','2.a'],['Rishi B Raj','3','4','1','2.a'],['Rishiraj R','3','4','1','2.a'],['Shivanadh P S','3','4','1','2.a'],['Sreelakshmi Vidyanand','3','4','1','2.a'],['Sriparvathi.S','4','1','2.a','3'],['Suryanarayanan A','4','1','2.a','3'],['Vallepu V K Suryateja Srikari','4','1','2.a','3'],['Vanamala Sai Vinay','4','1','2.a','3'],['Yenamala Mahesh Babu','4','1','2.a','3']],
+2:[['Abhishek Sunil','2.b','5','6','7'],['Bharadwaj Pradeep','2.b','5','6','7'],['Chembukuri Vamsi','2.b','5','6','7'],['Chris George','2.b','5','6','7'],['Devaj Deepak','2.b','5','6','7'],['Dharmala Shri Dharshini Reddy','2.b','5','6','7'],['Gautham P Nair','5','6','7','2.b'],['Jai Vishnu A','5','6','7','2.b'],['Krishna Renish','5','6','7','2.b'],['Lijesh D R','5','6','7','2.b'],['Merin Sabu','5','6','7','2.b'],['Nandhana H','5','6','7','2.b'],['Neha S','6','7','2.b','5'],['P. Padmasri','6','7','2.b','5'],['Rishi B Raj','6','7','2.b','5'],['Rishiraj R','6','7','2.b','5'],['Shivanadh P S','6','7','2.b','5'],['Sreelakshmi Vidyanand','6','7','2.b','5'],['Sriparvathi.S','7','2.b','5','6'],['Suryanarayanan A','7','2.b','5','6'],['Vallepu V K Suryateja Srikari','7','2.b','5','6'],['Vanamala Sai Vinay','7','2.b','5','6'],['Yenamala Mahesh Babu','7','2.b','5','6']] }},
+CSE1:{name:'BTech. CSE 1',cycles:{}},CSE2:{name:'BTech. CSE 2',cycles:{}}
+};
+const cse1=['Aarjjav S Dev','Abhimanyu S','Abhinav Jayan Pillai','Abhiraman N V','Aiswarya C','Akkireddy Spoorthi Reddy','Akshitha Prashanth Kumar','Alaka T P','Alen Ani Kurian','Anaswara S','Angel Sara Ebance','Anvika S','Arpitha Bijith','Athulya Murali Sindhu','Chris Gavin Gaulbert','Devendra Nayak','Dhanwin Sunil','G Varshitha','Hanna Susan Sheffy','Harsha Haridas','K Sohiti','Karthik Shibin','Lakshmi K P','Linford Limson','Madhavi Sharath','Mayookha S A','Nakshatra P','Nandana G Nair','Nisha B R','Nitha Vinod','ORATHEL ANU Tom','Parvathy Sudheev','Ramayanam Navadeep','Romeo Rose','Sivani B Sanjeev','Sreya Sarath','Sreya H','Srinithi Baburaj','Swathi Somakumar','T. Pooja Datta','Thapeta Geethanjali','Thoorpu Dharani','Thota Venkata Sai Adithya Ram','Veesam Durga Kishore Reddy','Vrindha Subi'];
+const cse2=['Aadithya . R','Abhinav Anilkumar','Abhinav Hari','Adithiya Baiju','Advaith S Krishna','Akshith Ajit Nair','Akshith M P','Anandha Krishnan C','Anjana Ramesh','Aswin Krishnan','Aswin Dev P','Aswini K','Bhadrapriya P','Bhagath Raj N T','Deva Nanda D','Devika S Nair','Dheeraj V','Emmanuel Jobi','Ethan Paul Ramesh','Gowrikrishna Krishna Sv','Harshvardhan Harish','Jerin Eldho Johnson','Kailasnath J P','Kaushik Suresh','Krishnatheertha D','Laksmipriya Anil','Malavika J','Mariam Jacob','Meenakshi Vineesh','Miriya Eldho','Muhammed Shirdhin Pp','Navaneeth Krishna','Navneeth R Pisharady','Nyvedh Krishna A Nair','Pranav A S','Reghna R Manoj','S VENKAT JAIDEEP REDDY','Sabarigirivasan C','Samson Saji','Sanjana M Asher','Showbitha S Kumar','Sreehari Siju','Vighnesh C Sanjay','Vishal Sathish','Gowri Nandhana'];
+function makeCycles(names){return {1:names.map((n,i)=>{let a=i<11?['1','2.a','3','4']:i<22?['2.a','3','4','1']:i<33?['3','4','1','2.a']:['4','1','2.a','3'];return [n,...a]}),2:names.map((n,i)=>{let a=i<11?['2.b','5','6','7']:i<22?['5','6','7','2.b']:i<33?['6','7','2.b','5']:['7','2.b','5','6'];return [n,...a]})}}
+data.CSE1.cycles=makeCycles(cse1); data.CSE2.cycles=makeCycles(cse2);
+let currentBatch='ECE',currentCycle=1,searchTerm='';
+function render(){
+ const allRows=data[currentBatch].cycles[currentCycle];
+ const rows=searchTerm?allRows.filter(r=>r[0].toLowerCase().includes(searchTerm.toLowerCase())):allRows;
+ document.getElementById('batchTitle').textContent=data[currentBatch].name;
+ document.getElementById('count').textContent=searchTerm?`${rows.length} matching student${rows.length===1?'':'s'} · Cycle ${currentCycle}`:`${rows.length} students · Cycle ${currentCycle}`;
+ document.getElementById('scheduleBody').innerHTML=rows.length?rows.map((r,i)=>`<tr><td>${allRows.indexOf(r)+1}</td><td>${r[0]}</td><td class="lab1">${r[1]}</td><td class="${r[2].includes('2.')?'lab2b':'lab2'}">${r[2]}</td><td class="lab3">${r[3]}</td><td class="lab4">${r[4]}</td></tr>`).join(''):`<tr><td colspan="6" style="text-align:center;color:var(--muted);padding:30px">No student found. Try another name.</td></tr>`;
+ document.querySelectorAll('.filter').forEach(b=>b.classList.toggle('active',b.dataset.batch===currentBatch));
+ document.querySelectorAll('.cycle').forEach(b=>b.classList.toggle('active',Number(b.dataset.cycle)===currentCycle));
+}
+const searchInput=document.getElementById('studentSearch');
+searchInput.addEventListener('input',()=>{searchTerm=searchInput.value.trim();render()});
+document.getElementById('clearSearch').addEventListener('click',()=>{searchInput.value='';searchTerm='';searchInput.focus();render()});
+document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{currentBatch=b.dataset.batch;currentCycle=1;searchInput.value='';searchTerm='';render()}));document.querySelectorAll('.cycle').forEach(b=>b.addEventListener('click',()=>{currentCycle=Number(b.dataset.cycle);render()}));render();
+</script>
+<footer><div class="footer-inner"><span class="footer-brand"><span class="footer-mark" aria-hidden="true"><img src="infinity-logo.png" alt=""></span><span>qpt Lab</span></span></div></footer>
+
+<style id="v30-header-height-refinement">
+/* V30: slightly taller experiment header for clearer separation from quick access. */
+.exp-hero, .exp4-hero {
+  padding-top: 45px !important;
+  padding-bottom: 34px !important;
+}
+@media (max-width: 900px) {
+  .exp-hero, .exp4-hero {
+    padding-top: 34px !important;
+    padding-bottom: 26px !important;
+  }
+}
+</style>
+<style id="qptlab-dark-final">
+html[data-theme="dark"] .site-header{background:rgba(17,21,19,.94)!important;border-bottom-color:#39423d!important}
+html[data-theme="dark"] .nav-links{background:#111513!important}
+html[data-theme="dark"] .nav-links a{color:var(--ink)}
+html[data-theme="dark"] .content-block h2,html[data-theme="dark"] .section-heading h2,html[data-theme="dark"] .card-body h3,html[data-theme="dark"] .feature h3,html[data-theme="dark"] .about-panel h2{color:var(--ink)}
+html[data-theme="dark"] .exp-hero,html[data-theme="dark"] .exp4-hero{background:#0b0e0c!important}
+html[data-theme="dark"] .lab-panel,html[data-theme="dark"] .visual-box,html[data-theme="dark"] .video-box,html[data-theme="dark"] .viva,html[data-theme="dark"] .result{color:var(--ink)!important}
+html[data-theme="dark"] .video-heading-content p,html[data-theme="dark"] .caption,html[data-theme="dark"] .formula-note,html[data-theme="dark"] .note{color:var(--muted)!important}
+html[data-theme="dark"] .obs-table th{color:var(--ink)!important;background:#252d28!important}
+html[data-theme="dark"] .obs-table td{background:#171c19!important;color:var(--ink)!important}
+html[data-theme="dark"] .obs-table input,html[data-theme="dark"] .field input{background:#0f1311!important;color:#eef2ee!important;border-color:#48534c!important}
+html[data-theme="dark"] .button.secondary{color:#eef2ee!important;border-color:#536158!important}
+html[data-theme="dark"] .quick-access-inner{color:var(--ink)!important}
+html[data-theme="dark"] .quick-access-label{color:var(--muted)!important}
+html[data-theme="dark"] .today-section,html[data-theme="dark"] .schedule-section{background:var(--bg)!important}
+html[data-theme="dark"] .session-card,html[data-theme="dark"] .today-empty{background:var(--surface)!important;border-color:var(--line)!important;color:var(--ink)!important}
+html[data-theme="dark"] .session-main span{color:var(--muted)!important}
+</style>
+
+<style id="qptlab-schedule-dark-v32">
+html[data-theme="dark"] body.schedule-page{background:#0f1311!important;color:#eef2ee!important}
+html[data-theme="dark"] .schedule-page header{background:#111513!important;border-color:#39433d!important}
+html[data-theme="dark"] .schedule-page .brand-title,html[data-theme="dark"] .schedule-page nav a{color:#eef2ee!important}
+html[data-theme="dark"] .schedule-page .intro,html[data-theme="dark"] .schedule-page .meta,html[data-theme="dark"] .schedule-page .note,html[data-theme="dark"] .schedule-page .toolbar-label,html[data-theme="dark"] .schedule-page .student-search-label,html[data-theme="dark"] .schedule-page .search-hint,html[data-theme="dark"] .schedule-page .student-search-label{color:#aab4ad!important}
+html[data-theme="dark"] .schedule-page .toolbar,html[data-theme="dark"] .schedule-page .table-wrap{background:#171c19!important;border-color:#39433d!important}
+html[data-theme="dark"] .schedule-page .filter,html[data-theme="dark"] .schedule-page .cycle,html[data-theme="dark"] .schedule-page .student-search-inline input,html[data-theme="dark"] .schedule-page .student-search-inline button,html[data-theme="dark"] .schedule-page .action{background:#111613!important;color:#eef2ee!important;border-color:#465149!important}
+html[data-theme="dark"] .schedule-page .filter:hover,html[data-theme="dark"] .schedule-page .student-search-inline button:hover{background:#24382c!important}
+html[data-theme="dark"] .schedule-page .filter.active,html[data-theme="dark"] .schedule-page .action.primary{background:#294234!important;color:#dff1e5!important;border-color:#5b7c67!important}
+html[data-theme="dark"] .schedule-page .cycle.active{background:#dceee2!important;color:#162119!important;border-color:#dceee2!important}
+html[data-theme="dark"] .schedule-page .schedule-table th{background:#252d28!important;color:#aab4ad!important;border-color:#39433d!important}
+html[data-theme="dark"] .schedule-page .schedule-table td{background:#171c19!important;color:#eef2ee!important;border-color:#39433d!important}
+html[data-theme="dark"] .schedule-page .schedule-table td:first-child{color:#aab4ad!important}
+html[data-theme="dark"] .schedule-page footer{background:#090c0a!important}
+</style>
+<script id="qpt-static-theme-controller">
+(function(){
+  const KEY="qptlab-theme", root=document.documentElement;
+  function read(){ try { const q=new URLSearchParams(location.search).get("theme"); if(q==="dark"||q==="light") return q; const s=localStorage.getItem(KEY); if(s==="dark"||s==="light") return s; } catch(e){} return "light"; }
+  function apply(t){ t=(t==="dark")?"dark":"light"; root.setAttribute("data-theme",t); if(document.body) document.body.setAttribute("data-theme",t); document.querySelectorAll(".theme-toggle").forEach(btn=>{ const dark=t==="dark"; btn.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode"); btn.setAttribute("title",dark?"Switch to light mode":"Switch to dark mode"); const i=btn.querySelector(".theme-icon"), l=btn.querySelector(".theme-label"); if(i)i.textContent=dark?"☀":"☾"; if(l)l.textContent=dark?"Light":"Dark"; }); }
+  function save(t){ try{localStorage.setItem(KEY,t); document.cookie=KEY+"="+t+"; path=/; max-age=31536000; SameSite=Lax";}catch(e){} }
+  function addTheme(h){ try{ const u=new URL(h,location.href); if(u.origin!==location.origin) return h; if(!/\.html$/i.test(u.pathname)&&u.pathname!=="/"&&u.pathname!=="") return h; u.searchParams.set("theme",root.getAttribute("data-theme")==="dark"?"dark":"light"); return u.href; }catch(e){return h;} }
+  // Apply exactly once before first paint. Do not re-apply on DOMContentLoaded.
+  apply(read());
+  document.addEventListener("click",function(e){
+    const btn=e.target.closest&&e.target.closest(".theme-toggle");
+    if(btn){ const next=root.getAttribute("data-theme")==="dark"?"light":"dark"; save(next); apply(next); document.querySelectorAll("a[href]").forEach(a=>{const h=a.getAttribute("href"); if(h&&!h.startsWith("#")&&!h.startsWith("mailto:")&&!h.startsWith("javascript:")&&a.target!=="_blank"){const u=addTheme(h); if(u!==h)a.setAttribute("href",u);}}); return; }
+    const link=e.target.closest&&e.target.closest("a[href]");
+    if(link&&link.target!=="_blank"){const h=link.getAttribute("href"); if(h&&!h.startsWith("#")&&!h.startsWith("mailto:")&&!h.startsWith("javascript:")){const u=addTheme(h); if(u!==h)link.setAttribute("href",u);}}
+  },true);
+})();
+</script>
+
+<script id="qpt-v136-tavus-nav-interactions">
+(function(){
+  function init(){
+    var nav=document.querySelector('.tavus-exact-nav');
+    var trigger=document.querySelector('.tavus-experiments-parent');
+    var menu=document.querySelector('.tavus-mega');
+    if(!nav||!trigger||!menu) return;
+
+    /* Move the mega-menu to body so the legacy paint-containment on the nav
+       cannot clip the fixed Tavus dropdown. */
+    if(menu.parentElement !== document.body) document.body.appendChild(menu);
+
+    var closeTimer=null;
+    function position(){
+      var r=trigger.getBoundingClientRect();
+      var n=nav.getBoundingClientRect();
+      var width=Math.min(650,Math.max(360,window.innerWidth-40));
+      var left=r.left;
+      if(left+width>window.innerWidth-18) left=Math.max(18,window.innerWidth-width-18);
+      menu.style.width=width+'px';
+      menu.style.left=left+'px';
+      menu.style.top=(n.bottom+4)+'px';
+      menu.style.position='fixed';
+    }
+    function open(){
+      clearTimeout(closeTimer);
+      position();
+      menu.classList.add('qpt-mega-open');
+      trigger.setAttribute('aria-expanded','true');
+    }
+    function scheduleClose(){
+      clearTimeout(closeTimer);
+      closeTimer=setTimeout(function(){
+        if(!menu.matches(':hover') && !trigger.matches(':hover')){
+          menu.classList.remove('qpt-mega-open');
+          trigger.setAttribute('aria-expanded','false');
+        }
+      },140);
+    }
+    trigger.addEventListener('mouseenter',open);
+    trigger.addEventListener('focus',open);
+    trigger.addEventListener('mouseleave',scheduleClose);
+    menu.addEventListener('mouseenter',open);
+    menu.addEventListener('mouseleave',scheduleClose);
+    trigger.addEventListener('click',function(e){
+      e.preventDefault();
+      menu.classList.contains('qpt-mega-open') ? (menu.classList.remove('qpt-mega-open'),trigger.setAttribute('aria-expanded','false')) : open();
+    });
+    document.addEventListener('click',function(e){
+      if(!trigger.contains(e.target) && !menu.contains(e.target)){
+        menu.classList.remove('qpt-mega-open');
+        trigger.setAttribute('aria-expanded','false');
+      }
+    });
+    window.addEventListener('scroll',function(){if(menu.classList.contains('qpt-mega-open'))position();},{passive:true});
+    window.addEventListener('resize',function(){if(menu.classList.contains('qpt-mega-open'))position();});
+    position();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+</body></html>
+<style>
+.brand-mark{border:0 !important;width:52px !important;height:38px !important;font-size:0 !important;}
+.brand-mark img{width:48px;height:auto;display:block;}
+.footer-mark{border:0 !important;width:58px !important;height:38px !important;font-size:0 !important;}
+.footer-mark img{width:54px;height:auto;display:block;filter:invert(1);}
+</style>
+<style id="qptlab-schedule-logo-dark-fix">
+/* V26: make the header infinity mark visible in dark mode. */
+html[data-theme="dark"] .schedule-page header .brand-mark img {
+  filter: invert(1) brightness(1.08) !important;
+}
+</style>
+
+<style id="static-navigation-v60">
+/* V60: final header/hero state is painted directly; no navigation-load motion. */
+.site-header, .site-header *, .exp-hero, .exp4-hero, .exp-hero *, .exp4-hero *, .quick-access-bar, .quick-access-bar * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  will-change: auto !important;
+}
+</style>

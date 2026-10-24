@@ -855,6 +855,19 @@ body:not(.experiment-page) #today-lab .session-list:has(> .session-card:only-chi
   body:not(.experiment-page) #today-lab .session-list > .session-card { height: 112px !important; min-height: 112px !important; max-height: none !important; }
   body:not(.experiment-page) #today-lab .session-list:has(.session-card:nth-child(2)) { height: auto !important; min-height: 0 !important; max-height: none !important; grid-template-rows: 112px !important; }
 }
+  <style id="scientist-photo-height">
+  .scientist-portrait-wrap {
+    height: 350px !important;
+    overflow: hidden;
+  }
+
+  .scientist-portrait {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block;
+  }
+</style>
 </style>
 
 </head>

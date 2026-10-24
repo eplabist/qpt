@@ -869,7 +869,36 @@ body:not(.experiment-page) #today-lab .session-list:has(> .session-card:only-chi
   }
 </style>
 </style>
+<style id="qpt-scientist-layout-stability">
+  /* Reserve the portrait dimensions before the image loads */
+  .scientist-portrait-wrap {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
 
+  .scientist-portrait {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Prevent the scientist card from shrinking during content updates */
+  .scientist-feature {
+    align-self: start;
+  }
+
+  .scientist-profile-copy {
+    min-width: 0;
+  }
+
+  /* Keep the hero layout stable while the portrait and text load */
+  .hero-content-scientist {
+    align-items: start;
+  }
+</style>
 </head>
 <body>
 <div class="qpt-global-em-waves" aria-hidden="true">
